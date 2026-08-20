@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfólio de desenvolvimento web Botazzo.Net - HTML, CSS, JavaScript e aplicações web.">
+  <title>Portfólio | Botazzo.Net</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div class="scroll-progress"></div>
+  <header class="header" id="header">
+    <div class="container nav">
+      <a class="logo" href="index.html"><span class="logo-mark">&lt;/&gt;</span><span>Botazzo<span>.Net</span></span></a>
+      <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <nav class="nav-links">
+        <a href="index.html">Início</a><a href="index.html#servicos">Serviços</a><a class="active" href="portfolio.html">Portfólio</a><a href="index.html#sobre">Sobre</a><a href="index.html#contato">Contato</a>
+      </nav>
+      <a class="btn btn-small btn-outline nav-cta" data-whatsapp href="#">Falar comigo</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="portfolio-hero section">
+      <div class="hero-grid"></div>
+      <div class="container portfolio-hero-content reveal">
+        <span class="eyebrow"><i></i> Desenvolvedor Web</span>
+        <h1>Ideias transformadas em<br><span>experiências digitais.</span></h1>
+        <p>Desenvolvo sites modernos, responsivos e pensados para apresentar marcas, serviços e projetos de forma profissional.</p>
+        <div class="tech-row"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Node.js</span><span>GitHub</span></div>
+      </div>
+    </section>
+
+    <section class="section section-soft">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Projetos</span>
+          <h2>Alguns trabalhos e <span>conceitos.</span></h2>
+          <p>Substitua os projetos abaixo pelos seus trabalhos reais e adicione links para demonstração e GitHub.</p>
+        </div>
+        <div class="portfolio-grid">
+          <article class="project-card reveal">
+            <div class="project-cover project-one"><span>&lt;CAFÉ /&gt;</span></div>
+            <div class="project-info"><div><small>HTML • CSS • JS</small><h3>Site para Cafeteria</h3></div><a href="#" class="project-link" data-demo>↗</a><p>Landing page elegante com cardápio, informações do estabelecimento e chamada para contato.</p><div class="project-tags"><span>Responsivo</span><span>Landing Page</span></div></div>
+          </article>
+          <article class="project-card reveal delay-1">
+            <div class="project-cover project-two"><span>BOTAZZO.NET</span></div>
+            <div class="project-info"><div><small>HTML • CSS • JS</small><h3>Site Institucional</h3></div><a href="index.html" class="project-link">↗</a><p>Site profissional para apresentação de serviços técnicos e desenvolvimento web.</p><div class="project-tags"><span>Institucional</span><span>UI/UX</span></div></div>
+          </article>
+          <article class="project-card reveal delay-2">
+            <div class="project-cover project-three"><span>APP / WEB</span></div>
+            <div class="project-info"><div><small>JavaScript • Node.js</small><h3>Sistema Web</h3></div><a href="#" class="project-link" data-demo>↗</a><p>Conceito de aplicação web para gerenciamento, cadastro e acompanhamento de informações.</p><div class="project-tags"><span>Dashboard</span><span>JavaScript</span></div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section developer-section">
+      <div class="container developer-grid">
+        <div class="code-window reveal">
+          <div class="terminal-bar"><span></span><span></span><span></span><b>developer.js</b></div>
+          <pre><code><em>const</em> developer = {
+  stack: [
+    <strong>"HTML5"</strong>,
+    <strong>"CSS3"</strong>,
+    <strong>"JavaScript"</strong>,
+    <strong>"Node.js"</strong>
+  ],
+  approach: <strong>"clean & responsive"</strong>,
+  goal: <strong>"resolver problemas"</strong>
+};</code></pre>
+        </div>
+        <div class="developer-copy reveal delay-1">
+          <span class="eyebrow">Meu diferencial</span>
+          <h2>Mais que código: <span>soluções.</span></h2>
+          <p>Meu foco é construir interfaces que funcionem bem no celular, computador e tablet, com navegação simples e visual profissional.</p>
+          <ul class="check-list">
+            <li>Layout responsivo e moderno</li>
+            <li>Código organizado e semântico</li>
+            <li>Interações com JavaScript</li>
+            <li>Integração com serviços e APIs</li>
+            <li>Estrutura preparada para evolução</li>
+          </ul>
+          <a class="btn btn-primary" data-whatsapp href="#">Quero um site para meu negócio →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cta-section">
+      <div class="container cta-card reveal">
+        <div><span class="eyebrow">Seu próximo projeto</span><h2>Vamos colocar sua ideia na internet?</h2><p>Entre em contato e conte o que você precisa.</p></div>
+        <a class="btn btn-primary btn-large" data-whatsapp href="#">Solicitar orçamento ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="container footer-grid"><div><a class="logo" href="index.html"><span class="logo-mark">&lt;/&gt;</span><span>Botazzo<span>.Net</span></span></a><p>Desenvolvimento web & tecnologia.</p></div><div class="footer-links"><a href="index.html">Início</a><a href="index.html#servicos">Serviços</a><a href="portfolio.html">Portfólio</a><a href="index.html#contato">Contato</a></div><div class="footer-copy">© <span id="year"></span> Botazzo.Net.</div></div></footer>
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
