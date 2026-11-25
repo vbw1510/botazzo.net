@@ -23,10 +23,15 @@
      (ou tecla Delete). Seta → pula para a próxima.
    - Notebook na tomada, sem suspensão/protetor de tela. Wi-Fi + 4G roteado de reserva.
 
-4) TIRAR DO TELÃO NA FESTA (3 jeitos)
+4) TIRAR DO TELÃO / APAGAR NA FESTA
    - O convidado: no celular dele, "Meus envios" > "Tirar do telão".
    - Você no celular: painel ?admin > toque na foto > "Tirar do telão".
    - No notebook do telão: botão "Tirar esta do telão" / tecla Delete.
+   - APAGAR só você (painel ?admin > toque na foto > "Apagar" > toque de novo).
+     Some de tudo na hora. O programa do PC guarda uma cópia em "Apagadas pelo admin".
+
+   RANKING: o telão mostra o pódio (fotos e vídeos de cada um) e comemora sozinho
+   quando alguém assume 1º, 2º ou 3º lugar. Foto nova entra com "ACABOU DE CHEGAR".
 
 5) TESTE ANTES DA FESTA
    iPhone e Android: foto, vídeo, galeria, "telão" e "só noivos", tirar do telão.

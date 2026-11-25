@@ -196,6 +196,45 @@
   .done b{display:block;font-family:'Cormorant Garamond',serif;font-size:26px;margin-top:6px}
   .done small{color:var(--muted);font-size:14px}
 
+  /* Início: atração */
+  canvas.petals{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+  #v-home > *:not(canvas){position:relative;z-index:1}
+  .live-banner{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#fff;border:1.5px solid var(--gold-soft);border-radius:18px;padding:14px 16px;margin:20px 0 14px;box-shadow:var(--shadow)}
+  .live-banner b{display:block;font-size:16px}
+  .live-banner span.c{font-size:13px;color:var(--muted)}
+  .pulse{background:#D9534F;color:#fff;font-size:11px;font-weight:800;letter-spacing:.08em;padding:6px 10px;border-radius:20px;display:flex;gap:6px;align-items:center;flex:none}
+  .pulse::before{content:"";width:7px;height:7px;border-radius:50%;background:#fff;animation:blink 1.2s infinite}
+  @keyframes blink{50%{opacity:.2}}
+  .cta{position:relative;overflow:hidden;width:100%;display:flex;align-items:center;gap:16px;padding:24px 20px;border-radius:24px;background:linear-gradient(135deg,#D9AC5F,#A87C3A);color:#fff;text-align:left;box-shadow:0 14px 30px rgba(168,124,58,.4);margin-bottom:14px;transition:transform .12s}
+  .cta:active{transform:scale(.98)}
+  .cta::after{content:"";position:absolute;top:0;bottom:0;width:40%;left:-60%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);animation:shine 3.4s ease-in-out infinite}
+  @keyframes shine{0%{left:-60%}55%,100%{left:130%}}
+  .cta .ic{width:64px;height:64px;border-radius:18px;background:rgba(255,255,255,.22);display:grid;place-items:center;flex:none}
+  .cta .ic svg{width:34px;height:34px}
+  .cta h3{margin:0;font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;line-height:1.05}
+  .cta p{margin:5px 0 0;font-size:14px;opacity:.95}
+  .tip{font-size:13px;color:var(--muted);text-align:center;margin:12px 6px 0;line-height:1.45}
+  .now,.rank-card{margin-top:26px}
+  .now h4,.rank-card h4{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;margin:0 0 10px;text-align:center}
+  .now-strip{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+  .now-track{display:flex;gap:8px;width:max-content;animation:marquee 28s linear infinite}
+  .now-track img{width:92px;height:122px;object-fit:cover;border-radius:12px;border:3px solid #fff;box-shadow:var(--shadow);background:var(--line)}
+  @keyframes marquee{to{transform:translateX(-50%)}}
+  .rank-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:var(--shadow)}
+  .rk{display:flex;align-items:center;gap:12px;padding:9px 4px;border-bottom:1px dashed var(--line)}
+  .rk:last-child{border:0}
+  .rk .m{font-size:30px;width:36px;text-align:center;flex:none}
+  .rk .n{flex:1;font-weight:700;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .rk .n small{display:block;font-weight:400;color:var(--muted);font-size:12px}
+  .rk .c{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:var(--gold)}
+  .rank-card p.s{text-align:center;color:var(--muted);font-size:13px;margin:10px 0 0}
+  .mine-item .dl{background:#fff;border:1.5px solid var(--line);padding:9px 10px}
+  .zooms{display:flex;justify-content:center;gap:8px;margin-bottom:12px}
+  .zooms button{width:44px;height:44px;border-radius:50%;background:rgba(0,0,0,.4);color:#fff;font-weight:800;font-size:13px}
+  .zooms button.on{background:#fff;color:var(--ink)}
+  .zoom-lbl{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,.45);color:#fff;font-weight:800;font-size:22px;padding:10px 18px;border-radius:30px;z-index:2;opacity:0;transition:opacity .3s;pointer-events:none}
+  .zoom-lbl.on{opacity:1}
+
   /* Telão */
   .telao{position:fixed;inset:0;z-index:70;overflow:hidden;background:#FDF6EA;background-image:radial-gradient(ellipse at 15% 10%,#F8E2C0 0,transparent 50%),radial-gradient(ellipse at 90% 95%,#F9ECC6 0,transparent 50%)}
   .telao.idle{cursor:none}
@@ -219,13 +258,13 @@
   .mat .n span{color:var(--gold)}
   .mat .d{font-family:'Cormorant Garamond',serif;font-weight:500;letter-spacing:.45em;font-size:1.8vh;color:var(--gold);margin-top:.6vh}
   .mat .f{font-family:'Cormorant Garamond',serif;font-weight:500;letter-spacing:.28em;text-transform:uppercase;font-size:1.6vh;color:var(--muted);margin-top:.8vh}
-  .t-who{position:absolute;right:5vw;top:6vh;width:28vw;box-sizing:border-box;background:rgba(255,255,255,.8);border:1px solid var(--line);border-radius:2vh;padding:3vh;text-align:center;z-index:3;max-height:46vh;overflow:hidden;transition:opacity .6s}
+  .t-who{position:absolute;right:5vw;top:4vh;width:28vw;box-sizing:border-box;background:rgba(255,255,255,.82);border:1px solid var(--line);border-radius:2vh;padding:2.4vh 3vh;text-align:center;z-index:3;height:24vh;overflow:hidden;transition:opacity .6s;display:flex;flex-direction:column;justify-content:center}
   .t-who.off{opacity:0}
   .t-who .lbl{font-size:1.5vh;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
   .t-who .nm{font-family:'Cormorant Garamond',serif;font-size:4vh;margin-top:.6vh}
   .t-who .msg{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:2.8vh;color:#6B5440;margin-top:1.2vh;line-height:1.35}
-  .t-qr{position:absolute;right:5vw;bottom:5vh;width:28vw;box-sizing:border-box;background:#fff;border-radius:2vh;padding:2.4vh;text-align:center;box-shadow:0 1.5vh 4vh rgba(70,50,25,.1);z-index:3}
-  .t-qr #t-qrbox{width:20vh;height:20vh;margin:0 auto 1.2vh}
+  .t-qr{position:absolute;right:5vw;bottom:4.5vh;width:28vw;box-sizing:border-box;background:#fff;border-radius:2vh;padding:2.4vh;text-align:center;box-shadow:0 1.5vh 4vh rgba(70,50,25,.1);z-index:3}
+  .t-qr #t-qrbox{width:16vh;height:16vh;margin:0 auto 1vh}
   .t-qr #t-qrbox svg,.t-qr #t-qrbox img{width:100%;height:100%;display:block}
   .t-qr b{font-family:'Cormorant Garamond',serif;font-size:3vh;font-weight:500;display:block}
   .t-qr small{color:var(--muted);font-size:1.5vh}
@@ -234,6 +273,32 @@
   .t-adm{position:absolute;left:2.5vw;top:2.5vh;z-index:5;background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:10px 16px;font-weight:700;font-size:15px;opacity:.35;transition:opacity .3s}
   .t-adm:hover{opacity:1}
   .telao.idle .t-adm{opacity:0}
+  .t-rank{position:absolute;right:5vw;top:30vh;width:28vw;box-sizing:border-box;background:linear-gradient(180deg,#fff,#FFF8EA);border:1.5px solid var(--gold-soft);border-radius:2vh;padding:1.8vh 2.2vh;z-index:3}
+  .t-rank .lbl{text-align:center;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:2.8vh;margin-bottom:.6vh}
+  .t-rank .rk{padding:.7vh .4vh;gap:1.2vh}
+  .t-rank .rk .m{font-size:3.4vh;width:4vh}
+  .t-rank .rk .n{font-size:2vh}
+  .t-rank .rk .n small{font-size:1.5vh}
+  .t-rank .rk .c{font-size:3vh}
+  .t-rank .vazio{text-align:center;color:var(--muted);font-size:1.8vh;padding:1vh 0}
+  .rk.up{animation:up 1.2s ease}
+  @keyframes up{0%{background:#FFE9A8}100%{background:transparent}}
+  .window .slide.on img.main{animation:kb 9s ease-out forwards}
+  @keyframes kb{from{transform:scale(1)}to{transform:scale(1.07)}}
+  .window .tag.novo{background:linear-gradient(135deg,#E8B930,#C99A3A);color:#fff;font-size:2vh;padding:.9vh 1.8vh;animation:pop .6s cubic-bezier(.2,1.6,.4,1), glow 1.4s ease-in-out infinite}
+  @keyframes pop{from{transform:scale(.3)}to{transform:scale(1)}}
+  @keyframes glow{50%{box-shadow:0 0 0 1vh rgba(232,185,48,.25)}}
+  .portrait .shine{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:3}
+  .portrait .shine::after{content:"";position:absolute;top:-20%;bottom:-20%;width:18%;left:-30%;transform:skewX(-18deg);background:linear-gradient(90deg,transparent,rgba(255,240,200,.55),transparent);animation:sweep 11s ease-in-out infinite}
+  @keyframes sweep{0%,70%{left:-30%}100%{left:130%}}
+  .t-cele{position:absolute;inset:0;z-index:8;display:grid;place-items:center;pointer-events:none;opacity:0;transition:opacity .5s;background:radial-gradient(circle,rgba(253,246,234,.85) 0,rgba(253,246,234,.4) 60%,transparent 100%)}
+  .t-cele.on{opacity:1}
+  .tc-box{text-align:center;transform:scale(.6);transition:transform .7s cubic-bezier(.2,1.5,.4,1);background:#fff;border:2px solid var(--gold);border-radius:4vh;padding:4vh 7vh;box-shadow:0 3vh 9vh rgba(120,80,20,.25)}
+  .t-cele.on .tc-box{transform:scale(1)}
+  .tc-t{font-size:14vh;line-height:1;animation:beat 1s ease-in-out infinite}
+  .tc-h{font-family:'Cormorant Garamond',serif;font-size:4.4vh;font-weight:600;color:var(--gold);margin-top:1vh;letter-spacing:.04em}
+  .tc-n{font-family:'Great Vibes',cursive;font-size:10vh;line-height:1.1;color:var(--ink)}
+  .tc-s{font-size:2.4vh;color:var(--muted)}
 </style>
 </head>
 <body>
@@ -259,6 +324,7 @@
 
 <!-- ============ INÍCIO ============ -->
 <section id="v-home" class="wrap hidden">
+  <canvas class="petals" id="fx-home"></canvas>
   <div class="hero deco">
     <svg class="branch bl" viewBox="0 0 200 200"></svg><svg class="branch br" viewBox="0 0 200 200"></svg>
     <div class="mono">C&amp;T</div>
@@ -268,11 +334,12 @@
   </div>
   <p class="hello">Olá, <b id="lbl-name"></b>! <button class="link" id="btn-rename">não é você?</button></p>
 
-  <div class="stack" style="margin-top:22px">
-    <button class="action gold" id="btn-camera">
-      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5A2.5 2.5 0 0 1 5.5 6h1.7l1.4-2h6.8l1.4 2h1.7A2.5 2.5 0 0 1 21 8.5v9A2.5 2.5 0 0 1 18.5 20h-13A2.5 2.5 0 0 1 3 17.5z"/><circle cx="12" cy="12.5" r="3.8"/></svg></span>
-      <span><h3>Tirar foto ou gravar vídeo</h3><p>Foto ou vídeo de até 30 segundos</p></span>
-    </button>
+  <div class="live-banner"><div><b>📺 Apareça no telão da festa!</b><span class="c" id="live-count">Seja o primeiro a enviar ✨</span></div><span class="pulse">AO VIVO</span></div>
+  <button class="cta" id="btn-camera">
+    <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5A2.5 2.5 0 0 1 5.5 6h1.7l1.4-2h6.8l1.4 2h1.7A2.5 2.5 0 0 1 21 8.5v9A2.5 2.5 0 0 1 18.5 20h-13A2.5 2.5 0 0 1 3 17.5z"/><circle cx="12" cy="12.5" r="3.8"/></svg></span>
+    <span><h3>Tirar foto ou<br>gravar vídeo</h3><p>Em segundos aparece no telão ✨</p></span>
+  </button>
+  <div class="stack">
     <button class="action sage" id="btn-upload">
       <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.8"/><path d="m21 15-5-5L5 21"/></svg></span>
       <span><h3>Enviar da galeria</h3><p>Fotos e vídeos que você já tem</p></span>
@@ -288,6 +355,9 @@
     <div style="flex:1"><div id="q-text">Enviando…</div><div class="bar" style="margin-top:6px"><i id="q-bar"></i></div></div>
   </div>
   <p class="hello" id="lbl-sent" style="margin-top:16px"></p>
+  <p class="tip">✂️ Quer cortar ou editar o vídeo? Grave com a câmera do seu celular, edite na galeria e envie por <b>Enviar da galeria</b>.</p>
+  <div class="now hidden" id="now"><h4>Agora no telão</h4><div class="now-strip"><div class="now-track" id="now-track"></div></div></div>
+  <div class="rank-card hidden" id="rank-home"><h4>🏆 Ranking da festa</h4><div id="rank-home-list"></div><p class="s" id="rank-me"></p></div>
   <div class="mine hidden" id="mine">
     <h4>Meus envios</h4>
     <p class="s">Enviou sem querer? Toque em "Tirar do telão" 😉</p>
@@ -297,6 +367,7 @@
 
   <input type="file" id="file-gallery" accept="image/*,video/*" multiple class="hidden">
   <input type="file" id="file-native" accept="image/*" capture="environment" class="hidden">
+  <input type="file" id="file-native-video" accept="video/*" capture="environment" class="hidden">
   <p class="footer">Com amor, Botazzo Serra 🤍</p>
 </section>
 
@@ -307,12 +378,14 @@
   <video id="clip" class="shot hidden" playsinline loop controls></video>
   <div class="frame-preview hidden" id="frame-preview"><div class="n">Caio & Thaís</div><div class="d">28 · 11 · 2026</div></div>
   <div class="cam-msg hidden" id="cam-msg"></div>
+  <div class="zoom-lbl" id="zoom-lbl">1x</div>
   <div class="cam-top">
     <button class="round" id="cam-close" aria-label="Fechar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
     <span class="rec-time hidden" id="rec-time">0:00 / 0:30</span>
-    <button class="pill hidden" id="cam-frame">✨ Moldura</button>
+    <button class="pill hidden" id="cam-frame">✨ Moldura</button><button class="pill" id="cam-native-btn">📱 Câmera do celular</button>
   </div>
   <div class="cam-bottom" id="cam-controls">
+    <div class="zooms" id="zooms"><button data-z="1" class="on">1x</button><button data-z="2">2x</button><button data-z="3">3x</button></div>
     <div class="modes"><button class="on" id="mode-photo">FOTO</button><button id="mode-video">VÍDEO</button></div>
     <div class="cam-row">
       <div style="width:48px"></div>
@@ -405,7 +478,7 @@
   <div class="lb-info">
     <div class="who" id="lb-who"></div><div class="msg" id="lb-msg"></div>
     <div class="admin-actions hidden" id="lb-admin">
-      <button id="lb-telao"></button><button id="lb-hide">🚫 Ocultar de tudo</button>
+      <button id="lb-telao"></button><button id="lb-hide">🚫 Ocultar de tudo</button><button id="lb-del">🗑️ Apagar</button>
     </div>
   </div>
 </div>
@@ -414,15 +487,17 @@
 <section id="v-telao" class="telao hidden">
   <canvas id="fx"></canvas>
   <svg class="branch tb1" viewBox="0 0 200 200"></svg><svg class="branch tb2" viewBox="0 0 200 200"></svg>
-  <div class="t-left"><div class="portrait">
+  <div class="t-left"><div class="portrait"><div class="shine"></div>
     <div class="window" id="t-window"><div class="wait" id="telao-wait">As fotos da festa vão aparecer aqui 💛<small>Escaneie o QR Code e mande a sua!</small></div></div>
     <div class="mat"><div class="n">Caio <span>&</span> Thaís</div><div class="d">28 · 11 · 2026</div><div class="f">Casamento Botazzo Serra</div></div>
   </div></div>
   <div class="t-who off" id="t-who"><div class="lbl">Enviado por</div><div class="nm" id="t-nm"></div><div class="msg" id="t-msg"></div></div>
+  <div class="t-rank" id="t-rank"><div class="lbl">🏆 Ranking da festa</div><div id="t-rank-list"><div class="vazio">Quem mandar mais fotos e vídeos ganha o troféu! 🏆</div></div></div>
   <div class="t-qr"><div id="t-qrbox"></div><b>Mande sua foto ou vídeo</b><small>Aponte a câmera do celular</small></div>
   <div class="t-count" id="t-count"></div>
   <button class="btn btn-gold t-start" id="telao-start">▶︎ Iniciar telão em tela cheia</button>
   <button class="t-adm hidden" id="t-adm">🔒 Tirar esta do telão</button>
+  <div class="t-cele" id="t-cele"><div class="tc-box"><div class="tc-t" id="tc-t">🏆</div><div class="tc-h" id="tc-h">Novo líder do ranking!</div><div class="tc-n" id="tc-n"></div><div class="tc-s" id="tc-s"></div></div></div>
 </section>
 
 <div class="done" id="done"><div class="c"><div class="h" id="done-h">💛</div><b id="done-t">Enviado!</b><small id="done-s"></small></div></div>
@@ -449,7 +524,7 @@ const CONFIG = {
   MAX_LADO: 1800, QUALIDADE: 0.82, THUMB_LADO: 480,
   VIDEO_MAX_S: 30,                // gravação no site
   VIDEO_BITRATE: 1_500_000,       // ~5,6 MB por 30 s
-  GALERIA_VIDEO_MAX_MB: 40,       // vídeo enviado da galeria
+  GALERIA_VIDEO_MAX_MB: 49,       // vídeo enviado da galeria / câmera do celular (máx. do plano grátis)
   TELAO_FOTO_S: 7,                // tempo de cada foto no telão
 };
 
@@ -544,6 +619,7 @@ async function uploadOne(it){
     largura:it.w||null, altura:it.h||null, com_moldura:!!it.frame, tipo:it.tipo||"foto", no_telao:!!it.telao,
     duracao:it.duracao?Math.round(it.duracao*10)/10:null, mime:it.mime||null, tamanho:it.blob.size });
   if (ins.error && ins.error.code!=="23505") throw ins.error;
+  return caminho;
 }
 let busy=false,totalBatch=0,doneBatch=0;
 async function processQueue(){
@@ -552,7 +628,7 @@ async function processQueue(){
     let items=await pending(); totalBatch=Math.max(totalBatch,items.length+doneBatch);
     while(items.length){
       items.sort((a,b)=>a.ts-b.ts); const it=items[0]; updateQueueUI(items.length,false,it);
-      try{ await uploadOne(it); await removeItem(it.id); doneBatch++; const a=getMine(); if(!a.some(x=>x.id===it.id)){ const day=new Date(it.ts).toISOString().slice(0,10); a.push({ id:it.id, token:it.token||null, tipo:it.tipo||"foto", telao:!!it.telao, ts:it.ts, miniatura: it.thumb?`thumbs/${day}/${it.id}.jpg`:null }); setMine(a); } bumpSent(); renderMine(); }
+      try{ const caminho=await uploadOne(it); await removeItem(it.id); doneBatch++; const a=getMine(); if(!a.some(x=>x.id===it.id)){ const day=new Date(it.ts).toISOString().slice(0,10); a.push({ id:it.id, token:it.token||null, tipo:it.tipo||"foto", telao:!!it.telao, ts:it.ts, caminho, miniatura: it.thumb?`thumbs/${day}/${it.id}.jpg`:null }); setMine(a); } bumpSent(); renderMine(); }
       catch(e){ console.warn("falha no envio, tentando de novo",e); updateQueueUI(items.length,true); await new Promise(r=>setTimeout(r,navigator.onLine?5000:15000)); }
       items=await pending();
     }
@@ -607,12 +683,14 @@ function renderMine(){
       const all=getMine(); const x=all.find(y=>y.id===m.id); if(x) x.telao=!m.telao; setMine(all); renderMine();
       toast(m.telao?"Pronto! Saiu do telão 🔒":"Vai aparecer no telão 📺");
     };
-    it.append(th,t,b); box.append(it);
+    it.append(th,t,b);
+    if(m.caminho){ const d=document.createElement("a"); d.className="dl"; d.textContent="⬇️"; d.title="Baixar"; d.href=mediaUrl({tipo:m.tipo,caminho:m.caminho})+"?download="; d.style.cssText="padding:9px 10px;border-radius:12px;border:1.5px solid var(--line);text-decoration:none;background:#fff"; it.append(d); }
+    box.append(it);
   });
 }
 
 /* ---------------- telas iniciais ---------------- */
-function goHome(){ $("lbl-name").textContent=getName(); renderSent(); renderMine(); show("v-home"); if(!localStorage.getItem("cas_tut")) openTut(); }
+function goHome(){ $("lbl-name").textContent=getName(); renderSent(); renderMine(); show("v-home"); if(!homeFx) homeFx=startLeaves("fx-home",12); refreshHome(); clearInterval(homeTimer); homeTimer=setInterval(()=>{ if(!$("v-home").classList.contains("hidden")) refreshHome(); },20000); if(!localStorage.getItem("cas_tut")) openTut(); }
 $("btn-enter").onclick=()=>{ const n=$("in-name").value.trim(); if(n.length<2){ toast("Digite seu nome para os noivos saberem quem enviou 😊"); $("in-name").focus(); return; } setName(n); goHome(); };
 $("in-name").addEventListener("keydown",e=>{ if(e.key==="Enter") $("btn-enter").click(); });
 $("btn-rename").onclick=()=>{ $("in-name").value=getName(); show("v-welcome"); };
@@ -629,19 +707,20 @@ $("tut-skip").onclick=closeTut; $("btn-help").onclick=openTut;
 let shFiles=[], shChoice=null;
 const shCh=setupChoices("sh", v=>{ shChoice=v; $("sh-send").disabled=!v; $("sh-hint").textContent = v ? (v==="telao"?"📺 Vai aparecer no telão e no álbum.":"🔒 Só os noivos vão ver.") : "Escolha uma das opções acima 👆"; });
 $("btn-upload").onclick=()=>$("file-gallery").click();
-$("file-gallery").onchange=e=>{
-  const files=[...e.target.files]; e.target.value=""; if(!files.length) return;
+function handleFiles(files){
+  if(!files.length) return;
   const maxB=CONFIG.GALERIA_VIDEO_MAX_MB*1048576;
   const big=files.filter(f=>f.type.startsWith("video/")&&f.size>maxB);
   shFiles=files.filter(f=>!(f.type.startsWith("video/")&&f.size>maxB));
-  if(big.length) toast(`${big.length} vídeo(s) muito grande(s) (mais de ${CONFIG.GALERIA_VIDEO_MAX_MB} MB). Grave pelo botão "Gravar vídeo" do site, que fica leve 😉`,6000);
+  if(big.length) toast(`${big.length} vídeo(s) muito grande(s) (mais de ${CONFIG.GALERIA_VIDEO_MAX_MB} MB). Corte o vídeo na galeria do celular ou grave pelo botão VÍDEO do site, que fica leve 😉`,7000);
   if(!shFiles.length) return;
   const nv=shFiles.filter(f=>f.type.startsWith("video/")).length, nf=shFiles.length-nv;
   $("sh-title").textContent = `Enviar ${[nf?`${nf} foto${nf>1?"s":""}`:"", nv?`${nv} vídeo${nv>1?"s":""}`:""].filter(Boolean).join(" e ")}`;
   const th=$("sh-thumbs"); th.innerHTML="";
   shFiles.slice(0,20).forEach(f=>{ const el=f.type.startsWith("video/")?Object.assign(document.createElement("video"),{muted:true,playsInline:true,preload:"metadata"}):new Image(); el.src=URL.createObjectURL(f); th.append(el); });
   shCh.reset(); $("sheet").classList.remove("hidden");
-};
+}
+$("file-gallery").onchange=e=>{ const f=[...e.target.files]; e.target.value=""; handleFiles(f); };
 $("sh-cancel").onclick=()=>{ $("sheet").classList.add("hidden"); shFiles=[]; };
 $("sh-send").onclick=async()=>{
   const files=shFiles, telao=shChoice==="telao"; $("sheet").classList.add("hidden"); shFiles=[];
@@ -673,7 +752,7 @@ async function openCamera(){
     stopStream();
     stream=await navigator.mediaDevices.getUserMedia({ video:{ facingMode:{ideal:facing}, width:{ideal:1920}, height:{ideal:1080} }, audio: mode==="video" });
     const v=$("video"); v.srcObject=stream; v.classList.toggle("mirror",facing==="user"); await v.play().catch(()=>{});
-    $("cam-msg").classList.add("hidden");
+    $("cam-msg").classList.add("hidden"); setupZoom();
   }catch(err){
     console.warn(err);
     if(mode==="video" && err && err.name==="NotAllowedError"){ // sem microfone: tenta só vídeo
@@ -684,12 +763,34 @@ async function openCamera(){
   }
 }
 function fallbackNative(){ closeCamera(); $("file-native").click(); }
-$("file-native").onchange=async e=>{
-  const f=e.target.files[0]; e.target.value=""; if(!f) return;
-  const img=await loadImage(f); const c=scaleTo(img,img.width,img.height,CONFIG.MAX_LADO);
-  const blob=await canvasToBlob(c,CONFIG.QUALIDADE); const file=new File([blob],"foto.jpg",{type:"image/jpeg"});
-  shFiles=[file]; $("sh-title").textContent="Enviar 1 foto"; $("sh-thumbs").innerHTML=""; const im=new Image(); im.src=URL.createObjectURL(file); $("sh-thumbs").append(im); shCh.reset(); $("sheet").classList.remove("hidden");
-};
+$("file-native").onchange=e=>{ const f=[...e.target.files]; e.target.value=""; handleFiles(f); };
+$("file-native-video").onchange=e=>{ const f=[...e.target.files]; e.target.value=""; handleFiles(f); };
+$("cam-native-btn").onclick=()=>{ if(rec) return; const inp = mode==="video" ? $("file-native-video") : $("file-native"); closeCamera(); inp.click(); };
+/* Zoom: real (Android) ou digital (iPhone, só foto) */
+let zoom=1, hwZoom=null, zoomMax=3;
+function setupZoom(){
+  hwZoom=null; zoom=1; const tr=stream&&stream.getVideoTracks()[0];
+  try{ const c=tr.getCapabilities&&tr.getCapabilities(); if(c&&c.zoom&&c.zoom.max>c.zoom.min) hwZoom={min:c.zoom.min,max:c.zoom.max,tr}; }catch(e){}
+  zoomMax = hwZoom ? Math.min(hwZoom.max/(hwZoom.min||1),5) : 3;
+  const can = hwZoom || mode==="photo";
+  $("zooms").classList.toggle("hidden",!can);
+  [...$("zooms").children].forEach(b=>b.classList.toggle("hidden",+b.dataset.z>zoomMax+0.01));
+  applyZoom(1,true);
+}
+let zlT=null;
+function applyZoom(z,silent){
+  zoom=Math.max(1,Math.min(zoomMax,z));
+  const v=$("video");
+  if(hwZoom){ try{ hwZoom.tr.applyConstraints({advanced:[{zoom:(hwZoom.min||1)*zoom}]}); }catch(e){} v.style.transform=""; }
+  else v.style.transform=(facing==="user"?"scaleX(-1) ":"")+`scale(${zoom})`;
+  [...$("zooms").children].forEach(b=>b.classList.toggle("on",Math.abs(+b.dataset.z-zoom)<.25));
+  if(!silent){ const l=$("zoom-lbl"); l.textContent=zoom.toFixed(1).replace(".0","")+"x"; l.classList.add("on"); clearTimeout(zlT); zlT=setTimeout(()=>l.classList.remove("on"),700); }
+}
+$("zooms").onclick=e=>{ const b=e.target.closest("button"); if(b) applyZoom(+b.dataset.z); };
+let pinch=null;
+$("v-camera").addEventListener("touchstart",e=>{ if(e.touches.length===2 && $("review").classList.contains("hidden") && !$("zooms").classList.contains("hidden")){ const [a,b]=e.touches; pinch={d:Math.hypot(a.clientX-b.clientX,a.clientY-b.clientY),z:zoom}; } },{passive:true});
+$("v-camera").addEventListener("touchmove",e=>{ if(pinch&&e.touches.length===2){ const [a,b]=e.touches; applyZoom(pinch.z*Math.hypot(a.clientX-b.clientX,a.clientY-b.clientY)/pinch.d); } },{passive:true});
+$("v-camera").addEventListener("touchend",()=>{ pinch=null; },{passive:true});
 function stopStream(){ if(stream){ stream.getTracks().forEach(t=>t.stop()); stream=null; } }
 function closeCamera(){ stopRecording(true); stopStream(); goHome(); }
 $("cam-close").onclick=closeCamera;
@@ -711,7 +812,9 @@ async function takePhoto(){
   const v=$("video"); if(!v.videoWidth) return;
   const f=$("flash"); f.style.opacity=1; setTimeout(()=>f.style.opacity=0,120);
   const vw=v.videoWidth, vh=v.videoHeight, sr=innerWidth/innerHeight, vr=vw/vh;
-  let sw=vw, sh=vh; if(vr>sr) sw=vh*sr; else sh=vw/sr; const sx=(vw-sw)/2, sy=(vh-sh)/2;
+  let sw=vw, sh=vh; if(vr>sr) sw=vh*sr; else sh=vw/sr;
+  if(!hwZoom && zoom>1){ sw/=zoom; sh/=zoom; } // zoom digital
+  const sx=(vw-sw)/2, sy=(vh-sh)/2;
   const k=Math.min(1,CONFIG.MAX_LADO/Math.max(sw,sh)); const c=document.createElement("canvas"); c.width=Math.round(sw*k); c.height=Math.round(sh*k);
   const x=c.getContext("2d"); if(facing==="user"){ x.translate(c.width,0); x.scale(-1,1); } x.drawImage(v,sx,sy,sw,sh,0,0,c.width,c.height); x.setTransform(1,0,0,1,0,0);
   if(useFrame) await drawFrame(c);
@@ -809,7 +912,7 @@ function figure(r){
   const t=thumbUrl(r); if(t) img.src=t; if(r.largura&&r.altura) img.style.aspectRatio=`${r.largura}/${r.altura}`; else img.style.aspectRatio="3/4";
   const cap=document.createElement("figcaption"); cap.textContent=r.nome; fig.append(img,cap);
   if(r.tipo==="video"){ const p=document.createElement("span"); p.className="play"; fig.append(p); }
-  if(adminMode){ const b=document.createElement("span"); b.className="badge"; b.textContent = r.arquivado?"💾 salvo no PC":r.oculta?"🚫 oculta":r.no_telao?"📺 telão":"🔒 noivos"; fig.append(b); }
+  if(adminMode){ const b=document.createElement("span"); b.className="badge"; b.textContent = r.apagado?"🗑️ apagada":r.arquivado?"💾 salvo no PC":r.oculta?"🚫 oculta":r.no_telao?"📺 telão":"🔒 noivos"; fig.append(b); }
   fig.onclick=()=>openLB(r); r._fig=fig; return fig;
 }
 async function loadMore(){
@@ -858,6 +961,16 @@ async function adminSet(fields){
 }
 $("lb-telao").onclick=()=>adminSet({ no_telao:!lbItem.no_telao });
 $("lb-hide").onclick=()=>adminSet({ oculta:!lbItem.oculta });
+let delArm=null;
+$("lb-del").onclick=async()=>{
+  const b=$("lb-del");
+  if(delArm!==lbItem.id){ delArm=lbItem.id; b.textContent="Toque de novo para apagar"; b.style.background="#F6D5CF"; setTimeout(()=>{ if(delArm){ delArm=null; b.textContent="🗑️ Apagar"; b.style.background=""; } },4000); return; }
+  delArm=null; b.textContent="🗑️ Apagar"; b.style.background="";
+  const r=lbItem; const { error } = await sbF.rpc("casamento_admin_apagar",{ p_codigo:adminCode, p_id:r.id });
+  if(error){ toast("Não deu certo, tente de novo"); return; }
+  Object.assign(r,{apagado:true,oculta:true,no_telao:false}); const nf=figure(r); r._fig&&r._fig.replaceWith(nf); r._fig=nf; renderStats(); closeLB();
+  toast("Apagada ✔️ (uma cópia fica guardada no PC, em 'Apagadas pelo admin')",4500);
+};
 
 function showAdminLogin(){ show("v-gallery"); $("gal-title").textContent="Painel dos noivos"; $("gal-note").classList.add("hidden"); $("admin-bar").classList.add("hidden"); $("grid").innerHTML=""; $("admin-login").classList.remove("hidden"); $("gal-more").classList.add("hidden"); }
 $("btn-code").onclick=async()=>{
@@ -891,27 +1004,56 @@ $("btn-zip").onclick=async()=>{
 };
 
 /* ---------------- TELÃO ---------------- */
-function startLeaves(){
-  const cv=$("fx"), cx=cv.getContext("2d"), dpr=Math.min(2,devicePixelRatio||1); let W,H;
+function startLeaves(canvasId,count){
+  const cv=$(canvasId), cx=cv.getContext("2d"), dpr=Math.min(2,devicePixelRatio||1); let W,H;
   const rs=()=>{ W=cv.width=innerWidth*dpr; H=cv.height=innerHeight*dpr; }; rs(); addEventListener("resize",rs);
   const cols=["#E8B930","#F2CC55","#F6DC8A","#E2C194","#EED3AE","#D9B77E"];
-  const mk=top=>({ x:Math.random()*W, y:top?Math.random()*H:-40*dpr, s:(8+Math.random()*12)*dpr, vy:(.25+Math.random()*.45)*dpr, sw:Math.random()*6.3, sp:.006+Math.random()*.01, r:Math.random()*6.3, vr:(Math.random()-.5)*.02, c:cols[Math.random()*cols.length|0], a:.3+Math.random()*.45, petal:Math.random()<.6 });
-  const leaves=Array.from({length:26},()=>mk(true));
+  const mk=top=>({ x:Math.random()*W, y:top?Math.random()*H:-40*dpr, s:(8+Math.random()*12)*dpr, vy:(.25+Math.random()*.45)*dpr, vx:0, g:0, sw:Math.random()*6.3, sp:.006+Math.random()*.01, r:Math.random()*6.3, vr:(Math.random()-.5)*.02, c:cols[Math.random()*cols.length|0], a:.3+Math.random()*.45, petal:Math.random()<.6 });
+  const leaves=Array.from({length:count},()=>mk(true)); let extra=[];
+  function burst(n,fx,fy){ // explosão de florzinhas douradas (fx,fy em 0..1 da tela)
+    for(let k=0;k<n;k++){ const a=Math.random()*Math.PI*2, v=(3+Math.random()*7)*dpr;
+      extra.push({ x:fx*W, y:fy*H, s:(6+Math.random()*10)*dpr, vx:Math.cos(a)*v, vy:Math.sin(a)*v-4*dpr, g:.12*dpr, sw:0, sp:0, r:Math.random()*6.3, vr:(Math.random()-.5)*.2, c:["#E8B930","#F2CC55","#C99A3A","#FFF3C4","#E0A928"][k%5], a:.95, petal:Math.random()<.7 }); }
+  }
+  function dl(l){
+    cx.save(); cx.translate(l.x,l.y); cx.rotate(l.r); cx.globalAlpha=l.a; cx.fillStyle=l.c; cx.beginPath();
+    if(l.petal){ cx.arc(0,0,l.s*.42,0,7); cx.fill(); cx.fillStyle="rgba(255,243,196,.6)"; cx.beginPath(); cx.arc(-l.s*.12,-l.s*.12,l.s*.18,0,7); }
+    else { cx.moveTo(0,-l.s); cx.quadraticCurveTo(l.s*.6,0,0,l.s); cx.quadraticCurveTo(-l.s*.6,0,0,-l.s); }
+    cx.fill(); cx.restore();
+  }
   (function draw(){
     cx.clearRect(0,0,W,H);
-    for(const l of leaves){
-      l.y+=l.vy; l.sw+=l.sp; l.x+=Math.sin(l.sw)*.6*dpr; l.r+=l.vr; if(l.y>H+40*dpr) Object.assign(l,mk(false));
-      cx.save(); cx.translate(l.x,l.y); cx.rotate(l.r); cx.globalAlpha=l.a; cx.fillStyle=l.c; cx.beginPath();
-      if(l.petal){ cx.arc(0,0,l.s*.42,0,7); cx.fill(); cx.fillStyle="rgba(255,243,196,.6)"; cx.beginPath(); cx.arc(-l.s*.12,-l.s*.12,l.s*.18,0,7); } else { cx.moveTo(0,-l.s); cx.quadraticCurveTo(l.s*.6,0,0,l.s); cx.quadraticCurveTo(-l.s*.6,0,0,-l.s); }
-      cx.fill();
-      if(!l.petal){ cx.strokeStyle="rgba(255,255,255,.5)"; cx.lineWidth=dpr; cx.beginPath(); cx.moveTo(0,-l.s*.8); cx.lineTo(0,l.s*.8); cx.stroke(); }
-      cx.restore();
-    }
+    for(const l of leaves){ l.y+=l.vy; l.sw+=l.sp; l.x+=Math.sin(l.sw)*.6*dpr; l.r+=l.vr; if(l.y>H+40*dpr) Object.assign(l,mk(false)); dl(l); }
+    extra=extra.filter(l=>l.y<H+50*dpr && l.a>0.05);
+    for(const l of extra){ l.vy+=l.g; l.vx*=.985; l.x+=l.vx; l.y+=l.vy; l.r+=l.vr; if(l.vy>0) l.a-=.004; dl(l); }
     requestAnimationFrame(draw);
   })();
+  return { burst };
 }
+const MEDALHAS=["🥇","🥈","🥉"];
+function rankRow(r,i){
+  const d=document.createElement("div"); d.className="rk";
+  d.innerHTML=`<span class="m">${MEDALHAS[i]||(i+1)+"º"}</span><span class="n"></span><span class="c">${r.total}</span>`;
+  const n=d.querySelector(".n"); n.textContent=r.nome; const sm=document.createElement("small"); sm.textContent=`📸 ${r.fotos} foto${r.fotos!==1?"s":""} · 🎥 ${r.videos} vídeo${r.videos!==1?"s":""}`; n.append(sm);
+  return d;
+}
+/* Início: contador ao vivo, "Agora no telão" e ranking */
+let homeTimer=null, homeFx=null;
+async function refreshHome(){
+  try{
+    const [tot,rk,now]=await Promise.all([ sbF.rpc("casamento_total"), sbF.rpc("casamento_ranking"), sbF.from(CONFIG.TABLE).select("id,miniatura,caminho,tipo,nome").order("criado_em",{ascending:false}).limit(12) ]);
+    if(tot.data) $("live-count").textContent=`${tot.data} ${tot.data>1?"fotos e vídeos já enviados":"envio até agora"} · mande o seu! ✨`;
+    const items=(now.data||[]).filter(r=>thumbUrl(r));
+    $("now").classList.toggle("hidden",items.length<3);
+    if(items.length>=3){ const tr=$("now-track"); tr.innerHTML=""; [...items,...items].forEach(r=>{ const im=new Image(); im.loading="lazy"; im.src=thumbUrl(r); im.alt=r.nome; tr.append(im); }); }
+    const list=rk.data||[]; $("rank-home").classList.toggle("hidden",!list.length);
+    const box=$("rank-home-list"); box.innerHTML=""; list.slice(0,3).forEach((r,i)=>box.append(rankRow(r,i)));
+    const me=getName().trim().toLowerCase(), pos=list.findIndex(r=>r.nome.trim().toLowerCase()===me);
+    $("rank-me").textContent = pos>=0 ? (pos<3?`Você está no pódio, ${pos+1}º lugar! 🎉`:`Você está em ${pos+1}º lugar com ${list[pos].total}. Mande mais para subir! 🚀`) : "Mande sua primeira foto e entre no ranking! 🏆";
+  }catch(e){}
+}
+
 async function startTelao(){
-  show("v-telao"); startLeaves();
+  show("v-telao"); const fx=startLeaves("fx",26);
   const siteUrl = location.origin + location.pathname;
   try{ const q=qrcode(0,"M"); q.addData(siteUrl); q.make(); $("t-qrbox").innerHTML=q.createSvgTag({cellSize:6,margin:0,scalable:true}).replace(/black/g,"#5A4330"); }
   catch(e){ $("t-qrbox").innerHTML='<img src="assets/qrcode.png" alt="QR Code">'; }
@@ -930,13 +1072,13 @@ async function startTelao(){
       const { data, error } = await sbF.from(CONFIG.TABLE).select("*").order("criado_em",{ascending:false}).limit(LIMITE);
       if(error) throw error; lastOk=Date.now();
       const ids=new Set(data.map(r=>r.id));
-      data.slice().reverse().forEach(r=>{ if(!seen.has(r.id)){ seen.add(r.id); if(list.length||priority.length) priority.push(r); } });
+      data.slice().reverse().forEach(r=>{ if(!seen.has(r.id)){ seen.add(r.id); if(list.length||priority.length){ r._novo=true; priority.push(r); } } });
       priority=priority.filter(r=>ids.has(r.id)); list=data;
       $("telao-wait").classList.toggle("hidden",list.length>0);
       if(current && !ids.has(current.id)) next();          // tirada do telão agora → troca na hora
       else if(!playing && list.length) next();
-      const c=await sbF.from(CONFIG.TABLE).select("id",{count:"exact",head:true});
-      if(c.count) $("t-count").textContent=`✦ ${c.count} ${c.count>1?"fotos e vídeos":"envio"} ✦`;
+      const c=await sbF.rpc("casamento_total");
+      if(c.data) $("t-count").textContent=`✦ ${c.data} ${c.data>1?"fotos e vídeos":"envio"} ✦`;
     }catch(e){ console.warn("telão: sem conexão, continuo com o que tenho", e); }
   }
   function pick(){ if(priority.length) return priority.shift(); if(!list.length) return null; return list[idx++ % list.length]; }
@@ -954,9 +1096,9 @@ async function startTelao(){
       el.onended=go; el.onerror=go; timer=setTimeout(go,Math.min((r.duracao||30)+3,45)*1000);
     } else { el=new Image(); el.src=src; timer=setTimeout(next,CONFIG.TELAO_FOTO_S*1000); }
     el.className="main"; s.append(el);
-    const tag=document.createElement("span"); tag.className="tag"; tag.textContent=r.tipo==="video"?"🎥 Vídeo":"📸 Foto"; s.append(tag);
+    const novo = !!r._novo; const tag=document.createElement("span"); tag.className="tag"+(novo?" novo":""); tag.textContent= novo ? "✨ ACABOU DE CHEGAR" : (r.tipo==="video"?"🎥 Vídeo":"📸 Foto"); s.append(tag);
     const show1=()=>{
-      current=r; $("t-window").append(s); requestAnimationFrame(()=>requestAnimationFrame(()=>s.classList.add("on")));
+      current=r; if(novo){ r._novo=false; fx.burst(70,.33,.45); } $("t-window").append(s); requestAnimationFrame(()=>requestAnimationFrame(()=>s.classList.add("on")));
       [...$("t-window").querySelectorAll(".slide")].filter(x=>x!==s).forEach(o=>{ o.classList.remove("on"); const ov=o.querySelector("video"); setTimeout(()=>{ if(ov) ov.pause(); o.remove(); },1300); });
       const w=$("t-who"); w.classList.add("off");
       setTimeout(()=>{ $("t-nm").textContent=r.nome; $("t-msg").textContent=r.recado?`“${r.recado}”`:""; w.classList.remove("off"); },450);
@@ -981,7 +1123,29 @@ async function startTelao(){
   document.addEventListener("visibilitychange",()=>{ if(document.visibilityState==="visible") wake(); });
   $("telao-start").onclick=()=>{ document.documentElement.requestFullscreen?.().catch(()=>{}); wake(); $("telao-start").classList.add("hidden"); };
   setTimeout(()=>$("telao-start").classList.add("hidden"),60000);
-  await refresh(); setInterval(refresh,5000); wake();
+  // Ranking + comemoração quando alguém assume uma posição do pódio
+  let podium=null, celeQ=[], celeOn=false;
+  const POS_TXT=["Novo líder do ranking!","Subiu para o 2º lugar!","Entrou no pódio, 3º lugar!"];
+  function celebrate(r,i){ celeQ.push([r,i]); if(!celeOn) nextCele(); }
+  function nextCele(){
+    const it=celeQ.shift(); if(!it){ celeOn=false; return; } celeOn=true; const [r,i]=it;
+    $("tc-t").textContent=MEDALHAS[i]; $("tc-h").textContent=POS_TXT[i]; $("tc-n").textContent=r.nome;
+    $("tc-s").textContent=`📸 ${r.fotos} foto${r.fotos!==1?"s":""} · 🎥 ${r.videos} vídeo${r.videos!==1?"s":""}`;
+    $("t-cele").classList.add("on"); fx.burst(i===0?160:90,.5,.45); setTimeout(()=>fx.burst(i===0?110:50,.25,.3),500); setTimeout(()=>fx.burst(i===0?110:50,.75,.3),900);
+    setTimeout(()=>{ $("t-cele").classList.remove("on"); setTimeout(nextCele,900); },5200);
+  }
+  async function loadRank(){
+    try{
+      const { data, error } = await sbF.rpc("casamento_ranking"); if(error||!data) return;
+      const top=data.slice(0,3), keys=top.map(r=>r.nome.trim().toLowerCase());
+      const box=$("t-rank-list"); box.innerHTML="";
+      if(!top.length) box.innerHTML='<div class="vazio">Quem mandar mais fotos e vídeos ganha o troféu! 🏆</div>';
+      top.forEach((r,i)=>{ const row=rankRow(r,i); if(podium && keys[i]!==podium[i]) row.classList.add("up"); box.append(row); });
+      if(podium) keys.forEach((k,i)=>{ if(k!==podium[i] && !podium.slice(0,i).includes(k)) celebrate(top[i],i); });
+      podium=keys;
+    }catch(e){}
+  }
+  await refresh(); await loadRank(); setInterval(refresh,5000); setInterval(loadRank,12000); wake();
   setInterval(()=>{ if(Date.now()-lastOk>10*60*1000 && navigator.onLine) location.reload(); },60000);
   setInterval(()=>{ if(!playing && list.length) next(); },10000);
 }
