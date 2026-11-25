@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#FDF6EA">
+<title>Caio & Thaís · Nossas fotos</title>
+<meta name="description" content="Tire fotos, grave vídeos e envie direto para os noivos Caio & Thaís.">
+<link rel="preload" href="assets/fonts/great-vibes-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+  @font-face{font-family:'Great Vibes';src:url(assets/fonts/great-vibes-latin-400-normal.woff2) format('woff2');font-weight:400;font-display:swap}
+  @font-face{font-family:'Cormorant Garamond';src:url(assets/fonts/cormorant-garamond-latin-400-normal.woff2) format('woff2');font-weight:400;font-display:swap}
+  @font-face{font-family:'Cormorant Garamond';src:url(assets/fonts/cormorant-garamond-latin-400-italic.woff2) format('woff2');font-weight:400;font-style:italic;font-display:swap}
+  @font-face{font-family:'Cormorant Garamond';src:url(assets/fonts/cormorant-garamond-latin-500-normal.woff2) format('woff2');font-weight:500;font-display:swap}
+  @font-face{font-family:'Cormorant Garamond';src:url(assets/fonts/cormorant-garamond-latin-600-normal.woff2) format('woff2');font-weight:600;font-display:swap}
+  @font-face{font-family:'Nunito Sans';src:url(assets/fonts/nunito-sans-latin-400-normal.woff2) format('woff2');font-weight:400;font-display:swap}
+  @font-face{font-family:'Nunito Sans';src:url(assets/fonts/nunito-sans-latin-600-normal.woff2) format('woff2');font-weight:600;font-display:swap}
+  @font-face{font-family:'Nunito Sans';src:url(assets/fonts/nunito-sans-latin-700-normal.woff2) format('woff2');font-weight:700;font-display:swap}
+  :root{
+    --bg:#FDF6EA; --card:#FFFDF8; --ink:#5A4330; --muted:#9A8470;
+    --gold:#B8893E; --gold-soft:#F1DFC0; --sage:#C99A3A; --sage-soft:#F8E8BC;
+    --blush:#F6E3CC; --line:#EEDFC8; --rec:#D9534F;
+    --radius:22px; --shadow:0 10px 30px rgba(80,60,30,.08);
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;height:100%}
+  body{
+    font-family:'Nunito Sans',system-ui,sans-serif;color:var(--ink);background:var(--bg);
+    background-image:radial-gradient(circle at 0% 0%, #F8E4C4 0, transparent 45%),radial-gradient(circle at 100% 100%, #F9EDC9 0, transparent 45%);
+    background-attachment:fixed;min-height:100%;
+  }
+  button{font:inherit;cursor:pointer;border:0;color:inherit}
+  button:disabled{opacity:.45;cursor:default}
+  .hidden{display:none!important}
+  .wrap{max-width:520px;margin:0 auto;padding:28px 20px calc(40px + env(safe-area-inset-bottom))}
+
+  .hero{text-align:center;padding:18px 0 8px}
+  .ornament{display:flex;align-items:center;gap:12px;justify-content:center;color:var(--gold)}
+  .ornament::before,.ornament::after{content:"";height:1px;width:56px;background:linear-gradient(90deg,transparent,var(--gold))}
+  .ornament::after{transform:scaleX(-1)}
+  .names{font-family:'Great Vibes',cursive;font-size:64px;line-height:1.05;margin:10px 0 2px;color:var(--ink);font-weight:400}
+  .names .amp{color:var(--gold);font-size:.8em}
+  .date{font-family:'Cormorant Garamond',serif;letter-spacing:.32em;text-transform:uppercase;font-size:14px;color:var(--muted)}
+  .lead{font-family:'Cormorant Garamond',serif;font-size:21px;line-height:1.45;color:#6B5440;margin:22px 4px 4px;text-align:center}
+
+  .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px;margin-top:22px;border:1px solid var(--line)}
+  label.f{display:block;font-weight:600;font-size:14px;margin-bottom:8px;color:#6B5440}
+  input[type=text],input[type=password],textarea{width:100%;padding:15px 16px;border-radius:14px;border:1.5px solid var(--line);font:inherit;font-size:17px;background:#FFFCF5;color:var(--ink);outline:none;transition:border .2s}
+  input:focus,textarea:focus{border-color:var(--gold)}
+  textarea{resize:none;min-height:60px;font-size:15px}
+
+  .btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:17px 18px;border-radius:16px;font-weight:700;font-size:17px;transition:transform .12s}
+  .btn:active{transform:scale(.98)}
+  .btn-gold{background:linear-gradient(135deg,#CFA05A,#A87C3A);color:#fff;box-shadow:0 8px 20px rgba(168,124,58,.35)}
+  .btn-sage{background:var(--sage);color:#fff}
+  .btn-light{background:#fff;color:var(--ink);border:1.5px solid var(--line)}
+  .stack{display:grid;gap:14px}
+  .hello{text-align:center;color:var(--muted);font-size:15px;margin-top:6px}
+  .hello b{color:var(--ink)}
+  .link{background:none;color:var(--gold);text-decoration:underline;font-size:14px;padding:4px}
+
+  .action{display:flex;align-items:center;gap:16px;text-align:left;padding:20px;border-radius:20px;width:100%;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow);transition:transform .12s}
+  .action:active{transform:scale(.98)}
+  .action .ic{width:56px;height:56px;border-radius:16px;display:grid;place-items:center;flex:none}
+  .action .ic svg{width:28px;height:28px}
+  .action.gold .ic{background:var(--gold-soft);color:#8a6430}
+  .action.sage .ic{background:var(--sage-soft);color:#94701f}
+  .action.blush .ic{background:var(--blush);color:#a0674a}
+  .action h3{margin:0;font-family:'Cormorant Garamond',serif;font-size:23px;font-weight:600}
+  .action p{margin:2px 0 0;font-size:14px;color:var(--muted)}
+
+  .queue{margin-top:18px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px 16px;font-size:14px;display:flex;gap:12px;align-items:center}
+  .queue .bar{height:6px;background:var(--line);border-radius:6px;overflow:hidden}
+  .queue .bar i{display:block;height:100%;width:0;background:var(--sage);transition:width .3s}
+  .spinner{width:18px;height:18px;border-radius:50%;border:2.5px solid var(--gold-soft);border-top-color:var(--gold);animation:spin 1s linear infinite;flex:none}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .footer{text-align:center;color:var(--muted);margin-top:34px;font-family:'Cormorant Garamond',serif;font-size:15px}
+
+  /* Escolha telão / noivos */
+  .choice-title{font-weight:700;font-size:15px;margin:12px 0 8px;text-align:center}
+  .choices{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .choice{background:#fff;border:2px solid var(--line);border-radius:16px;padding:14px 10px;text-align:center;transition:.15s}
+  .choice .e{font-size:28px;display:block}
+  .choice b{display:block;font-size:15px;margin-top:4px}
+  .choice small{display:block;color:var(--muted);font-size:12px;margin-top:3px;line-height:1.3}
+  .choice.sel{border-color:var(--gold);background:#FFF8EC;box-shadow:0 0 0 3px rgba(184,137,62,.18)}
+  .choice.sel.priv{border-color:var(--sage);background:#FFF6DC;box-shadow:0 0 0 3px rgba(201,154,58,.2)}
+  .hint{text-align:center;font-size:13px;color:var(--muted);margin-top:8px;min-height:18px}
+
+  /* Câmera */
+  .cam{position:fixed;inset:0;background:#000;z-index:50}
+  .cam video,.cam .shot{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .mirror{transform:scaleX(-1)}
+  .cam .shot{object-fit:contain;background:#111}
+  .frame-preview{position:absolute;left:0;right:0;bottom:0;height:36%;pointer-events:none;background:linear-gradient(to top, rgba(251,247,242,.92) 0%, rgba(251,247,242,0) 100%);display:flex;flex-direction:column;justify-content:flex-end;align-items:center;padding-bottom:190px}
+  .frame-preview .n{font-family:'Great Vibes',cursive;font-size:44px;color:var(--ink);line-height:1}
+  .frame-preview .d{font-family:'Cormorant Garamond',serif;letter-spacing:.3em;font-size:12px;color:#7A6450;margin-top:4px}
+  .cam-top{position:absolute;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:calc(14px + env(safe-area-inset-top)) 16px 14px;z-index:2}
+  .round{width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.88);color:var(--ink);display:grid;place-items:center}
+  .round svg{width:24px;height:24px}
+  .pill{background:rgba(255,255,255,.88);border-radius:30px;padding:0 16px;display:flex;align-items:center;gap:8px;font-weight:600;font-size:14px;height:44px}
+  .pill.on{background:var(--gold);color:#fff}
+  .rec-time{background:var(--rec);color:#fff;border-radius:30px;padding:8px 14px;font-weight:700;font-variant-numeric:tabular-nums}
+  .cam-bottom{position:absolute;left:0;right:0;bottom:0;padding:0 24px calc(26px + env(safe-area-inset-bottom));z-index:2}
+  .modes{display:flex;justify-content:center;gap:6px;margin-bottom:18px}
+  .modes button{background:rgba(0,0,0,.35);color:#fff;padding:9px 18px;border-radius:30px;font-weight:700;font-size:14px;letter-spacing:.05em}
+  .modes button.on{background:#fff;color:var(--ink)}
+  .cam-row{display:flex;align-items:center;justify-content:space-between}
+  .shutter{width:84px;height:84px;border-radius:50%;background:transparent;position:relative;display:grid;place-items:center}
+  .shutter svg{position:absolute;inset:0;width:84px;height:84px;transform:rotate(-90deg)}
+  .shutter .core{width:64px;height:64px;border-radius:50%;background:#fff;transition:.2s}
+  .shutter.video .core{background:var(--rec)}
+  .shutter.recording .core{width:30px;height:30px;border-radius:8px}
+  .cam-tip{color:#fff;text-align:center;font-size:13px;margin-top:10px;text-shadow:0 1px 4px rgba(0,0,0,.6)}
+  .flash{position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none;z-index:3;transition:opacity .25s}
+  .review{position:absolute;left:0;right:0;bottom:0;z-index:4;background:var(--bg);border-radius:24px 24px 0 0;padding:16px 16px calc(18px + env(safe-area-inset-bottom));max-height:78vh;overflow:auto}
+  .review .row{display:grid;grid-template-columns:1fr 1.4fr;gap:10px;margin-top:10px}
+  .cam-msg{position:absolute;inset:0;display:grid;place-items:center;color:#fff;text-align:center;padding:30px;z-index:1}
+
+  /* Folha (sheet) para envio da galeria */
+  .sheet-bg{position:fixed;inset:0;background:rgba(61,56,51,.35);z-index:80;display:flex;align-items:flex-end;justify-content:center}
+  .sheet{background:var(--bg);width:100%;max-width:520px;border-radius:24px 24px 0 0;padding:20px 18px calc(20px + env(safe-area-inset-bottom))}
+  .sheet h3{font-family:'Cormorant Garamond',serif;font-size:26px;margin:0 0 4px;text-align:center}
+  .thumbs{display:flex;gap:6px;overflow-x:auto;padding:8px 0}
+  .thumbs img,.thumbs video{width:64px;height:64px;object-fit:cover;border-radius:10px;flex:none;background:var(--line)}
+
+  /* Tutorial */
+  .tut{position:fixed;inset:0;background:rgba(251,247,242,.97);z-index:85;display:flex;align-items:center;justify-content:center;padding:24px}
+  .tut-box{max-width:420px;width:100%;text-align:center}
+  .tut-step{display:none}
+  .tut-step.on{display:block;animation:fade .35s}
+  @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .tut-ic{width:110px;height:110px;border-radius:30px;margin:0 auto 18px;display:grid;place-items:center;font-size:54px;background:#fff;box-shadow:var(--shadow);border:1px solid var(--line)}
+  .tut h2{font-family:'Cormorant Garamond',serif;font-size:30px;margin:0 0 8px;font-weight:600}
+  .tut p{color:#6B5440;font-size:16px;line-height:1.5;margin:0 0 22px}
+  .dots{display:flex;gap:8px;justify-content:center;margin:0 0 18px}
+  .dots i{width:8px;height:8px;border-radius:50%;background:var(--line)}
+  .dots i.on{background:var(--gold);width:22px;border-radius:8px}
+
+  /* Álbum */
+  .gal-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
+  .gal-head h2{font-family:'Cormorant Garamond',serif;font-size:30px;margin:0;font-weight:600}
+  .grid{columns:2;column-gap:10px}
+  @media(min-width:700px){.grid{columns:3}}
+  @media(min-width:1000px){.grid{columns:4}}
+  .grid figure{margin:0 0 10px;break-inside:avoid;border-radius:14px;overflow:hidden;background:var(--line);position:relative;cursor:pointer}
+  .grid img{width:100%;display:block;min-height:80px;object-fit:cover}
+  .grid figcaption{position:absolute;left:0;right:0;bottom:0;padding:18px 10px 8px;font-size:12px;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.45));white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.85);display:grid;place-items:center;pointer-events:none}
+  .play::after{content:"";border-left:16px solid var(--ink);border-top:10px solid transparent;border-bottom:10px solid transparent;margin-left:4px}
+  .badge{position:absolute;top:8px;left:8px;background:rgba(255,255,255,.92);border-radius:20px;padding:3px 9px;font-size:11px;font-weight:700}
+  .empty{text-align:center;color:var(--muted);padding:40px 10px;font-family:'Cormorant Garamond',serif;font-size:20px}
+  .note{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 14px;font-size:13px;color:var(--muted);margin-bottom:14px;text-align:center}
+
+  .lightbox{position:fixed;inset:0;background:rgba(251,247,242,.98);z-index:60;display:flex;flex-direction:column}
+  .lb-media{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;padding:70px 12px 10px}
+  .lb-media img,.lb-media video{max-width:100%;max-height:100%;object-fit:contain;border-radius:8px}
+  .lb-info{padding:0 20px calc(20px + env(safe-area-inset-bottom));text-align:center}
+  .lb-info .who{font-weight:700}
+  .lb-info .msg{font-family:'Cormorant Garamond',serif;font-size:19px;font-style:italic;color:#6B5440;margin-top:4px}
+  .lb-top{position:absolute;top:0;left:0;right:0;display:flex;justify-content:space-between;padding:calc(12px + env(safe-area-inset-top)) 14px;z-index:2}
+  .lb-top .round{background:#fff;border:1px solid var(--line)}
+  .admin-actions{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:12px}
+  .admin-actions button{padding:10px 14px;border-radius:12px;background:#fff;border:1.5px solid var(--line);font-weight:700;font-size:14px}
+
+  .toast{position:fixed;left:50%;bottom:calc(26px + env(safe-area-inset-bottom));transform:translateX(-50%) translateY(30px);background:var(--ink);color:#fff;padding:13px 20px;border-radius:30px;font-size:15px;opacity:0;transition:.3s;z-index:95;max-width:90vw;text-align:center;pointer-events:none}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+  /* Enfeites */
+  .deco{position:relative}
+  .branch{position:absolute;pointer-events:none}
+  .deco .branch{width:118px;opacity:.9}
+  .deco .bl{top:-18px;left:-22px}.deco .br{top:-18px;right:-22px;transform:scaleX(-1)}
+  .mono{width:76px;height:76px;border-radius:50%;margin:0 auto 6px;display:grid;place-items:center;border:1.5px solid var(--gold);font-family:'Great Vibes',cursive;font-size:32px;color:var(--ink);background:rgba(255,255,255,.7);position:relative}
+  .mono::after{content:"";position:absolute;inset:4px;border-radius:50%;border:1px solid rgba(184,137,62,.35)}
+  .fam{font-family:'Cormorant Garamond',serif;font-weight:500;letter-spacing:.28em;text-transform:uppercase;font-size:12px;color:var(--muted);margin-top:8px}
+  .action{background:linear-gradient(180deg,#fff,#FFFCF7)}
+  /* Meus envios */
+  .mine{margin-top:28px}
+  .mine h4{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;margin:0 0 2px;text-align:center}
+  .mine p.s{text-align:center;color:var(--muted);font-size:13px;margin:0 0 12px}
+  .mine-list{display:grid;gap:10px}
+  .mine-item{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:10px}
+  .mine-item .th{width:56px;height:56px;border-radius:12px;object-fit:cover;background:var(--line);flex:none;display:grid;place-items:center;font-size:22px}
+  .mine-item .t{flex:1;font-size:14px;font-weight:600}
+  .mine-item .t small{display:block;color:var(--muted);font-size:12px;font-weight:400;margin-top:2px}
+  .mine-item button{padding:10px 12px;border-radius:12px;font-weight:700;font-size:13px;background:var(--blush);white-space:nowrap}
+  .mine-item button.put{background:var(--sage-soft)}
+  /* Confirmação */
+  .done{position:fixed;inset:0;z-index:96;display:grid;place-items:center;pointer-events:none;opacity:0;transition:opacity .3s}
+  .done.show{opacity:1}
+  .done .c{background:#fff;border-radius:28px;padding:26px 34px;text-align:center;box-shadow:0 20px 60px rgba(60,40,20,.2);transform:scale(.85);transition:transform .4s cubic-bezier(.2,1.4,.4,1);max-width:80vw}
+  .done.show .c{transform:scale(1)}
+  .done .h{font-size:54px;display:inline-block;animation:beat 1s ease-in-out infinite}
+  @keyframes beat{50%{transform:scale(1.15)}}
+  .done b{display:block;font-family:'Cormorant Garamond',serif;font-size:26px;margin-top:6px}
+  .done small{color:var(--muted);font-size:14px}
+
+  /* Telão */
+  .telao{position:fixed;inset:0;z-index:70;overflow:hidden;background:#FDF6EA;background-image:radial-gradient(ellipse at 15% 10%,#F8E2C0 0,transparent 50%),radial-gradient(ellipse at 90% 95%,#F9ECC6 0,transparent 50%)}
+  .telao.idle{cursor:none}
+  .telao #fx{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+  .telao .branch{width:34vh;z-index:1}
+  .telao .tb1{top:-2vh;left:-2vh}.telao .tb2{bottom:-2vh;right:-2vh;transform:rotate(180deg)}
+  .t-left{position:absolute;left:4vw;top:0;bottom:0;right:36vw;display:flex;align-items:center;justify-content:center;z-index:2}
+  .portrait{background:#fff;padding:2.2vh 2.2vh 0;box-shadow:0 2.5vh 7vh rgba(70,50,25,.16);position:relative}
+  .portrait::before{content:"";position:absolute;inset:1vh;border:1px solid var(--gold);pointer-events:none;z-index:2}
+  .portrait::after{content:"";position:absolute;inset:1.5vh;border:1px solid rgba(184,137,62,.35);pointer-events:none;z-index:2}
+  .window{width:min(58vw,100vh);height:68vh;position:relative;overflow:hidden;background:#F3E6D0}
+  .window .slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s}
+  .window .slide.on{opacity:1}
+  .window .bgblur{position:absolute;inset:-6%;width:112%;height:112%;object-fit:cover;filter:blur(28px) saturate(1.1);opacity:.75}
+  .window .main{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+  .window .tag{position:absolute;top:2.6vh;left:2.6vh;background:rgba(255,255,255,.92);border-radius:3vh;padding:.6vh 1.4vh;font-size:1.5vh;font-weight:700}
+  .window .wait{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-family:'Cormorant Garamond',serif;font-size:3.4vh;color:#7A6450;padding:4vh;z-index:1}
+  .window .wait small{font-size:2.2vh;margin-top:1vh}
+  .mat{text-align:center;padding:1.6vh 0 2.2vh}
+  .mat .n{font-family:'Great Vibes',cursive;font-size:6.4vh;line-height:1;color:var(--ink)}
+  .mat .n span{color:var(--gold)}
+  .mat .d{font-family:'Cormorant Garamond',serif;font-weight:500;letter-spacing:.45em;font-size:1.8vh;color:var(--gold);margin-top:.6vh}
+  .mat .f{font-family:'Cormorant Garamond',serif;font-weight:500;letter-spacing:.28em;text-transform:uppercase;font-size:1.6vh;color:var(--muted);margin-top:.8vh}
+  .t-who{position:absolute;right:5vw;top:6vh;width:28vw;box-sizing:border-box;background:rgba(255,255,255,.8);border:1px solid var(--line);border-radius:2vh;padding:3vh;text-align:center;z-index:3;max-height:46vh;overflow:hidden;transition:opacity .6s}
+  .t-who.off{opacity:0}
+  .t-who .lbl{font-size:1.5vh;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+  .t-who .nm{font-family:'Cormorant Garamond',serif;font-size:4vh;margin-top:.6vh}
+  .t-who .msg{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:2.8vh;color:#6B5440;margin-top:1.2vh;line-height:1.35}
+  .t-qr{position:absolute;right:5vw;bottom:5vh;width:28vw;box-sizing:border-box;background:#fff;border-radius:2vh;padding:2.4vh;text-align:center;box-shadow:0 1.5vh 4vh rgba(70,50,25,.1);z-index:3}
+  .t-qr #t-qrbox{width:20vh;height:20vh;margin:0 auto 1.2vh}
+  .t-qr #t-qrbox svg,.t-qr #t-qrbox img{width:100%;height:100%;display:block}
+  .t-qr b{font-family:'Cormorant Garamond',serif;font-size:3vh;font-weight:500;display:block}
+  .t-qr small{color:var(--muted);font-size:1.5vh}
+  .t-count{position:absolute;right:5vw;width:28vw;bottom:1.6vh;text-align:center;color:var(--muted);font-size:1.6vh;letter-spacing:.1em;z-index:3}
+  .t-start{position:absolute;left:2.5vw;bottom:3vh;z-index:5;width:auto!important;padding:16px 28px!important}
+  .t-adm{position:absolute;left:2.5vw;top:2.5vh;z-index:5;background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:10px 16px;font-weight:700;font-size:15px;opacity:.35;transition:opacity .3s}
+  .t-adm:hover{opacity:1}
+  .telao.idle .t-adm{opacity:0}
+</style>
+</head>
+<body>
+
+<!-- ============ BOAS-VINDAS ============ -->
+<section id="v-welcome" class="wrap hidden">
+  <div class="hero deco">
+    <svg class="branch bl" viewBox="0 0 200 200"></svg><svg class="branch br" viewBox="0 0 200 200"></svg>
+    <div class="mono">C&amp;T</div>
+    <h1 class="names">Caio <span class="amp">&</span> Thaís</h1>
+    <div class="date">28 · novembro · 2026</div>
+    <div class="fam">Casamento Botazzo Serra</div>
+  </div>
+  <p class="lead">Que bom ter você aqui!<br>Ajude a guardar as memórias do nosso dia: tire fotos, grave vídeos e envie direto para nós. 💛</p>
+  <div class="card">
+    <label class="f" for="in-name">Como podemos te chamar?</label>
+    <input id="in-name" type="text" maxlength="50" placeholder="Seu nome (ex.: Tia Marta)" autocomplete="name">
+    <div style="height:14px"></div>
+    <button class="btn btn-gold" id="btn-enter">Entrar e começar</button>
+  </div>
+  <p class="footer">Não precisa baixar nenhum aplicativo.<br>Só vai para os noivos o que você escolher enviar.</p>
+</section>
+
+<!-- ============ INÍCIO ============ -->
+<section id="v-home" class="wrap hidden">
+  <div class="hero deco">
+    <svg class="branch bl" viewBox="0 0 200 200"></svg><svg class="branch br" viewBox="0 0 200 200"></svg>
+    <div class="mono">C&amp;T</div>
+    <h1 class="names">Caio <span class="amp">&</span> Thaís</h1>
+    <div class="date">28 · novembro · 2026</div>
+    <div class="fam">Casamento Botazzo Serra</div>
+  </div>
+  <p class="hello">Olá, <b id="lbl-name"></b>! <button class="link" id="btn-rename">não é você?</button></p>
+
+  <div class="stack" style="margin-top:22px">
+    <button class="action gold" id="btn-camera">
+      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5A2.5 2.5 0 0 1 5.5 6h1.7l1.4-2h6.8l1.4 2h1.7A2.5 2.5 0 0 1 21 8.5v9A2.5 2.5 0 0 1 18.5 20h-13A2.5 2.5 0 0 1 3 17.5z"/><circle cx="12" cy="12.5" r="3.8"/></svg></span>
+      <span><h3>Tirar foto ou gravar vídeo</h3><p>Foto ou vídeo de até 30 segundos</p></span>
+    </button>
+    <button class="action sage" id="btn-upload">
+      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.8"/><path d="m21 15-5-5L5 21"/></svg></span>
+      <span><h3>Enviar da galeria</h3><p>Fotos e vídeos que você já tem</p></span>
+    </button>
+    <button class="action blush" id="btn-gallery">
+      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 1 0-7.8 7.8L12 21.2l8.8-8.8a5.5 5.5 0 0 0 0-7.8z"/></svg></span>
+      <span><h3>Ver o álbum</h3><p>O que está passando no telão</p></span>
+    </button>
+  </div>
+
+  <div class="queue hidden" id="queue">
+    <div class="spinner"></div>
+    <div style="flex:1"><div id="q-text">Enviando…</div><div class="bar" style="margin-top:6px"><i id="q-bar"></i></div></div>
+  </div>
+  <p class="hello" id="lbl-sent" style="margin-top:16px"></p>
+  <div class="mine hidden" id="mine">
+    <h4>Meus envios</h4>
+    <p class="s">Enviou sem querer? Toque em "Tirar do telão" 😉</p>
+    <div class="mine-list" id="mine-list"></div>
+  </div>
+  <p style="text-align:center;margin-top:18px"><button class="link" id="btn-help">Como funciona?</button></p>
+
+  <input type="file" id="file-gallery" accept="image/*,video/*" multiple class="hidden">
+  <input type="file" id="file-native" accept="image/*" capture="environment" class="hidden">
+  <p class="footer">Com amor, Botazzo Serra 🤍</p>
+</section>
+
+<!-- ============ CÂMERA ============ -->
+<section id="v-camera" class="cam hidden">
+  <video id="video" playsinline autoplay muted></video>
+  <img id="shot" class="shot hidden" alt="">
+  <video id="clip" class="shot hidden" playsinline loop controls></video>
+  <div class="frame-preview hidden" id="frame-preview"><div class="n">Caio & Thaís</div><div class="d">28 · 11 · 2026</div></div>
+  <div class="cam-msg hidden" id="cam-msg"></div>
+  <div class="cam-top">
+    <button class="round" id="cam-close" aria-label="Fechar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    <span class="rec-time hidden" id="rec-time">0:00 / 0:30</span>
+    <button class="pill hidden" id="cam-frame">✨ Moldura</button>
+  </div>
+  <div class="cam-bottom" id="cam-controls">
+    <div class="modes"><button class="on" id="mode-photo">FOTO</button><button id="mode-video">VÍDEO</button></div>
+    <div class="cam-row">
+      <div style="width:48px"></div>
+      <button class="shutter" id="cam-shoot" aria-label="Tirar foto">
+        <svg viewBox="0 0 84 84"><circle cx="42" cy="42" r="38" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="6"/><circle id="ring" cx="42" cy="42" r="38" fill="none" stroke="#fff" stroke-width="6" stroke-dasharray="238.8" stroke-dashoffset="238.8" stroke-linecap="round"/></svg>
+        <span class="core"></span>
+      </button>
+      <button class="round" id="cam-flip" aria-label="Virar câmera"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11a8 8 0 0 0-14.3-4.9L4 8"/><path d="M4 4v4h4"/><path d="M4 13a8 8 0 0 0 14.3 4.9L20 16"/><path d="M20 20v-4h-4"/></svg></button>
+    </div>
+    <div class="cam-tip" id="cam-tip">Toque no botão para tirar a foto</div>
+  </div>
+  <div class="flash" id="flash"></div>
+  <div class="review hidden" id="review">
+    <textarea id="in-msg" maxlength="200" placeholder="Deixe um recado para os noivos (opcional) 💌"></textarea>
+    <div class="choice-title">Quem pode ver?</div>
+    <div class="choices" data-group="rv">
+      <button class="choice" data-v="telao"><span class="e">📺</span><b>Pode passar no telão</b><small>Aparece no telão da festa e no álbum</small></button>
+      <button class="choice" data-v="noivos"><span class="e">🔒</span><b>Só para os noivos</b><small>Fica guardado, ninguém mais vê</small></button>
+    </div>
+    <div class="hint" id="rv-hint">Escolha uma das opções acima 👆</div>
+    <div class="row">
+      <button class="btn btn-light" id="rv-retake">Refazer</button>
+      <button class="btn btn-gold" id="rv-send" disabled>Enviar 💛</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ENVIO DA GALERIA ============ -->
+<div class="sheet-bg hidden" id="sheet">
+  <div class="sheet">
+    <h3 id="sh-title">Enviar fotos</h3>
+    <div class="thumbs" id="sh-thumbs"></div>
+    <div class="choice-title">Quem pode ver?</div>
+    <div class="choices" data-group="sh">
+      <button class="choice" data-v="telao"><span class="e">📺</span><b>Pode passar no telão</b><small>Aparece no telão da festa e no álbum</small></button>
+      <button class="choice" data-v="noivos"><span class="e">🔒</span><b>Só para os noivos</b><small>Fica guardado, ninguém mais vê</small></button>
+    </div>
+    <div class="hint" id="sh-hint">Escolha uma das opções acima 👆</div>
+    <div class="row" style="display:grid;grid-template-columns:1fr 1.4fr;gap:10px;margin-top:10px">
+      <button class="btn btn-light" id="sh-cancel">Cancelar</button>
+      <button class="btn btn-gold" id="sh-send" disabled>Enviar 💛</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ TUTORIAL ============ -->
+<div class="tut hidden" id="tut">
+  <div class="tut-box">
+    <div class="tut-step on"><div class="tut-ic">📸</div><h2>Foto ou vídeo</h2><p>Toque em <b>Tirar foto ou gravar vídeo</b>.<br>Embaixo da câmera escolha <b>FOTO</b> ou <b>VÍDEO</b>.<br>No vídeo, toque no botão vermelho para começar e de novo para parar (até 30 segundos).</p></div>
+    <div class="tut-step"><div class="tut-ic">📺</div><h2>Você escolhe quem vê</h2><p>Antes de enviar, escolha:<br><b>📺 Pode passar no telão</b>: aparece na festa.<br><b>🔒 Só para os noivos</b>: fica guardado só para eles.</p></div>
+    <div class="tut-step"><div class="tut-ic">💛</div><h2>Pronto!</h2><p>O envio é automático. Se a internet estiver fraca, o celular guarda e envia sozinho depois.<br>Mandou sem querer? Em <b>Meus envios</b> você tira do telão na hora.</p></div>
+    <div class="dots" id="tut-dots"><i class="on"></i><i></i><i></i></div>
+    <button class="btn btn-gold" id="tut-next">Próximo</button>
+    <p><button class="link" id="tut-skip">Pular</button></p>
+  </div>
+</div>
+
+<!-- ============ ÁLBUM / ADMIN ============ -->
+<section id="v-gallery" class="hidden">
+  <div class="wrap" style="max-width:1200px">
+    <div class="gal-head">
+      <button class="round" id="gal-back" style="background:#fff;border:1px solid var(--line)" aria-label="Voltar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <h2 id="gal-title">Nosso álbum</h2>
+      <span id="gal-count" style="color:var(--muted);font-size:14px;min-width:48px;text-align:right"></span>
+    </div>
+    <div class="note" id="gal-note">Aqui aparece o que foi liberado para o telão. O que foi enviado como "só para os noivos" fica guardado só para eles. 🔒</div>
+    <div id="admin-login" class="card hidden" style="max-width:420px;margin:0 auto 20px">
+      <label class="f" for="in-code">Código dos noivos</label>
+      <input id="in-code" type="password" placeholder="Digite o código">
+      <div style="height:12px"></div>
+      <button class="btn btn-gold" id="btn-code">Entrar no painel</button>
+    </div>
+    <div id="admin-bar" class="hidden" style="margin-bottom:14px">
+      <div class="note" id="admin-stats" style="text-align:left"></div>
+      <button class="btn btn-sage" id="btn-zip">⬇️ Baixar tudo (.zip): melhor no computador</button>
+      <p class="hello" id="zip-status"></p>
+    </div>
+    <div class="grid" id="grid"></div>
+    <div class="empty hidden" id="gal-empty">Ainda não há nada por aqui…<br>Seja o primeiro a enviar! 📸</div>
+    <div style="text-align:center;margin-top:10px"><button class="btn btn-light hidden" id="gal-more" style="max-width:260px;margin:0 auto">Carregar mais</button></div>
+  </div>
+</section>
+
+<div class="lightbox hidden" id="lightbox">
+  <div class="lb-top">
+    <button class="round" id="lb-close" aria-label="Fechar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    <a class="round" id="lb-dl" aria-label="Baixar" download target="_blank" style="background:#fff;border:1px solid var(--line);color:var(--ink)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0-4-4m4 4 4-4M5 21h14"/></svg></a>
+  </div>
+  <div class="lb-media" id="lb-media"></div>
+  <div class="lb-info">
+    <div class="who" id="lb-who"></div><div class="msg" id="lb-msg"></div>
+    <div class="admin-actions hidden" id="lb-admin">
+      <button id="lb-telao"></button><button id="lb-hide">🚫 Ocultar de tudo</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ TELÃO (?telao) ============ -->
+<section id="v-telao" class="telao hidden">
+  <canvas id="fx"></canvas>
+  <svg class="branch tb1" viewBox="0 0 200 200"></svg><svg class="branch tb2" viewBox="0 0 200 200"></svg>
+  <div class="t-left"><div class="portrait">
+    <div class="window" id="t-window"><div class="wait" id="telao-wait">As fotos da festa vão aparecer aqui 💛<small>Escaneie o QR Code e mande a sua!</small></div></div>
+    <div class="mat"><div class="n">Caio <span>&</span> Thaís</div><div class="d">28 · 11 · 2026</div><div class="f">Casamento Botazzo Serra</div></div>
+  </div></div>
+  <div class="t-who off" id="t-who"><div class="lbl">Enviado por</div><div class="nm" id="t-nm"></div><div class="msg" id="t-msg"></div></div>
+  <div class="t-qr"><div id="t-qrbox"></div><b>Mande sua foto ou vídeo</b><small>Aponte a câmera do celular</small></div>
+  <div class="t-count" id="t-count"></div>
+  <button class="btn btn-gold t-start" id="telao-start">▶︎ Iniciar telão em tela cheia</button>
+  <button class="t-adm hidden" id="t-adm">🔒 Tirar esta do telão</button>
+</section>
+
+<div class="done" id="done"><div class="c"><div class="h" id="done-h">💛</div><b id="done-t">Enviado!</b><small id="done-s"></small></div></div>
+<div class="toast" id="toast"></div>
+
+<script src="assets/supabase.js"></script>
+<script src="assets/qrcode-gen.js"></script>
+<script>
+/* =========================================================
+   CONFIGURAÇÃO
+   ========================================================= */
+const CONFIG = {
+  // Projeto das FOTOS + lista (Missão Real RPG)
+  FOTOS_URL: "https://ghmoovtpvzwayfdltppj.supabase.co",
+  FOTOS_KEY: "sb_publishable__Y77uRywe8b_cYflZZuDuw_j72yFIGf",
+  // Projeto dos VÍDEOS (Terrália, bucket separado)
+  VIDEOS_URL: "https://oxnhimwkotsrfuxakazo.supabase.co",
+  VIDEOS_KEY: "sb_publishable_LFUz1Cn-9RouOGJbayeg1Q_YDrqcqOZ",
+  BUCKET_FOTOS: "casamento-fotos",
+  BUCKET_VIDEOS: "casamento-videos",
+  TABLE: "casamento_fotos",
+  NOMES: "Caio & Thaís",
+  DATA: "28 · 11 · 2026",
+  MAX_LADO: 1800, QUALIDADE: 0.82, THUMB_LADO: 480,
+  VIDEO_MAX_S: 30,                // gravação no site
+  VIDEO_BITRATE: 1_500_000,       // ~5,6 MB por 30 s
+  GALERIA_VIDEO_MAX_MB: 40,       // vídeo enviado da galeria
+  TELAO_FOTO_S: 7,                // tempo de cada foto no telão
+};
+
+const sbF = supabase.createClient(CONFIG.FOTOS_URL, CONFIG.FOTOS_KEY, { auth:{ persistSession:false } });
+const sbV = supabase.createClient(CONFIG.VIDEOS_URL, CONFIG.VIDEOS_KEY, { auth:{ persistSession:false } });
+const $ = id => document.getElementById(id);
+const params = new URLSearchParams(location.search);
+
+/* ---------------- utilidades ---------------- */
+function toast(msg, ms=2800){ const t=$("toast"); t.textContent=msg; t.classList.add("show"); clearTimeout(t._h); t._h=setTimeout(()=>t.classList.remove("show"),ms); }
+function uuid(){ if (crypto.randomUUID) return crypto.randomUUID(); const b=crypto.getRandomValues(new Uint8Array(16)); b[6]=(b[6]&15)|64; b[8]=(b[8]&63)|128; const h=[...b].map(x=>x.toString(16).padStart(2,"0")).join(""); return `${h.slice(0,8)}-${h.slice(8,12)}-${h.slice(12,16)}-${h.slice(16,20)}-${h.slice(20)}`; }
+function show(view){ ["v-welcome","v-home","v-camera","v-gallery","v-telao"].forEach(v=>$(v).classList.toggle("hidden", v!==view)); window.scrollTo(0,0); }
+const getName = () => localStorage.getItem("cas_nome") || "";
+const setName = n => localStorage.setItem("cas_nome", n);
+const sentCount = () => +(localStorage.getItem("cas_enviadas")||0);
+function bumpSent(){ localStorage.setItem("cas_enviadas", sentCount()+1); renderSent(); }
+function renderSent(){ const n=sentCount(); $("lbl-sent").textContent = n ? `Você já enviou ${n} ${n>1?"arquivos":"arquivo"}. Obrigado! 💛` : ""; }
+const fmtT = s => `${Math.floor(s/60)}:${String(Math.floor(s%60)).padStart(2,"0")}`;
+const pubFoto  = p => sbF.storage.from(CONFIG.BUCKET_FOTOS).getPublicUrl(p).data.publicUrl;
+const pubVideo = p => sbV.storage.from(CONFIG.BUCKET_VIDEOS).getPublicUrl(p).data.publicUrl;
+const mediaUrl = r => r.tipo==="video" ? pubVideo(r.caminho) : pubFoto(r.caminho);
+const thumbUrl = r => r.miniatura ? pubFoto(r.miniatura) : (r.tipo==="video" ? null : pubFoto(r.caminho));
+
+/* Grupos de escolha (telão / noivos) */
+function setupChoices(group, onChange){
+  const box=document.querySelector(`.choices[data-group="${group}"]`);
+  const btns=[...box.querySelectorAll(".choice")];
+  btns.forEach(b=>b.onclick=()=>{ btns.forEach(x=>x.classList.remove("sel","priv")); b.classList.add("sel"); if(b.dataset.v==="noivos") b.classList.add("priv"); onChange(b.dataset.v); });
+  return { reset(){ btns.forEach(x=>x.classList.remove("sel","priv")); onChange(null); } };
+}
+
+/* ---------------- imagem ---------------- */
+function canvasToBlob(c,q){ return new Promise(r=>c.toBlob(r,"image/jpeg",q)); }
+async function loadImage(file){
+  if (window.createImageBitmap){ try { return await createImageBitmap(file,{imageOrientation:"from-image"}); } catch(e){} }
+  return await new Promise((res,rej)=>{ const i=new Image(); i.onload=()=>res(i); i.onerror=rej; i.src=URL.createObjectURL(file); });
+}
+function scaleTo(src,w,h,max){ const k=Math.min(1,max/Math.max(w,h)); const c=document.createElement("canvas"); c.width=Math.round(w*k); c.height=Math.round(h*k); c.getContext("2d").drawImage(src,0,0,c.width,c.height); return c; }
+async function drawFrame(c){
+  try{ await document.fonts.load("80px 'Great Vibes'"); await document.fonts.load("500 30px 'Cormorant Garamond'"); }catch(e){}
+  const x=c.getContext("2d"), W=c.width, H=c.height, u=Math.min(W,H)/100;
+  const g=x.createLinearGradient(0,H*.62,0,H); g.addColorStop(0,"rgba(251,247,242,0)"); g.addColorStop(.55,"rgba(251,247,242,.82)"); g.addColorStop(1,"rgba(251,247,242,.96)");
+  x.fillStyle=g; x.fillRect(0,H*.62,W,H*.38);
+  x.textAlign="center"; x.fillStyle="#3D3833"; x.font=`${Math.round(u*11)}px 'Great Vibes', cursive`; x.fillText(CONFIG.NOMES,W/2,H-u*9.5);
+  x.fillStyle="#8C7550"; x.font=`500 ${Math.round(u*3.4)}px 'Cormorant Garamond', serif`; if("letterSpacing" in x) x.letterSpacing=`${Math.round(u)}px`;
+  x.fillText(CONFIG.DATA,W/2,H-u*4.2); if("letterSpacing" in x) x.letterSpacing="0px";
+  x.strokeStyle="rgba(184,137,62,.9)"; x.lineWidth=Math.max(2,u*.35); const m=u*2.2; x.strokeRect(m,m,W-2*m,H-2*m);
+}
+async function photoVersions(c){ const blob=await canvasToBlob(c,CONFIG.QUALIDADE); const t=scaleTo(c,c.width,c.height,CONFIG.THUMB_LADO); return { blob, thumb:await canvasToBlob(t,.72), w:c.width, h:c.height, mime:"image/jpeg" }; }
+
+/* poster de um vídeo (arquivo) */
+function videoInfo(file){
+  return new Promise(res=>{
+    const v=document.createElement("video"); v.muted=true; v.playsInline=true; v.preload="auto";
+    const url=URL.createObjectURL(file); let done=false;
+    const finish=(thumb)=>{ if(done) return; done=true; res({ duracao:isFinite(v.duration)?v.duration:null, w:v.videoWidth||null, h:v.videoHeight||null, thumb }); URL.revokeObjectURL(url); };
+    v.onloadeddata=()=>{ try{ v.currentTime=Math.min(.5,(v.duration||1)/3); }catch(e){ grab(); } };
+    v.onseeked=grab;
+    async function grab(){ try{ const c=scaleTo(v,v.videoWidth,v.videoHeight,CONFIG.THUMB_LADO); finish(await canvasToBlob(c,.72)); }catch(e){ finish(null); } }
+    v.onerror=()=>finish(null); setTimeout(()=>finish(null),8000);
+    v.src=url;
+  });
+}
+
+/* ---------------- fila de envio (IndexedDB) ---------------- */
+const DB=(()=>{ let dbp;
+  function open(){ return dbp ||= new Promise((res,rej)=>{ const r=indexedDB.open("casamento",1); r.onupgradeneeded=()=>r.result.createObjectStore("fila",{keyPath:"id"}); r.onsuccess=()=>res(r.result); r.onerror=()=>rej(r.error); }); }
+  async function tx(mode,fn){ const db=await open(); return new Promise((res,rej)=>{ const t=db.transaction("fila",mode); const out=fn(t.objectStore("fila")); t.oncomplete=()=>res(out&&out.result); t.onerror=()=>rej(t.error); }); }
+  return { put:i=>tx("readwrite",s=>s.put(i)), del:id=>tx("readwrite",s=>s.delete(id)), all:()=>tx("readonly",s=>s.getAll()) };
+})();
+const memQueue=[]; let useIDB=true;
+async function enqueue(item){ item.token ||= uuid()+uuid(); try{ await DB.put(item); }catch(e){ useIDB=false; memQueue.push(item); } processQueue(); }
+async function pending(){ if(!useIDB) return memQueue.slice(); try{ return await DB.all(); }catch(e){ useIDB=false; return memQueue.slice(); } }
+async function removeItem(id){ if(!useIDB){ const i=memQueue.findIndex(x=>x.id===id); if(i>=0) memQueue.splice(i,1); return; } await DB.del(id); }
+
+const okDup = e => !e || /exists|Duplicate|already/i.test(e.message||"");
+async function uploadOne(it){
+  const day=new Date(it.ts).toISOString().slice(0,10), base=`${day}/${it.id}`;
+  const o={ upsert:false, cacheControl:"31536000" };
+  let caminho, miniatura=null;
+  if (it.tipo==="video"){
+    const ext = /mp4/.test(it.mime)?"mp4":/quicktime/.test(it.mime)?"mov":"webm";
+    caminho=`videos/${base}.${ext}`;
+    const r=await sbV.storage.from(CONFIG.BUCKET_VIDEOS).upload(caminho,it.blob,{...o,contentType:it.mime}); if(!okDup(r.error)) throw r.error;
+  } else {
+    caminho=`fotos/${base}.jpg`;
+    const r=await sbF.storage.from(CONFIG.BUCKET_FOTOS).upload(caminho,it.blob,{...o,contentType:"image/jpeg"}); if(!okDup(r.error)) throw r.error;
+  }
+  if (it.thumb){ miniatura=`thumbs/${base}.jpg`; const r=await sbF.storage.from(CONFIG.BUCKET_FOTOS).upload(miniatura,it.thumb,{...o,contentType:"image/jpeg"}); if(!okDup(r.error)) throw r.error; }
+  const dono_hash = it.token ? await sha256hex(it.token) : null;
+  const ins=await sbF.from(CONFIG.TABLE).insert({ id:it.id, dono_hash, nome:it.nome, recado:it.recado||null, caminho, miniatura,
+    largura:it.w||null, altura:it.h||null, com_moldura:!!it.frame, tipo:it.tipo||"foto", no_telao:!!it.telao,
+    duracao:it.duracao?Math.round(it.duracao*10)/10:null, mime:it.mime||null, tamanho:it.blob.size });
+  if (ins.error && ins.error.code!=="23505") throw ins.error;
+}
+let busy=false,totalBatch=0,doneBatch=0;
+async function processQueue(){
+  if(busy) return; busy=true;
+  try{
+    let items=await pending(); totalBatch=Math.max(totalBatch,items.length+doneBatch);
+    while(items.length){
+      items.sort((a,b)=>a.ts-b.ts); const it=items[0]; updateQueueUI(items.length,false,it);
+      try{ await uploadOne(it); await removeItem(it.id); doneBatch++; const a=getMine(); if(!a.some(x=>x.id===it.id)){ const day=new Date(it.ts).toISOString().slice(0,10); a.push({ id:it.id, token:it.token||null, tipo:it.tipo||"foto", telao:!!it.telao, ts:it.ts, miniatura: it.thumb?`thumbs/${day}/${it.id}.jpg`:null }); setMine(a); } bumpSent(); renderMine(); }
+      catch(e){ console.warn("falha no envio, tentando de novo",e); updateQueueUI(items.length,true); await new Promise(r=>setTimeout(r,navigator.onLine?5000:15000)); }
+      items=await pending();
+    }
+    if(doneBatch) toast(doneBatch>1?`${doneBatch} arquivos enviados aos noivos! 💛`:"Enviado aos noivos! 💛");
+  } finally { busy=false; totalBatch=0; doneBatch=0; updateQueueUI(0); }
+}
+function updateQueueUI(left,retrying,it){
+  const q=$("queue"); if(!left){ q.classList.add("hidden"); return; } q.classList.remove("hidden");
+  $("q-text").textContent = retrying ? `Internet fraca… tentando de novo (${left} na fila). Pode continuar usando!` : `Enviando ${it&&it.tipo==="video"?"vídeo":"foto"}… (${left} na fila)`;
+  $("q-bar").style.width = totalBatch?`${Math.round(doneBatch/totalBatch*100)}%`:"0%";
+}
+window.addEventListener("online",processQueue);
+window.addEventListener("beforeunload",e=>{ if(busy){ e.preventDefault(); e.returnValue=""; } });
+
+/* ---------------- enfeites ---------------- */
+function drawBranches(){
+  let h='<path d="M10 10 C 60 40, 90 90, 120 190" fill="none" stroke="#9A7552" stroke-width="1.8"/><path d="M10 10 C 70 20, 130 30, 190 70" fill="none" stroke="#B8893E" stroke-width="1.3" opacity=".8"/>';
+  const twig=(x,y,dx,dy)=>`<path d="M${x} ${y} l${dx} ${dy}" stroke="#9A7552" stroke-width="1" opacity=".8"/>`;
+  const puff=(x,y,r,c)=>`<circle cx="${x}" cy="${y}" r="${r}" fill="${c}"/><circle cx="${x-r*.3}" cy="${y-r*.3}" r="${r*.45}" fill="#FFF3C4" opacity=".55"/>`;
+  const cols=["#E8B930","#F2CC55","#E0A928"];
+  [[30,26,-14,-8],[48,44,14,-6],[58,62,-15,2],[74,82,15,-2],[82,104,-14,4],[96,126,14,0],[102,150,-13,6],[112,172,12,2]].forEach(([x,y,dx,dy],i)=>{
+    h+=twig(x,y,dx,dy); const r=5.5-i*.25; h+=puff(x+dx,y+dy,r,cols[i%3]); h+=puff(x+dx*.55+3,y+dy*.55+5,r*.7,cols[(i+1)%3]); });
+  [[50,18,0,-12],[80,24,2,-13],[110,32,4,-12],[140,44,6,-12],[165,58,8,-11]].forEach(([x,y,dx,dy],i)=>{ h+=twig(x,y,dx,dy); h+=puff(x+dx,y+dy,4.6,cols[(i+2)%3]); });
+  [[66,30,-30],[124,40,40],[90,112,-60]].forEach(([x,y,r])=>h+=`<ellipse cx="${x}" cy="${y}" rx="4" ry="9" transform="rotate(${r} ${x} ${y})" fill="#D9B77E" opacity=".8"/>`);
+  document.querySelectorAll("svg.branch").forEach(sv=>{ if(!sv.innerHTML) sv.innerHTML=h; });
+}
+drawBranches();
+let doneT=null;
+function showDone(telao){
+  $("done-h").textContent = telao?"📺":"🔒"; $("done-t").textContent="Enviado! 💛";
+  $("done-s").textContent = telao?"Já já aparece no telão":"Guardado só para os noivos";
+  const d=$("done"); d.classList.add("show"); clearTimeout(doneT); doneT=setTimeout(()=>d.classList.remove("show"),1800);
+}
+/* Meus envios: guardados só neste celular */
+const getMine=()=>{ try{ return JSON.parse(localStorage.getItem("cas_meus")||"[]"); }catch(e){ return []; } };
+const setMine=a=>{ try{ localStorage.setItem("cas_meus",JSON.stringify(a.slice(-60))); }catch(e){} };
+async function sha256hex(t){ try{ const b=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(t)); return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join(""); }catch(e){ return null; } }
+function renderMine(){
+  const a=getMine().slice().reverse(); $("mine").classList.toggle("hidden",!a.length);
+  const box=$("mine-list"); box.innerHTML="";
+  a.slice(0,30).forEach(m=>{
+    const it=document.createElement("div"); it.className="mine-item";
+    const th = m.miniatura ? Object.assign(new Image(),{className:"th",src:pubFoto(m.miniatura),loading:"lazy"}) : Object.assign(document.createElement("div"),{className:"th",textContent:m.tipo==="video"?"🎥":"📸"});
+    const t=document.createElement("div"); t.className="t";
+    t.innerHTML=`${m.tipo==="video"?"🎥 Vídeo":"📸 Foto"}<small>${m.telao?"📺 Aparecendo no telão":"🔒 Só para os noivos"} · ${new Date(m.ts).toLocaleTimeString("pt-BR",{hour:"2-digit",minute:"2-digit"})}</small>`;
+    const b=document.createElement("button"); b.textContent = m.telao?"Tirar do telão":"Pôr no telão"; if(!m.telao) b.classList.add("put");
+    if(!m.token) b.disabled=true;
+    b.onclick=async()=>{
+      b.disabled=true;
+      const { data, error } = await sbF.rpc("casamento_meu_telao",{ p_id:m.id, p_token:m.token, p_no_telao:!m.telao });
+      if(error||!data){ toast("Não deu agora, tente de novo em instantes"); b.disabled=false; return; }
+      const all=getMine(); const x=all.find(y=>y.id===m.id); if(x) x.telao=!m.telao; setMine(all); renderMine();
+      toast(m.telao?"Pronto! Saiu do telão 🔒":"Vai aparecer no telão 📺");
+    };
+    it.append(th,t,b); box.append(it);
+  });
+}
+
+/* ---------------- telas iniciais ---------------- */
+function goHome(){ $("lbl-name").textContent=getName(); renderSent(); renderMine(); show("v-home"); if(!localStorage.getItem("cas_tut")) openTut(); }
+$("btn-enter").onclick=()=>{ const n=$("in-name").value.trim(); if(n.length<2){ toast("Digite seu nome para os noivos saberem quem enviou 😊"); $("in-name").focus(); return; } setName(n); goHome(); };
+$("in-name").addEventListener("keydown",e=>{ if(e.key==="Enter") $("btn-enter").click(); });
+$("btn-rename").onclick=()=>{ $("in-name").value=getName(); show("v-welcome"); };
+
+/* Tutorial */
+let tutI=0;
+function openTut(){ tutI=0; renderTut(); $("tut").classList.remove("hidden"); }
+function renderTut(){ document.querySelectorAll(".tut-step").forEach((s,i)=>s.classList.toggle("on",i===tutI)); document.querySelectorAll("#tut-dots i").forEach((d,i)=>d.classList.toggle("on",i===tutI)); $("tut-next").textContent = tutI===2?"Começar 💛":"Próximo"; }
+function closeTut(){ $("tut").classList.add("hidden"); localStorage.setItem("cas_tut","1"); }
+$("tut-next").onclick=()=>{ if(tutI<2){ tutI++; renderTut(); } else closeTut(); };
+$("tut-skip").onclick=closeTut; $("btn-help").onclick=openTut;
+
+/* ---------------- envio da galeria ---------------- */
+let shFiles=[], shChoice=null;
+const shCh=setupChoices("sh", v=>{ shChoice=v; $("sh-send").disabled=!v; $("sh-hint").textContent = v ? (v==="telao"?"📺 Vai aparecer no telão e no álbum.":"🔒 Só os noivos vão ver.") : "Escolha uma das opções acima 👆"; });
+$("btn-upload").onclick=()=>$("file-gallery").click();
+$("file-gallery").onchange=e=>{
+  const files=[...e.target.files]; e.target.value=""; if(!files.length) return;
+  const maxB=CONFIG.GALERIA_VIDEO_MAX_MB*1048576;
+  const big=files.filter(f=>f.type.startsWith("video/")&&f.size>maxB);
+  shFiles=files.filter(f=>!(f.type.startsWith("video/")&&f.size>maxB));
+  if(big.length) toast(`${big.length} vídeo(s) muito grande(s) (mais de ${CONFIG.GALERIA_VIDEO_MAX_MB} MB). Grave pelo botão "Gravar vídeo" do site, que fica leve 😉`,6000);
+  if(!shFiles.length) return;
+  const nv=shFiles.filter(f=>f.type.startsWith("video/")).length, nf=shFiles.length-nv;
+  $("sh-title").textContent = `Enviar ${[nf?`${nf} foto${nf>1?"s":""}`:"", nv?`${nv} vídeo${nv>1?"s":""}`:""].filter(Boolean).join(" e ")}`;
+  const th=$("sh-thumbs"); th.innerHTML="";
+  shFiles.slice(0,20).forEach(f=>{ const el=f.type.startsWith("video/")?Object.assign(document.createElement("video"),{muted:true,playsInline:true,preload:"metadata"}):new Image(); el.src=URL.createObjectURL(f); th.append(el); });
+  shCh.reset(); $("sheet").classList.remove("hidden");
+};
+$("sh-cancel").onclick=()=>{ $("sheet").classList.add("hidden"); shFiles=[]; };
+$("sh-send").onclick=async()=>{
+  const files=shFiles, telao=shChoice==="telao"; $("sheet").classList.add("hidden"); shFiles=[];
+  showDone(telao);
+  for(const f of files){
+    try{
+      if(f.type.startsWith("video/")){
+        const info=await videoInfo(f);
+        await enqueue({ id:uuid(), ts:Date.now(), nome:getName(), recado:"", tipo:"video", telao, blob:f, mime:f.type||"video/mp4", thumb:info.thumb, w:info.w, h:info.h, duracao:info.duracao });
+      } else {
+        const img=await loadImage(f); const c=scaleTo(img,img.width,img.height,CONFIG.MAX_LADO);
+        await enqueue({ id:uuid(), ts:Date.now(), nome:getName(), recado:"", tipo:"foto", telao, frame:false, ...(await photoVersions(c)) });
+      }
+    }catch(err){ console.error(err); toast("Um dos arquivos não pôde ser lido 😕"); }
+  }
+};
+
+/* ---------------- câmera (foto + vídeo) ---------------- */
+let stream=null, facing="environment", useFrame=false, mode="photo"; // moldura agora é a do telão
+let pending1=null;      // {tipo, canvas|blob,...} aguardando confirmação
+let rvChoice=null, rec=null, recChunks=[], recStart=0, recTimer=null, recPoster=null;
+const rvCh=setupChoices("rv", v=>{ rvChoice=v; $("rv-send").disabled=!v; $("rv-hint").textContent = v ? (v==="telao"?"📺 Vai aparecer no telão e no álbum.":"🔒 Só os noivos vão ver.") : "Escolha uma das opções acima 👆"; });
+
+$("btn-camera").onclick=()=>openCamera();
+async function openCamera(){
+  show("v-camera"); resetReview();
+  if(!navigator.mediaDevices?.getUserMedia) return fallbackNative();
+  try{
+    stopStream();
+    stream=await navigator.mediaDevices.getUserMedia({ video:{ facingMode:{ideal:facing}, width:{ideal:1920}, height:{ideal:1080} }, audio: mode==="video" });
+    const v=$("video"); v.srcObject=stream; v.classList.toggle("mirror",facing==="user"); await v.play().catch(()=>{});
+    $("cam-msg").classList.add("hidden");
+  }catch(err){
+    console.warn(err);
+    if(mode==="video" && err && err.name==="NotAllowedError"){ // sem microfone: tenta só vídeo
+      try{ stream=await navigator.mediaDevices.getUserMedia({ video:{facingMode:{ideal:facing}}, audio:false }); $("video").srcObject=stream; await $("video").play().catch(()=>{}); toast("Gravando sem som (microfone não liberado)"); return; }catch(e){}
+    }
+    $("cam-msg").innerHTML=`<div><p style="font-size:18px">Não conseguimos abrir a câmera 😕</p><p style="opacity:.85">Toque em "Permitir" quando o celular pedir.<br>Se não aparecer, use a câmera do celular e depois envie pela galeria:</p><button class="btn btn-gold" id="cam-native" style="margin-top:12px">Abrir câmera do celular</button></div>`;
+    $("cam-msg").classList.remove("hidden"); $("cam-native").onclick=fallbackNative;
+  }
+}
+function fallbackNative(){ closeCamera(); $("file-native").click(); }
+$("file-native").onchange=async e=>{
+  const f=e.target.files[0]; e.target.value=""; if(!f) return;
+  const img=await loadImage(f); const c=scaleTo(img,img.width,img.height,CONFIG.MAX_LADO);
+  const blob=await canvasToBlob(c,CONFIG.QUALIDADE); const file=new File([blob],"foto.jpg",{type:"image/jpeg"});
+  shFiles=[file]; $("sh-title").textContent="Enviar 1 foto"; $("sh-thumbs").innerHTML=""; const im=new Image(); im.src=URL.createObjectURL(file); $("sh-thumbs").append(im); shCh.reset(); $("sheet").classList.remove("hidden");
+};
+function stopStream(){ if(stream){ stream.getTracks().forEach(t=>t.stop()); stream=null; } }
+function closeCamera(){ stopRecording(true); stopStream(); goHome(); }
+$("cam-close").onclick=closeCamera;
+$("cam-flip").onclick=()=>{ if(rec) return; facing=facing==="environment"?"user":"environment"; openCamera(); };
+$("cam-frame").onclick=()=>{ useFrame=!useFrame; $("cam-frame").classList.toggle("on",useFrame); $("frame-preview").classList.toggle("hidden",!useFrame||mode==="video"); };
+function setMode(m){
+  if(rec||mode===m) return; mode=m;
+  $("mode-photo").classList.toggle("on",m==="photo"); $("mode-video").classList.toggle("on",m==="video");
+  $("cam-shoot").classList.toggle("video",m==="video");
+  $("cam-tip").textContent = m==="video" ? `Toque para gravar (até ${CONFIG.VIDEO_MAX_S} s) e toque de novo para parar` : "Toque no botão para tirar a foto";
+  
+  openCamera();
+}
+$("mode-photo").onclick=()=>setMode("photo"); $("mode-video").onclick=()=>setMode("video");
+
+$("cam-shoot").onclick=()=>{ if(mode==="photo") takePhoto(); else if(rec) stopRecording(); else startRecording(); };
+
+async function takePhoto(){
+  const v=$("video"); if(!v.videoWidth) return;
+  const f=$("flash"); f.style.opacity=1; setTimeout(()=>f.style.opacity=0,120);
+  const vw=v.videoWidth, vh=v.videoHeight, sr=innerWidth/innerHeight, vr=vw/vh;
+  let sw=vw, sh=vh; if(vr>sr) sw=vh*sr; else sh=vw/sr; const sx=(vw-sw)/2, sy=(vh-sh)/2;
+  const k=Math.min(1,CONFIG.MAX_LADO/Math.max(sw,sh)); const c=document.createElement("canvas"); c.width=Math.round(sw*k); c.height=Math.round(sh*k);
+  const x=c.getContext("2d"); if(facing==="user"){ x.translate(c.width,0); x.scale(-1,1); } x.drawImage(v,sx,sy,sw,sh,0,0,c.width,c.height); x.setTransform(1,0,0,1,0,0);
+  if(useFrame) await drawFrame(c);
+  pending1={ tipo:"foto", canvas:c, frame:useFrame };
+  $("shot").src=c.toDataURL("image/jpeg",.8); $("shot").classList.remove("hidden"); openReview();
+}
+
+function pickMime(){
+  const opts=["video/mp4;codecs=avc1.42E01E,mp4a.40.2","video/mp4;codecs=avc1","video/mp4","video/webm;codecs=vp9,opus","video/webm;codecs=vp8,opus","video/webm"];
+  for(const t of opts){ try{ if(window.MediaRecorder && MediaRecorder.isTypeSupported(t)) return t; }catch(e){} }
+  return "";
+}
+function startRecording(){
+  if(!stream || !window.MediaRecorder){ toast("Seu celular não grava vídeo por aqui 😕. Grave pela câmera do celular e envie pela galeria."); return; }
+  const mime=pickMime(); recChunks=[];
+  try{ rec=new MediaRecorder(stream, mime?{mimeType:mime,videoBitsPerSecond:CONFIG.VIDEO_BITRATE,audioBitsPerSecond:96000}:{videoBitsPerSecond:CONFIG.VIDEO_BITRATE}); }
+  catch(e){ rec=new MediaRecorder(stream); }
+  rec.ondataavailable=e=>{ if(e.data&&e.data.size) recChunks.push(e.data); };
+  rec.onstop=onRecStop;
+  rec.start(1000); recStart=performance.now();
+  $("cam-shoot").classList.add("recording"); $("rec-time").classList.remove("hidden");
+  $("mode-photo").disabled=$("mode-video").disabled=true; $("cam-flip").disabled=true;
+  $("cam-tip").textContent="Gravando… toque para parar";
+  recPoster=null; setTimeout(grabPoster,600);
+  const ring=$("ring");
+  recTimer=setInterval(()=>{
+    const s=(performance.now()-recStart)/1000;
+    $("rec-time").textContent=`${fmtT(s)} / ${fmtT(CONFIG.VIDEO_MAX_S)}`;
+    ring.style.strokeDashoffset = 238.8*(1-Math.min(1,s/CONFIG.VIDEO_MAX_S));
+    if(s>=CONFIG.VIDEO_MAX_S) stopRecording();
+  },100);
+}
+async function grabPoster(){ try{ const v=$("video"); const c=scaleTo(v,v.videoWidth,v.videoHeight,CONFIG.THUMB_LADO); if(facing==="user"){ const m=document.createElement("canvas"); m.width=c.width; m.height=c.height; const x=m.getContext("2d"); x.translate(m.width,0); x.scale(-1,1); x.drawImage(c,0,0); recPoster=await canvasToBlob(m,.72); } else recPoster=await canvasToBlob(c,.72); }catch(e){} }
+let discardRec=false;
+function stopRecording(discard){
+  clearInterval(recTimer); recTimer=null;
+  $("cam-shoot").classList.remove("recording"); $("rec-time").classList.add("hidden"); $("ring").style.strokeDashoffset=238.8;
+  $("mode-photo").disabled=$("mode-video").disabled=false; $("cam-flip").disabled=false;
+  if(rec && rec.state!=="inactive"){ discardRec=!!discard; rec.stop(); } else rec=null;
+}
+function onRecStop(){
+  const r=rec; rec=null; if(discardRec){ discardRec=false; return; }
+  const dur=(performance.now()-recStart)/1000;
+  if(dur<1.2){ toast("Vídeo muito curto, toque e grave mais um pouquinho 🙂"); setMode("video"); $("cam-tip").textContent="Toque para gravar e toque de novo para parar"; return; }
+  const mime=(r.mimeType||recChunks[0]?.type||"video/webm").split(";")[0];
+  const blob=new Blob(recChunks,{type:mime});
+  const v=$("video");
+  pending1={ tipo:"video", blob, mime, duracao:Math.min(dur,CONFIG.VIDEO_MAX_S+1), thumb:recPoster, w:v.videoWidth, h:v.videoHeight };
+  const clip=$("clip"); clip.src=URL.createObjectURL(blob); clip.classList.toggle("mirror",facing==="user"); clip.classList.remove("hidden"); clip.muted=false; clip.play().catch(()=>{});
+  openReview();
+}
+function openReview(){ $("frame-preview").classList.add("hidden"); $("cam-controls").classList.add("hidden"); rvCh.reset(); $("review").classList.remove("hidden"); }
+function resetReview(){
+  pending1=null; $("in-msg").value=""; rvCh.reset();
+  $("shot").classList.add("hidden"); const clip=$("clip"); clip.pause(); clip.removeAttribute("src"); clip.load(); clip.classList.add("hidden");
+  $("review").classList.add("hidden"); $("cam-controls").classList.remove("hidden");
+  
+  $("cam-tip").textContent = mode==="video" ? `Toque para gravar (até ${CONFIG.VIDEO_MAX_S} s) e toque de novo para parar` : "Toque no botão para tirar a foto";
+}
+$("rv-retake").onclick=resetReview;
+$("rv-send").onclick=async()=>{
+  if(!pending1||!rvChoice) return;
+  const p=pending1, telao=rvChoice==="telao", recado=$("in-msg").value.trim().slice(0,200);
+  $("rv-send").disabled=true;
+  if(p.tipo==="foto") await enqueue({ id:uuid(), ts:Date.now(), nome:getName(), recado, tipo:"foto", telao, frame:p.frame, ...(await photoVersions(p.canvas)) });
+  else await enqueue({ id:uuid(), ts:Date.now(), nome:getName(), recado, tipo:"video", telao, blob:p.blob, mime:p.mime, thumb:p.thumb, w:p.w, h:p.h, duracao:p.duracao });
+  showDone(telao);
+  resetReview();
+};
+
+/* ---------------- álbum + painel ---------------- */
+const PAGE=60; let galOffset=0, galItems=[], galTimer=null, newestTs=null;
+let adminCode = sessionStorage.getItem("cas_admin") || null, adminMode=false;
+$("btn-gallery").onclick=()=>openGallery(false);
+$("gal-back").onclick=()=>{ clearInterval(galTimer); if(getName()) goHome(); else show("v-welcome"); };
+
+async function fetchPage(from,limit){
+  if(adminMode){
+    const { data, error } = await sbF.rpc("casamento_admin_listar",{ p_codigo:adminCode, p_offset:from, p_limite:limit });
+    if(error) throw error; return data;
+  }
+  const { data, error } = await sbF.from(CONFIG.TABLE).select("*").order("criado_em",{ascending:false}).range(from,from+limit-1);
+  if(error) throw error; return data;
+}
+async function openGallery(asAdmin){
+  adminMode=!!asAdmin; show("v-gallery");
+  $("gal-title").textContent = adminMode?"Painel dos noivos":"Nosso álbum";
+  $("gal-note").classList.toggle("hidden",adminMode); $("admin-bar").classList.toggle("hidden",!adminMode); $("admin-login").classList.add("hidden");
+  $("grid").innerHTML=""; galOffset=0; galItems=[]; newestTs=null;
+  await loadMore();
+  clearInterval(galTimer); galTimer=setInterval(checkNew,15000);
+}
+function figure(r){
+  const fig=document.createElement("figure"); const img=new Image(); img.loading="lazy"; img.alt=r.nome;
+  const t=thumbUrl(r); if(t) img.src=t; if(r.largura&&r.altura) img.style.aspectRatio=`${r.largura}/${r.altura}`; else img.style.aspectRatio="3/4";
+  const cap=document.createElement("figcaption"); cap.textContent=r.nome; fig.append(img,cap);
+  if(r.tipo==="video"){ const p=document.createElement("span"); p.className="play"; fig.append(p); }
+  if(adminMode){ const b=document.createElement("span"); b.className="badge"; b.textContent = r.arquivado?"💾 salvo no PC":r.oculta?"🚫 oculta":r.no_telao?"📺 telão":"🔒 noivos"; fig.append(b); }
+  fig.onclick=()=>openLB(r); r._fig=fig; return fig;
+}
+async function loadMore(){
+  try{
+    const data=await fetchPage(galOffset,PAGE);
+    if(galOffset===0 && data[0]) newestTs=data[0].criado_em;
+    data.forEach(r=>{ galItems.push(r); $("grid").append(figure(r)); }); galOffset+=data.length;
+    $("gal-count").textContent = galItems.length?`${galItems.length}${data.length===PAGE?"+":""}`:"";
+    $("gal-empty").classList.toggle("hidden",galItems.length>0); $("gal-more").classList.toggle("hidden",data.length<PAGE);
+    if(adminMode) renderStats();
+  }catch(e){ console.error(e); if(adminMode && /codigo/i.test(e.message||"")){ sessionStorage.removeItem("cas_admin"); adminCode=null; showAdminLogin(); toast("Código inválido"); } else toast("Não deu para carregar agora, tentando de novo…"); }
+}
+$("gal-more").onclick=loadMore;
+async function checkNew(){
+  try{
+    const data = await fetchPage(0,40);
+    const known=new Set(galItems.map(x=>x.id)); const fresh=data.filter(r=>!known.has(r.id)).reverse();
+    fresh.forEach(r=>{ galItems.unshift(r); $("grid").prepend(figure(r)); galOffset++; });
+    if(fresh.length){ $("gal-empty").classList.add("hidden"); $("gal-count").textContent=`${galItems.length}+`; if(adminMode) renderStats(); }
+  }catch(e){}
+}
+function renderStats(){
+  const n=k=>galItems.filter(k).length;
+  $("admin-stats").innerHTML=`<b>${galItems.length}</b> carregados · 📸 ${n(r=>r.tipo!=="video")} fotos · 🎥 ${n(r=>r.tipo==="video")} vídeos<br>📺 ${n(r=>r.no_telao&&!r.oculta)} no telão · 🔒 ${n(r=>!r.no_telao)} só noivos · 🚫 ${n(r=>r.oculta)} ocultas · 💾 ${n(r=>r.arquivado)} já só no PC`;
+}
+let lbItem=null;
+function openLB(r){
+  lbItem=r; const m=$("lb-media"); m.innerHTML="";
+  if(r.arquivado){ m.innerHTML=`<div class="empty">💾 Este arquivo já foi salvo no computador e liberado da nuvem.</div>`; }
+  else if(r.tipo==="video"){ const v=document.createElement("video"); v.src=mediaUrl(r); v.controls=true; v.playsInline=true; v.autoplay=true; const t=thumbUrl(r); if(t) v.poster=t; m.append(v); }
+  else { const i=new Image(); i.src=mediaUrl(r); m.append(i); }
+  $("lb-who").textContent=(r.tipo==="video"?"🎥 ":"📸 ")+r.nome;
+  $("lb-msg").textContent=r.recado?`“${r.recado}”`:"";
+  $("lb-dl").href=mediaUrl(r)+"?download="; $("lb-dl").classList.toggle("hidden",!!r.arquivado);
+  $("lb-admin").classList.toggle("hidden",!adminMode);
+  if(adminMode){ $("lb-telao").textContent = r.no_telao?"🔒 Tirar do telão":"📺 Pôr no telão"; $("lb-hide").textContent = r.oculta?"↩️ Mostrar de novo":"🚫 Ocultar de tudo"; }
+  $("lightbox").classList.remove("hidden");
+}
+function closeLB(){ const v=$("lb-media").querySelector("video"); if(v) v.pause(); $("lightbox").classList.add("hidden"); }
+$("lb-close").onclick=closeLB;
+async function adminSet(fields){
+  const r=lbItem; const { error } = await sbF.rpc("casamento_admin_atualizar",{ p_codigo:adminCode, p_id:r.id, p_no_telao:fields.no_telao??null, p_oculta:fields.oculta??null });
+  if(error){ toast("Não deu certo, tente de novo"); return; }
+  Object.assign(r,fields); const nf=figure(r); r._fig&&r._fig.replaceWith(nf); r._fig=nf; renderStats(); openLB(r);
+  toast(fields.no_telao===false?"Saiu do telão ✔️":fields.no_telao?"Vai aparecer no telão ✔️":fields.oculta?"Ocultada ✔️":"Visível de novo ✔️");
+}
+$("lb-telao").onclick=()=>adminSet({ no_telao:!lbItem.no_telao });
+$("lb-hide").onclick=()=>adminSet({ oculta:!lbItem.oculta });
+
+function showAdminLogin(){ show("v-gallery"); $("gal-title").textContent="Painel dos noivos"; $("gal-note").classList.add("hidden"); $("admin-bar").classList.add("hidden"); $("grid").innerHTML=""; $("admin-login").classList.remove("hidden"); $("gal-more").classList.add("hidden"); }
+$("btn-code").onclick=async()=>{
+  const c=$("in-code").value.trim(); if(!c) return;
+  const { error } = await sbF.rpc("casamento_admin_listar",{ p_codigo:c, p_offset:0, p_limite:1 });
+  if(error){ toast("Código inválido"); return; }
+  adminCode=c; sessionStorage.setItem("cas_admin",c); history.replaceState(null,"","?admin"); openGallery(true);
+};
+
+/* Baixar tudo */
+$("btn-zip").onclick=async()=>{
+  const st=$("zip-status"); st.textContent="Carregando lista…";
+  if(!window.JSZip) await new Promise((r,j)=>{ const s=document.createElement("script"); s.src="assets/jszip.min.js"; s.onload=r; s.onerror=j; document.head.append(s); });
+  let all=[], from=0; while(true){ const d=await fetchPage(from,1000); all=all.concat(d); if(d.length<1000) break; from+=1000; }
+  all=all.filter(r=>!r.arquivado).reverse();
+  const zip=new JSZip(); const recados=["nome;tipo;quem pode ver;recado;arquivo"]; let i=0;
+  for(const r of all){
+    i++; st.textContent=`Baixando ${i} de ${all.length}…`;
+    try{
+      const b=await (await fetch(mediaUrl(r))).blob();
+      const safe=(r.nome||"convidado").replace(/[^\p{L}\p{N} _-]/gu,"").trim().slice(0,30)||"convidado";
+      const ext=r.caminho.split(".").pop(); const pasta = r.tipo==="video"?"Videos":"Fotos"; const sub = r.no_telao?"":"/So para os noivos";
+      const nome=`${pasta}${sub}/${String(i).padStart(4,"0")} - ${safe}.${ext}`; zip.file(nome,b);
+      recados.push([r.nome,r.tipo,r.no_telao?"telão":"só noivos",(r.recado||"").replace(/;/g,","),nome].join(";"));
+    }catch(e){ console.warn(e); }
+  }
+  zip.file("recados.csv","﻿"+recados.join("\n"));
+  st.textContent="Montando o arquivo…";
+  const out=await zip.generateAsync({type:"blob"}); const a=document.createElement("a"); a.href=URL.createObjectURL(out); a.download="Casamento Caio e Thais.zip"; a.click();
+  st.textContent=`Pronto! ${all.length} arquivos.`;
+};
+
+/* ---------------- TELÃO ---------------- */
+function startLeaves(){
+  const cv=$("fx"), cx=cv.getContext("2d"), dpr=Math.min(2,devicePixelRatio||1); let W,H;
+  const rs=()=>{ W=cv.width=innerWidth*dpr; H=cv.height=innerHeight*dpr; }; rs(); addEventListener("resize",rs);
+  const cols=["#E8B930","#F2CC55","#F6DC8A","#E2C194","#EED3AE","#D9B77E"];
+  const mk=top=>({ x:Math.random()*W, y:top?Math.random()*H:-40*dpr, s:(8+Math.random()*12)*dpr, vy:(.25+Math.random()*.45)*dpr, sw:Math.random()*6.3, sp:.006+Math.random()*.01, r:Math.random()*6.3, vr:(Math.random()-.5)*.02, c:cols[Math.random()*cols.length|0], a:.3+Math.random()*.45, petal:Math.random()<.6 });
+  const leaves=Array.from({length:26},()=>mk(true));
+  (function draw(){
+    cx.clearRect(0,0,W,H);
+    for(const l of leaves){
+      l.y+=l.vy; l.sw+=l.sp; l.x+=Math.sin(l.sw)*.6*dpr; l.r+=l.vr; if(l.y>H+40*dpr) Object.assign(l,mk(false));
+      cx.save(); cx.translate(l.x,l.y); cx.rotate(l.r); cx.globalAlpha=l.a; cx.fillStyle=l.c; cx.beginPath();
+      if(l.petal){ cx.arc(0,0,l.s*.42,0,7); cx.fill(); cx.fillStyle="rgba(255,243,196,.6)"; cx.beginPath(); cx.arc(-l.s*.12,-l.s*.12,l.s*.18,0,7); } else { cx.moveTo(0,-l.s); cx.quadraticCurveTo(l.s*.6,0,0,l.s); cx.quadraticCurveTo(-l.s*.6,0,0,-l.s); }
+      cx.fill();
+      if(!l.petal){ cx.strokeStyle="rgba(255,255,255,.5)"; cx.lineWidth=dpr; cx.beginPath(); cx.moveTo(0,-l.s*.8); cx.lineTo(0,l.s*.8); cx.stroke(); }
+      cx.restore();
+    }
+    requestAnimationFrame(draw);
+  })();
+}
+async function startTelao(){
+  show("v-telao"); startLeaves();
+  const siteUrl = location.origin + location.pathname;
+  try{ const q=qrcode(0,"M"); q.addData(siteUrl); q.make(); $("t-qrbox").innerHTML=q.createSvgTag({cellSize:6,margin:0,scalable:true}).replace(/black/g,"#5A4330"); }
+  catch(e){ $("t-qrbox").innerHTML='<img src="assets/qrcode.png" alt="QR Code">'; }
+  const LIMITE=200;
+  let list=[], seen=new Set(), priority=[], idx=0, lastOk=Date.now(), playing=false, timer=null, current=null;
+  const cache=new Map(); // url -> objectURL (continua passando mesmo sem internet)
+  async function getSrc(url){
+    if(cache.has(url)) return cache.get(url);
+    const res=await fetch(url); if(!res.ok) throw new Error("http "+res.status);
+    const o=URL.createObjectURL(await res.blob()); cache.set(url,o);
+    if(cache.size>260){ const k=cache.keys().next().value; URL.revokeObjectURL(cache.get(k)); cache.delete(k); }
+    return o;
+  }
+  async function refresh(){
+    try{
+      const { data, error } = await sbF.from(CONFIG.TABLE).select("*").order("criado_em",{ascending:false}).limit(LIMITE);
+      if(error) throw error; lastOk=Date.now();
+      const ids=new Set(data.map(r=>r.id));
+      data.slice().reverse().forEach(r=>{ if(!seen.has(r.id)){ seen.add(r.id); if(list.length||priority.length) priority.push(r); } });
+      priority=priority.filter(r=>ids.has(r.id)); list=data;
+      $("telao-wait").classList.toggle("hidden",list.length>0);
+      if(current && !ids.has(current.id)) next();          // tirada do telão agora → troca na hora
+      else if(!playing && list.length) next();
+      const c=await sbF.from(CONFIG.TABLE).select("id",{count:"exact",head:true});
+      if(c.count) $("t-count").textContent=`✦ ${c.count} ${c.count>1?"fotos e vídeos":"envio"} ✦`;
+    }catch(e){ console.warn("telão: sem conexão, continuo com o que tenho", e); }
+  }
+  function pick(){ if(priority.length) return priority.shift(); if(!list.length) return null; return list[idx++ % list.length]; }
+  async function next(){
+    clearTimeout(timer); const r=pick(); if(!r){ playing=false; current=null; return; } playing=true;
+    let src, bg;
+    try{ src=await getSrc(mediaUrl(r)); const t=thumbUrl(r); bg = t ? await getSrc(t).catch(()=>null) : null; }
+    catch(e){ timer=setTimeout(next,1500); return; }
+    const s=document.createElement("div"); s.className="slide";
+    if(bg||r.tipo!=="video"){ const b=new Image(); b.className="bgblur"; b.src=bg||src; s.append(b); }
+    let el;
+    if(r.tipo==="video"){
+      el=document.createElement("video"); el.muted=true; el.playsInline=true; el.autoplay=true; el.src=src;
+      let ended=false; const go=()=>{ if(!ended){ ended=true; next(); } };
+      el.onended=go; el.onerror=go; timer=setTimeout(go,Math.min((r.duracao||30)+3,45)*1000);
+    } else { el=new Image(); el.src=src; timer=setTimeout(next,CONFIG.TELAO_FOTO_S*1000); }
+    el.className="main"; s.append(el);
+    const tag=document.createElement("span"); tag.className="tag"; tag.textContent=r.tipo==="video"?"🎥 Vídeo":"📸 Foto"; s.append(tag);
+    const show1=()=>{
+      current=r; $("t-window").append(s); requestAnimationFrame(()=>requestAnimationFrame(()=>s.classList.add("on")));
+      [...$("t-window").querySelectorAll(".slide")].filter(x=>x!==s).forEach(o=>{ o.classList.remove("on"); const ov=o.querySelector("video"); setTimeout(()=>{ if(ov) ov.pause(); o.remove(); },1300); });
+      const w=$("t-who"); w.classList.add("off");
+      setTimeout(()=>{ $("t-nm").textContent=r.nome; $("t-msg").textContent=r.recado?`“${r.recado}”`:""; w.classList.remove("off"); },450);
+    };
+    if(r.tipo==="video"){ el.onloadeddata=show1; el.play().catch(()=>{}); } else { el.onload=show1; el.onerror=()=>{ clearTimeout(timer); next(); }; }
+  }
+  // Botão discreto para você (com o código dos noivos)
+  async function tirarAtual(){
+    if(!adminCode||!current) return; const r=current;
+    const { error } = await sbF.rpc("casamento_admin_atualizar",{ p_codigo:adminCode, p_id:r.id, p_no_telao:false });
+    if(error){ toast("Não deu certo, tente de novo"); return; }
+    list=list.filter(x=>x.id!==r.id); priority=priority.filter(x=>x.id!==r.id); toast("Tirada do telão ✔️"); next();
+  }
+  if(adminCode) $("t-adm").classList.remove("hidden");
+  $("t-adm").onclick=tirarAtual;
+  addEventListener("keydown",e=>{ if(e.key==="Delete"||e.key==="Backspace") tirarAtual(); if(e.key==="ArrowRight") next(); });
+  // Esconde o mouse quando parado
+  let idleT; const tv=$("v-telao"); const wakeMouse=()=>{ tv.classList.remove("idle"); clearTimeout(idleT); idleT=setTimeout(()=>tv.classList.add("idle"),3000); };
+  addEventListener("mousemove",wakeMouse); wakeMouse();
+  // Tela não apaga
+  async function wake(){ try{ await navigator.wakeLock?.request("screen"); }catch(e){} }
+  document.addEventListener("visibilitychange",()=>{ if(document.visibilityState==="visible") wake(); });
+  $("telao-start").onclick=()=>{ document.documentElement.requestFullscreen?.().catch(()=>{}); wake(); $("telao-start").classList.add("hidden"); };
+  setTimeout(()=>$("telao-start").classList.add("hidden"),60000);
+  await refresh(); setInterval(refresh,5000); wake();
+  setInterval(()=>{ if(Date.now()-lastOk>10*60*1000 && navigator.onLine) location.reload(); },60000);
+  setInterval(()=>{ if(!playing && list.length) next(); },10000);
+}
+
+/* ---------------- início ---------------- */
+if(params.has("telao")){ if(params.get("admin")){ adminCode=params.get("admin"); sessionStorage.setItem("cas_admin",adminCode); history.replaceState(null,"","?telao"); } startTelao(); }
+else if(params.has("admin")){ if(params.get("admin")){ adminCode=params.get("admin"); sessionStorage.setItem("cas_admin",adminCode); history.replaceState(null,"","?admin"); } adminCode?openGallery(true):showAdminLogin(); }
+else if(params.has("album")) openGallery(false);
+else if(getName()) goHome();
+else show("v-welcome");
+processQueue();
+</script>
+</body>
+</html>
