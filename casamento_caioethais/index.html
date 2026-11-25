@@ -17,7 +17,7 @@
   @font-face{font-family:'Nunito Sans';src:url(assets/fonts/nunito-sans-latin-600-normal.woff2) format('woff2');font-weight:600;font-display:swap}
   @font-face{font-family:'Nunito Sans';src:url(assets/fonts/nunito-sans-latin-700-normal.woff2) format('woff2');font-weight:700;font-display:swap}
   :root{
-    --bg:#FDF6EA; --card:#FFFDF8; --ink:#5A4330; --muted:#9A8470;
+    --bg:#FDF6EA; --card:#FFFDF8; --ink:#4E3A29; --muted:#86705A;
     --gold:#B8893E; --gold-soft:#F1DFC0; --sage:#C99A3A; --sage-soft:#F8E8BC;
     --blush:#F6E3CC; --line:#EEDFC8; --rec:#D9534F;
     --radius:22px; --shadow:0 10px 30px rgba(80,60,30,.08);
@@ -55,7 +55,7 @@
   .btn-sage{background:var(--sage);color:#fff}
   .btn-light{background:#fff;color:var(--ink);border:1.5px solid var(--line)}
   .stack{display:grid;gap:14px}
-  .hello{text-align:center;color:var(--muted);font-size:15px;margin-top:6px}
+  .hello{text-align:center;color:var(--muted);font-size:16px;margin-top:6px}
   .hello b{color:var(--ink)}
   .link{background:none;color:var(--gold);text-decoration:underline;font-size:14px;padding:4px}
 
@@ -67,7 +67,7 @@
   .action.sage .ic{background:var(--sage-soft);color:#94701f}
   .action.blush .ic{background:var(--blush);color:#a0674a}
   .action h3{margin:0;font-family:'Cormorant Garamond',serif;font-size:23px;font-weight:600}
-  .action p{margin:2px 0 0;font-size:14px;color:var(--muted)}
+  .action p{margin:2px 0 0;font-size:15px;color:var(--muted)}
 
   .queue{margin-top:18px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px 16px;font-size:14px;display:flex;gap:12px;align-items:center}
   .queue .bar{height:6px;background:var(--line);border-radius:6px;overflow:hidden}
@@ -201,10 +201,16 @@
   #v-home > *:not(canvas){position:relative;z-index:1}
   .live-banner{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#fff;border:1.5px solid var(--gold-soft);border-radius:18px;padding:14px 16px;margin:20px 0 14px;box-shadow:var(--shadow)}
   .live-banner b{display:block;font-size:16px}
-  .live-banner span.c{font-size:13px;color:var(--muted)}
+  .live-banner span.c{font-size:14px;color:var(--muted)}
   .pulse{background:#D9534F;color:#fff;font-size:11px;font-weight:800;letter-spacing:.08em;padding:6px 10px;border-radius:20px;display:flex;gap:6px;align-items:center;flex:none}
   .pulse::before{content:"";width:7px;height:7px;border-radius:50%;background:#fff;animation:blink 1.2s infinite}
   @keyframes blink{50%{opacity:.2}}
+  .cta-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:6px}
+  .cta-row .cta{flex-direction:column;align-items:flex-start;gap:12px;padding:20px 16px;margin:0}
+  .cta-row .cta h3{font-size:27px}
+  .cta-row .cta p{font-size:13px}
+  .cta.alt{background:linear-gradient(135deg,#C99A3A,#8E6A2E)}
+  .site-cam{display:block;margin:10px auto 14px;background:none;color:var(--gold);text-decoration:underline;font-size:14px;font-weight:600}
   .cta{position:relative;overflow:hidden;width:100%;display:flex;align-items:center;gap:16px;padding:24px 20px;border-radius:24px;background:linear-gradient(135deg,#D9AC5F,#A87C3A);color:#fff;text-align:left;box-shadow:0 14px 30px rgba(168,124,58,.4);margin-bottom:14px;transition:transform .12s}
   .cta:active{transform:scale(.98)}
   .cta::after{content:"";position:absolute;top:0;bottom:0;width:40%;left:-60%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);animation:shine 3.4s ease-in-out infinite}
@@ -213,7 +219,7 @@
   .cta .ic svg{width:34px;height:34px}
   .cta h3{margin:0;font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;line-height:1.05}
   .cta p{margin:5px 0 0;font-size:14px;opacity:.95}
-  .tip{font-size:13px;color:var(--muted);text-align:center;margin:12px 6px 0;line-height:1.45}
+  .tip{font-size:14px;color:var(--muted);text-align:center;margin:12px 6px 0;line-height:1.45}
   .now,.rank-card{margin-top:26px}
   .now h4,.rank-card h4{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;margin:0 0 10px;text-align:center}
   .now-strip{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
@@ -225,7 +231,7 @@
   .rk:last-child{border:0}
   .rk .m{font-size:30px;width:36px;text-align:center;flex:none}
   .rk .n{flex:1;font-weight:700;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-  .rk .n small{display:block;font-weight:400;color:var(--muted);font-size:12px}
+  .rk .n small{display:block;font-weight:400;color:var(--muted);font-size:13px;white-space:normal}
   .rk .c{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:var(--gold)}
   .rank-card p.s{text-align:center;color:var(--muted);font-size:13px;margin:10px 0 0}
   .mine-item .dl{background:#fff;border:1.5px solid var(--line);padding:9px 10px}
@@ -236,61 +242,69 @@
   .zoom-lbl.on{opacity:1}
 
   /* Telão */
-  .telao{position:fixed;inset:0;z-index:70;overflow:hidden;background:#FDF6EA;background-image:radial-gradient(ellipse at 15% 10%,#F8E2C0 0,transparent 50%),radial-gradient(ellipse at 90% 95%,#F9ECC6 0,transparent 50%)}
+  .telao{position:fixed;inset:0;z-index:70;overflow:hidden;background:#FDF6EA url(assets/telao-fundo.jpg) center/cover no-repeat}
   .telao.idle{cursor:none}
   .telao #fx{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
-  .telao .branch{width:34vh;z-index:1}
+  .telao .branch{display:none}
   .telao .tb1{top:-2vh;left:-2vh}.telao .tb2{bottom:-2vh;right:-2vh;transform:rotate(180deg)}
-  .t-left{position:absolute;left:4vw;top:0;bottom:0;right:36vw;display:flex;align-items:center;justify-content:center;z-index:2}
+  .t-left{position:absolute;left:9vw;top:0;bottom:0;right:36vw;display:flex;align-items:center;justify-content:center;z-index:2}
   .portrait{background:#fff;padding:2.2vh 2.2vh 0;box-shadow:0 2.5vh 7vh rgba(70,50,25,.16);position:relative}
   .portrait::before{content:"";position:absolute;inset:1vh;border:1px solid var(--gold);pointer-events:none;z-index:2}
   .portrait::after{content:"";position:absolute;inset:1.5vh;border:1px solid rgba(184,137,62,.35);pointer-events:none;z-index:2}
-  .window{width:min(58vw,100vh);height:68vh;position:relative;overflow:hidden;background:#F3E6D0}
+  .window{width:min(53vw,100vh);height:70vh;position:relative;overflow:hidden;background:#F3E6D0}
   .window .slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s}
   .window .slide.on{opacity:1}
   .window .bgblur{position:absolute;inset:-6%;width:112%;height:112%;object-fit:cover;filter:blur(28px) saturate(1.1);opacity:.75}
   .window .main{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
-  .window .tag{position:absolute;top:2.6vh;left:2.6vh;background:rgba(255,255,255,.92);border-radius:3vh;padding:.6vh 1.4vh;font-size:1.5vh;font-weight:700}
+  .window .tag{position:absolute;top:2.6vh;left:2.6vh;background:rgba(255,255,255,.94);border-radius:3vh;padding:.8vh 1.6vh;font-size:2vh;font-weight:700;z-index:2}
   .window .wait{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-family:'Cormorant Garamond',serif;font-size:3.4vh;color:#7A6450;padding:4vh;z-index:1}
   .window .wait small{font-size:2.2vh;margin-top:1vh}
   .mat{text-align:center;padding:1.6vh 0 2.2vh}
-  .mat .n{font-family:'Great Vibes',cursive;font-size:6.4vh;line-height:1;color:var(--ink)}
+  .mat .n{font-family:'Great Vibes',cursive;font-size:7vh;line-height:1;color:var(--ink)}
   .mat .n span{color:var(--gold)}
-  .mat .d{font-family:'Cormorant Garamond',serif;font-weight:500;letter-spacing:.45em;font-size:1.8vh;color:var(--gold);margin-top:.6vh}
-  .mat .f{font-family:'Cormorant Garamond',serif;font-weight:500;letter-spacing:.28em;text-transform:uppercase;font-size:1.6vh;color:var(--muted);margin-top:.8vh}
-  .t-who{position:absolute;right:5vw;top:4vh;width:28vw;box-sizing:border-box;background:rgba(255,255,255,.82);border:1px solid var(--line);border-radius:2vh;padding:2.4vh 3vh;text-align:center;z-index:3;height:24vh;overflow:hidden;transition:opacity .6s;display:flex;flex-direction:column;justify-content:center}
-  .t-who.off{opacity:0}
-  .t-who .lbl{font-size:1.5vh;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
-  .t-who .nm{font-family:'Cormorant Garamond',serif;font-size:4vh;margin-top:.6vh}
-  .t-who .msg{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:2.8vh;color:#6B5440;margin-top:1.2vh;line-height:1.35}
-  .t-qr{position:absolute;right:5vw;bottom:4.5vh;width:28vw;box-sizing:border-box;background:#fff;border-radius:2vh;padding:2.4vh;text-align:center;box-shadow:0 1.5vh 4vh rgba(70,50,25,.1);z-index:3}
+  .mat .d{font-family:'Cormorant Garamond',serif;font-weight:600;letter-spacing:.4em;font-size:2.3vh;color:var(--gold);margin-top:.6vh}
+  .mat .f{font-family:'Cormorant Garamond',serif;font-weight:600;letter-spacing:.24em;text-transform:uppercase;font-size:2.1vh;color:#7A6450;margin-top:.8vh}
+  .t-qr{position:absolute;right:9vw;bottom:7vh;width:24vw;box-sizing:border-box;background:#fff;border-radius:2vh;padding:2.4vh;text-align:center;box-shadow:0 1.5vh 4vh rgba(70,50,25,.1);z-index:3}
   .t-qr #t-qrbox{width:16vh;height:16vh;margin:0 auto 1vh}
   .t-qr #t-qrbox svg,.t-qr #t-qrbox img{width:100%;height:100%;display:block}
-  .t-qr b{font-family:'Cormorant Garamond',serif;font-size:3vh;font-weight:500;display:block}
-  .t-qr small{color:var(--muted);font-size:1.5vh}
-  .t-count{position:absolute;right:5vw;width:28vw;bottom:1.6vh;text-align:center;color:var(--muted);font-size:1.6vh;letter-spacing:.1em;z-index:3}
+  .t-qr b{font-family:'Cormorant Garamond',serif;font-size:3.4vh;font-weight:500;display:block}
+  .t-qr small{color:var(--muted);font-size:1.9vh}
+  .t-count{position:absolute;right:calc(9vw + 4vw);width:16vw;bottom:2.2vh;text-align:center;color:#6B5440;font-weight:700;font-size:2vh;background:rgba(255,253,248,.92);border-radius:3vh;padding:.7vh 0;box-shadow:0 .6vh 2vh rgba(70,50,25,.1);letter-spacing:.1em;z-index:3}
   .t-start{position:absolute;left:2.5vw;bottom:3vh;z-index:5;width:auto!important;padding:16px 28px!important}
   .t-adm{position:absolute;left:2.5vw;top:2.5vh;z-index:5;background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:10px 16px;font-weight:700;font-size:15px;opacity:.35;transition:opacity .3s}
   .t-adm:hover{opacity:1}
   .telao.idle .t-adm{opacity:0}
-  .t-rank{position:absolute;right:5vw;top:30vh;width:28vw;box-sizing:border-box;background:linear-gradient(180deg,#fff,#FFF8EA);border:1.5px solid var(--gold-soft);border-radius:2vh;padding:1.8vh 2.2vh;z-index:3}
-  .t-rank .lbl{text-align:center;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:2.8vh;margin-bottom:.6vh}
-  .t-rank .rk{padding:.7vh .4vh;gap:1.2vh}
-  .t-rank .rk .m{font-size:3.4vh;width:4vh}
-  .t-rank .rk .n{font-size:2vh}
-  .t-rank .rk .n small{font-size:1.5vh}
-  .t-rank .rk .c{font-size:3vh}
+  .t-rank{position:absolute;right:9vw;top:9vh;width:24vw;box-sizing:border-box;background:linear-gradient(180deg,#fff,#FFF8EA);border:1.5px solid var(--gold-soft);border-radius:2vh;padding:1.8vh 2.2vh;z-index:3}
+  .t-rank .lbl{text-align:center;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:3.6vh;margin-bottom:.6vh}
+  .t-rank .rk{padding:1vh .4vh;gap:1.2vh}
+  .t-rank .rk .m{font-size:4.4vh;width:5vh}
+  .t-rank .rk .n{font-size:2.6vh;white-space:normal}
+  .t-rank .rk .n small{font-size:1.75vh;line-height:1.35;margin-top:.3vh}
+  .t-rank .rk .c{font-size:4vh}
   .t-rank .vazio{text-align:center;color:var(--muted);font-size:1.8vh;padding:1vh 0}
   .rk.up{animation:up 1.2s ease}
   @keyframes up{0%{background:#FFE9A8}100%{background:transparent}}
-  .window .slide.on img.main{animation:kb 9s ease-out forwards}
-  @keyframes kb{from{transform:scale(1)}to{transform:scale(1.07)}}
+  .window .slide.on img.main.kb1{animation:kb1 8.5s ease-in-out forwards}
+  .window .slide.on img.main.kb2{animation:kb2 8.5s ease-in-out forwards}
+  .window .slide.on img.main.kb3{animation:kb3 8.5s ease-in-out forwards}
+  .window .slide.on img.main.kb4{animation:kb4 8.5s ease-in-out forwards}
+  .window .slide.on img.main.kb5{animation:kb5 8.5s ease-in-out forwards}
+  @keyframes kb1{from{transform:scale(1)}to{transform:scale(1.14)}}
+  @keyframes kb2{from{transform:scale(1.14)}to{transform:scale(1)}}
+  @keyframes kb3{from{transform:scale(1.12) translateX(3%)}to{transform:scale(1.12) translateX(-3%)}}
+  @keyframes kb4{from{transform:scale(1.1) translate(-2%,2%) rotate(-1.5deg)}to{transform:scale(1.04) translate(2%,-1%) rotate(1.2deg)}}
+  @keyframes kb5{from{transform:scale(1.02) rotate(1.5deg)}to{transform:scale(1.13) rotate(-1deg)}}
+  .window .slide{transform:scale(1.04)}
+  .window .slide.on{transform:scale(1);transition:opacity 1.2s, transform 1.4s ease-out}
+  .cap-over{position:absolute;left:0;right:0;bottom:0;padding:9vh 3vh 2.4vh;background:linear-gradient(transparent,rgba(40,26,12,.72));color:#fff;z-index:2;text-shadow:0 .2vh .8vh rgba(0,0,0,.4)}
+  .cap-over .lb{font-size:1.8vh;letter-spacing:.22em;text-transform:uppercase;opacity:.9}
+  .cap-over .nm{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:5vh;line-height:1.05;margin-top:.3vh}
+  .cap-over .msg{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:3vh;margin-top:.6vh;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .cap-over{opacity:0;transform:translateY(2vh);transition:opacity .8s .5s, transform .8s .5s}
+  .slide.on .cap-over{opacity:1;transform:none}
   .window .tag.novo{background:linear-gradient(135deg,#E8B930,#C99A3A);color:#fff;font-size:2vh;padding:.9vh 1.8vh;animation:pop .6s cubic-bezier(.2,1.6,.4,1), glow 1.4s ease-in-out infinite}
   @keyframes pop{from{transform:scale(.3)}to{transform:scale(1)}}
   @keyframes glow{50%{box-shadow:0 0 0 1vh rgba(232,185,48,.25)}}
-  .portrait .shine{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:3}
-  .portrait .shine::after{content:"";position:absolute;top:-20%;bottom:-20%;width:18%;left:-30%;transform:skewX(-18deg);background:linear-gradient(90deg,transparent,rgba(255,240,200,.55),transparent);animation:sweep 11s ease-in-out infinite}
-  @keyframes sweep{0%,70%{left:-30%}100%{left:130%}}
   .t-cele{position:absolute;inset:0;z-index:8;display:grid;place-items:center;pointer-events:none;opacity:0;transition:opacity .5s;background:radial-gradient(circle,rgba(253,246,234,.85) 0,rgba(253,246,234,.4) 60%,transparent 100%)}
   .t-cele.on{opacity:1}
   .tc-box{text-align:center;transform:scale(.6);transition:transform .7s cubic-bezier(.2,1.5,.4,1);background:#fff;border:2px solid var(--gold);border-radius:4vh;padding:4vh 7vh;box-shadow:0 3vh 9vh rgba(120,80,20,.25)}
@@ -335,10 +349,17 @@
   <p class="hello">Olá, <b id="lbl-name"></b>! <button class="link" id="btn-rename">não é você?</button></p>
 
   <div class="live-banner"><div><b>📺 Apareça no telão da festa!</b><span class="c" id="live-count">Seja o primeiro a enviar ✨</span></div><span class="pulse">AO VIVO</span></div>
-  <button class="cta" id="btn-camera">
-    <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5A2.5 2.5 0 0 1 5.5 6h1.7l1.4-2h6.8l1.4 2h1.7A2.5 2.5 0 0 1 21 8.5v9A2.5 2.5 0 0 1 18.5 20h-13A2.5 2.5 0 0 1 3 17.5z"/><circle cx="12" cy="12.5" r="3.8"/></svg></span>
-    <span><h3>Tirar foto ou<br>gravar vídeo</h3><p>Em segundos aparece no telão ✨</p></span>
-  </button>
+  <div class="cta-row">
+    <button class="cta" id="btn-foto">
+      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5A2.5 2.5 0 0 1 5.5 6h1.7l1.4-2h6.8l1.4 2h1.7A2.5 2.5 0 0 1 21 8.5v9A2.5 2.5 0 0 1 18.5 20h-13A2.5 2.5 0 0 1 3 17.5z"/><circle cx="12" cy="12.5" r="3.8"/></svg></span>
+      <span><h3>Tirar foto</h3><p>Abre a câmera do seu celular</p></span>
+    </button>
+    <button class="cta alt" id="btn-video">
+      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="6" width="13" height="12" rx="2.5"/><path d="m15.5 10.5 6-3.5v10l-6-3.5z"/></svg></span>
+      <span><h3>Gravar vídeo</h3><p>Até 30 s · vai pro telão</p></span>
+    </button>
+  </div>
+  <button class="site-cam" id="btn-camera">ou use a câmera do site (zoom 1x·2x·3x e prévia)</button>
   <div class="stack">
     <button class="action sage" id="btn-upload">
       <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.8"/><path d="m21 15-5-5L5 21"/></svg></span>
@@ -357,7 +378,7 @@
   <p class="hello" id="lbl-sent" style="margin-top:16px"></p>
   <p class="tip">✂️ Quer cortar ou editar o vídeo? Grave com a câmera do seu celular, edite na galeria e envie por <b>Enviar da galeria</b>.</p>
   <div class="now hidden" id="now"><h4>Agora no telão</h4><div class="now-strip"><div class="now-track" id="now-track"></div></div></div>
-  <div class="rank-card hidden" id="rank-home"><h4>🏆 Ranking da festa</h4><div id="rank-home-list"></div><p class="s" id="rank-me"></p></div>
+  <div class="rank-card hidden" id="rank-home"><h4>🏆 Ranking da festa</h4><p class="s" style="margin:-6px 0 6px">Conta tudo que você enviou: o que está no telão e o que é só para os noivos</p><div id="rank-home-list"></div><p class="s" id="rank-me"></p></div>
   <div class="mine hidden" id="mine">
     <h4>Meus envios</h4>
     <p class="s">Enviou sem querer? Toque em "Tirar do telão" 😉</p>
@@ -424,6 +445,7 @@
       <button class="choice" data-v="noivos"><span class="e">🔒</span><b>Só para os noivos</b><small>Fica guardado, ninguém mais vê</small></button>
     </div>
     <div class="hint" id="sh-hint">Escolha uma das opções acima 👆</div>
+    <textarea id="sh-msg" maxlength="200" placeholder="Deixe um recado para os noivos (opcional) 💌" style="margin-top:8px"></textarea>
     <div class="row" style="display:grid;grid-template-columns:1fr 1.4fr;gap:10px;margin-top:10px">
       <button class="btn btn-light" id="sh-cancel">Cancelar</button>
       <button class="btn btn-gold" id="sh-send" disabled>Enviar 💛</button>
@@ -434,7 +456,7 @@
 <!-- ============ TUTORIAL ============ -->
 <div class="tut hidden" id="tut">
   <div class="tut-box">
-    <div class="tut-step on"><div class="tut-ic">📸</div><h2>Foto ou vídeo</h2><p>Toque em <b>Tirar foto ou gravar vídeo</b>.<br>Embaixo da câmera escolha <b>FOTO</b> ou <b>VÍDEO</b>.<br>No vídeo, toque no botão vermelho para começar e de novo para parar (até 30 segundos).</p></div>
+    <div class="tut-step on"><div class="tut-ic">📸</div><h2>Foto ou vídeo</h2><p>Toque em <b>Tirar foto</b> ou <b>Gravar vídeo</b>: abre a câmera do seu próprio celular, com zoom e tudo.<br>Vídeos de até 30 segundos.</p></div>
     <div class="tut-step"><div class="tut-ic">📺</div><h2>Você escolhe quem vê</h2><p>Antes de enviar, escolha:<br><b>📺 Pode passar no telão</b>: aparece na festa.<br><b>🔒 Só para os noivos</b>: fica guardado só para eles.</p></div>
     <div class="tut-step"><div class="tut-ic">💛</div><h2>Pronto!</h2><p>O envio é automático. Se a internet estiver fraca, o celular guarda e envia sozinho depois.<br>Mandou sem querer? Em <b>Meus envios</b> você tira do telão na hora.</p></div>
     <div class="dots" id="tut-dots"><i class="on"></i><i></i><i></i></div>
@@ -487,12 +509,11 @@
 <section id="v-telao" class="telao hidden">
   <canvas id="fx"></canvas>
   <svg class="branch tb1" viewBox="0 0 200 200"></svg><svg class="branch tb2" viewBox="0 0 200 200"></svg>
-  <div class="t-left"><div class="portrait"><div class="shine"></div>
+  <div class="t-left"><div class="portrait">
     <div class="window" id="t-window"><div class="wait" id="telao-wait">As fotos da festa vão aparecer aqui 💛<small>Escaneie o QR Code e mande a sua!</small></div></div>
     <div class="mat"><div class="n">Caio <span>&</span> Thaís</div><div class="d">28 · 11 · 2026</div><div class="f">Casamento Botazzo Serra</div></div>
   </div></div>
-  <div class="t-who off" id="t-who"><div class="lbl">Enviado por</div><div class="nm" id="t-nm"></div><div class="msg" id="t-msg"></div></div>
-  <div class="t-rank" id="t-rank"><div class="lbl">🏆 Ranking da festa</div><div id="t-rank-list"><div class="vazio">Quem mandar mais fotos e vídeos ganha o troféu! 🏆</div></div></div>
+  <div class="t-rank" id="t-rank"><div class="lbl">🏆 Ranking da festa</div><div style="text-align:center;font-size:1.6vh;color:var(--muted);margin:-.4vh 0 .6vh">total de envios (telão + só para os noivos)</div><div id="t-rank-list"><div class="vazio">Quem mandar mais fotos e vídeos ganha o troféu! 🏆</div></div></div>
   <div class="t-qr"><div id="t-qrbox"></div><b>Mande sua foto ou vídeo</b><small>Aponte a câmera do celular</small></div>
   <div class="t-count" id="t-count"></div>
   <button class="btn btn-gold t-start" id="telao-start">▶︎ Iniciar telão em tela cheia</button>
@@ -723,16 +744,16 @@ function handleFiles(files){
 $("file-gallery").onchange=e=>{ const f=[...e.target.files]; e.target.value=""; handleFiles(f); };
 $("sh-cancel").onclick=()=>{ $("sheet").classList.add("hidden"); shFiles=[]; };
 $("sh-send").onclick=async()=>{
-  const files=shFiles, telao=shChoice==="telao"; $("sheet").classList.add("hidden"); shFiles=[];
+  const files=shFiles, telao=shChoice==="telao", recado=$("sh-msg").value.trim().slice(0,200); $("sh-msg").value=""; $("sheet").classList.add("hidden"); shFiles=[];
   showDone(telao);
   for(const f of files){
     try{
       if(f.type.startsWith("video/")){
         const info=await videoInfo(f);
-        await enqueue({ id:uuid(), ts:Date.now(), nome:getName(), recado:"", tipo:"video", telao, blob:f, mime:f.type||"video/mp4", thumb:info.thumb, w:info.w, h:info.h, duracao:info.duracao });
+        await enqueue({ id:uuid(), ts:Date.now(), nome:getName(), recado, tipo:"video", telao, blob:f, mime:f.type||"video/mp4", thumb:info.thumb, w:info.w, h:info.h, duracao:info.duracao });
       } else {
         const img=await loadImage(f); const c=scaleTo(img,img.width,img.height,CONFIG.MAX_LADO);
-        await enqueue({ id:uuid(), ts:Date.now(), nome:getName(), recado:"", tipo:"foto", telao, frame:false, ...(await photoVersions(c)) });
+        await enqueue({ id:uuid(), ts:Date.now(), nome:getName(), recado, tipo:"foto", telao, frame:false, ...(await photoVersions(c)) });
       }
     }catch(err){ console.error(err); toast("Um dos arquivos não pôde ser lido 😕"); }
   }
@@ -745,6 +766,8 @@ let rvChoice=null, rec=null, recChunks=[], recStart=0, recTimer=null, recPoster=
 const rvCh=setupChoices("rv", v=>{ rvChoice=v; $("rv-send").disabled=!v; $("rv-hint").textContent = v ? (v==="telao"?"📺 Vai aparecer no telão e no álbum.":"🔒 Só os noivos vão ver.") : "Escolha uma das opções acima 👆"; });
 
 $("btn-camera").onclick=()=>openCamera();
+$("btn-foto").onclick=()=>$("file-native").click();
+$("btn-video").onclick=()=>$("file-native-video").click();
 async function openCamera(){
   show("v-camera"); resetReview();
   if(!navigator.mediaDevices?.getUserMedia) return fallbackNative();
@@ -1030,10 +1053,16 @@ function startLeaves(canvasId,count){
   return { burst };
 }
 const MEDALHAS=["🥇","🥈","🥉"];
+function rankSub(r){
+  const pf=r.pub_fotos??r.fotos, pv=r.pub_videos??r.videos, pr=r.priv??0;
+  let t=`📺 No telão: ${pf} foto${pf!==1?"s":""} · ${pv} vídeo${pv!==1?"s":""}`;
+  if(pr) t+=` · 🔒 ${pr} só p/ noivos`;
+  return t;
+}
 function rankRow(r,i){
   const d=document.createElement("div"); d.className="rk";
   d.innerHTML=`<span class="m">${MEDALHAS[i]||(i+1)+"º"}</span><span class="n"></span><span class="c">${r.total}</span>`;
-  const n=d.querySelector(".n"); n.textContent=r.nome; const sm=document.createElement("small"); sm.textContent=`📸 ${r.fotos} foto${r.fotos!==1?"s":""} · 🎥 ${r.videos} vídeo${r.videos!==1?"s":""}`; n.append(sm);
+  const n=d.querySelector(".n"); n.textContent=r.nome; const sm=document.createElement("small"); sm.textContent=rankSub(r); n.append(sm);
   return d;
 }
 /* Início: contador ao vivo, "Agora no telão" e ranking */
@@ -1095,13 +1124,15 @@ async function startTelao(){
       let ended=false; const go=()=>{ if(!ended){ ended=true; next(); } };
       el.onended=go; el.onerror=go; timer=setTimeout(go,Math.min((r.duracao||30)+3,45)*1000);
     } else { el=new Image(); el.src=src; timer=setTimeout(next,CONFIG.TELAO_FOTO_S*1000); }
-    el.className="main"; s.append(el);
+    el.className="main"+(r.tipo==="video"?"":" kb"+(1+Math.floor(Math.random()*5))); s.append(el);
+    const cap=document.createElement("div"); cap.className="cap-over";
+    cap.innerHTML='<div class="lb"></div><div class="nm"></div><div class="msg"></div>';
+    cap.querySelector(".lb").textContent=(r.tipo==="video"?"🎥":"📸")+" Enviado por"; cap.querySelector(".nm").textContent=r.nome;
+    cap.querySelector(".msg").textContent=r.recado?`“${r.recado}”`:""; s.append(cap);
     const novo = !!r._novo; const tag=document.createElement("span"); tag.className="tag"+(novo?" novo":""); tag.textContent= novo ? "✨ ACABOU DE CHEGAR" : (r.tipo==="video"?"🎥 Vídeo":"📸 Foto"); s.append(tag);
     const show1=()=>{
       current=r; if(novo){ r._novo=false; fx.burst(70,.33,.45); } $("t-window").append(s); requestAnimationFrame(()=>requestAnimationFrame(()=>s.classList.add("on")));
       [...$("t-window").querySelectorAll(".slide")].filter(x=>x!==s).forEach(o=>{ o.classList.remove("on"); const ov=o.querySelector("video"); setTimeout(()=>{ if(ov) ov.pause(); o.remove(); },1300); });
-      const w=$("t-who"); w.classList.add("off");
-      setTimeout(()=>{ $("t-nm").textContent=r.nome; $("t-msg").textContent=r.recado?`“${r.recado}”`:""; w.classList.remove("off"); },450);
     };
     if(r.tipo==="video"){ el.onloadeddata=show1; el.play().catch(()=>{}); } else { el.onload=show1; el.onerror=()=>{ clearTimeout(timer); next(); }; }
   }
@@ -1130,7 +1161,7 @@ async function startTelao(){
   function nextCele(){
     const it=celeQ.shift(); if(!it){ celeOn=false; return; } celeOn=true; const [r,i]=it;
     $("tc-t").textContent=MEDALHAS[i]; $("tc-h").textContent=POS_TXT[i]; $("tc-n").textContent=r.nome;
-    $("tc-s").textContent=`📸 ${r.fotos} foto${r.fotos!==1?"s":""} · 🎥 ${r.videos} vídeo${r.videos!==1?"s":""}`;
+    $("tc-s").textContent=`${r.total} envios · ${rankSub(r)}`;
     $("t-cele").classList.add("on"); fx.burst(i===0?160:90,.5,.45); setTimeout(()=>fx.burst(i===0?110:50,.25,.3),500); setTimeout(()=>fx.burst(i===0?110:50,.75,.3),900);
     setTimeout(()=>{ $("t-cele").classList.remove("on"); setTimeout(nextCele,900); },5200);
   }
