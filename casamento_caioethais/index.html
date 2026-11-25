@@ -241,6 +241,59 @@
   .zoom-lbl{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,.45);color:#fff;font-weight:800;font-size:22px;padding:10px 18px;border-radius:30px;z-index:2;opacity:0;transition:opacity .3s;pointer-events:none}
   .zoom-lbl.on{opacity:1}
 
+  /* Ícones e medalhas ilustradas */
+  .ico{display:inline-block;width:1.15em;height:1.15em;vertical-align:-.2em;margin-right:.15em}
+  .rk .m svg{width:100%;height:auto;display:block;filter:drop-shadow(0 2px 3px rgba(120,80,20,.25))}
+  .rk .m{font-family:'Cormorant Garamond',serif;font-weight:600;color:var(--muted)}
+  .trophy-h{display:inline-block;width:1.25em;height:1.25em;vertical-align:-.25em;margin-right:.2em}
+  /* Painel: abas e controle */
+  .tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:6px;margin-bottom:14px}
+  .tabs button{padding:12px 8px;border-radius:12px;font-weight:700;font-size:15px;background:transparent}
+  .tabs button.on{background:var(--gold);color:#fff}
+  .ctrl{display:grid;gap:14px;max-width:560px;margin:0 auto}
+  .cc{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:var(--shadow)}
+  .cc h5{margin:0 0 10px;font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600}
+  .cc label{display:block;font-weight:700;font-size:14px;margin:12px 0 6px}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .stats div{background:var(--bg);border-radius:12px;padding:10px 6px;text-align:center}
+  .stats b{display:block;font-size:22px;font-family:'Cormorant Garamond',serif}
+  .stats small{color:var(--muted);font-size:12px}
+  .now-box{display:flex;gap:12px;align-items:center;min-height:70px;color:var(--muted);font-size:14px}
+  .now-box img{width:84px;height:84px;border-radius:12px;object-fit:cover;background:var(--line);flex:none}
+  .now-box b{color:var(--ink);font-size:17px;display:block}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+  .bigb{padding:16px 10px;border-radius:14px;font-weight:800;font-size:16px;background:var(--bg);border:1.5px solid var(--line)}
+  .bigb.gold{background:linear-gradient(135deg,#CFA05A,#A87C3A);color:#fff;border:0}
+  .bigb.warn{background:#FBE7D9;border-color:#F1CDB4}
+  .bigb.danger{width:100%;background:#D9534F;color:#fff;border:0;font-size:18px;padding:18px}
+  .bigb.danger.on{background:#4E3A29}
+  .sw{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px}
+  .sw small{display:block;color:var(--muted);font-size:13px}
+  .tg{width:56px;height:32px;border-radius:20px;background:var(--line);position:relative;flex:none;transition:.2s}
+  .tg::after{content:"";position:absolute;top:4px;left:4px;width:24px;height:24px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.2);transition:.2s}
+  .tg.on{background:var(--gold)}
+  .tg.on::after{left:28px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chips button{padding:10px 14px;border-radius:20px;background:var(--bg);border:1.5px solid var(--line);font-weight:700;font-size:14px}
+  .chips button.on{background:var(--gold);border-color:var(--gold);color:#fff}
+  .cc input{width:100%;margin-top:10px}
+  .st{color:var(--muted);font-size:13px;margin:10px 0 0}
+  .fila{display:grid;gap:8px;margin-top:12px}
+  .fila .fi{display:flex;align-items:center;gap:10px;background:var(--bg);border-radius:12px;padding:8px}
+  .fila img{width:64px;height:64px;border-radius:10px;object-fit:cover;flex:none;background:var(--line)}
+  .fila .fi span{flex:1;font-weight:700;font-size:14px}
+  .fila .fi button{width:46px;height:46px;border-radius:12px;font-size:20px;background:#fff;border:1.5px solid var(--line)}
+  /* Telão: pausa, aviso, destaque */
+  .t-pause{position:absolute;inset:0;z-index:7;background:rgba(253,246,234,.97) url(assets/telao-fundo.jpg) center/cover;display:flex;align-items:center;justify-content:center;text-align:center;opacity:0;pointer-events:none;transition:opacity .8s}
+  .t-pause.on{opacity:1}
+  .t-pause .names{font-size:13vh;margin:0}
+  .t-pause p{font-family:'Cormorant Garamond',serif;font-size:6vh;color:#6B5440;margin:1vh 0 0}
+  .t-aviso{position:absolute;left:50%;top:3vh;z-index:6;transform:translate(-50%,-160%);transition:transform .9s cubic-bezier(.2,1.3,.4,1);max-width:80vw}
+  .t-aviso.on{transform:translate(-50%,0)}
+  .t-aviso span{display:block;background:linear-gradient(135deg,#D9AC5F,#A87C3A);color:#fff;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:6vh;padding:1.6vh 5vh;border-radius:5vh;box-shadow:0 2vh 6vh rgba(120,80,20,.35);text-align:center;animation:avp 2s ease-in-out infinite}
+  @keyframes avp{50%{transform:scale(1.04)}}
+  .window .tag.dest{background:#4E3A29;color:#fff}
+
   /* Telão */
   .telao{position:fixed;inset:0;z-index:70;overflow:hidden;background:#FDF6EA url(assets/telao-fundo.jpg) center/cover no-repeat}
   .telao.idle{cursor:none}
@@ -277,7 +330,7 @@
   .t-rank{position:absolute;right:9vw;top:9vh;width:24vw;box-sizing:border-box;background:linear-gradient(180deg,#fff,#FFF8EA);border:1.5px solid var(--gold-soft);border-radius:2vh;padding:1.8vh 2.2vh;z-index:3}
   .t-rank .lbl{text-align:center;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:3.6vh;margin-bottom:.6vh}
   .t-rank .rk{padding:1vh .4vh;gap:1.2vh}
-  .t-rank .rk .m{font-size:4.4vh;width:5vh}
+  .t-rank .rk .m{font-size:4.4vh;width:6.4vh}
   .t-rank .rk .n{font-size:2.6vh;white-space:normal}
   .t-rank .rk .n small{font-size:1.75vh;line-height:1.35;margin-top:.3vh}
   .t-rank .rk .c{font-size:4vh}
@@ -378,7 +431,7 @@
   <p class="hello" id="lbl-sent" style="margin-top:16px"></p>
   <p class="tip">✂️ Quer cortar ou editar o vídeo? Grave com a câmera do seu celular, edite na galeria e envie por <b>Enviar da galeria</b>.</p>
   <div class="now hidden" id="now"><h4>Agora no telão</h4><div class="now-strip"><div class="now-track" id="now-track"></div></div></div>
-  <div class="rank-card hidden" id="rank-home"><h4>🏆 Ranking da festa</h4><p class="s" style="margin:-6px 0 6px">Conta tudo que você enviou: o que está no telão e o que é só para os noivos</p><div id="rank-home-list"></div><p class="s" id="rank-me"></p></div>
+  <div class="rank-card hidden" id="rank-home"><h4><span class="trophy-h" data-art="trophy"></span>Ranking da festa</h4><p class="s" style="margin:-6px 0 6px">Conta tudo que você enviou: o que está no telão e o que é só para os noivos</p><div id="rank-home-list"></div><p class="s" id="rank-me"></p></div>
   <div class="mine hidden" id="mine">
     <h4>Meus envios</h4>
     <p class="s">Enviou sem querer? Toque em "Tirar do telão" 😉</p>
@@ -480,6 +533,30 @@
       <div style="height:12px"></div>
       <button class="btn btn-gold" id="btn-code">Entrar no painel</button>
     </div>
+    <div class="tabs hidden" id="admin-tabs"><button data-t="ctrl" class="on">🎛️ Controle do telão</button><button data-t="fotos">🖼️ Fotos e vídeos</button></div>
+    <div class="ctrl hidden" id="ctrl-view">
+      <div class="cc"><h5>📊 Resumo ao vivo</h5><div class="stats" id="c-stats"></div></div>
+      <div class="cc"><h5>📺 Passando agora</h5><div class="now-box" id="c-now">Abra o telão pelo link com o código para ver aqui o que está passando.</div>
+        <div class="row2"><button class="bigb" id="c-skip">⏭️ Pular</button><button class="bigb warn" id="c-off">🔒 Tirar do telão</button></div></div>
+      <div class="cc"><h5>🚨 Emergência</h5>
+        <button class="bigb danger" id="c-pause">⏸️ Pausar telão</button>
+        <div class="sw"><span><b>🛡️ Modo aprovação</b><small>Ligado: nada aparece no telão sem você aprovar</small></span><button class="tg" id="c-aprov" aria-label="Modo aprovação"></button></div>
+        <div class="fila" id="c-fila"></div></div>
+      <div class="cc"><h5>📣 Aviso no telão</h5>
+        <div class="chips" id="c-presets"><button>🎂 Hora do bolo!</button><button>💐 Buquê em 5 minutos!</button><button>💃 Todos para a pista!</button><button>📸 Foto com os noivos!</button><button>🥂 Hora do brinde!</button></div>
+        <input type="text" id="c-aviso" maxlength="120" placeholder="Ou escreva o seu aviso…">
+        <label>Por quanto tempo</label>
+        <div class="chips" id="c-avmin"><button data-m="2">2 min</button><button data-m="5" class="on">5 min</button><button data-m="10">10 min</button><button data-m="">Até eu tirar</button></div>
+        <div class="row2"><button class="bigb gold" id="c-av-on">Mostrar aviso</button><button class="bigb" id="c-av-off">Tirar aviso</button></div>
+        <p class="st" id="c-av-st"></p></div>
+      <div class="cc"><h5>📌 Destaque</h5><p class="st" id="c-dest-st" style="margin-top:0">Para fixar uma foto no telão: aba "Fotos e vídeos" → toque na foto → "📌 Destacar".</p><button class="bigb" id="c-dest-off" style="width:100%;margin-top:10px">Tirar destaque</button></div>
+      <div class="cc"><h5>⚙️ Ajustes do telão</h5>
+        <label>Repetir os últimos</label><div class="chips" id="c-lim"><button data-v="20">20</button><button data-v="30">30</button><button data-v="40">40</button><button data-v="60">60</button><button data-v="0">Todos</button></div>
+        <label>Tempo de cada foto</label><div class="chips" id="c-tempo"><button data-v="5">5 s</button><button data-v="7">7 s</button><button data-v="10">10 s</button></div>
+        <p class="st">O que acabou de chegar sempre entra primeiro, fora do limite.</p>
+        <div class="sw"><span><b>Ranking no telão</b></span><button class="tg" id="c-rank" aria-label="Ranking no telão"></button></div></div>
+    </div>
+    <div id="fotos-view">
     <div id="admin-bar" class="hidden" style="margin-bottom:14px">
       <div class="note" id="admin-stats" style="text-align:left"></div>
       <button class="btn btn-sage" id="btn-zip">⬇️ Baixar tudo (.zip): melhor no computador</button>
@@ -488,6 +565,7 @@
     <div class="grid" id="grid"></div>
     <div class="empty hidden" id="gal-empty">Ainda não há nada por aqui…<br>Seja o primeiro a enviar! 📸</div>
     <div style="text-align:center;margin-top:10px"><button class="btn btn-light hidden" id="gal-more" style="max-width:260px;margin:0 auto">Carregar mais</button></div>
+    </div>
   </div>
 </section>
 
@@ -500,7 +578,7 @@
   <div class="lb-info">
     <div class="who" id="lb-who"></div><div class="msg" id="lb-msg"></div>
     <div class="admin-actions hidden" id="lb-admin">
-      <button id="lb-telao"></button><button id="lb-hide">🚫 Ocultar de tudo</button><button id="lb-del">🗑️ Apagar</button>
+      <button id="lb-telao"></button><button id="lb-dest1">📌 Destacar 1 min</button><button id="lb-dest5">📌 5 min</button><button id="lb-hide">🚫 Ocultar de tudo</button><button id="lb-del">🗑️ Apagar</button>
     </div>
   </div>
 </div>
@@ -513,12 +591,14 @@
     <div class="window" id="t-window"><div class="wait" id="telao-wait">As fotos da festa vão aparecer aqui 💛<small>Escaneie o QR Code e mande a sua!</small></div></div>
     <div class="mat"><div class="n">Caio <span>&</span> Thaís</div><div class="d">28 · 11 · 2026</div><div class="f">Casamento Botazzo Serra</div></div>
   </div></div>
-  <div class="t-rank" id="t-rank"><div class="lbl">🏆 Ranking da festa</div><div style="text-align:center;font-size:1.6vh;color:var(--muted);margin:-.4vh 0 .6vh">total de envios (telão + só para os noivos)</div><div id="t-rank-list"><div class="vazio">Quem mandar mais fotos e vídeos ganha o troféu! 🏆</div></div></div>
+  <div class="t-rank" id="t-rank"><div class="lbl"><span class="trophy-h" data-art="trophy"></span>Ranking da festa</div><div style="text-align:center;font-size:1.6vh;color:var(--muted);margin:-.4vh 0 .6vh">total de envios (telão + só para os noivos)</div><div id="t-rank-list"><div class="vazio">Quem mandar mais fotos e vídeos ganha o troféu!</div></div></div>
   <div class="t-qr"><div id="t-qrbox"></div><b>Mande sua foto ou vídeo</b><small>Aponte a câmera do celular</small></div>
   <div class="t-count" id="t-count"></div>
   <button class="btn btn-gold t-start" id="telao-start">▶︎ Iniciar telão em tela cheia</button>
+  <div class="t-pause" id="t-pause"><div><h1 class="names">Caio <span class="amp">&</span> Thaís</h1><p>Já voltamos 💛</p></div></div>
+  <div class="t-aviso" id="t-aviso"><span id="t-aviso-txt"></span></div>
   <button class="t-adm hidden" id="t-adm">🔒 Tirar esta do telão</button>
-  <div class="t-cele" id="t-cele"><div class="tc-box"><div class="tc-t" id="tc-t">🏆</div><div class="tc-h" id="tc-h">Novo líder do ranking!</div><div class="tc-n" id="tc-n"></div><div class="tc-s" id="tc-s"></div></div></div>
+  <div class="t-cele" id="t-cele"><div class="tc-box"><div class="tc-t" id="tc-t" style="width:16vh;height:16vh;margin:0 auto"></div><div class="tc-h" id="tc-h">Novo líder do ranking!</div><div class="tc-n" id="tc-n"></div><div class="tc-s" id="tc-s"></div></div></div>
 </section>
 
 <div class="done" id="done"><div class="c"><div class="h" id="done-h">💛</div><b id="done-t">Enviado!</b><small id="done-s"></small></div></div>
@@ -926,6 +1006,7 @@ async function openGallery(asAdmin){
   adminMode=!!asAdmin; show("v-gallery");
   $("gal-title").textContent = adminMode?"Painel dos noivos":"Nosso álbum";
   $("gal-note").classList.toggle("hidden",adminMode); $("admin-bar").classList.toggle("hidden",!adminMode); $("admin-login").classList.add("hidden");
+  $("admin-tabs").classList.toggle("hidden",!adminMode); setTab(adminMode?"ctrl":"fotos");
   $("grid").innerHTML=""; galOffset=0; galItems=[]; newestTs=null;
   await loadMore();
   clearInterval(galTimer); galTimer=setInterval(checkNew,15000);
@@ -984,6 +1065,77 @@ async function adminSet(fields){
 }
 $("lb-telao").onclick=()=>adminSet({ no_telao:!lbItem.no_telao });
 $("lb-hide").onclick=()=>adminSet({ oculta:!lbItem.oculta });
+async function destacar(min){
+  const r=lbItem; if(!r.no_telao){ await sbF.rpc("casamento_admin_atualizar",{ p_codigo:adminCode, p_id:r.id, p_no_telao:true, p_oculta:false }); r.no_telao=true; }
+  const { error } = await sbF.rpc("casamento_admin_controle",{ p_codigo:adminCode, p:{ destaque_id:r.id, destaque_min:min } });
+  toast(error?"Não deu certo, tente de novo":`📌 Fixada no telão por ${min} min`);
+}
+$("lb-dest1").onclick=()=>destacar(1); $("lb-dest5").onclick=()=>destacar(5);
+
+/* ---------- Controle do telão ---------- */
+let ctrlTimer=null, ctrlState=null, avMin="5";
+function setTab(t){
+  document.querySelectorAll("#admin-tabs button").forEach(b=>b.classList.toggle("on",b.dataset.t===t));
+  $("ctrl-view").classList.toggle("hidden",t!=="ctrl"||!adminMode); $("fotos-view").classList.toggle("hidden",t==="ctrl"&&adminMode);
+  clearInterval(ctrlTimer); if(t==="ctrl"&&adminMode){ pollCtrl(); ctrlTimer=setInterval(()=>{ if(!$("v-gallery").classList.contains("hidden")) pollCtrl(); },4000); }
+}
+$("admin-tabs").onclick=e=>{ const b=e.target.closest("button"); if(b) setTab(b.dataset.t); };
+async function ctrlSet(p,msg){
+  const { data, error } = await sbF.rpc("casamento_admin_controle",{ p_codigo:adminCode, p });
+  if(error){ toast("Não deu certo, tente de novo"); return; }
+  ctrlState=data; renderCtrl(); if(msg) toast(msg);
+}
+function chipsOn(id,val){ [...$(id).children].forEach(b=>b.classList.toggle("on",String(b.dataset.v)===String(val))); }
+function renderCtrl(){
+  const c=ctrlState; if(!c) return;
+  const pb=$("c-pause"); pb.classList.toggle("on",!!c.pausado); pb.textContent=c.pausado?"▶️ Voltar o telão":"⏸️ Pausar telão";
+  $("c-aprov").classList.toggle("on",!!c.aprovacao); $("c-rank").classList.toggle("on",!!c.mostrar_ranking);
+  chipsOn("c-lim",c.limite); chipsOn("c-tempo",c.tempo_foto);
+  $("c-av-st").textContent = c.aviso ? `No telão agora: "${c.aviso}"${c.aviso_seg?` · some em ${Math.ceil(c.aviso_seg/60)} min`:""}` : "Nenhum aviso no telão.";
+  $("c-dest-st").textContent = c.destaque_id ? `📌 Tem uma foto fixada · sai em ${Math.ceil((c.destaque_seg||0)/60)} min` : 'Para fixar uma foto no telão: aba "Fotos e vídeos" → toque na foto → "📌 Destacar".';
+}
+let adminCache=new Map();
+async function pollCtrl(){
+  try{
+    const [c,rs,ls]=await Promise.all([ sbF.rpc("casamento_controle_ler"), sbF.rpc("casamento_admin_resumo",{ p_codigo:adminCode }), sbF.rpc("casamento_admin_listar",{ p_codigo:adminCode, p_offset:0, p_limite:150 }) ]);
+    if(c.data){ ctrlState=c.data; renderCtrl(); }
+    const R=rs.data||{};
+    $("c-stats").innerHTML=[["total","enviados"],["ultimos10","últ. 10 min"],["telao","no telão"],["privados","só noivos"],["pendentes","aguardando"],["mb_fotos","MB de fotos"]].map(([k,l])=>`<div><b>${R[k]??"–"}</b><small>${l}</small></div>`).join("");
+    (ls.data||[]).forEach(r=>adminCache.set(r.id,r));
+    // passando agora
+    const box=$("c-now"); const a=c.data&&c.data.agora_id&&adminCache.get(c.data.agora_id);
+    if(a){ const t=thumbUrl(a); box.innerHTML=""; if(t){ const im=new Image(); im.src=t; box.append(im); }
+      const d=document.createElement("div"); const b=document.createElement("b"); b.textContent=a.nome; d.append(b);
+      d.append(document.createTextNode((a.tipo==="video"?"Vídeo":"Foto")+((c.data.agora_seg||0)>90?` · ⚠️ telão sem sinal há ${Math.round(c.data.agora_seg/60)} min`:" · no telão agora"))); box.append(d); }
+    else box.textContent="Abra o telão pelo link com o código para ver aqui o que está passando.";
+    // fila de aprovação
+    const fila=$("c-fila"); fila.innerHTML="";
+    const pend=(ls.data||[]).filter(r=>!r.aprovado&&!r.oculta&&!r.apagado);
+    if(c.data&&c.data.aprovacao&&!pend.length) fila.innerHTML='<p class="st">Nada esperando aprovação. ✅</p>';
+    pend.forEach(r=>{
+      const it=document.createElement("div"); it.className="fi"; const t=thumbUrl(r); const im=new Image(); if(t) im.src=t; im.onclick=()=>openLB(r);
+      const sp=document.createElement("span"); sp.textContent=(r.tipo==="video"?"🎥 ":"📸 ")+r.nome;
+      const ok=document.createElement("button"); ok.textContent="✅"; ok.title="Aprovar";
+      const no=document.createElement("button"); no.textContent="❌"; no.title="Recusar (fica só para os noivos)";
+      ok.onclick=async()=>{ await sbF.rpc("casamento_admin_aprovar",{ p_codigo:adminCode, p_id:r.id, p_ok:true }); toast("Aprovada, vai para o telão ✔️"); pollCtrl(); };
+      no.onclick=async()=>{ await sbF.rpc("casamento_admin_aprovar",{ p_codigo:adminCode, p_id:r.id, p_ok:false }); toast("Recusada, fica só para os noivos 🔒"); pollCtrl(); };
+      it.append(im,sp,ok,no); fila.append(it);
+    });
+  }catch(e){ console.warn(e); }
+}
+$("c-skip").onclick=()=>ctrlSet({ pular:true },"⏭️ Pulando…");
+$("c-off").onclick=async()=>{ const id=ctrlState&&ctrlState.agora_id; if(!id) return toast("Nada passando agora");
+  await sbF.rpc("casamento_admin_atualizar",{ p_codigo:adminCode, p_id:id, p_no_telao:false, p_oculta:null }); ctrlSet({ pular:true },"🔒 Tirada do telão"); };
+$("c-pause").onclick=()=>ctrlSet({ pausado:!(ctrlState&&ctrlState.pausado) }, ctrlState&&ctrlState.pausado?"▶️ Telão voltou":"⏸️ Telão pausado");
+$("c-aprov").onclick=()=>ctrlSet({ aprovacao:!(ctrlState&&ctrlState.aprovacao) }, ctrlState&&ctrlState.aprovacao?"Aprovação desligada: entra tudo automático":"🛡️ Aprovação ligada: você aprova antes do telão");
+$("c-rank").onclick=()=>ctrlSet({ mostrar_ranking:!(ctrlState&&ctrlState.mostrar_ranking) });
+$("c-lim").onclick=e=>{ const b=e.target.closest("button"); if(b) ctrlSet({ limite:+b.dataset.v }, +b.dataset.v?`Repetindo os últimos ${b.dataset.v}`:"Repetindo todos"); };
+$("c-tempo").onclick=e=>{ const b=e.target.closest("button"); if(b) ctrlSet({ tempo_foto:+b.dataset.v }, `Cada foto: ${b.dataset.v} s`); };
+$("c-presets").onclick=e=>{ const b=e.target.closest("button"); if(b) $("c-aviso").value=b.textContent; };
+$("c-avmin").onclick=e=>{ const b=e.target.closest("button"); if(!b) return; avMin=b.dataset.m; [...$("c-avmin").children].forEach(x=>x.classList.toggle("on",x===b)); };
+$("c-av-on").onclick=()=>{ const t=$("c-aviso").value.trim(); if(!t) return toast("Escreva ou escolha um aviso"); ctrlSet({ aviso:t, aviso_min: avMin?+avMin:null },"📣 Aviso no telão!"); };
+$("c-av-off").onclick=()=>ctrlSet({ aviso:"" },"Aviso retirado");
+$("c-dest-off").onclick=()=>ctrlSet({ destaque_id:null },"Destaque retirado");
 let delArm=null;
 $("lb-del").onclick=async()=>{
   const b=$("lb-del");
@@ -995,7 +1147,7 @@ $("lb-del").onclick=async()=>{
   toast("Apagada ✔️ (uma cópia fica guardada no PC, em 'Apagadas pelo admin')",4500);
 };
 
-function showAdminLogin(){ show("v-gallery"); $("gal-title").textContent="Painel dos noivos"; $("gal-note").classList.add("hidden"); $("admin-bar").classList.add("hidden"); $("grid").innerHTML=""; $("admin-login").classList.remove("hidden"); $("gal-more").classList.add("hidden"); }
+function showAdminLogin(){ show("v-gallery"); $("admin-tabs").classList.add("hidden"); $("ctrl-view").classList.add("hidden"); $("fotos-view").classList.remove("hidden"); $("gal-title").textContent="Painel dos noivos"; $("gal-note").classList.add("hidden"); $("admin-bar").classList.add("hidden"); $("grid").innerHTML=""; $("admin-login").classList.remove("hidden"); $("gal-more").classList.add("hidden"); }
 $("btn-code").onclick=async()=>{
   const c=$("in-code").value.trim(); if(!c) return;
   const { error } = await sbF.rpc("casamento_admin_listar",{ p_codigo:c, p_offset:0, p_limite:1 });
@@ -1052,17 +1204,53 @@ function startLeaves(canvasId,count){
   })();
   return { burst };
 }
-const MEDALHAS=["🥇","🥈","🥉"];
-function rankSub(r){
-  const pf=r.pub_fotos??r.fotos, pv=r.pub_videos??r.videos, pr=r.priv??0;
-  let t=`📺 No telão: ${pf} foto${pf!==1?"s":""} · ${pv} vídeo${pv!==1?"s":""}`;
-  if(pr) t+=` · 🔒 ${pr} só p/ noivos`;
+/* Artes do ranking (desenhadas aqui, sem emoji) */
+let artN=0;
+const ART={
+  medal(i){
+    const C=[["#FFF0B3","#E7B53A","#A8761A"],["#FFFFFF","#C9CED3","#7C848B"],["#FBD3AE","#CD8546","#7E4A1E"]][i], R=[["#C99A3A","#8E6A2E"],["#9AA5AE","#66717A"],["#B5703A","#7E4A1E"]][i];
+    const g="md"+(artN++);
+    return `<svg viewBox="0 0 64 74" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="${g}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${C[0]}"/><stop offset=".5" stop-color="${C[1]}"/><stop offset="1" stop-color="${C[2]}"/></linearGradient></defs>
+    <path d="M16 1h13l9 25H25z" fill="${R[0]}"/><path d="M48 1H35l-9 25h13z" fill="${R[1]}"/><path d="M27 1h10l-5 12z" fill="#fff" opacity=".25"/>
+    <circle cx="32" cy="48" r="24" fill="url(#${g})" stroke="${C[2]}" stroke-width="1.5"/>
+    <circle cx="32" cy="48" r="18.5" fill="none" stroke="#fff" stroke-opacity=".6" stroke-width="1.4" stroke-dasharray="2 2.6"/>
+    <path d="M14 52c3 6 8 10 14 11M50 52c-3 6-8 10-14 11" fill="none" stroke="${C[2]}" stroke-opacity=".5" stroke-width="1.4"/>
+    <text x="32" y="56.5" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-weight="700" font-size="27" fill="${C[2]}">${i+1}</text>
+    <ellipse cx="23" cy="37" rx="8" ry="4" fill="#fff" opacity=".45" transform="rotate(-35 23 37)"/></svg>`;
+  },
+  trophy(){
+    const g="tr"+(artN++);
+    return `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="${g}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF0B3"/><stop offset=".5" stop-color="#E7B53A"/><stop offset="1" stop-color="#A8761A"/></linearGradient></defs>
+    <path d="M19 12H9c0 10 5 15 12 15M45 12h10c0 10-5 15-12 15" fill="none" stroke="#C99A3A" stroke-width="4" stroke-linecap="round"/>
+    <path d="M17 6h30v12c0 10-7 18-15 18S17 28 17 18z" fill="url(#${g})" stroke="#A8761A" stroke-width="1.2"/>
+    <path d="M28 36h8l1 9h-10z" fill="#C99A3A"/><path d="M21 45h22l3 8H18z" fill="url(#${g})" stroke="#A8761A" stroke-width="1"/>
+    <rect x="15" y="53" width="34" height="7" rx="2" fill="#8E6A2E"/>
+    <path d="M32 11l2.5 5.1 5.6.8-4 3.9.9 5.6-5-2.6-5 2.6 1-5.6-4.1-3.9 5.6-.8z" fill="#FFF8DC"/>
+    <ellipse cx="24" cy="15" rx="3" ry="7" fill="#fff" opacity=".35" transform="rotate(15 24 15)"/></svg>`;
+  }
+};
+const ICON={
+  cam:'<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5A2.5 2.5 0 0 1 5.5 6h1.7l1.4-2h6.8l1.4 2h1.7A2.5 2.5 0 0 1 21 8.5v9A2.5 2.5 0 0 1 18.5 20h-13A2.5 2.5 0 0 1 3 17.5z"/><circle cx="12" cy="12.5" r="3.8"/></svg>',
+  vid:'<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="6" width="13" height="12" rx="2.5"/><path d="m15.5 10.5 6-3.5v10l-6-3.5z"/></svg>',
+  tv:'<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="13" rx="2"/><path d="M8 21h8M12 18v3"/></svg>',
+  lock:'<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="10.5" width="15" height="10" rx="2"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/></svg>',
+  star:'<svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.9 6.1L20 10l-6.1 1.9L12 18l-1.9-6.1L4 10l6.1-1.9z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg>',
+  pin:'<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6l-1 6 4 4H6l4-4z"/><path d="M12 13v8"/></svg>'
+};
+function fillArt(root){ (root||document).querySelectorAll("[data-art=trophy]").forEach(e=>{ if(!e.innerHTML) e.innerHTML=ART.trophy(); }); }
+fillArt();
+const MEDALHAS=[0,1,2];
+function rankSub(r,txt){
+  const pf=+(r.pub_fotos??r.fotos), pv=+(r.pub_videos??r.videos), pr=+(r.priv??0);
+  if(txt){ let t=`No telão: ${pf} foto${pf!==1?"s":""} · ${pv} vídeo${pv!==1?"s":""}`; if(pr) t+=` · ${pr} só p/ noivos`; return t; }
+  let t=`${ICON.tv}No telão: ${pf} foto${pf!==1?"s":""} · ${pv} vídeo${pv!==1?"s":""}`;
+  if(pr) t+=` · ${ICON.lock}${pr} só p/ noivos`;
   return t;
 }
 function rankRow(r,i){
   const d=document.createElement("div"); d.className="rk";
-  d.innerHTML=`<span class="m">${MEDALHAS[i]||(i+1)+"º"}</span><span class="n"></span><span class="c">${r.total}</span>`;
-  const n=d.querySelector(".n"); n.textContent=r.nome; const sm=document.createElement("small"); sm.textContent=rankSub(r); n.append(sm);
+  d.innerHTML=`<span class="m">${i<3?ART.medal(i):(i+1)+"º"}</span><span class="n"></span><span class="c">${r.total}</span>`;
+  const n=d.querySelector(".n"); n.textContent=r.nome; const sm=document.createElement("small"); sm.innerHTML=rankSub(r); n.append(sm);
   return d;
 }
 /* Início: contador ao vivo, "Agora no telão" e ranking */
@@ -1086,7 +1274,7 @@ async function startTelao(){
   const siteUrl = location.origin + location.pathname;
   try{ const q=qrcode(0,"M"); q.addData(siteUrl); q.make(); $("t-qrbox").innerHTML=q.createSvgTag({cellSize:6,margin:0,scalable:true}).replace(/black/g,"#5A4330"); }
   catch(e){ $("t-qrbox").innerHTML='<img src="assets/qrcode.png" alt="QR Code">'; }
-  const LIMITE=200;
+  let ctrl={ limite:40, tempo_foto:CONFIG.TELAO_FOTO_S, mostrar_ranking:true }, lastPular=null, destaqueRow=null;
   let list=[], seen=new Set(), priority=[], idx=0, lastOk=Date.now(), playing=false, timer=null, current=null;
   const cache=new Map(); // url -> objectURL (continua passando mesmo sem internet)
   async function getSrc(url){
@@ -1098,43 +1286,46 @@ async function startTelao(){
   }
   async function refresh(){
     try{
-      const { data, error } = await sbF.from(CONFIG.TABLE).select("*").order("criado_em",{ascending:false}).limit(LIMITE);
+      const { data, error } = await sbF.from(CONFIG.TABLE).select("*").order("criado_em",{ascending:false}).limit(ctrl.limite>0?ctrl.limite:1000);
       if(error) throw error; lastOk=Date.now();
       const ids=new Set(data.map(r=>r.id));
       data.slice().reverse().forEach(r=>{ if(!seen.has(r.id)){ seen.add(r.id); if(list.length||priority.length){ r._novo=true; priority.push(r); } } });
       priority=priority.filter(r=>ids.has(r.id)); list=data;
       $("telao-wait").classList.toggle("hidden",list.length>0);
-      if(current && !ids.has(current.id)) next();          // tirada do telão agora → troca na hora
+      if(current && !ids.has(current.id) && !(destaqueRow&&destaqueRow.id===current.id)) next();          // tirada do telão agora → troca na hora
       else if(!playing && list.length) next();
       const c=await sbF.rpc("casamento_total");
       if(c.data) $("t-count").textContent=`✦ ${c.data} ${c.data>1?"fotos e vídeos":"envio"} ✦`;
     }catch(e){ console.warn("telão: sem conexão, continuo com o que tenho", e); }
   }
-  function pick(){ if(priority.length) return priority.shift(); if(!list.length) return null; return list[idx++ % list.length]; }
+  function pick(){ if(destaqueRow) return Object.assign({},destaqueRow,{_destaque:true}); if(priority.length) return priority.shift(); if(!list.length) return null; return list[idx++ % list.length]; }
+  let gen=0;
   async function next(){
-    clearTimeout(timer); const r=pick(); if(!r){ playing=false; current=null; return; } playing=true;
+    const my=++gen; clearTimeout(timer); if(ctrl.pausado){ playing=false; return; } const r=pick(); if(!r){ playing=false; current=null; return; } playing=true;
     let src, bg;
     try{ src=await getSrc(mediaUrl(r)); const t=thumbUrl(r); bg = t ? await getSrc(t).catch(()=>null) : null; }
-    catch(e){ timer=setTimeout(next,1500); return; }
+    catch(e){ if(my===gen) timer=setTimeout(next,1500); return; }
+    if(my!==gen) return; // chegou um comando mais novo (pular, destaque, pausa)
     const s=document.createElement("div"); s.className="slide";
     if(bg||r.tipo!=="video"){ const b=new Image(); b.className="bgblur"; b.src=bg||src; s.append(b); }
     let el;
     if(r.tipo==="video"){
       el=document.createElement("video"); el.muted=true; el.playsInline=true; el.autoplay=true; el.src=src;
-      let ended=false; const go=()=>{ if(!ended){ ended=true; next(); } };
+      let ended=false; const go=()=>{ if(!ended && my===gen){ ended=true; next(); } };
       el.onended=go; el.onerror=go; timer=setTimeout(go,Math.min((r.duracao||30)+3,45)*1000);
-    } else { el=new Image(); el.src=src; timer=setTimeout(next,CONFIG.TELAO_FOTO_S*1000); }
+    } else { el=new Image(); el.src=src; timer=setTimeout(()=>{ if(my===gen) next(); },(ctrl.tempo_foto||CONFIG.TELAO_FOTO_S)*1000); }
     el.className="main"+(r.tipo==="video"?"":" kb"+(1+Math.floor(Math.random()*5))); s.append(el);
     const cap=document.createElement("div"); cap.className="cap-over";
     cap.innerHTML='<div class="lb"></div><div class="nm"></div><div class="msg"></div>';
-    cap.querySelector(".lb").textContent=(r.tipo==="video"?"🎥":"📸")+" Enviado por"; cap.querySelector(".nm").textContent=r.nome;
+    cap.querySelector(".lb").innerHTML=(r.tipo==="video"?ICON.vid:ICON.cam)+" Enviado por"; cap.querySelector(".nm").textContent=r.nome;
     cap.querySelector(".msg").textContent=r.recado?`“${r.recado}”`:""; s.append(cap);
-    const novo = !!r._novo; const tag=document.createElement("span"); tag.className="tag"+(novo?" novo":""); tag.textContent= novo ? "✨ ACABOU DE CHEGAR" : (r.tipo==="video"?"🎥 Vídeo":"📸 Foto"); s.append(tag);
+    const novo = !!r._novo, dest=!!r._destaque; const tag=document.createElement("span"); tag.className="tag"+(dest?" dest":novo?" novo":""); tag.innerHTML= dest ? ICON.pin+" DESTAQUE" : novo ? ICON.star+" ACABOU DE CHEGAR" : (r.tipo==="video"?ICON.vid+" Vídeo":ICON.cam+" Foto"); s.append(tag);
     const show1=()=>{
-      current=r; if(novo){ r._novo=false; fx.burst(70,.33,.45); } $("t-window").append(s); requestAnimationFrame(()=>requestAnimationFrame(()=>s.classList.add("on")));
+      if(my!==gen || ctrl.pausado) return;
+      current=r; if(adminCode) sbF.rpc("casamento_admin_agora",{ p_codigo:adminCode, p_id:r.id }).then(()=>{},()=>{}); if(novo){ r._novo=false; const o=priority.length?null:list.find(x=>x.id===r.id); if(o) o._novo=false; fx.burst(70,.33,.45); } $("t-window").append(s); requestAnimationFrame(()=>requestAnimationFrame(()=>s.classList.add("on")));
       [...$("t-window").querySelectorAll(".slide")].filter(x=>x!==s).forEach(o=>{ o.classList.remove("on"); const ov=o.querySelector("video"); setTimeout(()=>{ if(ov) ov.pause(); o.remove(); },1300); });
     };
-    if(r.tipo==="video"){ el.onloadeddata=show1; el.play().catch(()=>{}); } else { el.onload=show1; el.onerror=()=>{ clearTimeout(timer); next(); }; }
+    if(r.tipo==="video"){ el.onloadeddata=show1; el.play().catch(()=>{}); } else { el.onload=show1; el.onerror=()=>{ if(my===gen){ clearTimeout(timer); next(); } }; }
   }
   // Botão discreto para você (com o código dos noivos)
   async function tirarAtual(){
@@ -1160,8 +1351,8 @@ async function startTelao(){
   function celebrate(r,i){ celeQ.push([r,i]); if(!celeOn) nextCele(); }
   function nextCele(){
     const it=celeQ.shift(); if(!it){ celeOn=false; return; } celeOn=true; const [r,i]=it;
-    $("tc-t").textContent=MEDALHAS[i]; $("tc-h").textContent=POS_TXT[i]; $("tc-n").textContent=r.nome;
-    $("tc-s").textContent=`${r.total} envios · ${rankSub(r)}`;
+    $("tc-t").innerHTML= i===0 ? ART.trophy() : ART.medal(i); $("tc-h").textContent=POS_TXT[i]; $("tc-n").textContent=r.nome;
+    $("tc-s").textContent=`${r.total} envios · ${rankSub(r,true)}`;
     $("t-cele").classList.add("on"); fx.burst(i===0?160:90,.5,.45); setTimeout(()=>fx.burst(i===0?110:50,.25,.3),500); setTimeout(()=>fx.burst(i===0?110:50,.75,.3),900);
     setTimeout(()=>{ $("t-cele").classList.remove("on"); setTimeout(nextCele,900); },5200);
   }
@@ -1176,9 +1367,30 @@ async function startTelao(){
       podium=keys;
     }catch(e){}
   }
-  await refresh(); await loadRank(); setInterval(refresh,5000); setInterval(loadRank,12000); wake();
+  // Controle remoto pelo painel
+  async function loadCtrl(){
+    try{
+      const { data } = await sbF.rpc("casamento_controle_ler"); if(!data || typeof data!=="object" || Array.isArray(data)) return;
+      const prev=ctrl; ctrl=Object.assign({ limite:40, tempo_foto:CONFIG.TELAO_FOTO_S, mostrar_ranking:true },data);
+      $("t-rank").classList.toggle("hidden",!ctrl.mostrar_ranking);
+      $("t-pause").classList.toggle("on",!!ctrl.pausado);
+      if(ctrl.pausado && !prev.pausado){ clearTimeout(timer); $("t-window").querySelectorAll("video").forEach(v=>v.pause()); playing=false; }
+      if(!ctrl.pausado && prev.pausado) next();
+      if(ctrl.aviso){ $("t-aviso-txt").textContent=ctrl.aviso; $("t-aviso").classList.add("on"); } else $("t-aviso").classList.remove("on");
+      if(lastPular!==null && ctrl.pular_seq!==lastPular && !ctrl.pausado){ if(destaqueRow) destaqueRow=null; next(); }
+      lastPular=ctrl.pular_seq;
+      if(ctrl.destaque_id && ctrl.destaque_id!==(destaqueRow&&destaqueRow.id)){
+        let r=list.find(x=>x.id===ctrl.destaque_id);
+        if(!r){ const q=await sbF.from(CONFIG.TABLE).select("*").eq("id",ctrl.destaque_id).maybeSingle(); r=q.data; }
+        if(r){ destaqueRow=r; if(!ctrl.pausado) next(); }
+      }
+      if(!ctrl.destaque_id && destaqueRow){ destaqueRow=null; if(!ctrl.pausado) next(); }
+      if(prev.limite!==undefined && prev.limite!==ctrl.limite) refresh();
+    }catch(e){}
+  }
+  await loadCtrl(); await refresh(); await loadRank(); setInterval(refresh,5000); setInterval(loadRank,12000); setInterval(loadCtrl,3000); wake();
   setInterval(()=>{ if(Date.now()-lastOk>10*60*1000 && navigator.onLine) location.reload(); },60000);
-  setInterval(()=>{ if(!playing && list.length) next(); },10000);
+  setInterval(()=>{ if(!playing && list.length && !ctrl.pausado) next(); },10000);
 }
 
 /* ---------------- início ---------------- */
