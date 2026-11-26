@@ -29,7 +29,13 @@
      (ligado: o que chega espera você tocar em ✅ ou ❌ antes de ir para o telão).
    - Aviso no telão: "Hora do bolo!", "Buquê", etc. (2, 5, 10 min ou até tirar).
    - Destaque: aba Fotos > toque na foto > "Destacar 1 min / 5 min".
-   - Ajustes: repetir os últimos 20/30/40/60/todos, tempo de cada foto, ranking on/off.
+   - Favoritas: aba Fotos > ⭐ em quantas quiser. Ficam mais tempo na tela (+0 a +20 s)
+     e dá para deixar o telão "Só com as favoritas".
+   - Ajustes: ordem (mais recentes / aleatória), repetir os últimos 10–50 ou todos,
+     tempo de cada foto (1 a 15 s), ranking on/off.
+   - ZERAR TUDO (no dia, antes da festa): digite ZERAR e confirme. Apaga os testes do
+     telão/álbum/ranking/contadores. Com o INICIAR.bat aberto no PC, os testes vão
+     para a pasta "Testes antes da festa" no SSD e saem da nuvem.
    IMPORTANTE: abra o telão com o link que tem o código (?telao&admin=...) para o
    "Passando agora" funcionar.
 
