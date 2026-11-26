@@ -518,6 +518,17 @@
 </section>
 
 <!-- ============ ENVIO DA GALERIA ============ -->
+<div class="sheet-bg hidden" id="memfix">
+  <div class="sheet">
+    <h3>Ops! A foto não chegou 😕</h3>
+    <p class="tip" style="margin:6px 0 16px;font-size:15px">Seu celular fechou esta página enquanto a câmera estava aberta (pouca memória livre). Sem problema, é só usar um destes jeitos:</p>
+    <div class="stack">
+      <button class="btn btn-gold" id="mf-site" style="flex-direction:column;gap:2px">📸 Usar a câmera aqui do site<small style="font-weight:600;opacity:.9;font-size:13px">não sai da página · recomendado</small></button>
+      <button class="btn btn-light" id="mf-gal">🖼️ Tirar com a câmera normal e enviar pela galeria</button>
+      <button class="link" id="mf-close" style="margin:4px auto 0;display:block">Fechar</button>
+    </div>
+  </div>
+</div>
 <div class="sheet-bg hidden" id="sheet">
   <div class="sheet">
     <h3 id="sh-title">Enviar fotos</h3>
@@ -706,7 +717,14 @@ function setupChoices(group, onChange){
 /* ---------------- imagem ---------------- */
 function canvasToBlob(c,q){ return new Promise(r=>c.toBlob(r,"image/jpeg",q)); }
 async function loadImage(file){
-  if (window.createImageBitmap){ try { return await createImageBitmap(file,{imageOrientation:"from-image"}); } catch(e){} }
+  if (window.createImageBitmap){
+    if (file.size > 1.5*1048576){ // foto grande: já abre reduzida (bem menos memória)
+      try { const b0=await createImageBitmap(file,{imageOrientation:"from-image",resizeWidth:CONFIG.MAX_LADO,resizeQuality:"high"});
+            if (b0.height > CONFIG.MAX_LADO*1.05){ b0.close&&b0.close(); return await createImageBitmap(file,{imageOrientation:"from-image",resizeHeight:CONFIG.MAX_LADO,resizeQuality:"high"}); }
+            return b0; } catch(e){}
+    }
+    try { return await createImageBitmap(file,{imageOrientation:"from-image"}); } catch(e){}
+  }
   return await new Promise((res,rej)=>{ const i=new Image(); i.onload=()=>res(i); i.onerror=rej; i.src=URL.createObjectURL(file); });
 }
 function scaleTo(src,w,h,max){ const k=Math.min(1,max/Math.max(w,h)); const c=document.createElement("canvas"); c.width=Math.round(w*k); c.height=Math.round(h*k); c.getContext("2d").drawImage(src,0,0,c.width,c.height); return c; }
@@ -837,7 +855,7 @@ function renderMine(){
 }
 
 /* ---------------- telas iniciais ---------------- */
-function goHome(){ $("lbl-name").textContent=getName(); renderSent(); renderMine(); show("v-home"); if(!homeFx) homeFx=startLeaves("fx-home",12); refreshHome(); clearInterval(homeTimer); homeTimer=setInterval(()=>{ if(!$("v-home").classList.contains("hidden")) refreshHome(); },20000); if(!localStorage.getItem("cas_tut")) openTut(); }
+function goHome(){ $("lbl-name").textContent=getName(); renderSent(); renderMine(); show("v-home"); if(!homeFx) homeFx=startLeaves("fx-home",lowMem()?5:9); refreshHome(); clearInterval(homeTimer); homeTimer=setInterval(()=>{ if(!$("v-home").classList.contains("hidden")) refreshHome(); },20000); if(!localStorage.getItem("cas_tut")) openTut(); }
 $("btn-enter").onclick=()=>{ const n=$("in-name").value.trim(); if(n.length<2){ toast("Digite seu nome para os noivos saberem quem enviou 😊"); $("in-name").focus(); return; } setName(n); goHome(); };
 $("in-name").addEventListener("keydown",e=>{ if(e.key==="Enter") $("btn-enter").click(); });
 $("btn-rename").onclick=()=>{ $("in-name").value=getName(); show("v-welcome"); };
@@ -892,8 +910,29 @@ let rvChoice=null, rec=null, recChunks=[], recStart=0, recTimer=null, recPoster=
 const rvCh=setupChoices("rv", v=>{ rvChoice=v; $("rv-send").disabled=!v; $("rv-hint").textContent = v ? (v==="telao"?"📺 Vai aparecer no telão e no álbum.":"🔒 Só os noivos vão ver.") : "Escolha uma das opções acima 👆"; });
 
 $("btn-camera").onclick=()=>openCamera();
-$("btn-foto").onclick=()=>$("file-native").click();
-$("btn-video").onclick=()=>$("file-native-video").click();
+// Celular com pouca memória: o Android fecha o navegador quando abre a câmera do sistema.
+// Nesses aparelhos (ou depois que isso aconteceu uma vez) usamos a câmera do próprio site.
+const lowMem = () => localStorage.getItem("cas_lowmem")==="1" || (navigator.deviceMemory && navigator.deviceMemory<=2);
+function abrirNativa(inp){
+  try{ sessionStorage.setItem("cas_cam", String(Date.now())); }catch(e){}
+  pausarEnfeites(true);
+  inp.click();
+}
+function camSite(m){ if(mode!==m) setMode(m); else openCamera(); }
+$("btn-foto").onclick=()=> lowMem() ? camSite("photo") : abrirNativa($("file-native"));
+$("btn-video").onclick=()=> lowMem() ? camSite("video") : abrirNativa($("file-native-video"));
+// voltou da câmera sem a página ter sido fechada (tirou ou cancelou): limpa o aviso
+document.addEventListener("visibilitychange",()=>{ if(document.visibilityState==="visible"){ pausarEnfeites(false); setTimeout(()=>{ try{ sessionStorage.removeItem("cas_cam"); }catch(e){} },2500); } });
+function pausarEnfeites(on){ document.querySelectorAll(".now-track").forEach(t=>t.style.animationPlayState=on?"paused":"running"); window.__fxPause=on; }
+function checarMemoria(){
+  let t=0; try{ t=+(sessionStorage.getItem("cas_cam")||0); sessionStorage.removeItem("cas_cam"); }catch(e){}
+  if(t && Date.now()-t < 15*60*1000){ // a página recarregou logo depois de abrir a câmera = o Android fechou o navegador
+    localStorage.setItem("cas_lowmem","1"); $("memfix").classList.remove("hidden");
+  }
+}
+$("mf-site").onclick=()=>{ $("memfix").classList.add("hidden"); camSite("photo"); };
+$("mf-gal").onclick=()=>{ $("memfix").classList.add("hidden"); toast("Tire a foto ou o vídeo na câmera do celular e depois toque em \"Enviar da galeria\" 😉",6000); };
+$("mf-close").onclick=()=>$("memfix").classList.add("hidden");
 async function openCamera(){
   show("v-camera"); resetReview();
   if(!navigator.mediaDevices?.getUserMedia) return fallbackNative();
@@ -912,9 +951,9 @@ async function openCamera(){
   }
 }
 function fallbackNative(){ closeCamera(); $("file-native").click(); }
-$("file-native").onchange=e=>{ const f=[...e.target.files]; e.target.value=""; handleFiles(f); };
-$("file-native-video").onchange=e=>{ const f=[...e.target.files]; e.target.value=""; handleFiles(f); };
-$("cam-native-btn").onclick=()=>{ if(rec) return; const inp = mode==="video" ? $("file-native-video") : $("file-native"); closeCamera(); inp.click(); };
+$("file-native").onchange=e=>{ try{ sessionStorage.removeItem("cas_cam"); }catch(_){} pausarEnfeites(false); const f=[...e.target.files]; e.target.value=""; handleFiles(f); };
+$("file-native-video").onchange=e=>{ try{ sessionStorage.removeItem("cas_cam"); }catch(_){} pausarEnfeites(false); const f=[...e.target.files]; e.target.value=""; handleFiles(f); };
+$("cam-native-btn").onclick=()=>{ if(rec) return; const inp = mode==="video" ? $("file-native-video") : $("file-native"); closeCamera(); localStorage.removeItem("cas_lowmem"); abrirNativa(inp); };
 /* Zoom: real (Android) ou digital (iPhone, só foto) */
 let zoom=1, hwZoom=null, zoomMax=3;
 function setupZoom(){
@@ -1275,7 +1314,7 @@ $("btn-zip").onclick=async()=>{
 
 /* ---------------- TELÃO ---------------- */
 function startLeaves(canvasId,count){
-  const cv=$(canvasId), cx=cv.getContext("2d"), dpr=Math.min(2,devicePixelRatio||1); let W,H;
+  const cv=$(canvasId), cx=cv.getContext("2d"), dpr=canvasId==="fx"?Math.min(2,devicePixelRatio||1):1; let W,H;
   const rs=()=>{ W=cv.width=innerWidth*dpr; H=cv.height=innerHeight*dpr; }; rs(); addEventListener("resize",rs);
   const cols=["#E8B930","#F2CC55","#F6DC8A","#E2C194","#EED3AE","#D9B77E"];
   const mk=top=>({ x:Math.random()*W, y:top?Math.random()*H:-40*dpr, s:(8+Math.random()*12)*dpr, vy:(.25+Math.random()*.45)*dpr, vx:0, g:0, sw:Math.random()*6.3, sp:.006+Math.random()*.01, r:Math.random()*6.3, vr:(Math.random()-.5)*.02, c:cols[Math.random()*cols.length|0], a:.3+Math.random()*.45, petal:Math.random()<.6 });
@@ -1291,6 +1330,7 @@ function startLeaves(canvasId,count){
     cx.fill(); cx.restore();
   }
   (function draw(){
+    if(window.__fxPause && canvasId!=="fx"){ requestAnimationFrame(draw); return; }
     cx.clearRect(0,0,W,H);
     for(const l of leaves){ l.y+=l.vy; l.sw+=l.sp; l.x+=Math.sin(l.sw)*.6*dpr; l.r+=l.vr; if(l.y>H+40*dpr) Object.assign(l,mk(false)); dl(l); }
     extra=extra.filter(l=>l.y<H+50*dpr && l.a>0.05);
@@ -1465,6 +1505,9 @@ async function startTelao(){
   document.addEventListener("visibilitychange",()=>{ if(document.visibilityState==="visible") wake(); });
   $("telao-start").onclick=()=>{ document.documentElement.requestFullscreen?.().catch(()=>{}); wake(); $("telao-start").classList.add("hidden"); };
   setTimeout(()=>$("telao-start").classList.add("hidden"),60000);
+  const jaCheia=()=> innerHeight>=screen.height-2 || matchMedia("(display-mode: fullscreen)").matches || document.fullscreenElement;
+  if(jaCheia()) $("telao-start").classList.add("hidden");
+  addEventListener("resize",()=>{ if(jaCheia()) $("telao-start").classList.add("hidden"); });
   // Ranking + comemoração quando alguém assume uma posição do pódio
   podium=null; let celeQ=[], celeOn=false;
   const POS_TXT=["Novo líder do ranking!","Subiu para o 2º lugar!","Entrou no pódio, 3º lugar!"];
@@ -1521,6 +1564,8 @@ else if(params.has("album")) openGallery(false);
 else if(getName()) goHome();
 else show("v-welcome");
 processQueue();
+checkarMemoriaSafe();
+function checkarMemoriaSafe(){ try{ checarMemoria(); }catch(e){} }
 </script>
 </body>
 </html>
