@@ -45,7 +45,7 @@
 
   .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px;margin-top:22px;border:1px solid var(--line)}
   label.f{display:block;font-weight:600;font-size:14px;margin-bottom:8px;color:#6B5440}
-  input[type=text],input[type=password],textarea{width:100%;padding:15px 16px;border-radius:14px;border:1.5px solid var(--line);font:inherit;font-size:17px;background:#FFFCF5;color:var(--ink);outline:none;transition:border .2s}
+  input[type=text],input[type=password],input[type=tel],textarea{width:100%;padding:15px 16px;border-radius:14px;border:1.5px solid var(--line);font:inherit;font-size:17px;background:#FFFCF5;color:var(--ink);outline:none;transition:border .2s}
   input:focus,textarea:focus{border-color:var(--gold)}
   textarea{resize:none;min-height:60px;font-size:15px}
 
@@ -247,7 +247,7 @@
   .rk .m{font-family:'Cormorant Garamond',serif;font-weight:600;color:var(--muted)}
   .trophy-h{display:inline-block;width:1.25em;height:1.25em;vertical-align:-.25em;margin-right:.2em}
   /* Painel: abas e controle */
-  .tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:6px;margin-bottom:14px}
+  .tabs{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:6px;margin-bottom:14px}
   .tabs button{padding:12px 8px;border-radius:12px;font-weight:700;font-size:15px;background:transparent}
   .tabs button.on{background:var(--gold);color:#fff}
   .ctrl{display:grid;gap:14px;max-width:560px;margin:0 auto}
@@ -310,6 +310,23 @@
   .grid figure .acts button.del.arm{background:#D9534F;color:#fff}
   .grid figure.fav{outline:3px solid #E8B930;outline-offset:-3px}
   .grid figure.off img{opacity:.55;filter:grayscale(.5)}
+  /* WhatsApp / contatos */
+  .opt{display:flex;gap:10px;align-items:flex-start;margin-top:12px;font-size:14px;color:#5E4A38;line-height:1.4;cursor:pointer}
+  .opt input{width:22px;height:22px;flex:none;margin:0;accent-color:var(--gold)}
+  .wa-card{position:relative;background:linear-gradient(135deg,#F2FAEE,#FFFDF8);border:1.5px solid #CFE6C3;border-radius:20px;padding:18px;margin-top:18px;box-shadow:var(--shadow)}
+  .wa-card h4{margin:0 0 4px;font-family:'Cormorant Garamond',serif;font-size:23px;font-weight:600}
+  .wa-card p{margin:0 0 10px;color:var(--muted);font-size:14px}
+  .wa-card .x{position:absolute;right:10px;top:10px;width:34px;height:34px;border-radius:50%;background:#fff;border:1px solid var(--line);font-size:16px}
+  .btn-wa{background:#25D366;color:#fff;box-shadow:0 8px 20px rgba(37,211,102,.3)}
+  .ct-list{display:grid;gap:8px;margin-top:12px}
+  .ct{display:flex;align-items:center;gap:10px;background:var(--bg);border-radius:12px;padding:10px}
+  .ct .i{flex:1;min-width:0;font-size:14px}
+  .ct .i b{display:block;font-size:15px}
+  .ct .i small{color:var(--muted)}
+  .ct a,.ct button{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:#fff;border:1.5px solid var(--line);text-decoration:none;font-size:18px;flex:none}
+  .ct a.wa{background:#25D366;border-color:#25D366;color:#fff}
+  .pr{display:block;margin:12px auto 0;text-align:center;font-size:13px;color:var(--muted);text-decoration:none}
+  .pr b{color:#1f9e50}
   /* Telão: pausa, aviso, destaque */
   .t-pause{position:absolute;inset:0;z-index:7;background:rgba(253,246,234,.97) url(assets/telao-fundo.jpg) center/cover;display:flex;align-items:center;justify-content:center;text-align:center;opacity:0;pointer-events:none;transition:opacity .8s}
   .t-pause.on{opacity:1}
@@ -412,10 +429,17 @@
   <div class="card">
     <label class="f" for="in-name">Como podemos te chamar?</label>
     <input id="in-name" type="text" maxlength="50" placeholder="Seu nome (ex.: Tia Marta)" autocomplete="name">
-    <div style="height:14px"></div>
+    <label class="f" for="in-tel" style="margin-top:16px">Seu WhatsApp <span style="font-weight:400;color:var(--muted)">(opcional)</span></label>
+    <input id="in-tel" type="tel" inputmode="numeric" maxlength="16" placeholder="(13) 99999-9999" autocomplete="tel-national">
+    <p class="hint" style="text-align:left;margin:6px 2px 0">📲 Para receber as suas fotos e vídeos da festa depois. Pode deixar em branco.</p>
+    <div id="opts-entrada" class="hidden">
+      <label class="opt"><input type="checkbox" id="ck-fotos"><span>Quero receber minhas fotos do casamento pelo WhatsApp</span></label>
+      <label class="opt"><input type="checkbox" id="ck-div"><span>Aceito receber novidades da <b>Botazzo.Net</b> (sites, aplicativos e conserto de celular e computador)</span></label>
+    </div>
+    <div style="height:16px"></div>
     <button class="btn btn-gold" id="btn-enter">Entrar e começar</button>
   </div>
-  <p class="footer">Não precisa baixar nenhum aplicativo.<br>Só vai para os noivos o que você escolher enviar.</p>
+  <p class="footer">Não precisa baixar nenhum aplicativo.<br>Só vai para os noivos o que você escolher enviar.<br><span style="font-size:13px">Seu número fica guardado só com os organizadores e nunca aparece no telão.</span></p>
 </section>
 
 <!-- ============ INÍCIO ============ -->
@@ -459,6 +483,14 @@
   </div>
   <p class="hello" id="lbl-sent" style="margin-top:16px"></p>
   <p class="tip">✂️ Quer cortar ou editar o vídeo? Grave com a câmera do seu celular, edite na galeria e envie por <b>Enviar da galeria</b>.</p>
+  <div class="wa-card hidden" id="wa-card">
+    <button class="x" id="wa-x" aria-label="Fechar">✕</button>
+    <h4>📲 Receba suas fotos no WhatsApp</h4>
+    <p>Depois da festa a gente te manda as fotos e os vídeos que você enviou.</p>
+    <input id="wa-tel" type="tel" inputmode="numeric" maxlength="16" placeholder="(13) 99999-9999" autocomplete="tel-national">
+    <label class="opt"><input type="checkbox" id="wa-div"><span>Aceito receber novidades da <b>Botazzo.Net</b> (sites, apps e conserto de celular e PC)</span></label>
+    <button class="btn btn-wa" id="wa-ok" style="margin-top:12px">Quero receber minhas fotos</button>
+  </div>
   <div class="now hidden" id="now"><h4>Agora no telão</h4><div class="now-strip"><div class="now-track" id="now-track"></div></div></div>
   <div class="rank-card hidden" id="rank-home"><h4><span class="trophy-h" data-art="trophy"></span>Ranking da festa</h4><p class="s" style="margin:-6px 0 6px">Conta tudo que você enviou: o que está no telão e o que é só para os noivos</p><div id="rank-home-list"></div><p class="s" id="rank-me"></p></div>
   <div class="mine hidden" id="mine">
@@ -567,7 +599,7 @@
       <h2 id="gal-title">Nosso álbum</h2>
       <span id="gal-count" style="color:var(--muted);font-size:14px;min-width:48px;text-align:right"></span>
     </div>
-    <div class="note" id="gal-note">Aqui aparece o que foi liberado para o telão. O que foi enviado como "só para os noivos" fica guardado só para eles. 🔒</div>
+    <div class="note" id="gal-note">Aqui aparece o que foi liberado para o telão. O que foi enviado como "só para os noivos" fica guardado só para eles. 🔒<a class="pr" href="https://wa.me/5513991366128?text=Oi!%20Vi%20o%20app%20do%20casamento%20do%20Caio%20e%20da%20Tha%C3%ADs%20e%20queria%20saber%20mais%20sobre%20a%20Botazzo.Net" target="_blank" rel="noopener">Gostou do app? Ele foi feito pela <b>Botazzo.Net</b>: sites, aplicativos e conserto de celular e PC 💬</a></div>
     <div id="admin-login" class="card hidden" style="max-width:420px;margin:0 auto 20px">
       <label class="f" for="in-code">Código dos noivos</label>
       <input id="in-code" type="password" placeholder="Digite o código">
@@ -575,7 +607,17 @@
       <button class="btn btn-gold" id="btn-code">Entrar no painel</button>
     </div>
     <div class="adm-hero hidden" id="adm-hero"><div class="mono">C&amp;T</div><div style="min-width:0"><h3>Painel dos noivos</h3><small>Casamento Botazzo Serra · 28.11.2026</small><span class="live" id="adm-live">● telão no ar</span></div></div>
-    <div class="tabs hidden" id="admin-tabs"><button data-t="ctrl" class="on">🎛️ Controle do telão</button><button data-t="fotos">🖼️ Fotos e vídeos</button></div>
+    <div class="tabs hidden" id="admin-tabs"><button data-t="ctrl" class="on">🎛️ Telão</button><button data-t="fotos">🖼️ Fotos</button><button data-t="cont">👥 Contatos</button></div>
+    <div class="ctrl hidden" id="cont-view">
+      <div class="cc"><h5><i class="hb" data-ic="chart"></i>Contatos da festa</h5><div class="stats" id="ct-stats"></div>
+        <button class="bigb gold" id="ct-csv" style="width:100%;margin-top:12px">⬇️ Baixar contatos (Excel)</button>
+        <p class="st">Os números ficam só aqui no painel. Respeite quem não marcou as caixinhas e apague o número de quem pedir para sair.</p></div>
+      <div class="cc"><h5><i class="hb" data-ic="mega"></i>Mensagem para mandar depois da festa</h5>
+        <textarea id="ct-msg" style="min-height:150px;font-size:14px"></textarea>
+        <p class="st">Use {nome} e {link}. O botão 💬 de cada pessoa abre o WhatsApp com a mensagem pronta, é só apertar enviar.</p>
+        <label>Mostrar</label><div class="seg" id="ct-fil"><button data-v="fotos" class="on">Quem quer as fotos</button><button data-v="todos">Todos</button></div>
+        <div class="ct-list" id="ct-list"></div></div>
+    </div>
     <div class="ctrl hidden" id="ctrl-view">
       <div class="cc"><h5><i class="hb" data-ic="chart"></i>Resumo ao vivo</h5><div class="stats" id="c-stats"></div></div>
       <div class="cc"><h5><i class="hb" data-ic="tv"></i>Passando agora</h5><div class="now-box" id="c-now">Abra o telão pelo link com o código para ver aqui o que está passando.</div>
@@ -696,10 +738,19 @@ function toast(msg, ms=2800){ const t=$("toast"); t.textContent=msg; t.classList
 function uuid(){ if (crypto.randomUUID) return crypto.randomUUID(); const b=crypto.getRandomValues(new Uint8Array(16)); b[6]=(b[6]&15)|64; b[8]=(b[8]&63)|128; const h=[...b].map(x=>x.toString(16).padStart(2,"0")).join(""); return `${h.slice(0,8)}-${h.slice(8,12)}-${h.slice(12,16)}-${h.slice(16,20)}-${h.slice(20)}`; }
 function show(view){ ["v-welcome","v-home","v-camera","v-gallery","v-telao"].forEach(v=>$(v).classList.toggle("hidden", v!==view)); window.scrollTo(0,0); }
 const getName = () => localStorage.getItem("cas_nome") || "";
+function getDisp(){ let d=localStorage.getItem("cas_disp"); if(!d){ d="d-"+(crypto.randomUUID?crypto.randomUUID():Date.now()+"-"+Math.random().toString(16).slice(2)); localStorage.setItem("cas_disp",d); } return d; }
+const soDig = t => (t||"").replace(/\D/g,"");
+function telOk(t){ const d=soDig(t); return d.length===10||d.length===11||((d.length===12||d.length===13)&&d.startsWith("55")); }
+function mascara(inp){ inp.addEventListener("input",()=>{ let d=soDig(inp.value).slice(0,11); let v=d; if(d.length>2) v=`(${d.slice(0,2)}) ${d.slice(2)}`; if(d.length>7) v=`(${d.slice(0,2)}) ${d.slice(2,d.length-4)}-${d.slice(-4)}`; inp.value=v; }); }
+async function salvarContato(tel,fotos,div,origem){
+  if(!telOk(tel)) return false;
+  try{ const { data, error } = await sbF.rpc("casamento_salvar_contato",{ p_disp:getDisp(), p_nome:getName()||"convidado", p_tel:tel, p_fotos:!!fotos, p_div:!!div, p_origem:origem });
+    if(error||!data) return false; localStorage.setItem("cas_contato","ok"); return true; }catch(e){ return false; }
+}
 const setName = n => localStorage.setItem("cas_nome", n);
 const sentCount = () => +(localStorage.getItem("cas_enviadas")||0);
 function bumpSent(){ localStorage.setItem("cas_enviadas", sentCount()+1); renderSent(); }
-function renderSent(){ const n=sentCount(); $("lbl-sent").textContent = n ? `Você já enviou ${n} ${n>1?"arquivos":"arquivo"}. Obrigado! 💛` : ""; }
+function renderSent(){ try{ renderWaCard(); }catch(e){} const n=sentCount(); $("lbl-sent").textContent = n ? `Você já enviou ${n} ${n>1?"arquivos":"arquivo"}. Obrigado! 💛` : ""; }
 const fmtT = s => `${Math.floor(s/60)}:${String(Math.floor(s%60)).padStart(2,"0")}`;
 const pubFoto  = p => sbF.storage.from(CONFIG.BUCKET_FOTOS).getPublicUrl(p).data.publicUrl;
 const pubVideo = p => sbV.storage.from(CONFIG.BUCKET_VIDEOS).getPublicUrl(p).data.publicUrl;
@@ -780,7 +831,7 @@ async function uploadOne(it){
   }
   if (it.thumb){ miniatura=`thumbs/${base}.jpg`; const r=await sbF.storage.from(CONFIG.BUCKET_FOTOS).upload(miniatura,it.thumb,{...o,contentType:"image/jpeg"}); if(!okDup(r.error)) throw r.error; }
   const dono_hash = it.token ? await sha256hex(it.token) : null;
-  const ins=await sbF.from(CONFIG.TABLE).insert({ id:it.id, dono_hash, nome:it.nome, recado:it.recado||null, caminho, miniatura,
+  const ins=await sbF.from(CONFIG.TABLE).insert({ id:it.id, dono_hash, dispositivo:getDisp(), nome:it.nome, recado:it.recado||null, caminho, miniatura,
     largura:it.w||null, altura:it.h||null, com_moldura:!!it.frame, tipo:it.tipo||"foto", no_telao:!!it.telao,
     duracao:it.duracao?Math.round(it.duracao*10)/10:null, mime:it.mime||null, tamanho:it.blob.size });
   if (ins.error && ins.error.code!=="23505") throw ins.error;
@@ -856,7 +907,28 @@ function renderMine(){
 
 /* ---------------- telas iniciais ---------------- */
 function goHome(){ $("lbl-name").textContent=getName(); renderSent(); renderMine(); show("v-home"); if(!homeFx) homeFx=startLeaves("fx-home",lowMem()?5:9); refreshHome(); clearInterval(homeTimer); homeTimer=setInterval(()=>{ if(!$("v-home").classList.contains("hidden")) refreshHome(); },20000); if(!localStorage.getItem("cas_tut")) openTut(); }
-$("btn-enter").onclick=()=>{ const n=$("in-name").value.trim(); if(n.length<2){ toast("Digite seu nome para os noivos saberem quem enviou 😊"); $("in-name").focus(); return; } setName(n); goHome(); };
+mascara($("in-tel")); mascara($("wa-tel"));
+$("in-tel").addEventListener("input",()=>{ const tem=soDig($("in-tel").value).length>0; $("opts-entrada").classList.toggle("hidden",!tem); if(tem && !$("in-tel")._mexeu){ $("ck-fotos").checked=true; } });
+$("ck-fotos").addEventListener("change",()=>{ $("in-tel")._mexeu=true; });
+$("btn-enter").onclick=async()=>{
+  const n=$("in-name").value.trim(); if(n.length<2){ toast("Digite seu nome para os noivos saberem quem enviou 😊"); $("in-name").focus(); return; }
+  const tel=$("in-tel").value.trim();
+  if(tel && !telOk(tel)){ toast("Confira o WhatsApp: DDD + número (ou deixe em branco) 😉",4000); $("in-tel").focus(); return; }
+  setName(n);
+  if(tel) salvarContato(tel,$("ck-fotos").checked,$("ck-div").checked,"entrada"); else localStorage.removeItem("cas_contato");
+  goHome();
+};
+/* Segunda chance: quem não deixou número vê o cartão depois do primeiro envio */
+function renderWaCard(){
+  const mostrar = !localStorage.getItem("cas_contato") && !localStorage.getItem("cas_wa_x") && sentCount()>0;
+  $("wa-card").classList.toggle("hidden",!mostrar);
+}
+$("wa-x").onclick=()=>{ localStorage.setItem("cas_wa_x","1"); renderWaCard(); };
+$("wa-ok").onclick=async()=>{
+  const tel=$("wa-tel").value.trim(); if(!telOk(tel)){ toast("Digite o WhatsApp com DDD 😉"); $("wa-tel").focus(); return; }
+  $("wa-ok").disabled=true; const ok=await salvarContato(tel,true,$("wa-div").checked,"apos_envio"); $("wa-ok").disabled=false;
+  if(ok){ toast("Prontinho! Depois da festa você recebe suas fotos 💛",4000); renderWaCard(); } else toast("Não deu agora, tente de novo em instantes");
+};
 $("in-name").addEventListener("keydown",e=>{ if(e.key==="Enter") $("btn-enter").click(); });
 $("btn-rename").onclick=()=>{ $("in-name").value=getName(); show("v-welcome"); };
 
@@ -1198,7 +1270,8 @@ $("lb-dest1").onclick=()=>destacar(1); $("lb-dest5").onclick=()=>destacar(5);
 let ctrlTimer=null, ctrlState=null, avMin="5";
 function setTab(t){
   document.querySelectorAll("#admin-tabs button").forEach(b=>b.classList.toggle("on",b.dataset.t===t));
-  $("ctrl-view").classList.toggle("hidden",t!=="ctrl"||!adminMode); $("fotos-view").classList.toggle("hidden",t==="ctrl"&&adminMode);
+  $("ctrl-view").classList.toggle("hidden",t!=="ctrl"||!adminMode); $("cont-view").classList.toggle("hidden",t!=="cont"||!adminMode); $("fotos-view").classList.toggle("hidden",(t==="ctrl"||t==="cont")&&adminMode);
+  if(t==="cont"&&adminMode) loadContatos();
   clearInterval(ctrlTimer); if(t==="ctrl"&&adminMode){ pollCtrl(); ctrlTimer=setInterval(()=>{ if(!$("v-gallery").classList.contains("hidden")) pollCtrl(); },4000); }
 }
 $("admin-tabs").onclick=e=>{ const b=e.target.closest("button"); if(b) setTab(b.dataset.t); };
@@ -1269,6 +1342,44 @@ $("c-presets").onclick=e=>{ const b=e.target.closest("button"); if(b) $("c-aviso
 $("c-avmin").onclick=e=>{ const b=e.target.closest("button"); if(!b) return; avMin=b.dataset.m; [...$("c-avmin").children].forEach(x=>x.classList.toggle("on",x===b)); };
 $("c-av-on").onclick=()=>{ const t=$("c-aviso").value.trim(); if(!t) return toast("Escreva ou escolha um aviso"); ctrlSet({ aviso:t, aviso_min: avMin?+avMin:null },"📣 Aviso no telão!"); };
 $("c-av-off").onclick=()=>ctrlSet({ aviso:"" },"Aviso retirado");
+/* ---------- Contatos ---------- */
+let contatos=[], ctFil="fotos";
+const MSG_PADRAO="Oi, {nome}! 💛\nAqui estão as fotos e vídeos do casamento do Caio e da Thaís: {link}\n\nO aplicativo do telão foi feito pela *Botazzo.Net*: criamos sites e aplicativos e fazemos conserto de celular e computador. Precisando, é só chamar! 😉";
+$("ct-msg").value = localStorage.getItem("cas_ct_msg") || MSG_PADRAO;
+$("ct-msg").oninput=()=>{ localStorage.setItem("cas_ct_msg",$("ct-msg").value); renderContatos(); };
+const fmtTel = t => { const d=t.replace(/^55/,""); return d.length===11?`(${d.slice(0,2)}) ${d.slice(2,7)}-${d.slice(7)}`:d.length===10?`(${d.slice(0,2)}) ${d.slice(2,6)}-${d.slice(6)}`:t; };
+async function loadContatos(){
+  const { data, error } = await sbF.rpc("casamento_admin_contatos",{ p_codigo:adminCode });
+  if(error){ toast("Não deu para carregar os contatos"); return; }
+  contatos=data||[]; renderContatos();
+}
+function renderContatos(){
+  const n=f=>contatos.filter(f).length;
+  $("ct-stats").innerHTML=[[contatos.length,"contatos"],[n(c=>c.quer_fotos),"querem fotos"],[n(c=>c.aceita_divulgacao),"aceitam novidades"]].map(([v,l])=>`<div><b>${v}</b><small>${l}</small></div>`).join("");
+  const link = location.origin+location.pathname+"?album";
+  const box=$("ct-list"); box.innerHTML="";
+  const lista=contatos.filter(c=>ctFil==="todos"||c.quer_fotos);
+  if(!lista.length) box.innerHTML='<p class="st">Ninguém por aqui ainda.</p>';
+  lista.forEach(c=>{
+    const it=document.createElement("div"); it.className="ct";
+    const i=document.createElement("div"); i.className="i"; const b=document.createElement("b"); b.textContent=c.nome; i.append(b);
+    const sm=document.createElement("small"); sm.textContent=`${fmtTel(c.telefone)} · ${c.envios} envio${c.envios!==1?"s":""}${c.quer_fotos?" · 📸 fotos":""}${c.aceita_divulgacao?" · 📣 novidades":""}`; i.append(sm);
+    const msg=$("ct-msg").value.replaceAll("{nome}",c.nome.split(" ")[0]).replaceAll("{link}",link);
+    const wa=document.createElement("a"); wa.className="wa"; wa.textContent="💬"; wa.title="Abrir no WhatsApp"; wa.target="_blank"; wa.rel="noopener"; wa.href=`https://wa.me/${c.telefone}?text=${encodeURIComponent(msg)}`;
+    const del=document.createElement("button"); del.textContent="🗑️"; del.title="Apagar contato (toque 2x)";
+    del.onclick=async()=>{ if(del.dataset.arm!=="1"){ del.dataset.arm="1"; del.style.background="#F6D5CF"; toast("Toque de novo para apagar o contato"); setTimeout(()=>{ del.dataset.arm=""; del.style.background=""; },4000); return; }
+      const { error } = await sbF.rpc("casamento_admin_contato_apagar",{ p_codigo:adminCode, p_id:c.id }); if(error) return toast("Não deu certo"); contatos=contatos.filter(x=>x.id!==c.id); renderContatos(); toast("Contato apagado"); };
+    it.append(i,wa,del); box.append(it);
+  });
+}
+$("ct-fil").onclick=e=>{ const b=e.target.closest("button"); if(!b) return; ctFil=b.dataset.v; [...$("ct-fil").children].forEach(x=>x.classList.toggle("on",x===b)); renderContatos(); };
+$("ct-csv").onclick=()=>{
+  if(!contatos.length) return toast("Ainda não há contatos");
+  const esc=v=>`"${String(v??"").replace(/"/g,'""')}"`;
+  const linhas=[["Nome","WhatsApp","Telefone (com 55)","Quer as fotos","Aceita novidades Botazzo.Net","Envios","Onde cadastrou","Data"].map(esc).join(";")];
+  contatos.forEach(c=>linhas.push([c.nome,fmtTel(c.telefone),c.telefone,c.quer_fotos?"sim":"não",c.aceita_divulgacao?"sim":"não",c.envios,c.origem==="entrada"?"na entrada":"depois de enviar",new Date(c.criado_em).toLocaleString("pt-BR")].map(esc).join(";")));
+  const a=document.createElement("a"); a.href=URL.createObjectURL(new Blob(["\ufeff"+linhas.join("\r\n")],{type:"text/csv;charset=utf-8"})); a.download="Contatos - Casamento Caio e Thais.csv"; a.click();
+};
 $("c-dest-off").onclick=()=>ctrlSet({ destaque_id:null },"Destaque retirado");
 let delArm=null;
 $("lb-del").onclick=async()=>{
@@ -1281,7 +1392,7 @@ $("lb-del").onclick=async()=>{
   toast("Apagada ✔️ (uma cópia fica guardada no PC, em 'Apagadas pelo admin')",4500);
 };
 
-function showAdminLogin(){ show("v-gallery"); $("adm-hero").classList.add("hidden"); $("f-filtros").classList.add("hidden"); $("admin-tabs").classList.add("hidden"); $("ctrl-view").classList.add("hidden"); $("fotos-view").classList.remove("hidden"); $("gal-title").textContent="Painel dos noivos"; $("gal-note").classList.add("hidden"); $("admin-bar").classList.add("hidden"); $("grid").innerHTML=""; $("admin-login").classList.remove("hidden"); $("gal-more").classList.add("hidden"); }
+function showAdminLogin(){ show("v-gallery"); $("cont-view").classList.add("hidden"); $("adm-hero").classList.add("hidden"); $("f-filtros").classList.add("hidden"); $("admin-tabs").classList.add("hidden"); $("ctrl-view").classList.add("hidden"); $("fotos-view").classList.remove("hidden"); $("gal-title").textContent="Painel dos noivos"; $("gal-note").classList.add("hidden"); $("admin-bar").classList.add("hidden"); $("grid").innerHTML=""; $("admin-login").classList.remove("hidden"); $("gal-more").classList.add("hidden"); }
 $("btn-code").onclick=async()=>{
   const c=$("in-code").value.trim(); if(!c) return;
   const { error } = await sbF.rpc("casamento_admin_listar",{ p_codigo:c, p_offset:0, p_limite:1 });
@@ -1400,7 +1511,7 @@ let homeTimer=null, homeFx=null;
 async function checkReset(){
   try{ const { data } = await sbF.rpc("casamento_controle_ler"); const rm=data&&data.reset_ms; if(!rm) return;
     const visto=+(localStorage.getItem("cas_reset")||0);
-    if(rm>visto){ localStorage.setItem("cas_reset",rm); const a=getMine().filter(m=>m.ts>rm); setMine(a); if(!a.length) localStorage.setItem("cas_enviadas","0"); renderMine(); renderSent(); }
+    if(rm>visto){ localStorage.setItem("cas_reset",rm); localStorage.removeItem("cas_contato"); localStorage.removeItem("cas_wa_x"); const a=getMine().filter(m=>m.ts>rm); setMine(a); if(!a.length) localStorage.setItem("cas_enviadas","0"); renderMine(); renderSent(); }
   }catch(e){}
 }
 async function refreshHome(){
