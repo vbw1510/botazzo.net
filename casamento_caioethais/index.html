@@ -354,9 +354,42 @@
   .bnet .go{margin-left:auto;background:var(--gold);color:#fff;border-radius:12px;padding:9px 12px;font-weight:800;font-size:13px;white-space:nowrap}
   .mine-item .del{background:#fff;border:1.5px solid var(--line);padding:9px 10px}
   .mine-item .del.arm{background:#F6D5CF;border-color:#E9B3A8}
+  /* Tela inicial enxuta */
+  .cta.big{flex-direction:row;padding:26px 20px;margin-bottom:12px}
+  .cta.big h3{font-size:31px}
+  .mini2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .mini2 button{display:flex;align-items:center;justify-content:center;gap:8px;background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:14px 8px;font-weight:700;font-size:14.5px;box-shadow:var(--shadow)}
+  .mini2 svg{width:20px;height:20px;color:#8a6430}
+  .mais{display:block;margin:10px auto 0;background:none;color:var(--gold);font-weight:700;font-size:14px;text-decoration:underline}
+  /* Selfie geral e pódio final no telão */
+  .t-show{position:absolute;inset:0;z-index:9;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:rgba(253,246,234,.93);opacity:0;pointer-events:none;transition:opacity .6s}
+  .t-show.on{opacity:1}
+  .t-show .tt1{font-family:'Cormorant Garamond',serif;font-size:6vh;font-weight:600;color:#8E6A2E}
+  .t-show .num{font-family:'Nunito Sans',sans-serif;font-weight:700;font-size:30vh;line-height:1;color:#A87C3A;text-shadow:0 1vh 3vh rgba(120,80,20,.25);animation:pop .8s cubic-bezier(.2,1.6,.4,1)}
+  .t-show .grito{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:9vh;color:#B03A35;line-height:1.05;animation:pop .7s cubic-bezier(.2,1.6,.4,1)}
+  .t-show .sub{font-size:3vh;color:#6B5440;margin-top:2vh}
+  .pod{display:flex;align-items:flex-end;justify-content:center;gap:4vw;margin-top:4vh}
+  .pod .lu{display:flex;flex-direction:column;align-items:center;opacity:0;transform:translateY(6vh);transition:opacity .8s, transform .8s cubic-bezier(.2,1.4,.4,1)}
+  .pod .lu.on{opacity:1;transform:none}
+  .pod .lu .md{width:16vh;height:16vh}
+  .pod .lu.p1 .md{width:24vh;height:24vh}
+  .pod .lu .nm{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:4.6vh;margin-top:1vh}
+  .pod .lu.p1 .nm{font-size:6.4vh;color:#8E6A2E}
+  .pod .lu .qt{font-size:2.3vh;color:#6B5440}
+  .pod .lu .base{margin-top:1.4vh;width:22vw;border-radius:1.6vh 1.6vh 0 0;background:linear-gradient(180deg,#F2CC55,#C99A3A);color:#fff;font-weight:800;font-size:5vh;display:grid;place-items:center}
+  .pod .lu.p1 .base{height:22vh}.pod .lu.p2 .base{height:15vh;background:linear-gradient(180deg,#E6E9EC,#A9B0B6)}.pod .lu.p3 .base{height:10vh;background:linear-gradient(180deg,#F2C29A,#B5703A)}
+  /* Pesquisa: editor */
+  .pq-ed{display:grid;gap:8px;margin-top:8px}
+  .pq-ed .row{display:grid;grid-template-columns:1fr auto auto;gap:6px;align-items:center;background:var(--bg);border-radius:12px;padding:8px}
+  .pq-ed input[type=text]{padding:10px 12px;font-size:14px;margin:0}
+  .pq-ed select{padding:10px 6px;border-radius:10px;border:1.5px solid var(--line);font:inherit;font-size:13px;background:#fff}
+  .pq-ed .x{width:38px;height:38px;border-radius:10px;background:#fff;border:1.5px solid var(--line)}
+  .pq-ed label.nb{grid-column:1 / -1;display:flex;gap:8px;align-items:center;font-size:13px;font-weight:600;color:#5E4A38;margin:0}
+  .pq-ed label.nb input{width:20px;height:20px;margin:0;flex:none;accent-color:var(--gold)}
   /* Desfazer */
   .undo{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom));transform:translate(-50%,140%);z-index:97;display:flex;align-items:center;gap:12px;width:min(92vw,480px);box-sizing:border-box;background:var(--ink);color:#fff;border-radius:18px;padding:12px 12px 12px 18px;box-shadow:0 12px 30px rgba(0,0,0,.3);transition:transform .35s cubic-bezier(.2,1.3,.4,1);max-width:94vw;font-size:15px}
-  .undo.show{transform:translate(-50%,0)}
+  .undo{visibility:hidden}
+  .undo.show{transform:translate(-50%,0);visibility:visible}
   .undo span{flex:1;min-width:0;line-height:1.35}
   .undo button{background:#F2CC55;color:#4E3A29;font-weight:800;border-radius:12px;padding:10px 14px;white-space:nowrap}
   .hist{display:grid;gap:6px;margin-top:8px}
@@ -566,34 +599,21 @@
   <p style="text-align:center;margin:0"><span class="nivel hidden" id="nivel"></span></p>
 
   <div class="live-banner"><div><b>📺 Apareça no telão da festa!</b><span class="c" id="live-count">Seja o primeiro a enviar ✨</span></div><span class="pulse">AO VIVO</span></div>
-  <div class="cta-row">
-    <button class="cta" id="btn-foto">
-      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5A2.5 2.5 0 0 1 5.5 6h1.7l1.4-2h6.8l1.4 2h1.7A2.5 2.5 0 0 1 21 8.5v9A2.5 2.5 0 0 1 18.5 20h-13A2.5 2.5 0 0 1 3 17.5z"/><circle cx="12" cy="12.5" r="3.8"/></svg></span>
-      <span><h3>Tirar foto</h3><p>Abre a câmera do seu celular</p></span>
-    </button>
-    <button class="cta alt" id="btn-video">
-      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="6" width="13" height="12" rx="2.5"/><path d="m15.5 10.5 6-3.5v10l-6-3.5z"/></svg></span>
-      <span><h3>Gravar vídeo</h3><p>Aparece no telão em segundos</p></span>
-    </button>
+  <button class="cta big" id="btn-main">
+    <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5A2.5 2.5 0 0 1 5.5 6h1.7l1.4-2h6.8l1.4 2h1.7A2.5 2.5 0 0 1 21 8.5v9A2.5 2.5 0 0 1 18.5 20h-13A2.5 2.5 0 0 1 3 17.5z"/><circle cx="12" cy="12.5" r="3.8"/></svg></span>
+    <span><h3>Foto ou vídeo</h3><p>Tire na hora ou escolha da galeria · aparece no telão ✨</p></span>
+  </button>
+  <div class="mini2">
+    <button id="btn-gallery"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 1 0-7.8 7.8L12 21.2l8.8-8.8a5.5 5.5 0 0 0 0-7.8z"/></svg>Ver o álbum</button>
+    <button id="btn-camera"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2M11 8.5v5M8.5 11h5"/></svg>Câmera com zoom</button>
   </div>
-  <button class="site-cam" id="btn-camera">ou use a câmera do site (zoom 1x·2x·3x e prévia)</button>
-  <div class="stack">
-    <button class="action sage" id="btn-upload">
-      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.8"/><path d="m21 15-5-5L5 21"/></svg></span>
-      <span><h3>Enviar da galeria</h3><p>Fotos e vídeos que você já tem</p></span>
-    </button>
-    <button class="action blush" id="btn-gallery">
-      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 1 0-7.8 7.8L12 21.2l8.8-8.8a5.5 5.5 0 0 0 0-7.8z"/></svg></span>
-      <span><h3>Ver o álbum</h3><p>O que está passando no telão</p></span>
-    </button>
-  </div>
+  <button class="hidden" id="btn-foto"></button><button class="hidden" id="btn-video"></button><button class="hidden" id="btn-upload"></button>
 
   <div class="queue hidden" id="queue">
     <div class="spinner"></div>
     <div style="flex:1"><div id="q-text">Enviando…</div><div class="bar" style="margin-top:6px"><i id="q-bar"></i></div></div>
   </div>
   <p class="hello" id="lbl-sent" style="margin-top:16px"></p>
-  <p class="tip">✂️ Quer cortar ou editar o vídeo? Grave com a câmera do seu celular, edite na galeria e envie por <b>Enviar da galeria</b>.</p>
   <div class="inst-card hidden" id="inst-card">
     <button class="x" id="inst-x" aria-label="Fechar">✕</button>
     <img src="assets/icon-192.png" alt="">
@@ -612,22 +632,25 @@
     <h4>🎯 Missões da festa</h4>
     <p class="s">Toque numa missão: a câmera abre e a foto já vai marcada 😉</p>
     <div class="ms-list" id="ms-list"></div>
+    <button class="mais hidden" id="ms-mais">Ver todas as missões</button>
     <div class="ms-pend hidden" id="ms-pend"><span id="ms-pend-t"></span><button id="ms-pend-x">cancelar</button></div>
   </div>
   <div class="now hidden" id="now"><h4>Agora no telão</h4><div class="now-strip"><div class="now-track" id="now-track"></div></div></div>
-  <div class="rank-card hidden" id="rank-home"><h4><span class="trophy-h" data-art="trophy"></span>Ranking da festa</h4><p class="s" style="margin:-6px 0 6px">Conta tudo que você enviou: o que está no telão e o que é só para os noivos</p><div id="rank-home-list"></div><p class="s" id="rank-me"></p></div>
+  <div class="rank-card hidden" id="rank-home"><h4><span class="trophy-h" data-art="trophy"></span>Ranking da festa</h4><div id="rank-home-list"></div><p class="s" id="rank-me"></p></div>
   <div class="mine hidden" id="mine">
     <h4>Meus envios</h4>
     <p class="s">Enviou sem querer? Tire do telão ou apague no 🗑️ 😉</p>
     <div class="mine-list" id="mine-list"></div>
+    <button class="mais hidden" id="mine-mais">Ver todos</button>
   </div>
   <p style="text-align:center;margin-top:18px"><button class="link" id="btn-help">Como funciona?</button></p>
 
   <input type="file" id="file-gallery" accept="image/*,video/*" multiple class="hidden">
+  <input type="file" id="file-any" accept="image/*,video/*" multiple class="hidden">
   <input type="file" id="file-native" accept="image/*" capture="environment" class="hidden">
   <input type="file" id="file-native-video" accept="video/*" capture="environment" class="hidden">
   <p style="text-align:center;margin-top:14px"><button class="link" id="inst-link">📲 Instalar o app no celular</button></p>
-  <a class="bnet" href="https://www.botazzo.net" target="_blank" rel="noopener"><span class="lg">B.Net</span><span><b>Aplicativo criado pela Botazzo.Net</b><small>Sites, aplicativos e conserto de celular e computador</small></span><span class="go">Conhecer →</span></a>
+  <a class="bnet" href="https://www.botazzo.net" target="_blank" rel="noopener"><span class="lg" style="padding:0;background:none"><svg viewBox="0 0 60 60" width="52" height="52" aria-label="Botazzo.Net"><defs><linearGradient id="bnG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5A4330"/><stop offset="1" stop-color="#2F2219"/></linearGradient><linearGradient id="bnO" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFE08A"/><stop offset="1" stop-color="#D9A93A"/></linearGradient></defs><rect width="60" height="60" rx="15" fill="url(#bnG)"/><path d="M14 46h32M18 46V40M42 46V40" stroke="#D9A93A" stroke-width="1.6" stroke-linecap="round" opacity=".55"/><circle cx="18" cy="40" r="1.8" fill="#D9A93A" opacity=".7"/><circle cx="42" cy="40" r="1.8" fill="#D9A93A" opacity=".7"/><text x="30" y="35" text-anchor="middle" font-family="Georgia,serif" font-weight="700" font-size="30" fill="url(#bnO)">B</text><text x="30" y="54" text-anchor="middle" font-family="Arial,sans-serif" font-weight="800" font-size="7.5" letter-spacing="1" fill="#F2CC55">.NET</text></svg></span><span><b>Aplicativo criado pela Botazzo.Net</b><small>Sites, aplicativos e conserto de celular e computador</small></span><span class="go">Conhecer →</span></a>
   <p class="footer">Com amor, Botazzo Serra 🤍<br><a href="https://www.botazzo.net" target="_blank" rel="noopener" style="color:var(--gold);font-weight:700;text-decoration:none">www.botazzo.net</a></p>
   <span class="versao" id="ver-home"></span>
 </section>
@@ -660,7 +683,7 @@
   </div>
   <div class="flash" id="flash"></div>
   <div class="review hidden" id="review">
-    <textarea id="in-msg" maxlength="200" placeholder="Deixe um recado para os noivos (opcional) 💌"></textarea>
+    <textarea id="in-msg" class="hidden" maxlength="200"></textarea>
     <div class="choice-title">Quem pode ver?</div>
     <div class="choices" data-group="rv">
       <button class="choice" data-v="telao"><span class="e">📺</span><b>Pode passar no telão</b><small>Aparece no telão da festa e no álbum</small></button>
@@ -696,10 +719,7 @@
   <div class="sheet pq">
     <h3>🍾 Pesquisa relâmpago</h3>
     <p class="tip" style="margin:0;font-size:14px">Só os noivos vão ver, fica entre nós 🤫</p>
-    <div class="q"><b>Seu nível de bebida agora, de 0 a 10:</b><div class="esc" id="pq-beb"></div></div>
-    <div class="q"><b>Animação da festa, de 0 a 10:</b><div class="esc" id="pq-ani"></div></div>
-    <div class="q"><b>Já bebeu água hoje? 💧</b><div class="sn" id="pq-agua"><button data-v="1">Sim</button><button data-v="0">Ainda não 😅</button></div></div>
-    <div class="q"><b>Já foi para a pista? 💃</b><div class="sn" id="pq-danca"><button data-v="1">Já!</button><button data-v="0">Ainda não</button></div></div>
+    <div id="pq-qs"></div>
     <div class="row" style="display:grid;grid-template-columns:1fr 1.4fr;gap:10px;margin-top:16px">
       <button class="btn btn-light" id="pq-nao">Agora não</button><button class="btn btn-gold" id="pq-ok">Responder</button>
     </div>
@@ -726,7 +746,7 @@
       <button class="choice" data-v="noivos"><span class="e">🔒</span><b>Só para os noivos</b><small>Fica guardado, ninguém mais vê</small></button>
     </div>
     <div class="hint" id="sh-hint">Escolha uma das opções acima 👆</div>
-    <textarea id="sh-msg" maxlength="200" placeholder="Deixe um recado para os noivos (opcional) 💌" style="margin-top:8px"></textarea>
+    <textarea id="sh-msg" class="hidden" maxlength="200"></textarea>
     <div class="row" style="display:grid;grid-template-columns:1fr 1.4fr;gap:10px;margin-top:10px">
       <button class="btn btn-light" id="sh-cancel">Cancelar</button>
       <button class="btn btn-gold" id="sh-send" disabled>Enviar 💛</button>
@@ -737,7 +757,7 @@
 <!-- ============ TUTORIAL ============ -->
 <div class="tut hidden" id="tut">
   <div class="tut-box">
-    <div class="tut-step on"><div class="tut-ic">📸</div><h2>Foto ou vídeo</h2><p>Toque em <b>Tirar foto</b> ou <b>Gravar vídeo</b>: abre a câmera do seu próprio celular, com zoom e tudo.<br>Vídeos curtinhos ficam melhores: no telão passam até 30 segundos.</p></div>
+    <div class="tut-step on"><div class="tut-ic">📸</div><h2>Foto ou vídeo</h2><p>Toque em <b>Foto ou vídeo</b> e escolha: tirar na hora com a câmera do celular ou pegar da galeria.<br>Vídeos curtinhos ficam melhores: no telão passam até 30 segundos.</p></div>
     <div class="tut-step"><div class="tut-ic">📺</div><h2>Você escolhe quem vê</h2><p>Antes de enviar, escolha:<br><b>📺 Pode passar no telão</b>: aparece na festa.<br><b>🔒 Só para os noivos</b>: fica guardado só para eles.</p></div>
     <div class="tut-step"><div class="tut-ic">💛</div><h2>Pronto!</h2><p>O envio é automático. Se a internet estiver fraca, o celular guarda e envia sozinho depois.<br>Mandou sem querer? Em <b>Meus envios</b> você tira do telão na hora.</p></div>
     <div class="dots" id="tut-dots"><i class="on"></i><i></i><i></i></div>
@@ -799,8 +819,16 @@
         <div class="sw" style="margin-top:0"><span><b>Pesquisa ligada</b><small>Pergunta nível de bebida, animação, água e pista</small></span><button class="tg" id="c-pq-on" aria-label="Pesquisa ligada"></button></div>
         <label>Aparece sozinha a cada</label>
         <div class="chips" id="c-pq-min"><button data-v="20">20 min</button><button data-v="40">40 min</button><button data-v="60">60 min</button><button data-v="0">Só quando eu mandar</button></div>
+        <label>Perguntas (até 5)</label>
+        <div class="pq-ed" id="c-pq-ed"></div>
+        <div class="row2"><button class="bigb" id="c-pq-add">+ Pergunta</button><button class="bigb" id="c-pq-salvar">Salvar perguntas</button></div>
         <button class="bigb gold" id="c-pq-agora" style="width:100%;margin-top:12px">📲 Mandar a pesquisa agora para todos</button>
         <p class="st">As respostas ficam na aba Contatos.</p></div>
+      <div class="cc"><h5><i class="hb" data-ic="star"></i>Momentos no telão 🎉</h5>
+        <button class="bigb gold" id="c-selfie" style="width:100%">🤳 Selfie geral (contagem 3, 2, 1 no telão)</button>
+        <p class="st">O telão faz a contagem e todo mundo com o app aberto recebe o aviso para tirar a selfie e mandar.</p>
+        <button class="bigb gold" id="c-podio" style="width:100%;margin-top:6px">🏆 Revelar o pódio final</button>
+        <p class="st">Cerimônia no telão: revela o 3º, o 2º e o 1º melhor fotógrafo do casamento. Deixe para o fim da festa 😉</p></div>
       <div class="cc"><h5><i class="hb" data-ic="mega"></i>Aviso no telão</h5>
         <div class="chips" id="c-presets"><button>🎂 Hora do bolo!</button><button>💐 Buquê em 5 minutos!</button><button>💃 Todos para a pista!</button><button>📸 Foto com os noivos!</button><button>🥂 Hora do brinde!</button></div>
         <input type="text" id="c-aviso" maxlength="120" placeholder="Ou escreva o seu aviso…">
@@ -876,6 +904,7 @@
   <div class="t-tick hidden" id="t-tick"><span class="tl">Últimos envios</span><div class="tw"><div class="tt" id="t-tick-track"></div></div></div>
   <div class="t-count" id="t-count"></div>
   <button class="btn btn-gold t-start" id="telao-start">▶︎ Iniciar telão em tela cheia</button>
+  <div class="t-show" id="t-show"></div>
   <div class="t-pause" id="t-pause"><div><h1 class="names">Caio <span class="amp">&</span> Thaís</h1><p>Já voltamos 💛</p></div></div>
   <div class="t-aviso" id="t-aviso"><span id="t-aviso-txt"></span></div>
   <div class="t-credit">criado por <b>Botazzo.Net</b></div>
@@ -953,52 +982,61 @@ function setMissao(t){ missaoPend=t; if(t) sessionStorage.setItem("cas_missao",t
 function renderMissoes(){
   const lista=(ctrlCel&&ctrlCel.missoes&&ctrlCel.missoes.length)?ctrlCel.missoes:MISSOES_PADRAO, ok=missoesFeitas();
   const box=$("ms-list"); box.innerHTML="";
-  lista.forEach(t=>{ const b=document.createElement("button"); b.className="ms"+(ok.includes(t)?" ok":""); b.textContent=t;
+  const todas=$("ms-list").dataset.todas==="1"; $("ms-mais").classList.toggle("hidden",lista.length<=4); $("ms-mais").textContent=todas?"Mostrar menos":`Ver todas as missões (${lista.length})`;
+  (todas?lista:lista.slice(0,4)).forEach(t=>{ const b=document.createElement("button"); b.className="ms"+(ok.includes(t)?" ok":""); b.textContent=t;
     b.onclick=()=>{ setMissao(t); const video=/v[ií]deo/i.test(t); toast(`🎯 Missão: ${t}`); if(lowMem()) camSite(video?"video":"photo"); else abrirNativa(video?$("file-native-video"):$("file-native")); };
     box.append(b); });
   setMissao(missaoPend);
 }
 $("ms-pend-x").onclick=()=>setMissao(null);
+$("ms-mais").onclick=()=>{ const l=$("ms-list"); l.dataset.todas = l.dataset.todas==="1"?"":"1"; renderMissoes(); };
 /* Missão relâmpago e avisos chegando no celular (para quem está com o app aberto) */
 function avisarCelular(){ try{ if(document.hidden && navigator.setAppBadge) navigator.setAppBadge(1); }catch(e){} }
 document.addEventListener("visibilitychange",()=>{ if(!document.hidden){ try{ navigator.clearAppBadge&&navigator.clearAppBadge(); }catch(e){} } });
 function tratarControleCelular(c){
   const antes=ctrlCel; ctrlCel=c; renderMissoes();
   const seen=k=>+(localStorage.getItem(k)||0);
-  if(c.missao && c.missao_seq>seen("cas_ms_seq")){ localStorage.setItem("cas_ms_seq",c.missao_seq); $("rl-t").textContent=c.missao; if(!$("v-home").classList.contains("hidden")) $("relamp").classList.remove("hidden"); else window.__relampPend=true; avisarCelular(); }
+  if(c.missao && c.missao_seq>seen("cas_ms_seq")){ localStorage.setItem("cas_ms_seq",c.missao_seq); $("rl-t").textContent=c.missao; $("relamp").querySelector("h3").textContent="Missão relâmpago!"; if(!$("v-home").classList.contains("hidden")) $("relamp").classList.remove("hidden"); else window.__relampPend=true; avisarCelular(); }
   if(c.pesquisa_on && c.pesquisa_seq>seen("cas_pq_seq")){ const primeira=!localStorage.getItem("cas_pq_seq"); localStorage.setItem("cas_pq_seq",c.pesquisa_seq); if(!primeira){ abrirPesquisa(true); avisarCelular(); } }
+  if(c.selfie_seq>seen("cas_sf_seq")){ const primeira=!localStorage.getItem("cas_sf_seq"); localStorage.setItem("cas_sf_seq",c.selfie_seq); if(!primeira && (c.selfie_seg??999)<90){ $("rl-t").textContent="🤳 Selfie geral! Tire agora com quem está perto e mande"; $("relamp").querySelector("h3").textContent="Selfie geral!"; if(!$("v-home").classList.contains("hidden")) $("relamp").classList.remove("hidden"); else window.__relampPend=true; avisarCelular(); } }
   if(c.aviso && antes && c.aviso!==antes.aviso){ $("fun-e").textContent="📣"; $("fun-t").textContent=c.aviso; $("fun-s").textContent="Recado dos noivos 💛"; const f=$("fun"); f.classList.add("show"); clearTimeout(funT); funT=setTimeout(()=>f.classList.remove("show"),6000); avisarCelular(); }
 }
 $("rl-foto").onclick=()=>{ $("relamp").classList.add("hidden"); setMissao($("rl-t").textContent); if(lowMem()) camSite("photo"); else abrirNativa($("file-native")); };
 $("rl-video").onclick=()=>{ $("relamp").classList.add("hidden"); setMissao($("rl-t").textContent); if(lowMem()) camSite("video"); else abrirNativa($("file-native-video")); };
 $("rl-x").onclick=()=>{ $("relamp").classList.add("hidden"); pesquisaPendente(); };
 function pesquisaPendente(){ if(window.__pqPend){ window.__pqPend=false; setTimeout(()=>abrirPesquisa(true),1500); } }
-/* Pesquisa relâmpago (privada) */
-let pq={ bebida:null, animacao:null, agua:null, dancou:null };
-function montarEscala(id,campo,suco){
-  const box=$(id); box.innerHTML="";
-  for(let i=0;i<=10;i++){ const b=document.createElement("button"); b.textContent=i; b.onclick=()=>{ pq[campo]=i; [...box.children].forEach(x=>x.classList.toggle("on",x===b)); }; box.append(b); }
-  if(suco){ const b=document.createElement("button"); b.textContent="🚫 Não estou bebendo"; b.className="w2"; b.style.gridColumn="1 / -1"; b.onclick=()=>{ pq[campo]=-1; [...box.children].forEach(x=>x.classList.toggle("on",x===b)); }; box.append(b); }
+/* Pesquisa relâmpago (privada) — perguntas vêm do painel */
+const PERG_PADRAO=[{t:"Seu nível de bebida agora",k:"escala",nb:true},{t:"Animação da festa",k:"escala"},{t:"Já bebeu água hoje? 💧",k:"sn"},{t:"Já foi para a pista? 💃",k:"sn"}];
+let pqResp=[];
+function montarPerguntas(){
+  const qs=(ctrlCel&&Array.isArray(ctrlCel.pesquisa_perguntas)&&ctrlCel.pesquisa_perguntas.length)?ctrlCel.pesquisa_perguntas:PERG_PADRAO;
+  const box=$("pq-qs"); box.innerHTML=""; pqResp=qs.map(q=>({ p:q.t, v:null }));
+  qs.forEach((q,qi)=>{
+    const d=document.createElement("div"); d.className="q"; const b=document.createElement("b"); b.textContent=q.k==="sn"?q.t:`${q.t}, de 0 a 10:`; d.append(b);
+    const g=document.createElement("div"); g.className=q.k==="sn"?"sn":"esc";
+    const marca=(btn,v)=>{ pqResp[qi].v=v; [...g.children].forEach(x=>x.classList.toggle("on",x===btn)); };
+    if(q.k==="sn"){ [["Sim",true],["Não",false]].forEach(([t,v])=>{ const x=document.createElement("button"); x.textContent=t; x.onclick=()=>marca(x,v); g.append(x); }); }
+    else { for(let n=0;n<=10;n++){ const x=document.createElement("button"); x.textContent=n; x.onclick=()=>marca(x,n); g.append(x); }
+      if(q.nb){ const x=document.createElement("button"); x.textContent="🚫 Não estou bebendo"; x.className="w2"; x.style.gridColumn="1 / -1"; x.onclick=()=>marca(x,"nao bebendo"); g.append(x); } }
+    d.append(g); box.append(d);
+  });
 }
 function abrirPesquisa(forcar){
   if($("v-home").classList.contains("hidden")) return;                           // só na tela inicial, nunca no meio da câmera
   if(!$("sheet").classList.contains("hidden") || !$("pesq").classList.contains("hidden")) return;
   if(!$("relamp").classList.contains("hidden") || !$("inst-sheet").classList.contains("hidden") || !$("memfix").classList.contains("hidden")){ if(forcar) window.__pqPend=true; return; } // uma janela de cada vez
   if(!forcar){ if(ctrlCel && (!ctrlCel.pesquisa_on || !ctrlCel.pesquisa_min)) return; const ult=+(localStorage.getItem("cas_pesq_ts")||0); if(Date.now()-ult < ((ctrlCel&&ctrlCel.pesquisa_min)||40)*60*1000) return; }
-  pq={ bebida:null, animacao:null, agua:null, dancou:null };
-  montarEscala("pq-beb","bebida",true); montarEscala("pq-ani","animacao",false);
-  ["pq-agua","pq-danca"].forEach(id=>[...$(id).children].forEach(b=>b.classList.remove("on")));
-  $("pesq").classList.remove("hidden");
+  montarPerguntas(); $("pesq").classList.remove("hidden");
 }
-["pq-agua","pq-danca"].forEach(id=>$(id).onclick=e=>{ const b=e.target.closest("button"); if(!b) return; pq[id==="pq-agua"?"agua":"dancou"]=b.dataset.v==="1"; [...$(id).children].forEach(x=>x.classList.toggle("on",x===b)); });
 $("pq-nao").onclick=()=>{ localStorage.setItem("cas_pesq_ts",String(Date.now())); $("pesq").classList.add("hidden"); };
 $("pq-ok").onclick=async()=>{
-  if(pq.bebida===null && pq.animacao===null && pq.agua===null && pq.dancou===null) return toast("Responde pelo menos uma 😄");
+  if(!pqResp.some(r=>r.v!==null)) return toast("Responde pelo menos uma 😄");
   localStorage.setItem("cas_pesq_ts",String(Date.now())); $("pesq").classList.add("hidden");
-  try{ await sbF.rpc("casamento_responder",{ p_disp:getDisp(), p_nome:getName(), p_bebida:pq.bebida, p_animacao:pq.animacao, p_agua:pq.agua, p_dancou:pq.dancou }); }catch(e){}
-  $("fun-e").textContent = pq.bebida===-1?"😎":(pq.bebida??0)>=8?"🥴":"😂";
-  $("fun-t").textContent = pq.bebida===-1?"Valeu pela resposta!":(pq.bebida??0)>=8?"Eita! Segura o copo 😂":"Valeu pela resposta!";
-  $("fun-s").textContent = pq.agua===false?"Agora vai lá beber uma água 💧":"Bora pra próxima foto 📸";
+  try{ await sbF.rpc("casamento_responder2",{ p_disp:getDisp(), p_nome:getName(), p_resp:pqResp }); }catch(e){}
+  const nota=pqResp.find(r=>typeof r.v==="number"), naoBebe=pqResp.some(r=>r.v==="nao bebendo"), naoSn=pqResp.some(r=>r.v===false);
+  $("fun-e").textContent = naoBebe?"😎":(nota&&nota.v>=8)?"🥴":"😂";
+  $("fun-t").textContent = (!naoBebe && nota && nota.v>=8)?"Eita! Segura o copo 😂":"Valeu pela resposta!";
+  $("fun-s").textContent = naoSn?"Bora resolver isso aí 😄":"Bora pra próxima foto 📸";
   const f=$("fun"); f.classList.add("show"); clearTimeout(funT); funT=setTimeout(()=>f.classList.remove("show"),4000);
 };
 function renderSent(){ try{ renderWaCard(); renderNivel(); }catch(e){} const n=sentCount(); $("lbl-sent").textContent = n ? `Você já enviou ${n} ${n>1?"arquivos":"arquivo"}. Obrigado! 💛` : ""; }
@@ -1136,7 +1174,8 @@ async function sha256hex(t){ try{ const b=await crypto.subtle.digest("SHA-256",n
 function renderMine(){
   const a=getMine().slice().reverse(); $("mine").classList.toggle("hidden",!a.length);
   const box=$("mine-list"); box.innerHTML="";
-  a.slice(0,30).forEach(m=>{
+  const todosM=$("mine-list").dataset.todos==="1"; $("mine-mais").classList.toggle("hidden",a.length<=3); $("mine-mais").textContent=todosM?"Mostrar menos":`Ver todos (${a.length})`;
+  a.slice(0,todosM?30:3).forEach(m=>{
     const it=document.createElement("div"); it.className="mine-item";
     const th = m.miniatura ? Object.assign(new Image(),{className:"th",src:pubFoto(m.miniatura),loading:"lazy"}) : Object.assign(document.createElement("div"),{className:"th",textContent:m.tipo==="video"?"🎥":"📸"});
     const t=document.createElement("div"); t.className="t";
@@ -1179,7 +1218,7 @@ $("btn-enter").onclick=async()=>{
 };
 /* Segunda chance: quem não deixou número vê o cartão depois do primeiro envio */
 /* ---------- App na tela inicial (Android instala direto; iPhone mostra o passo a passo) ---------- */
-const APP_VERSAO="1.2 · 27/11";
+const APP_VERSAO="1.3 · 27/11";
 const ehApp = () => matchMedia("(display-mode: standalone)").matches || navigator.standalone===true;
 const ehIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform==="MacIntel" && navigator.maxTouchPoints>1);
 const ehNavIOSInterno = ehIOS && /FBAN|FBAV|Instagram|Line|WhatsApp|GSA\//i.test(navigator.userAgent);
@@ -1226,6 +1265,7 @@ async function instalar(){
   if(pedidoInstalar){ pedidoInstalar.prompt(); const r=await pedidoInstalar.userChoice.catch(()=>null); pedidoInstalar=null; if(r&&r.outcome==="accepted"){ localStorage.setItem("cas_inst","1"); renderInstalar(); } return; }
   abrirInstrucoes();
 }
+$("mine-mais").onclick=()=>{ const l=$("mine-list"); l.dataset.todos = l.dataset.todos==="1"?"":"1"; renderMine(); };
 $("inst-btn").onclick=instalar; $("inst-link").onclick=instalar;
 $("inst-x").onclick=()=>{ localStorage.setItem("cas_inst_x","1"); renderInstalar(); };
 $("is-ok").onclick=()=>$("inst-sheet").classList.add("hidden");
@@ -1305,6 +1345,8 @@ function abrirNativa(inp){
   inp.click();
 }
 function camSite(m){ if(mode!==m) setMode(m); else openCamera(); }
+$("btn-main").onclick=()=> lowMem() ? camSite("photo") : abrirNativa($("file-any"));
+$("file-any").onchange=e=>{ try{ sessionStorage.removeItem("cas_cam"); }catch(_){} pausarEnfeites(false); const f=[...e.target.files]; e.target.value=""; handleFiles(f); };
 $("btn-foto").onclick=()=> lowMem() ? camSite("photo") : abrirNativa($("file-native"));
 $("btn-video").onclick=()=> lowMem() ? camSite("video") : abrirNativa($("file-native-video"));
 // voltou da câmera sem a página ter sido fechada (tirou ou cancelou): limpa o aviso
@@ -1647,6 +1689,7 @@ function renderCtrl(){
   const c=ctrlState; if(!c) return;
   const pb=$("c-pause"); pb.classList.toggle("on",!!c.pausado); pb.textContent=c.pausado?"▶️ Voltar o telão":"⏸️ Pausar telão";
   $("c-aprov").classList.toggle("on",!!c.aprovacao); $("c-rank").classList.toggle("on",!!c.mostrar_ranking);
+  if(!pqEd || !$("c-pq-ed").contains(document.activeElement)){ const k=JSON.stringify(c.pesquisa_perguntas||[]); if($("c-pq-ed").dataset.k!==k){ $("c-pq-ed").dataset.k=k; pqEd=JSON.parse(JSON.stringify(c.pesquisa_perguntas||PERG_PADRAO)); renderPqEd(); } }
   chipsOn("c-maxp",c.max_pessoa); chipsOn("c-pq-min",c.pesquisa_min); $("c-pq-on").classList.toggle("on",!!c.pesquisa_on);
   const ms=c.missoes||[]; const cb=$("c-ms-chips"); if(cb.dataset.k!==JSON.stringify(ms)){ cb.dataset.k=JSON.stringify(ms); cb.innerHTML=""; ms.forEach(t=>{ const b=document.createElement("button"); b.textContent=t; b.onclick=()=>{ $("c-ms").value=t; }; cb.append(b); }); if(document.activeElement!==$("c-ms-lista")) $("c-ms-lista").value=ms.join("\n"); }
   $("c-ms-st").textContent = c.missao ? `🎯 No ar agora: "${c.missao}"${c.missao_seg?` · termina em ${Math.ceil(c.missao_seg/60)} min`:""}` : "Nenhuma missão relâmpago agora."; chipsOn("c-maxv",c.max_videos_pessoa); chipsOn("c-lim",c.limite); chipsOn("c-tempo",c.tempo_foto); chipsOn("c-extra",c.extra_fav); chipsOn("c-ordem",c.ordem); chipsOn("c-sofav",String(!!c.so_favoritos));
@@ -1693,6 +1736,22 @@ $("c-rank").onclick=()=>ctrlSet({ mostrar_ranking:!(ctrlState&&ctrlState.mostrar
 $("c-lim").onclick=e=>{ const b=e.target.closest("button"); if(b) ctrlSet({ limite:+b.dataset.v }, +b.dataset.v?`Repetindo os últimos ${b.dataset.v}`:"Repetindo todos"); };
 $("c-pq-on").onclick=()=>ctrlSet({ pesquisa_on:!(ctrlState&&ctrlState.pesquisa_on) }, ctrlState&&ctrlState.pesquisa_on?"Pesquisa desligada":"🍾 Pesquisa ligada");
 $("c-pq-min").onclick=e=>{ const b=e.target.closest("button"); if(b) ctrlSet({ pesquisa_min:+b.dataset.v }, +b.dataset.v?`Pesquisa a cada ${b.dataset.v} min`:"Pesquisa só quando você mandar"); };
+let pqEd=null;
+function renderPqEd(){
+  const box=$("c-pq-ed"); box.innerHTML="";
+  pqEd.forEach((q,i)=>{ const r=document.createElement("div"); r.className="row";
+    const t=document.createElement("input"); t.type="text"; t.maxLength=80; t.value=q.t; t.oninput=()=>{ q.t=t.value; };
+    const sel=document.createElement("select"); sel.innerHTML='<option value="escala">Nota 0 a 10</option><option value="sn">Sim / Não</option>'; sel.value=q.k; sel.onchange=()=>{ q.k=sel.value; renderPqEd(); };
+    const x=document.createElement("button"); x.className="x"; x.textContent="✕"; x.title="Tirar pergunta"; x.onclick=()=>{ pqEd.splice(i,1); renderPqEd(); };
+    r.append(t,sel,x);
+    if(q.k==="escala"){ const l=document.createElement("label"); l.className="nb"; const c=document.createElement("input"); c.type="checkbox"; c.checked=!!q.nb; c.onchange=()=>{ q.nb=c.checked; }; l.append(c,document.createTextNode('Mostrar o botão "🚫 Não estou bebendo"')); r.append(l); }
+    box.append(r); });
+  $("c-pq-add").disabled=pqEd.length>=5;
+}
+$("c-pq-add").onclick=()=>{ if(pqEd.length<5){ pqEd.push({ t:"", k:"escala" }); renderPqEd(); } };
+$("c-pq-salvar").onclick=()=>{ const l=pqEd.map(q=>({ t:(q.t||"").trim(), k:q.k, nb:!!q.nb })).filter(q=>q.t); if(!l.length) return toast("Escreva pelo menos uma pergunta"); ctrlSet({ pesquisa_perguntas:l }, `✔️ ${l.length} pergunta(s) salva(s)`); };
+$("c-selfie").onclick=async()=>{ await ctrlSet({ selfie:true }, "🤳 Selfie geral no telão!"); };
+$("c-podio").onclick=async()=>{ await ctrlSet({ podio:true }, "🏆 Pódio final no telão!"); };
 $("c-pq-agora").onclick=()=>ctrlSet({ pesquisa_on:true, pesquisa_agora:true },"📲 Pesquisa enviada! Aparece em até 20 s para quem está com o app aberto");
 let msMin="10";
 $("c-msmin").onclick=e=>{ const b=e.target.closest("button"); if(!b) return; msMin=b.dataset.m; [...$("c-msmin").children].forEach(x=>x.classList.toggle("on",x===b)); };
@@ -1724,24 +1783,37 @@ $("ct-msg").value = localStorage.getItem("cas_ct_msg") || MSG_PADRAO;
 $("ct-msg").oninput=()=>{ localStorage.setItem("cas_ct_msg",$("ct-msg").value); renderContatos(); };
 const fmtTel = t => { const d=t.replace(/^55/,""); return d.length===11?`(${d.slice(0,2)}) ${d.slice(2,7)}-${d.slice(7)}`:d.length===10?`(${d.slice(0,2)}) ${d.slice(2,6)}-${d.slice(6)}`:t; };
 let respostas=[];
+function respLista(r){ // junta o formato novo (lista de perguntas) e o antigo
+  if(Array.isArray(r.respostas)) return r.respostas;
+  const l=[]; if(r.bebida!==null&&r.bebida!==undefined) l.push({p:"Seu nível de bebida agora",v:r.bebida===-1?"nao bebendo":r.bebida});
+  if(r.animacao!==null&&r.animacao!==undefined) l.push({p:"Animação da festa",v:r.animacao});
+  if(r.agua!==null&&r.agua!==undefined) l.push({p:"Já bebeu água hoje? 💧",v:r.agua}); if(r.dancou!==null&&r.dancou!==undefined) l.push({p:"Já foi para a pista? 💃",v:r.dancou});
+  return l;
+}
+const fmtV=v=>v===true?"sim":v===false?"não":v==="nao bebendo"?"não estava bebendo":v??"–";
 async function loadPesquisa(){
   const { data, error } = await sbF.rpc("casamento_admin_pesquisa",{ p_codigo:adminCode }); if(error) return;
   respostas=data||[];
-  const beb=respostas.filter(r=>r.bebida!==null&&r.bebida>=0).map(r=>r.bebida), ani=respostas.filter(r=>r.animacao!==null).map(r=>r.animacao);
-  const med=a=>a.length?(a.reduce((x,y)=>x+y,0)/a.length).toFixed(1):"–";
-  const pct=f=>{ const v=respostas.filter(r=>r[f]!==null); return v.length?Math.round(v.filter(r=>r[f]).length*100/v.length)+"%":"–"; };
-  $("pq-stats").innerHTML=[[respostas.length,"respostas"],[med(beb),"bebida média"],[med(ani),"animação média"],[pct("agua"),"beberam água"],[pct("dancou"),"já dançaram"],[respostas.filter(r=>r.bebida===-1).length,"não estavam bebendo"]].map(([v,l])=>`<div><b>${v}</b><small>${l}</small></div>`).join("");
+  const porP=new Map(); respostas.forEach(r=>respLista(r).forEach(x=>{ if(!porP.has(x.p)) porP.set(x.p,[]); porP.get(x.p).push(x.v); }));
+  const cards=[[respostas.length,"respostas"]];
+  porP.forEach((vs,pg)=>{ const nums=vs.filter(v=>typeof v==="number"), bools=vs.filter(v=>typeof v==="boolean");
+    if(nums.length) cards.push([(nums.reduce((a,b)=>a+b,0)/nums.length).toFixed(1), pg+" (média)"]);
+    else if(bools.length) cards.push([Math.round(bools.filter(Boolean).length*100/bools.length)+"%", pg+" (sim)"]);
+    const nb=vs.filter(v=>v==="nao bebendo").length; if(nb) cards.push([nb,"não estavam bebendo"]); });
+  $("pq-stats").innerHTML=cards.slice(0,9).map(([v,l])=>`<div><b>${v}</b><small></small></div>`).join("");
+  [...$("pq-stats").children].forEach((d,i)=>d.querySelector("small").textContent=cards[i][1]);
   const box=$("pq-list"); box.innerHTML="";
   respostas.slice(0,25).forEach(r=>{ const it=document.createElement("div"); it.className="ct"; const i=document.createElement("div"); i.className="i";
     const b=document.createElement("b"); b.textContent=r.nome||"convidado"; i.append(b);
-    const sm=document.createElement("small"); sm.textContent=`${new Date(r.criado_em).toLocaleTimeString("pt-BR",{hour:"2-digit",minute:"2-digit"})} · bebida ${r.bebida===-1?"não estava bebendo":r.bebida??"–"} · animação ${r.animacao??"–"} · água ${r.agua===null?"–":r.agua?"sim":"não"} · dançou ${r.dancou===null?"–":r.dancou?"sim":"não"}`; i.append(sm);
+    const sm=document.createElement("small"); sm.textContent=new Date(r.criado_em).toLocaleTimeString("pt-BR",{hour:"2-digit",minute:"2-digit"})+" · "+respLista(r).map(x=>`${x.p.replace(/\s*[💧💃]\s*$/,"")}: ${fmtV(x.v)}`).join(" · "); i.append(sm);
     it.append(i); box.append(it); });
 }
 $("pq-csv").onclick=()=>{
   if(!respostas.length) return toast("Ainda não há respostas");
   const esc=v=>`"${String(v??"").replace(/"/g,'""')}"`;
-  const l=[["Hora","Nome","Nível de bebida (0-10)","Animação (0-10)","Bebeu água","Já dançou"].map(esc).join(";")];
-  respostas.slice().reverse().forEach(r=>l.push([new Date(r.criado_em).toLocaleString("pt-BR"),r.nome,r.bebida===-1?"não estava bebendo":r.bebida,r.animacao,r.agua===null?"":r.agua?"sim":"não",r.dancou===null?"":r.dancou?"sim":"não"].map(esc).join(";")));
+  const cols=[]; respostas.forEach(r=>respLista(r).forEach(x=>{ if(!cols.includes(x.p)) cols.push(x.p); }));
+  const l=[["Hora","Nome",...cols].map(esc).join(";")];
+  respostas.slice().reverse().forEach(r=>{ const m=new Map(respLista(r).map(x=>[x.p,x.v])); l.push([new Date(r.criado_em).toLocaleString("pt-BR"),r.nome,...cols.map(c=>m.has(c)?fmtV(m.get(c)):"")].map(esc).join(";")); });
   const a=document.createElement("a"); a.href=URL.createObjectURL(new Blob(["﻿"+l.join("\r\n")],{type:"text/csv;charset=utf-8"})); a.download="Pesquisa relampago - Casamento Caio e Thais.csv"; a.click();
 };
 async function loadContatos(){
@@ -2081,6 +2153,30 @@ async function startTelao(){
       podium=keys;
     }catch(e){}
   }
+  // ---- Momentos: selfie geral e pódio final ----
+  let lastSelfie=null, lastPodio=null, showOn=false;
+  const esperar=ms=>new Promise(r=>setTimeout(r,ms));
+  async function momentoSelfie(){
+    if(showOn) return; showOn=true; const box=$("t-show"); box.classList.add("on");
+    box.innerHTML='<div class="tt1">🤳 Selfie geral!</div><div class="sub">Pegue o celular e chame quem está perto…</div>'; await esperar(3000);
+    for(const n of [3,2,1]){ box.innerHTML=`<div class="tt1">Prepara…</div><div class="num">${n}</div>`; fx.burst(30,.5,.5); await esperar(1000); }
+    box.innerHTML='<div class="grito">TODO MUNDO<br>TIRA SELFIE AGORA! 📸</div><div class="sub">Depois mande pelo app e apareça no telão 💛</div>';
+    fx.burst(160,.5,.45); setTimeout(()=>fx.burst(90,.2,.3),400); setTimeout(()=>fx.burst(90,.8,.3),800);
+    await esperar(7000); box.classList.remove("on"); await esperar(700); box.innerHTML=""; showOn=false;
+  }
+  async function momentoPodio(){
+    if(showOn) return; showOn=true;
+    let top=[]; try{ const { data } = await sbF.rpc("casamento_ranking"); top=(data||[]).slice(0,3); }catch(e){}
+    if(!top.length){ showOn=false; return; }
+    const box=$("t-show"); box.classList.add("on");
+    box.innerHTML='<div class="tt1">🏆 Os melhores fotógrafos do casamento</div><div class="sub">Caio &amp; Thaís agradecem cada foto e cada vídeo 💛</div>'; await esperar(4000);
+    const lu=(r,i)=>`<div class="lu p${i+1}" id="pd${i}"><div class="md">${i===0?ART.trophy():ART.medal(i)}</div><div class="nm"></div><div class="qt">${r.total} envio${r.total!==1?"s":""}</div><div class="base">${i+1}º</div></div>`;
+    const ordem=[1,0,2].filter(i=>top[i]);
+    box.innerHTML='<div class="tt1">🏆 Pódio final</div><div class="pod">'+ordem.map(i=>lu(top[i],i)).join("")+'</div>';
+    ordem.forEach(i=>{ const e=$("pd"+i); if(e) e.querySelector(".nm").textContent=top[i].nome; });
+    for(const i of [2,1,0]){ if(!top[i]) continue; const e=$("pd"+i); e.classList.add("on"); fx.burst(i===0?200:80,i===1?.3:i===2?.7:.5,.5); if(i===0){ setTimeout(()=>fx.burst(120,.25,.3),500); setTimeout(()=>fx.burst(120,.75,.3),900); } await esperar(i===0?3000:3500); }
+    await esperar(14000); box.classList.remove("on"); await esperar(700); box.innerHTML=""; showOn=false;
+  }
   // Controle remoto pelo painel
   async function loadCtrl(){
     try{
@@ -2093,6 +2189,8 @@ async function startTelao(){
       if(ctrl.aviso){ $("t-aviso-txt").textContent=ctrl.aviso; $("t-aviso").classList.add("on"); } else $("t-aviso").classList.remove("on");
       if(lastPular!==null && ctrl.pular_seq!==lastPular && !ctrl.pausado){ if(destaqueRow) destaqueRow=null; next(); }
       lastPular=ctrl.pular_seq;
+      if(lastSelfie!==null && ctrl.selfie_seq!==lastSelfie && (ctrl.selfie_seg??999)<120) momentoSelfie(); lastSelfie=ctrl.selfie_seq;
+      if(lastPodio!==null && ctrl.podio_seq!==lastPodio && (ctrl.podio_seg??999)<120) momentoPodio(); lastPodio=ctrl.podio_seq;
       if(ctrl.destaque_id && ctrl.destaque_id!==(destaqueRow&&destaqueRow.id)){
         let r=list.find(x=>x.id===ctrl.destaque_id);
         if(!r){ const q=await sbF.from(CONFIG.TABLE).select("*").eq("id",ctrl.destaque_id).maybeSingle(); r=q.data; }
