@@ -330,6 +330,57 @@
   .ios-steps svg{width:26px;height:26px;color:#1E7CF2;flex:none}
   .ios-arrow{display:block;margin:4px auto 0;width:36px;height:36px;color:var(--gold);animation:upb 1s ease-in-out infinite}
   .versao{display:block;text-align:center;color:var(--muted);font-size:11px;margin-top:4px;opacity:.75}
+  /* Nível, brincadeiras e pesquisa */
+  .nivel{display:inline-flex;align-items:center;gap:6px;margin-top:8px;background:#fff;border:1.5px solid var(--gold-soft);border-radius:20px;padding:6px 12px;font-size:13.5px;font-weight:700;color:#8a6430}
+  .fun{position:fixed;left:50%;bottom:calc(90px + env(safe-area-inset-bottom));transform:translate(-50%,40px) scale(.9);opacity:0;z-index:94;background:#fff;border:2px solid var(--gold);border-radius:22px;padding:16px 20px;text-align:center;box-shadow:0 16px 40px rgba(120,80,20,.25);transition:.45s cubic-bezier(.2,1.4,.4,1);width:min(88vw,360px);pointer-events:none}
+  .fun.show{opacity:1;transform:translate(-50%,0) scale(1)}
+  .fun .e{font-size:40px;line-height:1}
+  .fun b{display:block;font-family:'Cormorant Garamond',serif;font-size:23px;margin-top:4px}
+  .fun small{display:block;color:var(--muted);font-size:14px;margin-top:4px}
+  .pq h3{margin-bottom:2px}
+  .pq .q{margin-top:14px}
+  .pq .q b{display:block;font-size:15px;margin-bottom:8px}
+  .pq .esc{display:grid;grid-template-columns:repeat(6,1fr);gap:6px}
+  .pq .esc button{padding:10px 0;border-radius:12px;background:#fff;border:1.5px solid var(--line);font-weight:800;font-size:15px}
+  .pq .esc button.on{background:var(--gold);border-color:var(--gold);color:#fff}
+  .pq .esc button.w2{grid-column:span 2;font-size:13px}
+  .pq .sn{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .pq .sn button{padding:12px;border-radius:12px;background:#fff;border:1.5px solid var(--line);font-weight:700}
+  .pq .sn button.on{background:var(--gold);border-color:var(--gold);color:#fff}
+  .bnet{display:flex;gap:14px;align-items:center;background:#fff;border:1.5px solid var(--gold-soft);border-radius:20px;padding:16px;margin-top:22px;text-decoration:none;color:var(--ink);box-shadow:var(--shadow)}
+  .bnet .lg{width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,#4E3A29,#7A5A3A);color:#F2CC55;display:grid;place-items:center;font-weight:800;font-size:15px;flex:none;letter-spacing:-.02em}
+  .bnet b{display:block;font-size:16px}
+  .bnet small{display:block;color:var(--muted);font-size:13px;margin-top:2px}
+  .bnet .go{margin-left:auto;background:var(--gold);color:#fff;border-radius:12px;padding:9px 12px;font-weight:800;font-size:13px;white-space:nowrap}
+  .mine-item .del{background:#fff;border:1.5px solid var(--line);padding:9px 10px}
+  .mine-item .del.arm{background:#F6D5CF;border-color:#E9B3A8}
+  /* Desfazer */
+  .undo{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom));transform:translate(-50%,140%);z-index:97;display:flex;align-items:center;gap:12px;width:min(92vw,480px);box-sizing:border-box;background:var(--ink);color:#fff;border-radius:18px;padding:12px 12px 12px 18px;box-shadow:0 12px 30px rgba(0,0,0,.3);transition:transform .35s cubic-bezier(.2,1.3,.4,1);max-width:94vw;font-size:15px}
+  .undo.show{transform:translate(-50%,0)}
+  .undo span{flex:1;min-width:0;line-height:1.35}
+  .undo button{background:#F2CC55;color:#4E3A29;font-weight:800;border-radius:12px;padding:10px 14px;white-space:nowrap}
+  .hist{display:grid;gap:6px;margin-top:8px}
+  .hist .h{display:flex;align-items:center;gap:10px;background:var(--bg);border-radius:12px;padding:9px 10px;font-size:14px}
+  .hist .h span{flex:1}
+  .hist .h small{color:var(--muted);font-size:12px;margin-right:4px}
+  .hist .h button{background:#fff;border:1.5px solid var(--line);border-radius:10px;padding:7px 10px;font-weight:700;font-size:13px}
+  .hist .h.feito{opacity:.5}
+  /* Missões */
+  .missoes{margin-top:22px}
+  .missoes h4{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;margin:0 0 2px;text-align:center}
+  .missoes p.s{text-align:center;color:var(--muted);font-size:13px;margin:0 0 12px}
+  .ms-list{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .ms{background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:12px 10px;text-align:left;font-size:14px;font-weight:700;line-height:1.3;position:relative;min-height:62px}
+  .ms.ok{border-color:#BFDDB0;background:#F4FAF0}
+  .ms.ok::after{content:"✓";position:absolute;right:8px;top:6px;color:#3F8F3A;font-weight:900}
+  .ms-pend{display:flex;align-items:center;gap:10px;background:#FFF6DC;border:1.5px solid #F2CC55;border-radius:14px;padding:10px 12px;margin:10px 0 0;font-size:14px;font-weight:700}
+  .ms-pend button{margin-left:auto;background:#fff;border:1px solid var(--line);border-radius:10px;padding:6px 10px;font-size:12px}
+  .relamp h3{font-size:30px}
+  .relamp .alvo{font-size:56px;text-align:center;display:block;animation:beat 1s ease-in-out infinite}
+  .relamp .txt{text-align:center;font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;margin:6px 0 14px}
+  .t-tick.missao .tl{background:linear-gradient(135deg,#D9534F,#B03A35)}
+  .t-tick.missao .tt{animation:none;font-size:2.4vh;font-weight:800;color:#4E3A29}
+  .cap-over .ms-t{display:inline-block;margin-top:.8vh;background:rgba(242,204,85,.95);color:#4E3A29;font-weight:800;font-size:1.9vh;padding:.5vh 1.3vh;border-radius:2vh;text-shadow:none}
   /* WhatsApp / contatos */
   .opt{display:flex;gap:10px;align-items:flex-start;margin-top:12px;font-size:14px;color:#5E4A38;line-height:1.4;cursor:pointer}
   .opt input{width:22px;height:22px;flex:none;margin:0;accent-color:var(--gold)}
@@ -512,6 +563,7 @@
     <div class="fam">Casamento Botazzo Serra</div>
   </div>
   <p class="hello">Olá, <b id="lbl-name"></b>! <button class="link" id="btn-rename">não é você?</button></p>
+  <p style="text-align:center;margin:0"><span class="nivel hidden" id="nivel"></span></p>
 
   <div class="live-banner"><div><b>📺 Apareça no telão da festa!</b><span class="c" id="live-count">Seja o primeiro a enviar ✨</span></div><span class="pulse">AO VIVO</span></div>
   <div class="cta-row">
@@ -521,7 +573,7 @@
     </button>
     <button class="cta alt" id="btn-video">
       <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="6" width="13" height="12" rx="2.5"/><path d="m15.5 10.5 6-3.5v10l-6-3.5z"/></svg></span>
-      <span><h3>Gravar vídeo</h3><p>Até 30 s · vai pro telão</p></span>
+      <span><h3>Gravar vídeo</h3><p>Aparece no telão em segundos</p></span>
     </button>
   </div>
   <button class="site-cam" id="btn-camera">ou use a câmera do site (zoom 1x·2x·3x e prévia)</button>
@@ -556,11 +608,17 @@
     <label class="opt"><input type="checkbox" id="wa-div"><span>Aceito receber novidades da <b>Botazzo.Net</b> (sites, apps e conserto de celular e PC)</span></label>
     <button class="btn btn-wa" id="wa-ok" style="margin-top:12px">Quero receber minhas fotos</button>
   </div>
+  <div class="missoes" id="missoes">
+    <h4>🎯 Missões da festa</h4>
+    <p class="s">Toque numa missão: a câmera abre e a foto já vai marcada 😉</p>
+    <div class="ms-list" id="ms-list"></div>
+    <div class="ms-pend hidden" id="ms-pend"><span id="ms-pend-t"></span><button id="ms-pend-x">cancelar</button></div>
+  </div>
   <div class="now hidden" id="now"><h4>Agora no telão</h4><div class="now-strip"><div class="now-track" id="now-track"></div></div></div>
   <div class="rank-card hidden" id="rank-home"><h4><span class="trophy-h" data-art="trophy"></span>Ranking da festa</h4><p class="s" style="margin:-6px 0 6px">Conta tudo que você enviou: o que está no telão e o que é só para os noivos</p><div id="rank-home-list"></div><p class="s" id="rank-me"></p></div>
   <div class="mine hidden" id="mine">
     <h4>Meus envios</h4>
-    <p class="s">Enviou sem querer? Toque em "Tirar do telão" 😉</p>
+    <p class="s">Enviou sem querer? Tire do telão ou apague no 🗑️ 😉</p>
     <div class="mine-list" id="mine-list"></div>
   </div>
   <p style="text-align:center;margin-top:18px"><button class="link" id="btn-help">Como funciona?</button></p>
@@ -569,8 +627,8 @@
   <input type="file" id="file-native" accept="image/*" capture="environment" class="hidden">
   <input type="file" id="file-native-video" accept="video/*" capture="environment" class="hidden">
   <p style="text-align:center;margin-top:14px"><button class="link" id="inst-link">📲 Instalar o app no celular</button></p>
-  <p class="footer">Com amor, Botazzo Serra 🤍</p>
-  <a class="credit" href="https://www.botazzo.net" target="_blank" rel="noopener">Aplicativo criado por <b>Botazzo.Net</b></a>
+  <a class="bnet" href="https://www.botazzo.net" target="_blank" rel="noopener"><span class="lg">B.Net</span><span><b>Aplicativo criado pela Botazzo.Net</b><small>Sites, aplicativos e conserto de celular e computador</small></span><span class="go">Conhecer →</span></a>
+  <p class="footer">Com amor, Botazzo Serra 🤍<br><a href="https://www.botazzo.net" target="_blank" rel="noopener" style="color:var(--gold);font-weight:700;text-decoration:none">www.botazzo.net</a></p>
   <span class="versao" id="ver-home"></span>
 </section>
 
@@ -626,6 +684,27 @@
     <button class="btn btn-gold" id="is-ok">Entendi 💛</button>
   </div>
 </div>
+<div class="undo" id="undo"><span id="undo-t"></span><button id="undo-b">↩️ Desfazer</button></div>
+<div class="sheet-bg hidden" id="relamp"><div class="sheet relamp">
+  <span class="alvo">🎯</span><h3 style="text-align:center">Missão relâmpago!</h3>
+  <div class="txt" id="rl-t"></div>
+  <div class="row2" style="display:grid;grid-template-columns:1fr 1fr;gap:10px"><button class="btn btn-gold" id="rl-foto">📸 Foto</button><button class="btn btn-gold" id="rl-video">🎥 Vídeo</button></div>
+  <button class="link" id="rl-x" style="display:block;margin:12px auto 0">Agora não</button>
+</div></div>
+<div class="fun" id="fun"><div class="e" id="fun-e">📸</div><b id="fun-t"></b><small id="fun-s"></small></div>
+<div class="sheet-bg hidden" id="pesq">
+  <div class="sheet pq">
+    <h3>🍾 Pesquisa relâmpago</h3>
+    <p class="tip" style="margin:0;font-size:14px">Só os noivos vão ver, fica entre nós 🤫</p>
+    <div class="q"><b>Seu nível de bebida agora, de 0 a 10:</b><div class="esc" id="pq-beb"></div></div>
+    <div class="q"><b>Animação da festa, de 0 a 10:</b><div class="esc" id="pq-ani"></div></div>
+    <div class="q"><b>Já bebeu água hoje? 💧</b><div class="sn" id="pq-agua"><button data-v="1">Sim</button><button data-v="0">Ainda não 😅</button></div></div>
+    <div class="q"><b>Já foi para a pista? 💃</b><div class="sn" id="pq-danca"><button data-v="1">Já!</button><button data-v="0">Ainda não</button></div></div>
+    <div class="row" style="display:grid;grid-template-columns:1fr 1.4fr;gap:10px;margin-top:16px">
+      <button class="btn btn-light" id="pq-nao">Agora não</button><button class="btn btn-gold" id="pq-ok">Responder</button>
+    </div>
+  </div>
+</div>
 <div class="sheet-bg hidden" id="memfix">
   <div class="sheet">
     <h3>Ops! A foto não chegou 😕</h3>
@@ -658,7 +737,7 @@
 <!-- ============ TUTORIAL ============ -->
 <div class="tut hidden" id="tut">
   <div class="tut-box">
-    <div class="tut-step on"><div class="tut-ic">📸</div><h2>Foto ou vídeo</h2><p>Toque em <b>Tirar foto</b> ou <b>Gravar vídeo</b>: abre a câmera do seu próprio celular, com zoom e tudo.<br>Vídeos de até 30 segundos.</p></div>
+    <div class="tut-step on"><div class="tut-ic">📸</div><h2>Foto ou vídeo</h2><p>Toque em <b>Tirar foto</b> ou <b>Gravar vídeo</b>: abre a câmera do seu próprio celular, com zoom e tudo.<br>Vídeos curtinhos ficam melhores: no telão passam até 30 segundos.</p></div>
     <div class="tut-step"><div class="tut-ic">📺</div><h2>Você escolhe quem vê</h2><p>Antes de enviar, escolha:<br><b>📺 Pode passar no telão</b>: aparece na festa.<br><b>🔒 Só para os noivos</b>: fica guardado só para eles.</p></div>
     <div class="tut-step"><div class="tut-ic">💛</div><h2>Pronto!</h2><p>O envio é automático. Se a internet estiver fraca, o celular guarda e envia sozinho depois.<br>Mandou sem querer? Em <b>Meus envios</b> você tira do telão na hora.</p></div>
     <div class="dots" id="tut-dots"><i class="on"></i><i></i><i></i></div>
@@ -688,6 +767,9 @@
       <div class="cc"><h5><i class="hb" data-ic="chart"></i>Contatos da festa</h5><div class="stats" id="ct-stats"></div>
         <button class="bigb gold" id="ct-csv" style="width:100%;margin-top:12px">⬇️ Baixar contatos (Excel)</button>
         <p class="st">Os números ficam só aqui no painel. Respeite quem não marcou as caixinhas e apague o número de quem pedir para sair.</p></div>
+      <div class="cc"><h5><i class="hb" data-ic="star"></i>Pesquisa relâmpago 🍾</h5><div class="stats" id="pq-stats"></div>
+        <button class="bigb gold" id="pq-csv" style="width:100%;margin-top:12px">⬇️ Baixar respostas (Excel)</button>
+        <div class="ct-list" id="pq-list"></div></div>
       <div class="cc"><h5><i class="hb" data-ic="mega"></i>Mensagem para mandar depois da festa</h5>
         <textarea id="ct-msg" style="min-height:150px;font-size:14px"></textarea>
         <p class="st">Use {nome} e {link}. O botão 💬 de cada pessoa abre o WhatsApp com a mensagem pronta, é só apertar enviar.</p>
@@ -702,6 +784,23 @@
         <button class="bigb danger" id="c-pause">⏸️ Pausar telão</button>
         <div class="sw"><span><b>Modo aprovação</b><small>Ligado: nada aparece no telão sem você aprovar</small></span><button class="tg" id="c-aprov" aria-label="Modo aprovação"></button></div>
         <div class="fila" id="c-fila"></div></div>
+      <div class="cc"><h5><i class="hb" data-ic="star"></i>Missão relâmpago 🎯</h5>
+        <p class="st" style="margin-top:0">Aparece no celular de todo mundo que está com o app aberto e numa faixa no telão.</p>
+        <div class="chips" id="c-ms-chips"></div>
+        <input type="text" id="c-ms" maxlength="80" placeholder="Ou escreva a sua missão…">
+        <label>Por quanto tempo</label>
+        <div class="chips" id="c-msmin"><button data-m="5">5 min</button><button data-m="10" class="on">10 min</button><button data-m="15">15 min</button><button data-m="">Até eu encerrar</button></div>
+        <div class="row2"><button class="bigb gold" id="c-ms-on">🎯 Lançar missão</button><button class="bigb" id="c-ms-off">Encerrar</button></div>
+        <p class="st" id="c-ms-st"></p>
+        <label>Lista de missões (uma por linha, aparece no celular dos convidados)</label>
+        <textarea id="c-ms-lista" style="min-height:150px;font-size:14px"></textarea>
+        <button class="bigb" id="c-ms-salvar" style="width:100%;margin-top:8px">Salvar lista de missões</button></div>
+      <div class="cc"><h5><i class="hb" data-ic="chart"></i>Pesquisa relâmpago 🍾</h5>
+        <div class="sw" style="margin-top:0"><span><b>Pesquisa ligada</b><small>Pergunta nível de bebida, animação, água e pista</small></span><button class="tg" id="c-pq-on" aria-label="Pesquisa ligada"></button></div>
+        <label>Aparece sozinha a cada</label>
+        <div class="chips" id="c-pq-min"><button data-v="20">20 min</button><button data-v="40">40 min</button><button data-v="60">60 min</button><button data-v="0">Só quando eu mandar</button></div>
+        <button class="bigb gold" id="c-pq-agora" style="width:100%;margin-top:12px">📲 Mandar a pesquisa agora para todos</button>
+        <p class="st">As respostas ficam na aba Contatos.</p></div>
       <div class="cc"><h5><i class="hb" data-ic="mega"></i>Aviso no telão</h5>
         <div class="chips" id="c-presets"><button>🎂 Hora do bolo!</button><button>💐 Buquê em 5 minutos!</button><button>💃 Todos para a pista!</button><button>📸 Foto com os noivos!</button><button>🥂 Hora do brinde!</button></div>
         <input type="text" id="c-aviso" maxlength="120" placeholder="Ou escreva o seu aviso…">
@@ -719,9 +818,15 @@
       <div class="cc"><h5><i class="hb" data-ic="gear"></i>Ajustes do telão</h5>
         <label>Ordem</label><div class="seg" id="c-ordem"><button data-v="recentes">Mais recentes primeiro</button><button data-v="aleatoria">Aleatória 🔀</button></div>
         <label>Repetir os últimos</label><div class="chips" id="c-lim"><button data-v="10">10</button><button data-v="20">20</button><button data-v="30">30</button><button data-v="40">40</button><button data-v="50">50</button><button data-v="0">Todos</button></div>
+        <label>Máximo por pessoa no rodízio</label><div class="chips" id="c-maxp"><button data-v="3">3</button><button data-v="5">5</button><button data-v="8">8</button><button data-v="15">15</button><button data-v="0">Sem limite</button></div>
+        <label>Vídeos por pessoa no rodízio</label><div class="chips" id="c-maxv"><button data-v="1">1</button><button data-v="2">2</button><button data-v="3">3</button><button data-v="0">Sem limite</button></div>
+        <p class="st">Para ninguém dominar o telão: a mesma pessoa não aparece duas vezes seguidas, nunca passam dois vídeos seguidos e cada vídeo tem no máximo 30 s no telão. O resto continua guardado e no álbum.</p>
         <label>Tempo de cada foto</label><div class="chips" id="c-tempo"><button data-v="1">1 s</button><button data-v="2">2 s</button><button data-v="3">3 s</button><button data-v="5">5 s</button><button data-v="7">7 s</button><button data-v="10">10 s</button><button data-v="15">15 s</button></div>
-        <p class="st">O que acabou de chegar sempre entra primeiro. Vídeos passam inteiros.</p>
+        <p class="st">O que acabou de chegar sempre entra primeiro. Cada vídeo passa no máximo 30 s.</p>
         <div class="sw"><span><b>Ranking no telão</b></span><button class="tg" id="c-rank" aria-label="Ranking no telão"></button></div></div>
+      <div class="cc"><h5><i class="hb" data-ic="gear"></i>Últimas ações 🕘</h5>
+        <p class="st" style="margin-top:0">Errou? Toque em "Desfazer" na ação.</p>
+        <div class="hist" id="c-hist"><p class="st">Nenhuma ação ainda.</p></div></div>
       <div class="cc danger"><h5><i class="hb" data-ic="broom"></i>Zerar tudo para a festa</h5>
         <p class="st" style="margin-top:0">Apaga todos os testes do telão, do álbum, do ranking e dos contadores, e a festa começa do zero. O programa do PC guarda uma cópia dos testes na pasta <b>"Testes antes da festa"</b>. Os ajustes do telão continuam como estão.</p>
         <input type="text" id="c-zerar-in" placeholder="Digite ZERAR para confirmar" autocomplete="off" style="text-transform:uppercase">
@@ -731,7 +836,7 @@
       <span class="versao"></span>
     </div>
     <div id="fotos-view">
-    <div class="chips fl hidden" id="f-filtros"><button data-f="todos" class="on">Todos</button><button data-f="telao">📺 No telão</button><button data-f="noivos">🔒 Só noivos</button><button data-f="fotos">📸 Fotos</button><button data-f="videos">🎥 Vídeos</button><button data-f="fav">⭐ Favoritas</button><button data-f="pend">⏳ Aguardando</button><button data-f="ocultas">🚫 Ocultas</button></div>
+    <div class="chips fl hidden" id="f-filtros"><button data-f="todos" class="on">Todos</button><button data-f="telao">📺 No telão</button><button data-f="noivos">🔒 Só noivos</button><button data-f="fotos">📸 Fotos</button><button data-f="videos">🎥 Vídeos</button><button data-f="fav">⭐ Favoritas</button><button data-f="pend">⏳ Aguardando</button><button data-f="ocultas">🚫 Ocultas</button><button data-f="lixeira">🗑️ Lixeira</button><button data-f="missao">🎯 Missões</button></div>
     <div id="admin-bar" class="hidden" style="margin-bottom:14px">
       <div class="note" id="admin-stats" style="text-align:left"></div>
       <button class="btn btn-sage" id="btn-zip">⬇️ Baixar tudo (.zip): melhor no computador</button>
@@ -753,7 +858,7 @@
   <div class="lb-info">
     <div class="who" id="lb-who"></div><div class="msg" id="lb-msg"></div>
     <div class="admin-actions hidden" id="lb-admin">
-      <button id="lb-telao"></button><button id="lb-fav"></button><button id="lb-dest1">📌 Destacar 1 min</button><button id="lb-dest5">📌 5 min</button><button id="lb-hide">🚫 Ocultar de tudo</button><button id="lb-del">🗑️ Apagar</button>
+      <button id="lb-telao"></button><button id="lb-fav"></button><button id="lb-dest1">📌 Destacar 1 min</button><button id="lb-dest5">📌 5 min</button><button id="lb-hide">🚫 Ocultar de tudo</button><button id="lb-pessoa">🙅 Tirar tudo desta pessoa do telão</button><button id="lb-pessoa-v" class="hidden">↩️ Devolver tudo desta pessoa ao telão</button><button id="lb-del">🗑️ Mover para a lixeira</button>
     </div>
   </div>
 </div>
@@ -827,8 +932,76 @@ async function salvarContato(tel,fotos,div,origem){
 }
 const setName = n => localStorage.setItem("cas_nome", n);
 const sentCount = () => +(localStorage.getItem("cas_enviadas")||0);
-function bumpSent(){ localStorage.setItem("cas_enviadas", sentCount()+1); renderSent(); }
-function renderSent(){ try{ renderWaCard(); }catch(e){} const n=sentCount(); $("lbl-sent").textContent = n ? `Você já enviou ${n} ${n>1?"arquivos":"arquivo"}. Obrigado! 💛` : ""; }
+function bumpSent(){ localStorage.setItem("cas_enviadas", sentCount()+1); renderSent(); const n=sentCount(); setTimeout(()=>brincadeira(n),2200); }
+/* Níveis e brincadeiras (sem limite de envio, só diversão) */
+const NIVEIS=[[1,"📷","Convidado em ação"],[5,"📸","Fotógrafo de primeira viagem"],[10,"🕶️","Paparazzo da festa"],[20,"🌟","Lenda do telão"],[30,"🏆","Fotógrafo oficial do casamento"],[50,"🎬","Diretor de cinema"],[80,"👑","Lenda absoluta"]];
+function nivelDe(n){ let nv=null; NIVEIS.forEach(x=>{ if(n>=x[0]) nv=x; }); return nv; }
+const FRASES={5:"Já bebeu água hoje? 💧",10:"Caramba, você não para, hein! Já bebeu água? 💧",20:"Bora dar uma dançadinha também? 💃",30:"Os noivos agradecem demais 💛",50:"Isso já é um filme! Hidrata, hein 💧",80:"Respeito máximo. Os noivos te devem um abraço 🤗"};
+let funT=null;
+function brincadeira(n){
+  const nv=nivelDe(n); if(!nv) return;
+  if(FRASES[n]){ $("fun-e").textContent=nv[1]; $("fun-t").textContent=`${n} envios! Nível: ${nv[2]}`; $("fun-s").textContent=FRASES[n]; const f=$("fun"); f.classList.add("show"); clearTimeout(funT); funT=setTimeout(()=>f.classList.remove("show"),4500); }
+  else if(n===3 || (n>3 && n%7===0)) setTimeout(abrirPesquisa,800);
+}
+function renderNivel(){ const nv=nivelDe(sentCount()); const el=$("nivel"); el.classList.toggle("hidden",!nv); if(nv) el.textContent=`${nv[1]} Seu nível: ${nv[2]}`; }
+/* ---------- Missões (o que a pessoa escolheu vai marcado na foto) ---------- */
+let missaoPend=sessionStorage.getItem("cas_missao")||null, ctrlCel=null;
+const MISSOES_PADRAO=["💑 Foto com os noivos","🥂 Foto do seu copão","💃 Vídeo na pista de dança","👨‍👩‍👧 Foto com a família","😜 Careta com a sua mesa","🤳 Selfie com quem você não via há anos"];
+const missoesFeitas=()=>{ try{ return JSON.parse(localStorage.getItem("cas_ms_ok")||"[]"); }catch(e){ return []; } };
+function setMissao(t){ missaoPend=t; if(t) sessionStorage.setItem("cas_missao",t); else sessionStorage.removeItem("cas_missao");
+  $("ms-pend").classList.toggle("hidden",!t); if(t) $("ms-pend-t").textContent=`🎯 Próximo envio vai como: ${t}`; }
+function renderMissoes(){
+  const lista=(ctrlCel&&ctrlCel.missoes&&ctrlCel.missoes.length)?ctrlCel.missoes:MISSOES_PADRAO, ok=missoesFeitas();
+  const box=$("ms-list"); box.innerHTML="";
+  lista.forEach(t=>{ const b=document.createElement("button"); b.className="ms"+(ok.includes(t)?" ok":""); b.textContent=t;
+    b.onclick=()=>{ setMissao(t); const video=/v[ií]deo/i.test(t); toast(`🎯 Missão: ${t}`); if(lowMem()) camSite(video?"video":"photo"); else abrirNativa(video?$("file-native-video"):$("file-native")); };
+    box.append(b); });
+  setMissao(missaoPend);
+}
+$("ms-pend-x").onclick=()=>setMissao(null);
+/* Missão relâmpago e avisos chegando no celular (para quem está com o app aberto) */
+function avisarCelular(){ try{ if(document.hidden && navigator.setAppBadge) navigator.setAppBadge(1); }catch(e){} }
+document.addEventListener("visibilitychange",()=>{ if(!document.hidden){ try{ navigator.clearAppBadge&&navigator.clearAppBadge(); }catch(e){} } });
+function tratarControleCelular(c){
+  const antes=ctrlCel; ctrlCel=c; renderMissoes();
+  const seen=k=>+(localStorage.getItem(k)||0);
+  if(c.missao && c.missao_seq>seen("cas_ms_seq")){ localStorage.setItem("cas_ms_seq",c.missao_seq); $("rl-t").textContent=c.missao; if(!$("v-home").classList.contains("hidden")) $("relamp").classList.remove("hidden"); else window.__relampPend=true; avisarCelular(); }
+  if(c.pesquisa_on && c.pesquisa_seq>seen("cas_pq_seq")){ const primeira=!localStorage.getItem("cas_pq_seq"); localStorage.setItem("cas_pq_seq",c.pesquisa_seq); if(!primeira){ abrirPesquisa(true); avisarCelular(); } }
+  if(c.aviso && antes && c.aviso!==antes.aviso){ $("fun-e").textContent="📣"; $("fun-t").textContent=c.aviso; $("fun-s").textContent="Recado dos noivos 💛"; const f=$("fun"); f.classList.add("show"); clearTimeout(funT); funT=setTimeout(()=>f.classList.remove("show"),6000); avisarCelular(); }
+}
+$("rl-foto").onclick=()=>{ $("relamp").classList.add("hidden"); setMissao($("rl-t").textContent); if(lowMem()) camSite("photo"); else abrirNativa($("file-native")); };
+$("rl-video").onclick=()=>{ $("relamp").classList.add("hidden"); setMissao($("rl-t").textContent); if(lowMem()) camSite("video"); else abrirNativa($("file-native-video")); };
+$("rl-x").onclick=()=>{ $("relamp").classList.add("hidden"); pesquisaPendente(); };
+function pesquisaPendente(){ if(window.__pqPend){ window.__pqPend=false; setTimeout(()=>abrirPesquisa(true),1500); } }
+/* Pesquisa relâmpago (privada) */
+let pq={ bebida:null, animacao:null, agua:null, dancou:null };
+function montarEscala(id,campo,suco){
+  const box=$(id); box.innerHTML="";
+  for(let i=0;i<=10;i++){ const b=document.createElement("button"); b.textContent=i; b.onclick=()=>{ pq[campo]=i; [...box.children].forEach(x=>x.classList.toggle("on",x===b)); }; box.append(b); }
+  if(suco){ const b=document.createElement("button"); b.textContent="🚫 Não estou bebendo"; b.className="w2"; b.style.gridColumn="1 / -1"; b.onclick=()=>{ pq[campo]=-1; [...box.children].forEach(x=>x.classList.toggle("on",x===b)); }; box.append(b); }
+}
+function abrirPesquisa(forcar){
+  if($("v-home").classList.contains("hidden")) return;                           // só na tela inicial, nunca no meio da câmera
+  if(!$("sheet").classList.contains("hidden") || !$("pesq").classList.contains("hidden")) return;
+  if(!$("relamp").classList.contains("hidden") || !$("inst-sheet").classList.contains("hidden") || !$("memfix").classList.contains("hidden")){ if(forcar) window.__pqPend=true; return; } // uma janela de cada vez
+  if(!forcar){ if(ctrlCel && (!ctrlCel.pesquisa_on || !ctrlCel.pesquisa_min)) return; const ult=+(localStorage.getItem("cas_pesq_ts")||0); if(Date.now()-ult < ((ctrlCel&&ctrlCel.pesquisa_min)||40)*60*1000) return; }
+  pq={ bebida:null, animacao:null, agua:null, dancou:null };
+  montarEscala("pq-beb","bebida",true); montarEscala("pq-ani","animacao",false);
+  ["pq-agua","pq-danca"].forEach(id=>[...$(id).children].forEach(b=>b.classList.remove("on")));
+  $("pesq").classList.remove("hidden");
+}
+["pq-agua","pq-danca"].forEach(id=>$(id).onclick=e=>{ const b=e.target.closest("button"); if(!b) return; pq[id==="pq-agua"?"agua":"dancou"]=b.dataset.v==="1"; [...$(id).children].forEach(x=>x.classList.toggle("on",x===b)); });
+$("pq-nao").onclick=()=>{ localStorage.setItem("cas_pesq_ts",String(Date.now())); $("pesq").classList.add("hidden"); };
+$("pq-ok").onclick=async()=>{
+  if(pq.bebida===null && pq.animacao===null && pq.agua===null && pq.dancou===null) return toast("Responde pelo menos uma 😄");
+  localStorage.setItem("cas_pesq_ts",String(Date.now())); $("pesq").classList.add("hidden");
+  try{ await sbF.rpc("casamento_responder",{ p_disp:getDisp(), p_nome:getName(), p_bebida:pq.bebida, p_animacao:pq.animacao, p_agua:pq.agua, p_dancou:pq.dancou }); }catch(e){}
+  $("fun-e").textContent = pq.bebida===-1?"😎":(pq.bebida??0)>=8?"🥴":"😂";
+  $("fun-t").textContent = pq.bebida===-1?"Valeu pela resposta!":(pq.bebida??0)>=8?"Eita! Segura o copo 😂":"Valeu pela resposta!";
+  $("fun-s").textContent = pq.agua===false?"Agora vai lá beber uma água 💧":"Bora pra próxima foto 📸";
+  const f=$("fun"); f.classList.add("show"); clearTimeout(funT); funT=setTimeout(()=>f.classList.remove("show"),4000);
+};
+function renderSent(){ try{ renderWaCard(); renderNivel(); }catch(e){} const n=sentCount(); $("lbl-sent").textContent = n ? `Você já enviou ${n} ${n>1?"arquivos":"arquivo"}. Obrigado! 💛` : ""; }
 const fmtT = s => `${Math.floor(s/60)}:${String(Math.floor(s%60)).padStart(2,"0")}`;
 const pubFoto  = p => sbF.storage.from(CONFIG.BUCKET_FOTOS).getPublicUrl(p).data.publicUrl;
 const pubVideo = p => sbV.storage.from(CONFIG.BUCKET_VIDEOS).getPublicUrl(p).data.publicUrl;
@@ -890,7 +1063,7 @@ const DB=(()=>{ let dbp;
   return { put:i=>tx("readwrite",s=>s.put(i)), del:id=>tx("readwrite",s=>s.delete(id)), all:()=>tx("readonly",s=>s.getAll()) };
 })();
 const memQueue=[]; let useIDB=true;
-async function enqueue(item){ item.token ||= uuid()+uuid(); try{ await DB.put(item); }catch(e){ useIDB=false; memQueue.push(item); } processQueue(); }
+async function enqueue(item){ item.token ||= uuid()+uuid(); if(item.missao===undefined && missaoPend) item.missao=missaoPend; if(item.missao){ const ok=missoesFeitas(); if(!ok.includes(item.missao)){ ok.push(item.missao); localStorage.setItem("cas_ms_ok",JSON.stringify(ok)); } } try{ await DB.put(item); }catch(e){ useIDB=false; memQueue.push(item); } processQueue(); }
 async function pending(){ if(!useIDB) return memQueue.slice(); try{ return await DB.all(); }catch(e){ useIDB=false; return memQueue.slice(); } }
 async function removeItem(id){ if(!useIDB){ const i=memQueue.findIndex(x=>x.id===id); if(i>=0) memQueue.splice(i,1); return; } await DB.del(id); }
 
@@ -909,7 +1082,7 @@ async function uploadOne(it){
   }
   if (it.thumb){ miniatura=`thumbs/${base}.jpg`; const r=await sbF.storage.from(CONFIG.BUCKET_FOTOS).upload(miniatura,it.thumb,{...o,contentType:"image/jpeg"}); if(!okDup(r.error)) throw r.error; }
   const dono_hash = it.token ? await sha256hex(it.token) : null;
-  const ins=await sbF.from(CONFIG.TABLE).insert({ id:it.id, dono_hash, dispositivo:getDisp(), nome:it.nome, recado:it.recado||null, caminho, miniatura,
+  const ins=await sbF.from(CONFIG.TABLE).insert({ id:it.id, dono_hash, dispositivo:getDisp(), missao:it.missao||null, nome:it.nome, recado:it.recado||null, caminho, miniatura,
     largura:it.w||null, altura:it.h||null, com_moldura:!!it.frame, tipo:it.tipo||"foto", no_telao:!!it.telao,
     duracao:it.duracao?Math.round(it.duracao*10)/10:null, mime:it.mime||null, tamanho:it.blob.size });
   if (ins.error && ins.error.code!=="23505") throw ins.error;
@@ -978,13 +1151,21 @@ function renderMine(){
       toast(m.telao?"Pronto! Saiu do telão 🔒":"Vai aparecer no telão 📺");
     };
     it.append(th,t,b);
+    if(m.token){ const dx=document.createElement("button"); dx.className="del"; dx.textContent="🗑️"; dx.title="Apagar";
+      dx.onclick=async()=>{
+        if(!dx.classList.contains("arm")){ dx.classList.add("arm"); toast("Toque de novo no 🗑️ para apagar. Some do telão e do álbum"); setTimeout(()=>dx.classList.remove("arm"),4000); return; }
+        dx.disabled=true; const { data, error } = await sbF.rpc("casamento_meu_apagar",{ p_id:m.id, p_token:m.token });
+        if(error||!data){ dx.disabled=false; return toast("Não deu agora, tente de novo em instantes"); }
+        setMine(getMine().filter(y=>y.id!==m.id)); renderMine(); toast("Apagada 🙈");
+      };
+      it.append(dx); }
     if(m.caminho){ const d=document.createElement("a"); d.className="dl"; d.textContent="⬇️"; d.title="Baixar"; d.href=mediaUrl({tipo:m.tipo,caminho:m.caminho})+"?download="; d.style.cssText="padding:9px 10px;border-radius:12px;border:1.5px solid var(--line);text-decoration:none;background:#fff"; it.append(d); }
     box.append(it);
   });
 }
 
 /* ---------------- telas iniciais ---------------- */
-function goHome(){ $("lbl-name").textContent=getName(); renderSent(); renderMine(); show("v-home"); if(!homeFx) homeFx=startLeaves("fx-home",lowMem()?5:9); refreshHome(); clearInterval(homeTimer); homeTimer=setInterval(()=>{ if(!$("v-home").classList.contains("hidden")) refreshHome(); },20000); if(!localStorage.getItem("cas_tut")) openTut(); }
+function goHome(){ try{ renderMissoes(); }catch(e){} if(window.__pqPend && !window.__relampPend) setTimeout(pesquisaPendente,2500); if(window.__relampPend){ window.__relampPend=false; setTimeout(()=>$("relamp").classList.remove("hidden"),600); } $("lbl-name").textContent=getName(); renderSent(); renderMine(); show("v-home"); if(!homeFx) homeFx=startLeaves("fx-home",lowMem()?5:9); refreshHome(); clearInterval(homeTimer); homeTimer=setInterval(()=>{ if(!$("v-home").classList.contains("hidden")) refreshHome(); },20000); if(!localStorage.getItem("cas_tut")) openTut(); }
 mascara($("in-tel")); mascara($("wa-tel"));
 $("in-tel").addEventListener("input",()=>{ const tem=soDig($("in-tel").value).length>0; $("opts-entrada").classList.toggle("hidden",!tem); if(tem && !$("in-tel")._mexeu){ $("ck-fotos").checked=true; } });
 $("ck-fotos").addEventListener("change",()=>{ $("in-tel")._mexeu=true; });
@@ -998,7 +1179,7 @@ $("btn-enter").onclick=async()=>{
 };
 /* Segunda chance: quem não deixou número vê o cartão depois do primeiro envio */
 /* ---------- App na tela inicial (Android instala direto; iPhone mostra o passo a passo) ---------- */
-const APP_VERSAO="1.0 · 26/11";
+const APP_VERSAO="1.2 · 27/11";
 const ehApp = () => matchMedia("(display-mode: standalone)").matches || navigator.standalone===true;
 const ehIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform==="MacIntel" && navigator.maxTouchPoints>1);
 const ehNavIOSInterno = ehIOS && /FBAN|FBAV|Instagram|Line|WhatsApp|GSA\//i.test(navigator.userAgent);
@@ -1087,19 +1268,22 @@ function handleFiles(files){
   shFiles.slice(0,20).forEach(f=>{ const el=f.type.startsWith("video/")?Object.assign(document.createElement("video"),{muted:true,playsInline:true,preload:"metadata"}):new Image(); el.src=URL.createObjectURL(f); th.append(el); });
   shCh.reset(); $("sheet").classList.remove("hidden");
 }
+// depois de enviar com missão, limpa a missão escolhida
+function limparMissaoDepois(){ if(missaoPend){ setMissao(null); renderMissoes(); } }
 $("file-gallery").onchange=e=>{ const f=[...e.target.files]; e.target.value=""; handleFiles(f); };
 $("sh-cancel").onclick=()=>{ $("sheet").classList.add("hidden"); shFiles=[]; };
 $("sh-send").onclick=async()=>{
   const files=shFiles, telao=shChoice==="telao", recado=$("sh-msg").value.trim().slice(0,200); $("sh-msg").value=""; $("sheet").classList.add("hidden"); shFiles=[];
   showDone(telao);
+  const msEnvio=missaoPend; limparMissaoDepois();
   for(const f of files){
     try{
       if(f.type.startsWith("video/")){
         const info=await videoInfo(f);
-        await enqueue({ id:uuid(), ts:Date.now(), nome:getName(), recado, tipo:"video", telao, blob:f, mime:f.type||"video/mp4", thumb:info.thumb, w:info.w, h:info.h, duracao:info.duracao });
+        await enqueue({ id:uuid(), ts:Date.now(), nome:getName(), recado, missao:msEnvio, tipo:"video", telao, blob:f, mime:f.type||"video/mp4", thumb:info.thumb, w:info.w, h:info.h, duracao:info.duracao });
       } else {
         const img=await loadImage(f); const c=scaleTo(img,img.width,img.height,CONFIG.MAX_LADO);
-        await enqueue({ id:uuid(), ts:Date.now(), nome:getName(), recado, tipo:"foto", telao, frame:false, ...(await photoVersions(c)) });
+        await enqueue({ id:uuid(), ts:Date.now(), nome:getName(), recado, missao:msEnvio, tipo:"foto", telao, frame:false, ...(await photoVersions(c)) });
       }
     }catch(err){ console.error(err); toast("Um dos arquivos não pôde ser lido 😕"); }
   }
@@ -1218,7 +1402,7 @@ function pickMime(){
   return "";
 }
 function startRecording(){
-  if(!stream || !window.MediaRecorder){ toast("Seu celular não grava vídeo por aqui 😕. Grave pela câmera do celular e envie pela galeria."); return; }
+  if(!stream || !window.MediaRecorder){ toast("Seu celular não grava vídeo por aqui 😕 Grave pela câmera do celular e envie pela galeria."); return; }
   const mime=pickMime(); recChunks=[];
   try{ rec=new MediaRecorder(stream, mime?{mimeType:mime,videoBitsPerSecond:CONFIG.VIDEO_BITRATE,audioBitsPerSecond:96000}:{videoBitsPerSecond:CONFIG.VIDEO_BITRATE}); }
   catch(e){ rec=new MediaRecorder(stream); }
@@ -1271,7 +1455,7 @@ $("rv-send").onclick=async()=>{
   $("rv-send").disabled=true;
   if(p.tipo==="foto") await enqueue({ id:uuid(), ts:Date.now(), nome:getName(), recado, tipo:"foto", telao, frame:p.frame, ...(await photoVersions(p.canvas)) });
   else await enqueue({ id:uuid(), ts:Date.now(), nome:getName(), recado, tipo:"video", telao, blob:p.blob, mime:p.mime, thumb:p.thumb, w:p.w, h:p.h, duracao:p.duracao });
-  showDone(telao);
+  showDone(telao); setTimeout(limparMissaoDepois,500);
   resetReview();
 };
 
@@ -1304,7 +1488,7 @@ function figure(r){
   const cap=document.createElement("figcaption"); cap.textContent=r.nome; fig.append(img,cap);
   if(r.tipo==="video"){ const p=document.createElement("span"); p.className="play"; fig.append(p); }
   if(adminMode){
-    const b=document.createElement("span"); b.className="badge"; b.textContent = r.apagado?"🗑️ apagada":r.arquivado?"💾 salvo no PC":r.oculta?"🚫 oculta":!r.aprovado?"⏳ aguardando":r.no_telao?"📺 telão":"🔒 noivos"; fig.append(b);
+    const b=document.createElement("span"); b.className="badge"; b.textContent = r.apagado?"🗑️ apagada":r.lixeira?"🗑️ na lixeira":r.apagado_usuario?"🙈 apagada pelo convidado":r.arquivado?"💾 salvo no PC":r.oculta?"🚫 oculta":!r.aprovado?"⏳ aguardando":r.no_telao?"📺 telão":"🔒 noivos"; fig.append(b);
     fig.classList.toggle("fav",!!r.favorito); fig.classList.toggle("off",!r.no_telao||r.oculta);
     if(!r.apagado){
       const a=document.createElement("div"); a.className="acts";
@@ -1312,7 +1496,7 @@ function figure(r){
       mk(r.no_telao?ICON.tv:ICON.lock, r.no_telao?"No telão (toque para tirar)":"Fora do telão (toque para pôr)", r.no_telao, ()=>quick(r,"telao"));
       mk(ICON.star, r.favorito?"Favorita":"Marcar como favorita", r.favorito, ()=>quick(r,"fav"));
       mk(ICON.pin, "Fixar no telão por 1 min", false, ()=>quick(r,"fixar"));
-      mk(ICON.trash, "Apagar (toque 2x)", false, x=>quick(r,"del",x), "del");
+      mk(ICON.trash, r.lixeira?"Restaurar da lixeira":"Mover para a lixeira", !!r.lixeira, x=>quick(r,"del",x), "del");
       fig.append(a);
     }
   }
@@ -1342,11 +1526,33 @@ function renderStats(){
   $("admin-stats").innerHTML=`<b>${galItems.length}</b> carregados · 📸 ${n(r=>r.tipo!=="video")} fotos · 🎥 ${n(r=>r.tipo==="video")} vídeos<br>📺 ${n(r=>r.no_telao&&!r.oculta)} no telão · 🔒 ${n(r=>!r.no_telao)} só noivos · 🚫 ${n(r=>r.oculta)} ocultas · 💾 ${n(r=>r.arquivado)} já só no PC`;
 }
 let lbItem=null, galFilter="todos";
+/* ---------- Desfazer: toda ação do painel volta com um toque ---------- */
+const hist=[]; let undoT=null, undoAtual=null;
+function feito(texto, desfazer){
+  const h={ texto, desfazer, hora:new Date(), desfeito:false }; hist.unshift(h); if(hist.length>20) hist.pop();
+  undoAtual=h; $("undo-t").textContent=texto; $("undo").classList.add("show"); clearTimeout(undoT); undoT=setTimeout(()=>$("undo").classList.remove("show"),8000);
+  renderHist();
+}
+async function desfazer(h){
+  if(!h||h.desfeito) return; h.desfeito=true; $("undo").classList.remove("show");
+  try{ await h.desfazer(); toast("↩️ Desfeito"); }catch(e){ h.desfeito=false; toast("Não deu para desfazer, tente de novo"); }
+  renderHist(); try{ applyFilter(); renderStats(); }catch(e){}
+}
+$("undo-b").onclick=()=>desfazer(undoAtual);
+function renderHist(){
+  const box=$("c-hist"); if(!box) return; box.innerHTML=""; if(!hist.length){ box.innerHTML='<p class="st">Nenhuma ação ainda.</p>'; return; }
+  hist.forEach(h=>{ const d=document.createElement("div"); d.className="h"+(h.desfeito?" feito":"");
+    const sm=document.createElement("small"); sm.textContent=h.hora.toLocaleTimeString("pt-BR",{hour:"2-digit",minute:"2-digit"});
+    const sp=document.createElement("span"); sp.textContent=h.texto; d.append(sm,sp);
+    if(!h.desfeito){ const b=document.createElement("button"); b.textContent="Desfazer"; b.onclick=()=>desfazer(h); d.append(b); } else { const t=document.createElement("small"); t.textContent="desfeito"; d.append(t); }
+    box.append(d); });
+}
+const rpcOk=async(fn,args)=>{ const { data, error } = await sbF.rpc(fn,{ p_codigo:adminCode, ...args }); if(error) throw error; return data; };
 function passa(r){
   switch(galFilter){
     case "telao": return r.no_telao&&!r.oculta&&r.aprovado; case "noivos": return !r.no_telao&&!r.oculta;
     case "fotos": return r.tipo!=="video"; case "videos": return r.tipo==="video";
-    case "fav": return !!r.favorito; case "pend": return !r.aprovado&&!r.oculta; case "ocultas": return !!r.oculta;
+    case "fav": return !!r.favorito; case "pend": return !r.aprovado&&!r.oculta; case "ocultas": return !!r.oculta && !r.lixeira; case "lixeira": return !!r.lixeira; case "missao": return !!r.missao;
     default: return true;
   }
 }
@@ -1355,16 +1561,21 @@ $("f-filtros").onclick=e=>{ const b=e.target.closest("button"); if(!b) return; g
 function redraw(r){ const nf=figure(r); r._fig&&r._fig.replaceWith(nf); r._fig=nf; nf.style.display=passa(r)?"":"none"; renderStats(); }
 let delArmQ=null;
 async function quick(r,acao,btn){
-  let error;
-  if(acao==="telao"){ ({error}=await sbF.rpc("casamento_admin_atualizar",{ p_codigo:adminCode, p_id:r.id, p_no_telao:!r.no_telao, p_oculta:r.no_telao?null:false })); if(!error){ r.no_telao=!r.no_telao; if(r.no_telao) r.oculta=false; toast(r.no_telao?"📺 Vai aparecer no telão":"🔒 Saiu do telão"); } }
-  else if(acao==="fav"){ ({error}=await sbF.rpc("casamento_admin_favorito",{ p_codigo:adminCode, p_id:r.id, p_fav:!r.favorito })); if(!error){ r.favorito=!r.favorito; toast(r.favorito?"⭐ Favorita: fica mais tempo no telão":"Tirada das favoritas"); } }
-  else if(acao==="fixar"){ lbItem=r; await destacar(1); return; }
-  else if(acao==="del"){
-    if(delArmQ!==r.id){ delArmQ=r.id; btn.classList.add("arm"); toast("Toque de novo no 🗑️ para apagar"); setTimeout(()=>{ if(delArmQ===r.id){ delArmQ=null; btn.classList.remove("arm"); } },4000); return; }
-    delArmQ=null; ({error}=await sbF.rpc("casamento_admin_apagar",{ p_codigo:adminCode, p_id:r.id })); if(!error){ Object.assign(r,{apagado:true,oculta:true,no_telao:false}); toast("Apagada ✔️ (cópia no PC em 'Apagadas pelo admin')",4000); }
-  }
-  if(error){ toast("Não deu certo, tente de novo"); return; }
-  redraw(r);
+  try{
+    if(acao==="telao"){
+      const antes={ no_telao:r.no_telao, oculta:r.oculta };
+      await rpcOk("casamento_admin_atualizar",{ p_id:r.id, p_no_telao:!r.no_telao, p_oculta:r.no_telao?null:false });
+      r.no_telao=!r.no_telao; if(r.no_telao) r.oculta=false; redraw(r);
+      feito(`${r.no_telao?"📺 Pôs no telão":"🔒 Tirou do telão"}: ${r.nome}`, async()=>{ await rpcOk("casamento_admin_atualizar",{ p_id:r.id, p_no_telao:antes.no_telao, p_oculta:antes.oculta }); Object.assign(r,antes); redraw(r); });
+    } else if(acao==="fav"){
+      await rpcOk("casamento_admin_favorito",{ p_id:r.id, p_fav:!r.favorito }); r.favorito=!r.favorito; redraw(r);
+      feito(`${r.favorito?"⭐ Favoritou":"Desfavoritou"}: ${r.nome}`, async()=>{ await rpcOk("casamento_admin_favorito",{ p_id:r.id, p_fav:!r.favorito }); r.favorito=!r.favorito; redraw(r); });
+    } else if(acao==="fixar"){ lbItem=r; await destacar(1); }
+    else if(acao==="del"){
+      const vai=!r.lixeira; await rpcOk("casamento_admin_lixeira",{ p_id:r.id, p_lixeira:vai }); r.lixeira=vai; r.oculta=vai; redraw(r);
+      feito(`${vai?"🗑️ Foi para a lixeira":"♻️ Restaurou da lixeira"}: ${r.nome}`, async()=>{ await rpcOk("casamento_admin_lixeira",{ p_id:r.id, p_lixeira:!vai }); r.lixeira=!vai; r.oculta=!vai; redraw(r); });
+    }
+  }catch(e){ toast("Não deu certo, tente de novo"); }
 }
 function openLB(r){
   lbItem=r; const m=$("lb-media"); m.innerHTML="";
@@ -1375,22 +1586,43 @@ function openLB(r){
   $("lb-msg").textContent=r.recado?`“${r.recado}”`:"";
   $("lb-dl").href=mediaUrl(r)+"?download="; $("lb-dl").classList.toggle("hidden",!!r.arquivado);
   $("lb-admin").classList.toggle("hidden",!adminMode);
-  if(adminMode){ $("lb-fav").textContent = r.favorito?"⭐ Tirar das favoritas":"⭐ Favoritar"; $("lb-telao").textContent = r.no_telao?"🔒 Tirar do telão":"📺 Pôr no telão"; $("lb-hide").textContent = r.oculta?"↩️ Mostrar de novo":"🚫 Ocultar de tudo"; }
+  if(adminMode){ $("lb-fav").textContent = r.favorito?"⭐ Tirar das favoritas":"⭐ Favoritar"; $("lb-del").textContent = r.lixeira?"♻️ Restaurar da lixeira":"🗑️ Mover para a lixeira"; { const k=(r.nome||"").trim().toLowerCase(); $("lb-pessoa-v").classList.toggle("hidden",!galItems.some(x=>(x.nome||"").trim().toLowerCase()===k && x.tirado_pessoa)); } $("lb-telao").textContent = r.no_telao?"🔒 Tirar do telão":"📺 Pôr no telão"; $("lb-hide").textContent = r.oculta?"↩️ Mostrar de novo":"🚫 Ocultar de tudo"; }
   $("lightbox").classList.remove("hidden");
 }
 function closeLB(){ const v=$("lb-media").querySelector("video"); if(v) v.pause(); $("lightbox").classList.add("hidden"); }
 $("lb-close").onclick=closeLB;
 async function adminSet(fields){
-  const r=lbItem; const { error } = await sbF.rpc("casamento_admin_atualizar",{ p_codigo:adminCode, p_id:r.id, p_no_telao:fields.no_telao??null, p_oculta:fields.oculta??null });
-  if(error){ toast("Não deu certo, tente de novo"); return; }
-  Object.assign(r,fields); redraw(r); openLB(r);
-  toast(fields.no_telao===false?"Saiu do telão ✔️":fields.no_telao?"Vai aparecer no telão ✔️":fields.oculta?"Ocultada ✔️":"Visível de novo ✔️");
+  const r=lbItem, antes={ no_telao:r.no_telao, oculta:r.oculta };
+  try{ await rpcOk("casamento_admin_atualizar",{ p_id:r.id, p_no_telao:fields.no_telao??null, p_oculta:fields.oculta??null }); }catch(e){ return toast("Não deu certo, tente de novo"); }
+  Object.assign(r,fields); if(fields.oculta===false){ r.apagado_usuario=false; r.lixeira=false; } redraw(r); openLB(r);
+  const txt=fields.no_telao===false?"🔒 Tirou do telão":fields.no_telao?"📺 Pôs no telão":fields.oculta?"🚫 Ocultou":"👁️ Mostrou de novo";
+  feito(`${txt}: ${r.nome}`, async()=>{ await rpcOk("casamento_admin_atualizar",{ p_id:r.id, p_no_telao:antes.no_telao, p_oculta:antes.oculta }); Object.assign(r,antes); redraw(r); });
 }
 $("lb-telao").onclick=()=>adminSet({ no_telao:!lbItem.no_telao });
 $("lb-hide").onclick=()=>adminSet({ oculta:!lbItem.oculta });
+let pessoaArm=null;
+async function pessoaTelao(nome, devolver){
+  const n=await rpcOk("casamento_admin_pessoa_telao",{ p_nome:nome, p_no_telao:devolver });
+  const k=nome.trim().toLowerCase();
+  galItems.forEach(x=>{ if((x.nome||"").trim().toLowerCase()!==k) return;
+    if(devolver && x.tirado_pessoa){ x.no_telao=true; x.tirado_pessoa=false; redraw(x); }
+    if(!devolver && x.no_telao && !x.apagado && !x.apagado_usuario){ x.no_telao=false; x.tirado_pessoa=true; redraw(x); } });
+  return n;
+}
+$("lb-pessoa").onclick=async()=>{
+  const r=lbItem; let n; try{ n=await pessoaTelao(r.nome,false); }catch(e){ return toast("Não deu certo, tente de novo"); }
+  feito(`🙅 Tirou ${n} envio(s) de ${r.nome} do telão`, async()=>{ await pessoaTelao(r.nome,true); });
+  openLB(r);
+};
+$("lb-pessoa-v").onclick=async()=>{
+  const r=lbItem; let n; try{ n=await pessoaTelao(r.nome,true); }catch(e){ return toast("Não deu certo, tente de novo"); }
+  feito(`↩️ Devolveu ${n} envio(s) de ${r.nome} ao telão`, async()=>{ await pessoaTelao(r.nome,false); });
+  openLB(r);
+};
 async function destacar(min){
   const r=lbItem; if(!r.no_telao){ await sbF.rpc("casamento_admin_atualizar",{ p_codigo:adminCode, p_id:r.id, p_no_telao:true, p_oculta:false }); r.no_telao=true; }
   const { error } = await sbF.rpc("casamento_admin_controle",{ p_codigo:adminCode, p:{ destaque_id:r.id, destaque_min:min } });
+  if(!error) feito(`📌 Fixou no telão por ${min} min: ${r.nome}`, async()=>{ await rpcOk("casamento_admin_controle",{ p:{ destaque_id:null } }); });
   toast(error?"Não deu certo, tente de novo":`📌 Fixada no telão por ${min} min`);
 }
 $("lb-fav").onclick=async()=>{ await quick(lbItem,"fav"); openLB(lbItem); };
@@ -1415,7 +1647,9 @@ function renderCtrl(){
   const c=ctrlState; if(!c) return;
   const pb=$("c-pause"); pb.classList.toggle("on",!!c.pausado); pb.textContent=c.pausado?"▶️ Voltar o telão":"⏸️ Pausar telão";
   $("c-aprov").classList.toggle("on",!!c.aprovacao); $("c-rank").classList.toggle("on",!!c.mostrar_ranking);
-  chipsOn("c-lim",c.limite); chipsOn("c-tempo",c.tempo_foto); chipsOn("c-extra",c.extra_fav); chipsOn("c-ordem",c.ordem); chipsOn("c-sofav",String(!!c.so_favoritos));
+  chipsOn("c-maxp",c.max_pessoa); chipsOn("c-pq-min",c.pesquisa_min); $("c-pq-on").classList.toggle("on",!!c.pesquisa_on);
+  const ms=c.missoes||[]; const cb=$("c-ms-chips"); if(cb.dataset.k!==JSON.stringify(ms)){ cb.dataset.k=JSON.stringify(ms); cb.innerHTML=""; ms.forEach(t=>{ const b=document.createElement("button"); b.textContent=t; b.onclick=()=>{ $("c-ms").value=t; }; cb.append(b); }); if(document.activeElement!==$("c-ms-lista")) $("c-ms-lista").value=ms.join("\n"); }
+  $("c-ms-st").textContent = c.missao ? `🎯 No ar agora: "${c.missao}"${c.missao_seg?` · termina em ${Math.ceil(c.missao_seg/60)} min`:""}` : "Nenhuma missão relâmpago agora."; chipsOn("c-maxv",c.max_videos_pessoa); chipsOn("c-lim",c.limite); chipsOn("c-tempo",c.tempo_foto); chipsOn("c-extra",c.extra_fav); chipsOn("c-ordem",c.ordem); chipsOn("c-sofav",String(!!c.so_favoritos));
   const lv=$("adm-live"); const off=c.pausado||!c.agora_id||(c.agora_seg||0)>90; lv.classList.toggle("off",off); lv.textContent = c.pausado?"⏸ telão pausado":(!c.agora_id||(c.agora_seg||0)>90)?"● telão sem sinal":"● telão no ar";
   $("c-av-st").textContent = c.aviso ? `No telão agora: "${c.aviso}"${c.aviso_seg?` · some em ${Math.ceil(c.aviso_seg/60)} min`:""}` : "Nenhum aviso no telão.";
   $("c-dest-st").textContent = c.destaque_id ? `📌 Tem uma foto fixada no telão · sai em ${Math.ceil((c.destaque_seg||0)/60)} min` : "Nenhuma foto fixada agora.";
@@ -1426,7 +1660,7 @@ async function pollCtrl(){
     const [c,rs,ls]=await Promise.all([ sbF.rpc("casamento_controle_ler"), sbF.rpc("casamento_admin_resumo",{ p_codigo:adminCode }), sbF.rpc("casamento_admin_listar",{ p_codigo:adminCode, p_offset:0, p_limite:150 }) ]);
     if(c.data){ ctrlState=c.data; renderCtrl(); }
     const R=rs.data||{};
-    $("c-stats").innerHTML=[["total","enviados"],["ultimos10","últ. 10 min"],["telao","no telão"],["privados","só noivos"],["pendentes","aguardando"],["mb_fotos","MB de fotos"]].map(([k,l])=>`<div><b>${R[k]??"–"}</b><small>${l}</small></div>`).join("");
+    $("c-stats").innerHTML=[["total","enviados"],["ultimos10","últ. 10 min"],["telao","no telão"],["privados","só noivos"],["pendentes","aguardando"],["lixeira","na lixeira"]].map(([k,l])=>`<div><b>${R[k]??"–"}</b><small>${l}</small></div>`).join("");
     (ls.data||[]).forEach(r=>adminCache.set(r.id,r));
     // passando agora
     const box=$("c-now"); const a=c.data&&c.data.agora_id&&adminCache.get(c.data.agora_id);
@@ -1443,19 +1677,30 @@ async function pollCtrl(){
       const sp=document.createElement("span"); sp.textContent=(r.tipo==="video"?"🎥 ":"📸 ")+r.nome;
       const ok=document.createElement("button"); ok.textContent="✅"; ok.title="Aprovar";
       const no=document.createElement("button"); no.textContent="❌"; no.title="Recusar (fica só para os noivos)";
-      ok.onclick=async()=>{ await sbF.rpc("casamento_admin_aprovar",{ p_codigo:adminCode, p_id:r.id, p_ok:true }); toast("Aprovada, vai para o telão ✔️"); pollCtrl(); };
-      no.onclick=async()=>{ await sbF.rpc("casamento_admin_aprovar",{ p_codigo:adminCode, p_id:r.id, p_ok:false }); toast("Recusada, fica só para os noivos 🔒"); pollCtrl(); };
+      ok.onclick=async()=>{ await sbF.rpc("casamento_admin_aprovar",{ p_codigo:adminCode, p_id:r.id, p_ok:true }); feito(`✅ Aprovou: ${r.nome}`, async()=>{ await rpcOk("casamento_admin_atualizar",{ p_id:r.id, p_no_telao:false, p_oculta:null }); }); pollCtrl(); };
+      no.onclick=async()=>{ const tinha=r.no_telao; await sbF.rpc("casamento_admin_aprovar",{ p_codigo:adminCode, p_id:r.id, p_ok:false }); feito(`❌ Recusou (fica só para os noivos): ${r.nome}`, async()=>{ await rpcOk("casamento_admin_atualizar",{ p_id:r.id, p_no_telao:tinha, p_oculta:null }); }); pollCtrl(); };
       it.append(im,sp,ok,no); fila.append(it);
     });
   }catch(e){ console.warn(e); }
 }
 $("c-skip").onclick=()=>ctrlSet({ pular:true },"⏭️ Pulando…");
-$("c-off").onclick=async()=>{ const id=ctrlState&&ctrlState.agora_id; if(!id) return toast("Nada passando agora");
-  await sbF.rpc("casamento_admin_atualizar",{ p_codigo:adminCode, p_id:id, p_no_telao:false, p_oculta:null }); ctrlSet({ pular:true },"🔒 Tirada do telão"); };
-$("c-pause").onclick=()=>ctrlSet({ pausado:!(ctrlState&&ctrlState.pausado) }, ctrlState&&ctrlState.pausado?"▶️ Telão voltou":"⏸️ Telão pausado");
-$("c-aprov").onclick=()=>ctrlSet({ aprovacao:!(ctrlState&&ctrlState.aprovacao) }, ctrlState&&ctrlState.aprovacao?"Aprovação desligada: entra tudo automático":"🛡️ Aprovação ligada: você aprova antes do telão");
+$("c-off").onclick=async()=>{ const id=ctrlState&&ctrlState.agora_id; if(!id) return toast("Nada passando agora"); const a=adminCache.get(id);
+  await sbF.rpc("casamento_admin_atualizar",{ p_codigo:adminCode, p_id:id, p_no_telao:false, p_oculta:null }); await ctrlSet({ pular:true });
+  feito(`🔒 Tirou do telão: ${a?a.nome:"foto"}`, async()=>{ await rpcOk("casamento_admin_atualizar",{ p_id:id, p_no_telao:true, p_oculta:null }); }); };
+$("c-pause").onclick=async()=>{ const p=!(ctrlState&&ctrlState.pausado); await ctrlSet({ pausado:p }); feito(p?"⏸️ Pausou o telão":"▶️ Voltou o telão", async()=>{ await ctrlSet({ pausado:!p }); }); };
+$("c-aprov").onclick=()=>ctrlSet({ aprovacao:!(ctrlState&&ctrlState.aprovacao) }, ctrlState&&ctrlState.aprovacao?"Aprovação desligada: entra tudo automaticamente":"🛡️ Aprovação ligada: você aprova antes do telão");
 $("c-rank").onclick=()=>ctrlSet({ mostrar_ranking:!(ctrlState&&ctrlState.mostrar_ranking) });
 $("c-lim").onclick=e=>{ const b=e.target.closest("button"); if(b) ctrlSet({ limite:+b.dataset.v }, +b.dataset.v?`Repetindo os últimos ${b.dataset.v}`:"Repetindo todos"); };
+$("c-pq-on").onclick=()=>ctrlSet({ pesquisa_on:!(ctrlState&&ctrlState.pesquisa_on) }, ctrlState&&ctrlState.pesquisa_on?"Pesquisa desligada":"🍾 Pesquisa ligada");
+$("c-pq-min").onclick=e=>{ const b=e.target.closest("button"); if(b) ctrlSet({ pesquisa_min:+b.dataset.v }, +b.dataset.v?`Pesquisa a cada ${b.dataset.v} min`:"Pesquisa só quando você mandar"); };
+$("c-pq-agora").onclick=()=>ctrlSet({ pesquisa_on:true, pesquisa_agora:true },"📲 Pesquisa enviada! Aparece em até 20 s para quem está com o app aberto");
+let msMin="10";
+$("c-msmin").onclick=e=>{ const b=e.target.closest("button"); if(!b) return; msMin=b.dataset.m; [...$("c-msmin").children].forEach(x=>x.classList.toggle("on",x===b)); };
+$("c-ms-on").onclick=async()=>{ const t=$("c-ms").value.trim(); if(!t) return toast("Escolha ou escreva uma missão"); await ctrlSet({ missao:t, missao_min: msMin?+msMin:null }); feito(`🎯 Lançou a missão: "${t}"`, async()=>{ await ctrlSet({ missao:"" }); }); };
+$("c-ms-off").onclick=async()=>{ const antes=ctrlState&&ctrlState.missao; await ctrlSet({ missao:"" }, "Missão encerrada"); };
+$("c-ms-salvar").onclick=()=>{ const l=$("c-ms-lista").value.split("\n").map(x=>x.trim()).filter(Boolean).slice(0,16); if(!l.length) return toast("Escreva pelo menos uma missão"); ctrlSet({ missoes:l }, `✔️ ${l.length} missões salvas`); };
+$("c-maxp").onclick=e=>{ const b=e.target.closest("button"); if(b) ctrlSet({ max_pessoa:+b.dataset.v }, +b.dataset.v?`Até ${b.dataset.v} por pessoa no rodízio`:"Sem limite por pessoa"); };
+$("c-maxv").onclick=e=>{ const b=e.target.closest("button"); if(b) ctrlSet({ max_videos_pessoa:+b.dataset.v }, +b.dataset.v?`Até ${b.dataset.v} vídeo(s) por pessoa`:"Sem limite de vídeos"); };
 $("c-extra").onclick=e=>{ const b=e.target.closest("button"); if(b) ctrlSet({ extra_fav:+b.dataset.v }, `Favoritas: +${b.dataset.v} s na tela`); };
 $("c-ordem").onclick=e=>{ const b=e.target.closest("button"); if(b) ctrlSet({ ordem:b.dataset.v }, b.dataset.v==="aleatoria"?"🔀 Ordem aleatória":"Mais recentes primeiro"); };
 $("c-sofav").onclick=e=>{ const b=e.target.closest("button"); if(b) ctrlSet({ so_favoritos:b.dataset.v==="true" }, b.dataset.v==="true"?"⭐ Telão só com as favoritas":"Telão com todas"); };
@@ -1464,21 +1709,43 @@ $("c-zerar-btn").onclick=async()=>{
   const b=$("c-zerar-btn"); b.disabled=true; $("c-zerar-st").textContent="Zerando…";
   const { data, error } = await sbF.rpc("casamento_admin_zerar",{ p_codigo:adminCode, p_confirma:$("c-zerar-in").value.trim().toUpperCase() });
   if(error){ $("c-zerar-st").textContent="Não deu certo: "+error.message; b.disabled=false; return; }
-  $("c-zerar-in").value=""; $("c-zerar-st").textContent=`✅ Pronto! ${data} arquivo(s) de teste removidos. O telão, o álbum e o ranking começaram do zero. 🎉`;
+  $("c-zerar-in").value=""; $("c-zerar-st").textContent=`✅ Pronto! ${data} arquivo(s) de teste removido(s). O telão, o álbum e o ranking começaram do zero. 🎉`;
   galItems=[]; $("grid").innerHTML=""; galOffset=0; pollCtrl(); toast("🧹 Tudo zerado. Boa festa! 💛",4500);
 };
 $("c-tempo").onclick=e=>{ const b=e.target.closest("button"); if(b) ctrlSet({ tempo_foto:+b.dataset.v }, `Cada foto: ${b.dataset.v} s`); };
 $("c-presets").onclick=e=>{ const b=e.target.closest("button"); if(b) $("c-aviso").value=b.textContent; };
 $("c-avmin").onclick=e=>{ const b=e.target.closest("button"); if(!b) return; avMin=b.dataset.m; [...$("c-avmin").children].forEach(x=>x.classList.toggle("on",x===b)); };
-$("c-av-on").onclick=()=>{ const t=$("c-aviso").value.trim(); if(!t) return toast("Escreva ou escolha um aviso"); ctrlSet({ aviso:t, aviso_min: avMin?+avMin:null },"📣 Aviso no telão!"); };
-$("c-av-off").onclick=()=>ctrlSet({ aviso:"" },"Aviso retirado");
+$("c-av-on").onclick=async()=>{ const t=$("c-aviso").value.trim(); if(!t) return toast("Escreva ou escolha um aviso"); await ctrlSet({ aviso:t, aviso_min: avMin?+avMin:null }); feito(`📣 Aviso no telão: "${t}"`, async()=>{ await ctrlSet({ aviso:"" }); }); };
+$("c-av-off").onclick=async()=>{ const antes=ctrlState&&ctrlState.aviso; await ctrlSet({ aviso:"" }); if(antes) feito("Tirou o aviso do telão", async()=>{ await ctrlSet({ aviso:antes, aviso_min:5 }); }); };
 /* ---------- Contatos ---------- */
 let contatos=[], ctFil="fotos";
 const MSG_PADRAO="Oi, {nome}! 💛\nAqui estão as fotos e vídeos do casamento do Caio e da Thaís: {link}\n\nO aplicativo do telão foi feito pela *Botazzo.Net*: criamos sites e aplicativos e fazemos conserto de celular e computador. Precisando, é só chamar! 😉";
 $("ct-msg").value = localStorage.getItem("cas_ct_msg") || MSG_PADRAO;
 $("ct-msg").oninput=()=>{ localStorage.setItem("cas_ct_msg",$("ct-msg").value); renderContatos(); };
 const fmtTel = t => { const d=t.replace(/^55/,""); return d.length===11?`(${d.slice(0,2)}) ${d.slice(2,7)}-${d.slice(7)}`:d.length===10?`(${d.slice(0,2)}) ${d.slice(2,6)}-${d.slice(6)}`:t; };
+let respostas=[];
+async function loadPesquisa(){
+  const { data, error } = await sbF.rpc("casamento_admin_pesquisa",{ p_codigo:adminCode }); if(error) return;
+  respostas=data||[];
+  const beb=respostas.filter(r=>r.bebida!==null&&r.bebida>=0).map(r=>r.bebida), ani=respostas.filter(r=>r.animacao!==null).map(r=>r.animacao);
+  const med=a=>a.length?(a.reduce((x,y)=>x+y,0)/a.length).toFixed(1):"–";
+  const pct=f=>{ const v=respostas.filter(r=>r[f]!==null); return v.length?Math.round(v.filter(r=>r[f]).length*100/v.length)+"%":"–"; };
+  $("pq-stats").innerHTML=[[respostas.length,"respostas"],[med(beb),"bebida média"],[med(ani),"animação média"],[pct("agua"),"beberam água"],[pct("dancou"),"já dançaram"],[respostas.filter(r=>r.bebida===-1).length,"não estavam bebendo"]].map(([v,l])=>`<div><b>${v}</b><small>${l}</small></div>`).join("");
+  const box=$("pq-list"); box.innerHTML="";
+  respostas.slice(0,25).forEach(r=>{ const it=document.createElement("div"); it.className="ct"; const i=document.createElement("div"); i.className="i";
+    const b=document.createElement("b"); b.textContent=r.nome||"convidado"; i.append(b);
+    const sm=document.createElement("small"); sm.textContent=`${new Date(r.criado_em).toLocaleTimeString("pt-BR",{hour:"2-digit",minute:"2-digit"})} · bebida ${r.bebida===-1?"não estava bebendo":r.bebida??"–"} · animação ${r.animacao??"–"} · água ${r.agua===null?"–":r.agua?"sim":"não"} · dançou ${r.dancou===null?"–":r.dancou?"sim":"não"}`; i.append(sm);
+    it.append(i); box.append(it); });
+}
+$("pq-csv").onclick=()=>{
+  if(!respostas.length) return toast("Ainda não há respostas");
+  const esc=v=>`"${String(v??"").replace(/"/g,'""')}"`;
+  const l=[["Hora","Nome","Nível de bebida (0-10)","Animação (0-10)","Bebeu água","Já dançou"].map(esc).join(";")];
+  respostas.slice().reverse().forEach(r=>l.push([new Date(r.criado_em).toLocaleString("pt-BR"),r.nome,r.bebida===-1?"não estava bebendo":r.bebida,r.animacao,r.agua===null?"":r.agua?"sim":"não",r.dancou===null?"":r.dancou?"sim":"não"].map(esc).join(";")));
+  const a=document.createElement("a"); a.href=URL.createObjectURL(new Blob(["﻿"+l.join("\r\n")],{type:"text/csv;charset=utf-8"})); a.download="Pesquisa relampago - Casamento Caio e Thais.csv"; a.click();
+};
 async function loadContatos(){
+  loadPesquisa();
   const { data, error } = await sbF.rpc("casamento_admin_contatos",{ p_codigo:adminCode });
   if(error){ toast("Não deu para carregar os contatos"); return; }
   contatos=data||[]; renderContatos();
@@ -1510,17 +1777,8 @@ $("ct-csv").onclick=()=>{
   contatos.forEach(c=>linhas.push([c.nome,fmtTel(c.telefone),c.telefone,c.quer_fotos?"sim":"não",c.aceita_divulgacao?"sim":"não",c.envios,c.origem==="entrada"?"na entrada":"depois de enviar",new Date(c.criado_em).toLocaleString("pt-BR")].map(esc).join(";")));
   const a=document.createElement("a"); a.href=URL.createObjectURL(new Blob(["\ufeff"+linhas.join("\r\n")],{type:"text/csv;charset=utf-8"})); a.download="Contatos - Casamento Caio e Thais.csv"; a.click();
 };
-$("c-dest-off").onclick=()=>ctrlSet({ destaque_id:null },"Destaque retirado");
-let delArm=null;
-$("lb-del").onclick=async()=>{
-  const b=$("lb-del");
-  if(delArm!==lbItem.id){ delArm=lbItem.id; b.textContent="Toque de novo para apagar"; b.style.background="#F6D5CF"; setTimeout(()=>{ if(delArm){ delArm=null; b.textContent="🗑️ Apagar"; b.style.background=""; } },4000); return; }
-  delArm=null; b.textContent="🗑️ Apagar"; b.style.background="";
-  const r=lbItem; const { error } = await sbF.rpc("casamento_admin_apagar",{ p_codigo:adminCode, p_id:r.id });
-  if(error){ toast("Não deu certo, tente de novo"); return; }
-  Object.assign(r,{apagado:true,oculta:true,no_telao:false}); const nf=figure(r); r._fig&&r._fig.replaceWith(nf); r._fig=nf; renderStats(); closeLB();
-  toast("Apagada ✔️ (uma cópia fica guardada no PC, em 'Apagadas pelo admin')",4500);
-};
+$("c-dest-off").onclick=async()=>{ const antes=ctrlState&&ctrlState.destaque_id; await ctrlSet({ destaque_id:null }); if(antes) feito("Tirou a foto fixada", async()=>{ await ctrlSet({ destaque_id:antes, destaque_min:1 }); }); };
+$("lb-del").onclick=async()=>{ const r=lbItem; await quick(r,"del"); openLB(r); };
 
 function showAdminLogin(){ show("v-gallery"); $("cont-view").classList.add("hidden"); $("adm-hero").classList.add("hidden"); $("f-filtros").classList.add("hidden"); $("admin-tabs").classList.add("hidden"); $("ctrl-view").classList.add("hidden"); $("fotos-view").classList.remove("hidden"); $("gal-title").textContent="Painel dos noivos"; $("gal-note").classList.add("hidden"); $("admin-bar").classList.add("hidden"); $("grid").innerHTML=""; $("admin-login").classList.remove("hidden"); $("gal-more").classList.add("hidden"); }
 $("btn-code").onclick=async()=>{
@@ -1542,7 +1800,7 @@ $("btn-zip").onclick=async()=>{
     try{
       const b=await (await fetch(mediaUrl(r))).blob();
       const safe=(r.nome||"convidado").replace(/[^\p{L}\p{N} _-]/gu,"").trim().slice(0,30)||"convidado";
-      const ext=r.caminho.split(".").pop(); const pasta = r.tipo==="video"?"Videos":"Fotos"; const sub = r.no_telao?"":"/So para os noivos";
+      const ext=r.caminho.split(".").pop(); const pasta = r.tipo==="video"?"Videos":"Fotos"; const sub = r.no_telao?"":"/Só para os noivos";
       const nome=`${pasta}${sub}/${String(i).padStart(4,"0")} - ${safe}.${ext}`; zip.file(nome,b);
       recados.push([r.nome,r.tipo,r.no_telao?"telão":"só noivos",(r.recado||"").replace(/;/g,","),nome].join(";"));
     }catch(e){ console.warn(e); }
@@ -1639,9 +1897,9 @@ function rankRow(r,i){
 /* Início: contador ao vivo, "Agora no telão" e ranking */
 let homeTimer=null, homeFx=null;
 async function checkReset(){
-  try{ const { data } = await sbF.rpc("casamento_controle_ler"); const rm=data&&data.reset_ms; if(!rm) return;
+  try{ const { data } = await sbF.rpc("casamento_controle_ler"); if(data&&typeof data==="object"&&!Array.isArray(data)) tratarControleCelular(data); const rm=data&&data.reset_ms; if(!rm) return;
     const visto=+(localStorage.getItem("cas_reset")||0);
-    if(rm>visto){ localStorage.setItem("cas_reset",rm); localStorage.removeItem("cas_contato"); localStorage.removeItem("cas_wa_x"); const a=getMine().filter(m=>m.ts>rm); setMine(a); if(!a.length) localStorage.setItem("cas_enviadas","0"); renderMine(); renderSent(); }
+    if(rm>visto){ localStorage.setItem("cas_reset",rm); localStorage.removeItem("cas_ms_ok"); localStorage.removeItem("cas_contato"); localStorage.removeItem("cas_wa_x"); const a=getMine().filter(m=>m.ts>rm); setMine(a); if(!a.length) localStorage.setItem("cas_enviadas","0"); renderMine(); renderSent(); }
   }catch(e){}
 }
 async function refreshHome(){
@@ -1683,8 +1941,14 @@ async function startTelao(){
       const { data, error } = await sbF.from(CONFIG.TABLE).select("*").order("criado_em",{ascending:false}).limit(ctrl.limite>0?ctrl.limite:1000).match(ctrl.so_favoritos?{favorito:true}:{});
       if(error) throw error; lastOk=Date.now();
       const ids=new Set(data.map(r=>r.id));
-      data.slice().reverse().forEach(r=>{ if(!seen.has(r.id)){ seen.add(r.id); if(list.length||priority.length){ r._novo=true; priority.push(r); } } });
-      priority=priority.filter(r=>ids.has(r.id)); list=data;
+      data.slice().reverse().forEach(r=>{ if(!seen.has(r.id)){ seen.add(r.id); if(list.length||priority.length){
+        // novidades: até 10 fotos e 3 vídeos por pessoa a cada 10 min entram na frente; o resto vai para o rodízio normal
+        const k=pk(r), agora=Date.now(); const h=(novHist.get(k)||[]).filter(x=>agora-x.t<10*60*1000);
+        const nf=h.filter(x=>x.v===0).length, nv=h.filter(x=>x.v===1).length;
+        if(r.tipo==="video" ? nv<3 : nf<10){ r._novo=true; priority.push(r); h.push({t:agora,v:r.tipo==="video"?1:0}); }
+        novHist.set(k,h);
+      } } });
+      priority=priority.filter(r=>ids.has(r.id)); list=data; rot=aplicarLimites(data);
       $("telao-wait").classList.toggle("hidden",list.length>0);
       atualizarTicker(data);
       if(current && !ids.has(current.id) && !(destaqueRow&&destaqueRow.id===current.id)) next();          // tirada do telão agora → troca na hora
@@ -1696,6 +1960,11 @@ async function startTelao(){
   let bag=[];
   let tickKey="";
   function atualizarTicker(data){
+    if(ctrl.missao){ // missão relâmpago no ar: a faixa vira a missão
+      const k="M:"+ctrl.missao; if(tickKey===k) return; tickKey=k; const t=$("t-tick"); t.classList.remove("hidden"); t.classList.add("missao");
+      t.querySelector(".tl").textContent="🎯 Missão relâmpago"; const tr=$("t-tick-track"); tr.innerHTML=""; const sp=document.createElement("span"); sp.textContent=ctrl.missao+" · Escaneie o QR Code e participe!"; tr.append(sp); return;
+    }
+    if(tickKey.startsWith("M:")){ tickKey=""; const t=$("t-tick"); t.classList.remove("missao"); t.querySelector(".tl").textContent="Últimos envios"; }
     const ult=data.slice(0,14); $("t-tick").classList.toggle("hidden",ult.length<2);
     const key=ult.map(r=>r.id).join(","); if(key===tickKey) return; tickKey=key;
     const tr=$("t-tick-track"); tr.innerHTML="";
@@ -1703,16 +1972,33 @@ async function startTelao(){
     [...itens,...itens.map(x=>x.cloneNode(true))].forEach(x=>tr.append(x));
     tr.style.animationDuration=Math.max(20,ult.length*4)+"s";
   }
+  // ---- Telão justo: ninguém domina ----
+  const pk=r=>(r.nome||"").trim().toLowerCase();
+  const novHist=new Map(); let rot=[], ultPessoa=null, ultTipo=null;
+  function aplicarLimites(arr){ // por pessoa: até X arquivos e Y vídeos (os mais recentes)
+    const mp=ctrl.max_pessoa>0?ctrl.max_pessoa:1e9, mv=ctrl.max_videos_pessoa>0?ctrl.max_videos_pessoa:1e9;
+    const cont=new Map(), contV=new Map(), out=[];
+    arr.forEach(r=>{ const k=pk(r), c=cont.get(k)||0, v=contV.get(k)||0;
+      if(c>=mp) return; if(r.tipo==="video" && v>=mv) return;
+      cont.set(k,c+1); if(r.tipo==="video") contV.set(k,v+1); out.push(r); });
+    return out;
+  }
+  const serve=r=> r && pk(r)!==ultPessoa && !(r.tipo==="video" && ultTipo==="video");
   function pick(){
     if(destaqueRow) return Object.assign({},destaqueRow,{_destaque:true});
-    if(priority.length) return priority.shift();
-    if(!list.length) return null;
-    if(ctrl.ordem==="aleatoria"){ // embaralha e passa por todas antes de repetir
-      bag=bag.filter(id=>list.some(x=>x.id===id));
-      if(!bag.length){ bag=list.map(x=>x.id).sort(()=>Math.random()-.5); if(current&&bag.length>1&&bag[0]===current.id) bag.push(bag.shift()); }
-      const id=bag.shift(); return list.find(x=>x.id===id);
+    if(priority.length){ // intercala pessoas diferentes; dentro da mesma pessoa mantém a ordem de chegada
+      let i=priority.findIndex(r=>pk(r)!==ultPessoa); if(i<0) i=0;
+      return priority.splice(i,1)[0];
     }
-    return list[idx++ % list.length];
+    const L=rot.length?rot:list; if(!L.length) return null;
+    if(ctrl.ordem==="aleatoria"){ // embaralha e passa por todas antes de repetir
+      bag=bag.filter(id=>L.some(x=>x.id===id));
+      if(!bag.length){ bag=L.map(x=>x.id).sort(()=>Math.random()-.5); if(current&&bag.length>1&&bag[0]===current.id) bag.push(bag.shift()); }
+      let j=bag.findIndex(id=>serve(L.find(x=>x.id===id))); if(j<0) j=0;
+      const id=bag.splice(j,1)[0]; return L.find(x=>x.id===id);
+    }
+    for(let t=0;t<L.length;t++){ const r=L[(idx+t)%L.length]; if(serve(r)){ idx=idx+t+1; return r; } }
+    return L[idx++ % L.length];
   }
   let gen=0;
   async function next(){
@@ -1727,17 +2013,17 @@ async function startTelao(){
     if(r.tipo==="video"){
       el=document.createElement("video"); el.muted=true; el.playsInline=true; el.autoplay=true; el.src=src;
       let ended=false; const go=()=>{ if(!ended && my===gen){ ended=true; next(); } };
-      el.onended=go; el.onerror=go; timer=setTimeout(go,Math.min((r.duracao||30)+3,45)*1000);
+      el.onended=go; el.onerror=go; timer=setTimeout(go,(Math.min(r.duracao||30,30)+1.5)*1000); // máx. 30 s por vídeo no telão
     } else { el=new Image(); el.src=src; timer=setTimeout(()=>{ if(my===gen) next(); },((ctrl.tempo_foto||CONFIG.TELAO_FOTO_S)+(r.favorito?(ctrl.extra_fav||0):0))*1000); }
     el.className="main"+(r.tipo==="video"?"":" kb"+(1+Math.floor(Math.random()*5))); s.append(el);
     const cap=document.createElement("div"); cap.className="cap-over";
     cap.innerHTML='<div class="lb"></div><div class="nm"></div><div class="msg"></div>';
     cap.querySelector(".lb").innerHTML=(r.tipo==="video"?ICON.vid:ICON.cam)+" Enviado por"; cap.querySelector(".nm").textContent=r.nome;
-    cap.querySelector(".msg").textContent=r.recado?`“${r.recado}”`:""; s.append(cap);
+    cap.querySelector(".msg").textContent=r.recado?`“${r.recado}”`:""; if(r.missao){ const mt=document.createElement("span"); mt.className="ms-t"; mt.textContent="🎯 Missão: "+r.missao.replace(/^\S+\s/,""); cap.append(mt); } s.append(cap);
     const novo = !!r._novo, dest=!!r._destaque; const tag=document.createElement("span"); tag.className="tag"+(dest?" dest":novo?" novo":""); tag.innerHTML= dest ? ICON.pin+" DESTAQUE" : novo ? ICON.star+" ACABOU DE CHEGAR" : (r.tipo==="video"?ICON.vid+" Vídeo":ICON.cam+" Foto"); s.append(tag);
     const show1=()=>{
       if(my!==gen || ctrl.pausado) return;
-      current=r; if(adminCode) sbF.rpc("casamento_admin_agora",{ p_codigo:adminCode, p_id:r.id }).then(()=>{},()=>{}); if(novo){ r._novo=false; const o=priority.length?null:list.find(x=>x.id===r.id); if(o) o._novo=false; fx.burst(70,.33,.45); } $("t-window").append(s); requestAnimationFrame(()=>requestAnimationFrame(()=>s.classList.add("on")));
+      current=r; ultPessoa=pk(r); ultTipo=r.tipo; if(adminCode) sbF.rpc("casamento_admin_agora",{ p_codigo:adminCode, p_id:r.id }).then(()=>{},()=>{}); if(novo){ r._novo=false; const o=priority.length?null:list.find(x=>x.id===r.id); if(o) o._novo=false; fx.burst(70,.33,.45); } $("t-window").append(s); requestAnimationFrame(()=>requestAnimationFrame(()=>s.classList.add("on")));
       [...$("t-window").querySelectorAll(".slide")].filter(x=>x!==s).forEach(o=>{ o.classList.remove("on"); const ov=o.querySelector("video"); setTimeout(()=>{ if(ov) ov.pause(); o.remove(); },1300); });
     };
     if(r.tipo==="video"){ el.onloadeddata=show1; el.play().catch(()=>{}); } else { el.onload=show1; el.onerror=()=>{ if(my===gen){ clearTimeout(timer); next(); } }; }
@@ -1814,6 +2100,8 @@ async function startTelao(){
       }
       if(!ctrl.destaque_id && destaqueRow){ destaqueRow=null; if(!ctrl.pausado) next(); }
       if(prev.limite!==undefined && (prev.limite!==ctrl.limite || prev.so_favoritos!==ctrl.so_favoritos)) refresh();
+      if(prev.max_pessoa!==ctrl.max_pessoa || prev.max_videos_pessoa!==ctrl.max_videos_pessoa) rot=aplicarLimites(list);
+      if(prev.missao!==ctrl.missao) atualizarTicker(list);
       if(prev.reset_ms!==undefined && ctrl.reset_ms && prev.reset_ms!==ctrl.reset_ms){ list=[]; priority=[]; bag=[]; seen=new Set(); idx=0; podium=[]; $("t-window").querySelectorAll(".slide").forEach(x=>x.remove()); current=null; playing=false; $("telao-wait").classList.remove("hidden"); refresh(); loadRank(); }
     }catch(e){}
   }
