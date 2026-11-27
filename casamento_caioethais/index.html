@@ -6,6 +6,13 @@
 <meta name="theme-color" content="#FDF6EA">
 <title>Caio & Thaís · Nossas fotos</title>
 <meta name="description" content="Tire fotos, grave vídeos e envie direto para os noivos Caio & Thaís.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="assets/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Caio & Thaís">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <link rel="preload" href="assets/fonts/great-vibes-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <style>
   @font-face{font-family:'Great Vibes';src:url(assets/fonts/great-vibes-latin-400-normal.woff2) format('woff2');font-weight:400;font-display:swap}
@@ -310,6 +317,19 @@
   .grid figure .acts button.del.arm{background:#D9534F;color:#fff}
   .grid figure.fav{outline:3px solid #E8B930;outline-offset:-3px}
   .grid figure.off img{opacity:.55;filter:grayscale(.5)}
+  /* Instalar o app */
+  .inst-card{position:relative;display:flex;gap:14px;align-items:center;background:linear-gradient(135deg,#FFFDF8,#FBEFD9);border:1.5px solid var(--gold-soft);border-radius:20px;padding:16px;margin-top:18px;box-shadow:var(--shadow)}
+  .inst-card img{width:60px;height:60px;border-radius:15px;flex:none;box-shadow:0 4px 12px rgba(120,80,20,.2)}
+  .inst-card h4{margin:0;padding-right:26px;font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;line-height:1.15}
+  .inst-card p{margin:3px 0 10px;color:var(--muted);font-size:13.5px}
+  .inst-card .btn{padding:12px 14px;font-size:15px}
+  .inst-card .x{position:absolute;right:8px;top:8px;width:30px;height:30px;border-radius:50%;background:#fff;border:1px solid var(--line);font-size:14px}
+  .ios-steps{display:grid;gap:12px;margin:14px 0}
+  .ios-steps div{display:flex;gap:12px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px;font-size:15px}
+  .ios-steps b.n{width:30px;height:30px;border-radius:50%;background:var(--gold);color:#fff;display:grid;place-items:center;flex:none;font-size:15px}
+  .ios-steps svg{width:26px;height:26px;color:#1E7CF2;flex:none}
+  .ios-arrow{display:block;margin:4px auto 0;width:36px;height:36px;color:var(--gold);animation:upb 1s ease-in-out infinite}
+  .versao{display:block;text-align:center;color:var(--muted);font-size:11px;margin-top:4px;opacity:.75}
   /* WhatsApp / contatos */
   .opt{display:flex;gap:10px;align-items:flex-start;margin-top:12px;font-size:14px;color:#5E4A38;line-height:1.4;cursor:pointer}
   .opt input{width:22px;height:22px;flex:none;margin:0;accent-color:var(--gold)}
@@ -361,7 +381,7 @@
   .mat .n span{color:var(--gold)}
   .mat .d{font-family:'Cormorant Garamond',serif;font-weight:600;letter-spacing:.4em;font-size:2.3vh;color:var(--gold);margin-top:.6vh}
   .mat .f{font-family:'Cormorant Garamond',serif;font-weight:600;letter-spacing:.24em;text-transform:uppercase;font-size:2.1vh;color:#7A6450;margin-top:.8vh}
-  .t-qr{position:absolute;right:9vw;bottom:7vh;width:24vw;box-sizing:border-box;background:#fff;border-radius:2vh;padding:2.4vh;text-align:center;box-shadow:0 1.5vh 4vh rgba(70,50,25,.1);z-index:3}
+  .t-qr{position:absolute;right:9vw;bottom:6.2vh;width:24vw;box-sizing:border-box;background:#fff;border-radius:2vh;padding:2.4vh;text-align:center;box-shadow:0 1.5vh 4vh rgba(70,50,25,.1);z-index:3}
   .t-qr #t-qrbox{width:16vh;height:16vh;margin:0 auto 1vh}
   .t-qr #t-qrbox svg,.t-qr #t-qrbox img{width:100%;height:100%;display:block}
   .t-qr b{font-family:'Cormorant Garamond',serif;font-size:3.4vh;font-weight:500;display:block}
@@ -371,9 +391,48 @@
   .t-adm{position:absolute;left:2.5vw;top:2.5vh;z-index:5;background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:10px 16px;font-weight:700;font-size:15px;opacity:.35;transition:opacity .3s}
   .t-adm:hover{opacity:1}
   .telao.idle .t-adm{opacity:0}
+  /* Ranking animado */
+  .t-rank .lbl .trophy-h{display:inline-block;animation:swing 2.8s ease-in-out infinite;transform-origin:50% 90%}
+  @keyframes swing{0%,100%{transform:rotate(-9deg) scale(1)}50%{transform:rotate(9deg) scale(1.12)}}
+  .t-rank .rk .m svg{animation:bob 3.2s ease-in-out infinite}
+  .t-rank .rk:nth-child(2) .m svg{animation-delay:-1s}.t-rank .rk:nth-child(3) .m svg{animation-delay:-2s}
+  @keyframes bob{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-.5vh) rotate(4deg)}}
+  .t-rank .rk.lider{background:linear-gradient(90deg,rgba(232,185,48,.22),rgba(232,185,48,0));border-radius:1.4vh;animation:lider 2.4s ease-in-out infinite}
+  @keyframes lider{50%{box-shadow:0 0 0 .5vh rgba(232,185,48,.18)}}
+  .t-rank .rk{transition:transform .35s ease, background .35s}
+  .t-rank .rk.wave{transform:scale(1.06) translateX(-.6vw);background:rgba(232,185,48,.16)!important}
+  .t-rank .mini-box{border-top:1px dashed var(--line);margin-top:.6vh;padding-top:.4vh}
+  .t-rank .rk.mini{padding:.45vh .4vh;gap:1vh}
+  .t-rank .rk.mini .m{font-size:2.1vh;width:6.4vh;text-align:center;color:#8E6A2E}
+  .t-rank .rk.mini .n{font-size:2.05vh;font-weight:700}
+  .t-rank .rk.mini .c{font-size:2.6vh}
+  .upi{display:inline-block;color:#3F8F3A;font-weight:800;font-size:1.6vh;margin-left:.6vh;animation:upb 1s ease-in-out infinite}
+  @keyframes upb{50%{transform:translateY(-.4vh)}}
+  /* QR animado (o QR fica parado, o que mexe é em volta) */
+  .t-qr{animation:qrglow 3s ease-in-out infinite}
+  @keyframes qrglow{0%,100%{box-shadow:0 1.5vh 4vh rgba(70,50,25,.1),0 0 0 0 rgba(232,185,48,0)}50%{box-shadow:0 1.5vh 4vh rgba(70,50,25,.1),0 0 0 .7vh rgba(232,185,48,.35)}}
+  .t-qr #t-qrbox{position:relative}
+  .qr-scan{position:absolute;left:-6%;right:-6%;height:.5vh;border-radius:1vh;background:linear-gradient(90deg,transparent,#E8B930,transparent);box-shadow:0 0 1.2vh #E8B930;animation:scan 2.6s ease-in-out infinite;pointer-events:none}
+  @keyframes scan{0%,100%{top:2%}50%{top:96%}}
+  .qr-c{position:absolute;width:2.4vh;height:2.4vh;border:.45vh solid #C99A3A;pointer-events:none;animation:qrc 1.6s ease-in-out infinite}
+  .qr-c.a{left:-1.4vh;top:-1.4vh;border-right:0;border-bottom:0}.qr-c.b{right:-1.4vh;top:-1.4vh;border-left:0;border-bottom:0}
+  .qr-c.c{left:-1.4vh;bottom:-1.4vh;border-right:0;border-top:0}.qr-c.d{right:-1.4vh;bottom:-1.4vh;border-left:0;border-top:0}
+  @keyframes qrc{50%{transform:scale(1.18)}}
+  .qr-phone{position:absolute;left:-6.4vh;top:9vh;width:5.4vh;height:5.4vh;border-radius:50%;background:linear-gradient(135deg,#D9AC5F,#A87C3A);color:#fff;display:grid;place-items:center;box-shadow:0 1vh 2.4vh rgba(120,80,20,.3);animation:poke 1.5s ease-in-out infinite}
+  .qr-phone svg{width:2.8vh;height:2.8vh}
+  @keyframes poke{0%,100%{transform:translateX(0)}50%{transform:translateX(1.2vh)}}
+  #t-qr-tip{display:block;transition:opacity .5s;min-height:2.2vh}
+  /* Faixa "últimos envios" */
+  .t-tick{position:absolute;left:9vw;right:36vw;top:1.2vh;height:4.2vh;z-index:3;display:flex;align-items:center;gap:1vh;background:rgba(255,253,248,.9);border:1px solid var(--line);border-radius:3vh;box-shadow:0 .6vh 2vh rgba(70,50,25,.08);overflow:hidden;padding-left:.6vh}
+  .t-tick .tl{flex:none;background:linear-gradient(135deg,#D9AC5F,#A87C3A);color:#fff;font-weight:800;font-size:1.6vh;letter-spacing:.08em;padding:.6vh 1.4vh;border-radius:2vh;text-transform:uppercase}
+  .t-tick .tw{flex:1;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 4%,#000 94%,transparent)}
+  .t-tick .tt{display:flex;gap:3.2vh;width:max-content;white-space:nowrap;font-size:2vh;color:#5E4A38;font-weight:600;animation:tick 40s linear infinite}
+  .t-tick .tt span{display:inline-flex;align-items:center;gap:.5vh}
+  .t-tick .tt .ico{color:#A87C3A}
+  @keyframes tick{to{transform:translateX(-50%)}}
   .t-credit{position:absolute;left:50%;transform:translateX(-50%);bottom:.8vh;z-index:3;font-size:1.5vh;color:#7A6450;background:rgba(255,253,248,.85);padding:.4vh 1.4vh;border-radius:2vh;letter-spacing:.04em}
   .t-credit b{color:#A87C3A}
-  .t-rank{position:absolute;right:9vw;top:9vh;width:24vw;box-sizing:border-box;background:linear-gradient(180deg,#fff,#FFF8EA);border:1.5px solid var(--gold-soft);border-radius:2vh;padding:1.8vh 2.2vh;z-index:3}
+  .t-rank{position:absolute;right:9vw;top:7.5vh;width:24vw;box-sizing:border-box;background:linear-gradient(180deg,#fff,#FFF8EA);border:1.5px solid var(--gold-soft);border-radius:2vh;padding:1.8vh 2.2vh;z-index:3}
   .t-rank .lbl{text-align:center;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:3.6vh;margin-bottom:.6vh}
   .t-rank .rk{padding:1vh .4vh;gap:1.2vh}
   .t-rank .rk .m{font-size:4.4vh;width:6.4vh}
@@ -483,6 +542,12 @@
   </div>
   <p class="hello" id="lbl-sent" style="margin-top:16px"></p>
   <p class="tip">✂️ Quer cortar ou editar o vídeo? Grave com a câmera do seu celular, edite na galeria e envie por <b>Enviar da galeria</b>.</p>
+  <div class="inst-card hidden" id="inst-card">
+    <button class="x" id="inst-x" aria-label="Fechar">✕</button>
+    <img src="assets/icon-192.png" alt="">
+    <div><h4>Instale o app do casamento</h4><p>Fica na tela do seu celular: um toque e você já manda a próxima foto 📸</p>
+      <button class="btn btn-gold" id="inst-btn">📲 Instalar o app</button></div>
+  </div>
   <div class="wa-card hidden" id="wa-card">
     <button class="x" id="wa-x" aria-label="Fechar">✕</button>
     <h4>📲 Receba suas fotos no WhatsApp</h4>
@@ -503,8 +568,10 @@
   <input type="file" id="file-gallery" accept="image/*,video/*" multiple class="hidden">
   <input type="file" id="file-native" accept="image/*" capture="environment" class="hidden">
   <input type="file" id="file-native-video" accept="video/*" capture="environment" class="hidden">
+  <p style="text-align:center;margin-top:14px"><button class="link" id="inst-link">📲 Instalar o app no celular</button></p>
   <p class="footer">Com amor, Botazzo Serra 🤍</p>
   <a class="credit" href="https://www.botazzo.net" target="_blank" rel="noopener">Aplicativo criado por <b>Botazzo.Net</b></a>
+  <span class="versao" id="ver-home"></span>
 </section>
 
 <!-- ============ CÂMERA ============ -->
@@ -550,6 +617,15 @@
 </section>
 
 <!-- ============ ENVIO DA GALERIA ============ -->
+<div class="sheet-bg hidden" id="inst-sheet">
+  <div class="sheet">
+    <h3 id="is-t">Instalar no iPhone</h3>
+    <p class="tip" id="is-sub" style="margin:4px 0 0;font-size:15px">Leva 10 segundos:</p>
+    <div class="ios-steps" id="is-steps"></div>
+    <p class="tip" id="is-obs" style="font-size:13px"></p>
+    <button class="btn btn-gold" id="is-ok">Entendi 💛</button>
+  </div>
+</div>
 <div class="sheet-bg hidden" id="memfix">
   <div class="sheet">
     <h3>Ops! A foto não chegou 😕</h3>
@@ -652,6 +728,7 @@
         <button class="bigb danger" id="c-zerar-btn" style="margin-top:10px" disabled>🧹 Zerar tudo agora</button>
         <p class="st" id="c-zerar-st"></p></div>
       <a class="credit" href="https://www.botazzo.net" target="_blank" rel="noopener">Aplicativo criado por <b>Botazzo.Net</b></a>
+      <span class="versao"></span>
     </div>
     <div id="fotos-view">
     <div class="chips fl hidden" id="f-filtros"><button data-f="todos" class="on">Todos</button><button data-f="telao">📺 No telão</button><button data-f="noivos">🔒 Só noivos</button><button data-f="fotos">📸 Fotos</button><button data-f="videos">🎥 Vídeos</button><button data-f="fav">⭐ Favoritas</button><button data-f="pend">⏳ Aguardando</button><button data-f="ocultas">🚫 Ocultas</button></div>
@@ -690,7 +767,8 @@
     <div class="mat"><div class="n">Caio <span>&</span> Thaís</div><div class="d">28 · 11 · 2026</div><div class="f">Casamento Botazzo Serra</div></div>
   </div></div>
   <div class="t-rank" id="t-rank"><div class="lbl"><span class="trophy-h" data-art="trophy"></span>Ranking da festa</div><div style="text-align:center;font-size:1.6vh;color:var(--muted);margin:-.4vh 0 .6vh">total de envios (telão + só para os noivos)</div><div id="t-rank-list"><div class="vazio">Quem mandar mais fotos e vídeos ganha o troféu!</div></div></div>
-  <div class="t-qr"><div id="t-qrbox"></div><b>Mande sua foto ou vídeo</b><small>Aponte a câmera do celular</small></div>
+  <div class="t-qr"><span class="qr-phone" id="qr-phone"></span><div id="t-qrbox"></div><b>Mande sua foto ou vídeo</b><small id="t-qr-tip">Aponte a câmera do celular</small></div>
+  <div class="t-tick hidden" id="t-tick"><span class="tl">Últimos envios</span><div class="tw"><div class="tt" id="t-tick-track"></div></div></div>
   <div class="t-count" id="t-count"></div>
   <button class="btn btn-gold t-start" id="telao-start">▶︎ Iniciar telão em tela cheia</button>
   <div class="t-pause" id="t-pause"><div><h1 class="names">Caio <span class="amp">&</span> Thaís</h1><p>Já voltamos 💛</p></div></div>
@@ -919,7 +997,59 @@ $("btn-enter").onclick=async()=>{
   goHome();
 };
 /* Segunda chance: quem não deixou número vê o cartão depois do primeiro envio */
+/* ---------- App na tela inicial (Android instala direto; iPhone mostra o passo a passo) ---------- */
+const APP_VERSAO="1.0 · 26/11";
+const ehApp = () => matchMedia("(display-mode: standalone)").matches || navigator.standalone===true;
+const ehIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform==="MacIntel" && navigator.maxTouchPoints>1);
+const ehNavIOSInterno = ehIOS && /FBAN|FBAV|Instagram|Line|WhatsApp|GSA\//i.test(navigator.userAgent);
+let pedidoInstalar=null;
+addEventListener("beforeinstallprompt",e=>{ e.preventDefault(); pedidoInstalar=e; renderInstalar(); });
+addEventListener("appinstalled",()=>{ localStorage.setItem("cas_inst","1"); renderInstalar(); toast("App instalado! Procure o ícone Caio & Thaís na tela do celular 💛",5000); });
+if("serviceWorker" in navigator && location.protocol==="https:" && !new URLSearchParams(location.search).has("telao")){
+  addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));
+}
+function renderInstalar(){
+  const instalado = ehApp() || localStorage.getItem("cas_inst")==="1";
+  $("inst-link").classList.toggle("hidden",instalado);
+  const mostrarCard = !instalado && !localStorage.getItem("cas_inst_x") && sentCount()>0;
+  $("inst-card").classList.toggle("hidden",!mostrarCard);
+}
+const SVG_SHARE='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M8 7l4-4 4 4"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></svg>';
+const SVG_ADD='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="4"/><path d="M12 8v8M8 12h8"/></svg>';
+const SVG_DOTS='<svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>';
+function abrirInstrucoes(){
+  const st=$("is-steps");
+  if(ehIOS){
+    $("is-t").textContent="Instalar no iPhone";
+    if(ehNavIOSInterno){
+      $("is-sub").textContent="Primeiro abra este site no Safari:";
+      st.innerHTML=`<div><b class="n">1</b><span>Toque nos <b>⋯</b> ou no ícone de bússola e escolha <b>"Abrir no Safari"</b></span></div><div><b class="n">2</b><span>No Safari, toque de novo em <b>📲 Instalar o app</b></span></div>`;
+    } else {
+      $("is-sub").textContent="Leva 10 segundos:";
+      st.innerHTML=`<div><b class="n">1</b>${SVG_SHARE}<span>Toque em <b>Compartilhar</b>, na barra de baixo do Safari (o quadrado com a setinha)</span></div>
+        <div><b class="n">2</b>${SVG_ADD}<span>Role a lista e toque em <b>"Adicionar à Tela de Início"</b></span></div>
+        <div><b class="n">3</b><img src="assets/icon-192.png" style="width:26px;height:26px;border-radius:7px"><span>Toque em <b>Adicionar</b>. Pronto, o ícone <b>Caio & Thaís</b> aparece na sua tela 💛</span></div>`;
+    }
+    $("is-obs").textContent="Na primeira vez que abrir pelo ícone, digite seu nome de novo (só uma vez).";
+  } else {
+    $("is-t").textContent="Instalar no celular";
+    $("is-sub").textContent="No Chrome:";
+    st.innerHTML=`<div><b class="n">1</b>${SVG_DOTS}<span>Toque nos <b>três pontinhos ⋮</b> no canto de cima</span></div>
+      <div><b class="n">2</b>${SVG_ADD}<span>Toque em <b>"Instalar aplicativo"</b> ou <b>"Adicionar à tela inicial"</b></span></div>
+      <div><b class="n">3</b><img src="assets/icon-192.png" style="width:26px;height:26px;border-radius:7px"><span>Confirme. O ícone <b>Caio & Thaís</b> aparece na sua tela 💛</span></div>`;
+    $("is-obs").textContent="";
+  }
+  $("inst-sheet").classList.remove("hidden");
+}
+async function instalar(){
+  if(pedidoInstalar){ pedidoInstalar.prompt(); const r=await pedidoInstalar.userChoice.catch(()=>null); pedidoInstalar=null; if(r&&r.outcome==="accepted"){ localStorage.setItem("cas_inst","1"); renderInstalar(); } return; }
+  abrirInstrucoes();
+}
+$("inst-btn").onclick=instalar; $("inst-link").onclick=instalar;
+$("inst-x").onclick=()=>{ localStorage.setItem("cas_inst_x","1"); renderInstalar(); };
+$("is-ok").onclick=()=>$("inst-sheet").classList.add("hidden");
 function renderWaCard(){
+  try{ renderInstalar(); }catch(e){}
   const mostrar = !localStorage.getItem("cas_contato") && !localStorage.getItem("cas_wa_x") && sentCount()>0;
   $("wa-card").classList.toggle("hidden",!mostrar);
 }
@@ -1534,6 +1664,10 @@ async function startTelao(){
   const siteUrl = location.origin + location.pathname;
   try{ const q=qrcode(0,"M"); q.addData(siteUrl); q.make(); $("t-qrbox").innerHTML=q.createSvgTag({cellSize:6,margin:0,scalable:true}).replace(/black/g,"#5A4330"); }
   catch(e){ $("t-qrbox").innerHTML='<img src="assets/qrcode.png" alt="QR Code">'; }
+  { $("t-qrbox").insertAdjacentHTML("beforeend",'<span class="qr-scan"></span><span class="qr-c a"></span><span class="qr-c b"></span><span class="qr-c c"></span><span class="qr-c d"></span>'); }
+  $("qr-phone").innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg>';
+  const DICAS=["Aponte a câmera do celular","Não precisa baixar nada","Grave um vídeo de até 30 s","Mande e suba no ranking 🏆","Sua foto aparece aqui em segundos"]; let dI=0;
+  setInterval(()=>{ const t=$("t-qr-tip"); t.style.opacity=0; setTimeout(()=>{ dI=(dI+1)%DICAS.length; t.textContent=DICAS[dI]; t.style.opacity=1; },500); },4500);
   let ctrl={ limite:40, tempo_foto:CONFIG.TELAO_FOTO_S, mostrar_ranking:true }, lastPular=null, destaqueRow=null, podium=null;
   let list=[], seen=new Set(), priority=[], idx=0, lastOk=Date.now(), playing=false, timer=null, current=null;
   const cache=new Map(); // url -> objectURL (continua passando mesmo sem internet)
@@ -1552,6 +1686,7 @@ async function startTelao(){
       data.slice().reverse().forEach(r=>{ if(!seen.has(r.id)){ seen.add(r.id); if(list.length||priority.length){ r._novo=true; priority.push(r); } } });
       priority=priority.filter(r=>ids.has(r.id)); list=data;
       $("telao-wait").classList.toggle("hidden",list.length>0);
+      atualizarTicker(data);
       if(current && !ids.has(current.id) && !(destaqueRow&&destaqueRow.id===current.id)) next();          // tirada do telão agora → troca na hora
       else if(!playing && list.length) next();
       const c=await sbF.rpc("casamento_total");
@@ -1559,6 +1694,15 @@ async function startTelao(){
     }catch(e){ console.warn("telão: sem conexão, continuo com o que tenho", e); }
   }
   let bag=[];
+  let tickKey="";
+  function atualizarTicker(data){
+    const ult=data.slice(0,14); $("t-tick").classList.toggle("hidden",ult.length<2);
+    const key=ult.map(r=>r.id).join(","); if(key===tickKey) return; tickKey=key;
+    const tr=$("t-tick-track"); tr.innerHTML="";
+    const itens=ult.map(r=>{ const sp=document.createElement("span"); sp.innerHTML=(r.tipo==="video"?ICON.vid:ICON.cam); sp.append(document.createTextNode(r.nome)); return sp; });
+    [...itens,...itens.map(x=>x.cloneNode(true))].forEach(x=>tr.append(x));
+    tr.style.animationDuration=Math.max(20,ult.length*4)+"s";
+  }
   function pick(){
     if(destaqueRow) return Object.assign({},destaqueRow,{_destaque:true});
     if(priority.length) return priority.shift();
@@ -1620,7 +1764,9 @@ async function startTelao(){
   if(jaCheia()) $("telao-start").classList.add("hidden");
   addEventListener("resize",()=>{ if(jaCheia()) $("telao-start").classList.add("hidden"); });
   // Ranking + comemoração quando alguém assume uma posição do pódio
-  podium=null; let celeQ=[], celeOn=false;
+  podium=null; let celeQ=[], celeOn=false, posAnt=null; const subiu=new Map();
+  // Onda: passa um destaque por cada linha do ranking, de cima para baixo
+  setInterval(()=>{ if(ctrl.pausado) return; const rows=[...$("t-rank-list").querySelectorAll(".rk")]; rows.forEach((r,i)=>{ setTimeout(()=>{ r.classList.add("wave"); setTimeout(()=>r.classList.remove("wave"),420); },i*260); }); },9000);
   const POS_TXT=["Novo líder do ranking!","Subiu para o 2º lugar!","Entrou no pódio, 3º lugar!"];
   function celebrate(r,i){ celeQ.push([r,i]); if(!celeOn) nextCele(); }
   function nextCele(){
@@ -1634,9 +1780,17 @@ async function startTelao(){
     try{
       const { data, error } = await sbF.rpc("casamento_ranking"); if(error||!data) return;
       const top=data.slice(0,3), keys=top.map(r=>r.nome.trim().toLowerCase());
+      const agoraMs=Date.now(); const novaPos=new Map(data.map((r,i)=>[r.nome.trim().toLowerCase(),i]));
+      if(posAnt) novaPos.forEach((i,k)=>{ const a=posAnt.get(k); if(a===undefined ? i<7 : i<a) subiu.set(k,agoraMs+15000); });
+      posAnt=novaPos;
       const box=$("t-rank-list"); box.innerHTML="";
-      if(!top.length) box.innerHTML='<div class="vazio">Quem mandar mais fotos e vídeos ganha o troféu! 🏆</div>';
-      top.forEach((r,i)=>{ const row=rankRow(r,i); if(podium && keys[i]!==podium[i]) row.classList.add("up"); box.append(row); });
+      if(!top.length) box.innerHTML='<div class="vazio">Quem mandar mais fotos e vídeos ganha o troféu!</div>';
+      const marca=(row,r)=>{ const k=r.nome.trim().toLowerCase(); if((subiu.get(k)||0)>agoraMs){ const u=document.createElement("span"); u.className="upi"; u.textContent="▲"; row.querySelector(".n").firstChild.after(u); } };
+      top.forEach((r,i)=>{ const row=rankRow(r,i); if(i===0) row.classList.add("lider"); if(podium && keys[i]!==podium[i]) row.classList.add("up"); marca(row,r); box.append(row); });
+      const resto=data.slice(3,6);
+      if(resto.length){ const mb=document.createElement("div"); mb.className="mini-box";
+        resto.forEach((r,j)=>{ const d=document.createElement("div"); d.className="rk mini"; d.innerHTML=`<span class="m">${j+4}º</span><span class="n"></span><span class="c">${r.total}</span>`; d.querySelector(".n").textContent=r.nome; marca(d,r); mb.append(d); });
+        box.append(mb); }
       if(podium) keys.forEach((k,i)=>{ if(k!==podium[i] && !podium.slice(0,i).includes(k)) celebrate(top[i],i); });
       podium=keys;
     }catch(e){}
@@ -1676,6 +1830,7 @@ else if(getName()) goHome();
 else show("v-welcome");
 processQueue();
 checkarMemoriaSafe();
+try{ document.querySelectorAll('.versao').forEach(e=>e.textContent='versão '+APP_VERSAO); renderInstalar(); }catch(e){}
 function checkarMemoriaSafe(){ try{ checarMemoria(); }catch(e){} }
 </script>
 </body>

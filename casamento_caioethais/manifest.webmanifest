@@ -1,0 +1,17 @@
+{
+  "name": "Caio & Thaís · Fotos do casamento",
+  "short_name": "Caio & Thaís",
+  "description": "Tire fotos, grave vídeos e mande direto para o telão do casamento.",
+  "start_url": "./?app=1",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#FDF6EA",
+  "theme_color": "#FDF6EA",
+  "lang": "pt-BR",
+  "icons": [
+    { "src": "assets/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "assets/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "assets/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
