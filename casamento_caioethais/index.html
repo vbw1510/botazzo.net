@@ -358,6 +358,25 @@
   .cta.big{flex-direction:row;padding:26px 20px;margin-bottom:12px}
   .cta.big h3{font-size:31px}
   .mini2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .pick h3{text-align:center;margin:2px 0 14px}
+  .pk{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+  .pk button{display:flex;flex-direction:column;align-items:center;gap:4px;background:linear-gradient(160deg,#C9A15A,#A87C3A);color:#fff;border:0;border-radius:22px;padding:22px 8px 18px;box-shadow:0 10px 22px rgba(168,124,58,.35)}
+  .pk button .e{font-size:44px;line-height:1}
+  .pk button b{font-size:19px}
+  .pk button small{font-size:12.5px;opacity:.92;font-weight:600}
+  .pk-gal{width:100%;display:flex;align-items:center;justify-content:center;gap:10px;background:#fff;border:1.5px solid var(--line);border-radius:18px;padding:16px;font-weight:800;font-size:16px;color:var(--ink);box-shadow:var(--shadow)}
+  .pk-gal small{font-weight:600;color:var(--muted);font-size:13px}
+  .aj textarea{width:100%;min-height:110px;box-sizing:border-box;margin:12px 0 4px;font-size:16px}
+  .help-row{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin-top:18px}
+  .aj-n{font-family:"Nunito Sans",sans-serif;display:inline-block;min-width:22px;padding:2px 8px;border-radius:12px;background:#C0392B;color:#fff;font-size:13px;font-weight:800;margin-left:6px;vertical-align:middle}
+  .aj-it{background:#fff;border:1.5px solid #E7B7AE;border-radius:16px;padding:12px 14px;margin-top:10px}
+  .aj-it.ok{opacity:.55;border-color:var(--line)}
+  .aj-it .h{display:flex;justify-content:space-between;gap:8px;font-size:13px;color:var(--muted)}
+  .aj-it .h b{color:var(--ink);font-size:15px}
+  .aj-it p{margin:6px 0 10px;font-size:15.5px;white-space:pre-wrap;word-break:break-word}
+  .aj-it .a{display:flex;gap:8px}
+  .aj-it .a a,.aj-it .a button{flex:1;text-align:center;text-decoration:none;border-radius:12px;padding:10px;font-weight:800;font-size:14px;border:1.5px solid var(--line);background:#FFFDF8;color:var(--ink)}
+  #admin-tabs button.dot::after{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;background:#C0392B;margin-left:6px;vertical-align:middle}
   .mini2 button{display:flex;align-items:center;justify-content:center;gap:8px;background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:14px 8px;font-weight:700;font-size:14.5px;box-shadow:var(--shadow)}
   .mini2 svg{width:20px;height:20px;color:#8a6430}
   .mais{display:block;margin:10px auto 0;background:none;color:var(--gold);font-weight:700;font-size:14px;text-decoration:underline}
@@ -601,7 +620,7 @@
   <div class="live-banner"><div><b>📺 Apareça no telão da festa!</b><span class="c" id="live-count">Seja o primeiro a enviar ✨</span></div><span class="pulse">AO VIVO</span></div>
   <button class="cta big" id="btn-main">
     <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5A2.5 2.5 0 0 1 5.5 6h1.7l1.4-2h6.8l1.4 2h1.7A2.5 2.5 0 0 1 21 8.5v9A2.5 2.5 0 0 1 18.5 20h-13A2.5 2.5 0 0 1 3 17.5z"/><circle cx="12" cy="12.5" r="3.8"/></svg></span>
-    <span><h3>Foto ou vídeo</h3><p>Tire na hora ou escolha da galeria · aparece no telão ✨</p></span>
+    <span><h3>Foto ou vídeo</h3><p>Câmera do celular ou galeria · aparece no telão ✨</p></span>
   </button>
   <div class="mini2">
     <button id="btn-gallery"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 1 0-7.8 7.8L12 21.2l8.8-8.8a5.5 5.5 0 0 0 0-7.8z"/></svg>Ver o álbum</button>
@@ -643,7 +662,7 @@
     <div class="mine-list" id="mine-list"></div>
     <button class="mais hidden" id="mine-mais">Ver todos</button>
   </div>
-  <p style="text-align:center;margin-top:18px"><button class="link" id="btn-help">Como funciona?</button></p>
+  <div class="help-row"><button class="link" id="btn-help">Como funciona?</button><button class="link" id="btn-ajuda">❓ Precisa de ajuda?</button></div>
 
   <input type="file" id="file-gallery" accept="image/*,video/*" multiple class="hidden">
   <input type="file" id="file-any" accept="image/*,video/*" multiple class="hidden">
@@ -707,6 +726,23 @@
     <button class="btn btn-gold" id="is-ok">Entendi 💛</button>
   </div>
 </div>
+<div class="sheet-bg hidden" id="pick"><div class="sheet pick">
+  <h3>O que você quer mandar?</h3>
+  <div class="pk">
+    <button id="pk-foto"><span class="e">📷</span><b>Tirar foto</b><small>câmera do celular</small></button>
+    <button id="pk-video"><span class="e">🎥</span><b>Gravar vídeo</b><small>até 30 s no telão</small></button>
+  </div>
+  <button class="pk-gal" id="pk-gal">🖼️ Mandar da galeria <small>· várias de uma vez</small></button>
+  <button class="link" id="pk-x" style="display:block;margin:14px auto 0">Cancelar</button>
+</div></div>
+<div class="sheet-bg hidden" id="ajuda"><div class="sheet aj">
+  <h3>❓ Precisa de ajuda?</h3>
+  <p class="tip" style="margin:4px 0 0;font-size:15px">Conte o que aconteceu. Sua mensagem vai direto para o <b>Vitor</b>, que está cuidando do app na festa, e ele vem te ajudar 😊</p>
+  <textarea id="aj-msg" maxlength="500" placeholder="Ex.: minha foto não apareceu no telão"></textarea>
+  <div class="row" style="display:grid;grid-template-columns:1fr 1.4fr;gap:10px;margin-top:8px">
+    <button class="btn btn-light" id="aj-x">Cancelar</button><button class="btn btn-gold" id="aj-ok">Enviar 💛</button>
+  </div>
+</div></div>
 <div class="undo" id="undo"><span id="undo-t"></span><button id="undo-b">↩️ Desfazer</button></div>
 <div class="sheet-bg hidden" id="relamp"><div class="sheet relamp">
   <span class="alvo">🎯</span><h3 style="text-align:center">Missão relâmpago!</h3>
@@ -797,6 +833,7 @@
         <div class="ct-list" id="ct-list"></div></div>
     </div>
     <div class="ctrl hidden" id="ctrl-view">
+      <div class="cc" id="aj-card"><h5>💬 Pedidos de ajuda<span class="aj-n hidden" id="aj-n"></span></h5><div id="aj-list"><p class="st">Nenhum pedido de ajuda por enquanto 🙌</p></div></div>
       <div class="cc"><h5><i class="hb" data-ic="chart"></i>Resumo ao vivo</h5><div class="stats" id="c-stats"></div></div>
       <div class="cc"><h5><i class="hb" data-ic="tv"></i>Passando agora</h5><div class="now-box" id="c-now">Abra o telão pelo link com o código para ver aqui o que está passando.</div>
         <div class="row2"><button class="bigb" id="c-skip">⏭️ Pular</button><button class="bigb warn" id="c-off">🔒 Tirar do telão</button></div></div>
@@ -933,7 +970,7 @@ const CONFIG = {
   TABLE: "casamento_fotos",
   NOMES: "Caio & Thaís",
   DATA: "28 · 11 · 2026",
-  MAX_LADO: 1800, QUALIDADE: 0.82, THUMB_LADO: 480,
+  MAX_LADO: 1920, QUALIDADE: 0.85, THUMB_LADO: 480,
   VIDEO_MAX_S: 30,                // gravação no site
   VIDEO_BITRATE: 1_500_000,       // ~5,6 MB por 30 s
   GALERIA_VIDEO_MAX_MB: 49,       // vídeo enviado da galeria / câmera do celular (máx. do plano grátis)
@@ -1218,7 +1255,7 @@ $("btn-enter").onclick=async()=>{
 };
 /* Segunda chance: quem não deixou número vê o cartão depois do primeiro envio */
 /* ---------- App na tela inicial (Android instala direto; iPhone mostra o passo a passo) ---------- */
-const APP_VERSAO="1.3 · 27/11";
+const APP_VERSAO="1.4 · 27/11";
 const ehApp = () => matchMedia("(display-mode: standalone)").matches || navigator.standalone===true;
 const ehIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform==="MacIntel" && navigator.maxTouchPoints>1);
 const ehNavIOSInterno = ehIOS && /FBAN|FBAV|Instagram|Line|WhatsApp|GSA\//i.test(navigator.userAgent);
@@ -1345,7 +1382,27 @@ function abrirNativa(inp){
   inp.click();
 }
 function camSite(m){ if(mode!==m) setMode(m); else openCamera(); }
-$("btn-main").onclick=()=> lowMem() ? camSite("photo") : abrirNativa($("file-any"));
+$("btn-main").onclick=()=> $("pick").classList.remove("hidden");
+const fecharPick=()=>$("pick").classList.add("hidden");
+$("pk-foto").onclick=()=>{ fecharPick(); lowMem() ? camSite("photo") : abrirNativa($("file-native")); };
+$("pk-video").onclick=()=>{ fecharPick(); lowMem() ? camSite("video") : abrirNativa($("file-native-video")); };
+$("pk-gal").onclick=()=>{ fecharPick(); abrirNativa($("file-any")); };
+$("pk-x").onclick=fecharPick; $("pick").onclick=e=>{ if(e.target.id==="pick") fecharPick(); };
+/* ---------- Pedido de ajuda ---------- */
+$("btn-ajuda").onclick=()=>{ $("ajuda").classList.remove("hidden"); setTimeout(()=>$("aj-msg").focus(),250); };
+$("aj-x").onclick=()=>$("ajuda").classList.add("hidden");
+$("ajuda").onclick=e=>{ if(e.target.id==="ajuda") $("ajuda").classList.add("hidden"); };
+$("aj-ok").onclick=async()=>{
+  const m=$("aj-msg").value.trim(); if(m.length<2) return toast("Escreva o que aconteceu 😉");
+  const b=$("aj-ok"); b.disabled=true;
+  try{
+    const { data, error } = await sbF.rpc("casamento_pedir_ajuda",{ p_disp:getDisp(), p_nome:getName()||"convidado", p_msg:m });
+    if(error) throw error;
+    if(data===false){ toast("Você já mandou várias mensagens, o Vitor já vai ver 😉",5000); }
+    else { $("aj-msg").value=""; $("ajuda").classList.add("hidden"); toast("💛 Mensagem enviada! O Vitor já vai te ajudar",5000); }
+  }catch(e){ toast("Sem internet agora 😕 Tente de novo em alguns segundos",5000); }
+  b.disabled=false;
+};
 $("file-any").onchange=e=>{ try{ sessionStorage.removeItem("cas_cam"); }catch(_){} pausarEnfeites(false); const f=[...e.target.files]; e.target.value=""; handleFiles(f); };
 $("btn-foto").onclick=()=> lowMem() ? camSite("photo") : abrirNativa($("file-native"));
 $("btn-video").onclick=()=> lowMem() ? camSite("video") : abrirNativa($("file-native-video"));
@@ -1676,6 +1733,7 @@ function setTab(t){
   document.querySelectorAll("#admin-tabs button").forEach(b=>b.classList.toggle("on",b.dataset.t===t));
   $("ctrl-view").classList.toggle("hidden",t!=="ctrl"||!adminMode); $("cont-view").classList.toggle("hidden",t!=="cont"||!adminMode); $("fotos-view").classList.toggle("hidden",(t==="ctrl"||t==="cont")&&adminMode);
   if(t==="cont"&&adminMode) loadContatos();
+  if(adminMode) loadAjuda();
   clearInterval(ctrlTimer); if(t==="ctrl"&&adminMode){ pollCtrl(); ctrlTimer=setInterval(()=>{ if(!$("v-gallery").classList.contains("hidden")) pollCtrl(); },4000); }
 }
 $("admin-tabs").onclick=e=>{ const b=e.target.closest("button"); if(b) setTab(b.dataset.t); };
@@ -1697,6 +1755,35 @@ function renderCtrl(){
   $("c-av-st").textContent = c.aviso ? `No telão agora: "${c.aviso}"${c.aviso_seg?` · some em ${Math.ceil(c.aviso_seg/60)} min`:""}` : "Nenhum aviso no telão.";
   $("c-dest-st").textContent = c.destaque_id ? `📌 Tem uma foto fixada no telão · sai em ${Math.ceil((c.destaque_seg||0)/60)} min` : "Nenhuma foto fixada agora.";
 }
+let ajVistos=null, ajDados=[];
+async function loadAjuda(){
+  if(!adminMode||!adminCode) return;
+  const { data, error } = await sbF.rpc("casamento_admin_ajuda",{ p_codigo:adminCode }); if(error) return;
+  ajDados=data||[]; const abertos=ajDados.filter(a=>!a.resolvida);
+  if(ajVistos){ abertos.filter(a=>!ajVistos.has(a.id)).forEach(a=>{ toast(`💬 ${a.nome} pediu ajuda: "${a.mensagem.slice(0,60)}"`,7000); try{ navigator.vibrate&&navigator.vibrate([200,100,200]); }catch(e){} }); }
+  ajVistos=new Set(ajDados.map(a=>a.id)); renderAjuda();
+}
+function renderAjuda(){
+  const abertos=ajDados.filter(a=>!a.resolvida), feitos=ajDados.filter(a=>a.resolvida).slice(0,5);
+  const n=$("aj-n"); n.textContent=abertos.length; n.classList.toggle("hidden",!abertos.length);
+  const tb=document.querySelector('#admin-tabs button[data-t="ctrl"]'); if(tb) tb.classList.toggle("dot",!!abertos.length);
+  const box=$("aj-list"); box.innerHTML="";
+  if(!abertos.length&&!feitos.length){ box.innerHTML='<p class="st">Nenhum pedido de ajuda por enquanto 🙌</p>'; return; }
+  if(!abertos.length) box.insertAdjacentHTML("beforeend",'<p class="st">Tudo resolvido ✅</p>');
+  [...abertos,...feitos].forEach(a=>{
+    const it=document.createElement("div"); it.className="aj-it"+(a.resolvida?" ok":"");
+    const h=document.createElement("div"); h.className="h"; const b=document.createElement("b"); b.textContent=a.nome||"convidado";
+    const t=document.createElement("span"); t.textContent=new Date(a.criado_em).toLocaleTimeString("pt-BR",{hour:"2-digit",minute:"2-digit"}); h.append(b,t);
+    const p=document.createElement("p"); p.textContent=a.mensagem;
+    const ac=document.createElement("div"); ac.className="a";
+    if(a.telefone){ const w=document.createElement("a"); w.href=`https://wa.me/${a.telefone}`; w.target="_blank"; w.rel="noopener"; w.textContent="💬 WhatsApp"; ac.append(w); }
+    const bt=document.createElement("button"); bt.textContent=a.resolvida?"↩️ Reabrir":"✅ Resolvido";
+    bt.onclick=async()=>{ const nv=!a.resolvida; const { error } = await sbF.rpc("casamento_admin_ajuda_marcar",{ p_codigo:adminCode, p_id:a.id, p_resolvida:nv }); if(error) return toast("Não deu certo, tente de novo");
+      a.resolvida=nv; renderAjuda(); if(nv) feito(`✅ Resolveu o pedido de ${a.nome}`, async()=>{ await sbF.rpc("casamento_admin_ajuda_marcar",{ p_codigo:adminCode, p_id:a.id, p_resolvida:false }); a.resolvida=false; renderAjuda(); }); };
+    ac.append(bt); it.append(h,p,ac); box.append(it);
+  });
+}
+setInterval(()=>{ if(adminMode&&!$("v-gallery").classList.contains("hidden")) loadAjuda(); },15000);
 let adminCache=new Map();
 async function pollCtrl(){
   try{
