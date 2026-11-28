@@ -1118,6 +1118,20 @@ async function loadImage(file){
   }
   return await new Promise((res,rej)=>{ const i=new Image(); i.onload=()=>res(i); i.onerror=rej; i.src=URL.createObjectURL(file); });
 }
+/* fotos HEIC/HEIF (iPhone e alguns Samsung): o Chrome não abre, então converte para JPEG aqui mesmo */
+const ehHeic=f=>/hei[cf]/i.test(f.type||"") || /\.(heic|heif)$/i.test(f.name||"");
+function carregarHeic(){ return window.heic2any ? Promise.resolve() : new Promise((res,rej)=>{ const sc=document.createElement("script"); sc.src="assets/heic2any.min.js"; sc.onload=res; sc.onerror=()=>rej(new Error("sem leitor HEIC")); document.head.append(sc); }); }
+async function abrirFoto(f){
+  try{ return await loadImage(f); }
+  catch(e1){
+    let heic=ehHeic(f);
+    if(!heic){ try{ const cab=new Uint8Array(await f.slice(0,40).arrayBuffer()); heic=/ftyp(heic|heix|hevc|hevx|heim|heis|mif1|msf1)/.test(String.fromCharCode(...cab)); }catch(e){} }
+    if(!heic) throw e1;
+    const b=$("conv"); b.classList.remove("hidden"); $("cv-text").textContent="📷 Preparando foto…"; $("cv-bar").style.width="60%";
+    try{ await carregarHeic(); let j=await heic2any({ blob:f, toType:"image/jpeg", quality:0.92 }); if(Array.isArray(j)) j=j[0]; return await loadImage(j); }
+    finally{ b.classList.add("hidden"); }
+  }
+}
 function scaleTo(src,w,h,max){ const k=Math.min(1,max/Math.max(w,h)); const c=document.createElement("canvas"); c.width=Math.round(w*k); c.height=Math.round(h*k); c.getContext("2d").drawImage(src,0,0,c.width,c.height); return c; }
 async function drawFrame(c){
   try{ await document.fonts.load("80px 'Great Vibes'"); await document.fonts.load("500 30px 'Cormorant Garamond'"); }catch(e){}
@@ -1269,7 +1283,7 @@ $("btn-enter").onclick=async()=>{
 };
 /* Segunda chance: quem não deixou número vê o cartão depois do primeiro envio */
 /* ---------- App na tela inicial (Android instala direto; iPhone mostra o passo a passo) ---------- */
-const APP_VERSAO="1.5.2 · 27/11";
+const APP_VERSAO="1.5.4 · 28/11";
 const ehApp = () => matchMedia("(display-mode: standalone)").matches || navigator.standalone===true;
 const ehIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform==="MacIntel" && navigator.maxTouchPoints>1);
 const ehNavIOSInterno = ehIOS && /FBAN|FBAV|Instagram|Line|WhatsApp|GSA\//i.test(navigator.userAgent);
@@ -1279,10 +1293,15 @@ addEventListener("appinstalled",()=>{ localStorage.setItem("cas_inst","1"); rend
 if("serviceWorker" in navigator && location.protocol==="https:" && !new URLSearchParams(location.search).has("telao")){
   addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));
 }
+/* lembretes leves: aparecem de novo depois de 30 min ou ao reabrir o site, no máximo 3 vezes */
+function lembrete(k){ try{ return JSON.parse(localStorage.getItem("cas_lb_"+k))||{n:0,t:0}; }catch(e){ return {n:0,t:0}; } }
+function podeLembrar(k){ const l=lembrete(k); if(!l.n) return true; if(l.n>=3) return false; let ses=null; try{ ses=sessionStorage.getItem("cas_lbs_"+k); }catch(e){} return Date.now()-l.t>=30*60000 || !ses; }
+function fecharLembrete(k){ const l=lembrete(k); localStorage.setItem("cas_lb_"+k,JSON.stringify({n:(l.n||0)+1,t:Date.now()})); try{ sessionStorage.setItem("cas_lbs_"+k,"1"); }catch(e){} }
+function waElegivel(){ return !localStorage.getItem("cas_contato") && sentCount()>0 && podeLembrar("wa"); }
 function renderInstalar(){
   const instalado = ehApp() || localStorage.getItem("cas_inst")==="1";
   $("inst-link").classList.toggle("hidden",instalado);
-  const mostrarCard = !instalado && !localStorage.getItem("cas_inst_x") && sentCount()>0;
+  const mostrarCard = !instalado && podeLembrar("inst") && !waElegivel();   // um cartão de cada vez
   $("inst-card").classList.toggle("hidden",!mostrarCard);
 }
 const SVG_SHARE='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M8 7l4-4 4 4"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></svg>';
@@ -1318,14 +1337,14 @@ async function instalar(){
 }
 $("mine-mais").onclick=()=>{ const l=$("mine-list"); l.dataset.todos = l.dataset.todos==="1"?"":"1"; renderMine(); };
 $("inst-btn").onclick=instalar; $("inst-link").onclick=instalar;
-$("inst-x").onclick=()=>{ localStorage.setItem("cas_inst_x","1"); renderInstalar(); };
+$("inst-x").onclick=()=>{ fecharLembrete("inst"); renderWaCard(); };
 $("is-ok").onclick=()=>$("inst-sheet").classList.add("hidden");
 function renderWaCard(){
   try{ renderInstalar(); }catch(e){}
-  const mostrar = !localStorage.getItem("cas_contato") && !localStorage.getItem("cas_wa_x") && sentCount()>0;
-  $("wa-card").classList.toggle("hidden",!mostrar);
+  $("wa-card").classList.toggle("hidden",!waElegivel());
 }
-$("wa-x").onclick=()=>{ localStorage.setItem("cas_wa_x","1"); renderWaCard(); };
+$("wa-x").onclick=()=>{ fecharLembrete("wa"); renderWaCard(); };
+setInterval(()=>{ try{ renderWaCard(); }catch(e){} },60000);
 $("wa-ok").onclick=async()=>{
   const tel=$("wa-tel").value.trim(); if(!telOk(tel)){ toast("Digite o WhatsApp com DDD 😉"); $("wa-tel").focus(); return; }
   $("wa-ok").disabled=true; const ok=await salvarContato(tel,true,$("wa-div").checked,"apos_envio"); $("wa-ok").disabled=false;
@@ -1433,10 +1452,10 @@ $("sh-send").onclick=async()=>{
           await enqueue({ id:uuid(), ts:Date.now(), nome:getName(), recado, missao:msEnvio, tipo:"video", telao, blob:f, mime:mimeVideo(f), thumb:info.thumb, w:info.w, h:info.h, duracao:info.duracao });
         }
       } else {
-        const img=await loadImage(f); const c=scaleTo(img,img.width,img.height,CONFIG.MAX_LADO);
+        const img=await abrirFoto(f); const c=scaleTo(img,img.width,img.height,CONFIG.MAX_LADO);
         await enqueue({ id:uuid(), ts:Date.now(), nome:getName(), recado, missao:msEnvio, tipo:"foto", telao, frame:false, ...(await photoVersions(c)) });
       }
-    }catch(err){ console.error(err); toast("Um dos arquivos não pôde ser lido 😕"); }
+    }catch(err){ console.error(err); toast(`Não consegui abrir "${(f.name||"um arquivo").slice(0,30)}" 😕 Tente pelo botão 📷 Tirar foto ou escolha outra.`,7000); }
   }
   try{ actx&&actx.close(); }catch(e){}
 };
@@ -2134,7 +2153,7 @@ let homeTimer=null, homeFx=null;
 async function checkReset(){
   try{ const { data } = await sbF.rpc("casamento_controle_ler"); if(data&&typeof data==="object"&&!Array.isArray(data)) tratarControleCelular(data); const rm=data&&data.reset_ms; if(!rm) return;
     const visto=+(localStorage.getItem("cas_reset")||0);
-    if(rm>visto){ localStorage.setItem("cas_reset",rm); localStorage.removeItem("cas_ms_ok"); localStorage.removeItem("cas_contato"); localStorage.removeItem("cas_wa_x"); const a=getMine().filter(m=>m.ts>rm); setMine(a); if(!a.length) localStorage.setItem("cas_enviadas","0"); renderMine(); renderSent(); }
+    if(rm>visto){ localStorage.setItem("cas_reset",rm); localStorage.removeItem("cas_ms_ok"); localStorage.removeItem("cas_contato"); localStorage.removeItem("cas_wa_x"); localStorage.removeItem("cas_lb_wa"); localStorage.removeItem("cas_lb_inst"); const a=getMine().filter(m=>m.ts>rm); setMine(a); if(!a.length) localStorage.setItem("cas_enviadas","0"); renderMine(); renderSent(); }
   }catch(e){}
 }
 async function refreshHome(){
