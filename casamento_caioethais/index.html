@@ -478,6 +478,7 @@
   .window{width:min(53vw,100vh);height:70vh;position:relative;overflow:hidden;background:#F3E6D0}
   .window .slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s}
   .window .slide.on{opacity:1}
+  body.tv-video #v-telao *:not(video){animation-play-state:paused!important}
   .window .bgblur{position:absolute;inset:-6%;width:112%;height:112%;object-fit:cover;filter:blur(28px) saturate(1.1);opacity:.75}
   .window .main{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
   .window .tag{position:absolute;top:2.6vh;left:2.6vh;background:rgba(255,255,255,.94);border-radius:3vh;padding:.8vh 1.6vh;font-size:2vh;font-weight:700;z-index:2}
@@ -1283,7 +1284,7 @@ $("btn-enter").onclick=async()=>{
 };
 /* Segunda chance: quem não deixou número vê o cartão depois do primeiro envio */
 /* ---------- App na tela inicial (Android instala direto; iPhone mostra o passo a passo) ---------- */
-const APP_VERSAO="1.5.4 · 28/11";
+const APP_VERSAO="1.5.5 · 28/11";
 const ehApp = () => matchMedia("(display-mode: standalone)").matches || navigator.standalone===true;
 const ehIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform==="MacIntel" && navigator.maxTouchPoints>1);
 const ehNavIOSInterno = ehIOS && /FBAN|FBAV|Instagram|Line|WhatsApp|GSA\//i.test(navigator.userAgent);
@@ -2067,7 +2068,7 @@ $("btn-zip").onclick=async()=>{
 
 /* ---------------- TELÃO ---------------- */
 function startLeaves(canvasId,count){
-  const cv=$(canvasId), cx=cv.getContext("2d"), dpr=canvasId==="fx"?Math.min(2,devicePixelRatio||1):1; let W,H;
+  const cv=$(canvasId), cx=cv.getContext("2d"), dpr=1; let W,H;
   const rs=()=>{ W=cv.width=innerWidth*dpr; H=cv.height=innerHeight*dpr; }; rs(); addEventListener("resize",rs);
   const cols=["#E8B930","#F2CC55","#F6DC8A","#E2C194","#EED3AE","#D9B77E"];
   const mk=top=>({ x:Math.random()*W, y:top?Math.random()*H:-40*dpr, s:(8+Math.random()*12)*dpr, vy:(.25+Math.random()*.45)*dpr, vx:0, g:0, sw:Math.random()*6.3, sp:.006+Math.random()*.01, r:Math.random()*6.3, vr:(Math.random()-.5)*.02, c:cols[Math.random()*cols.length|0], a:.3+Math.random()*.45, petal:Math.random()<.6 });
@@ -2082,12 +2083,16 @@ function startLeaves(canvasId,count){
     else { cx.moveTo(0,-l.s); cx.quadraticCurveTo(l.s*.6,0,0,l.s); cx.quadraticCurveTo(-l.s*.6,0,0,-l.s); }
     cx.fill(); cx.restore();
   }
+  let par=false;
   (function draw(){
     if(window.__fxPause && canvasId!=="fx"){ requestAnimationFrame(draw); return; }
-    cx.clearRect(0,0,W,H);
-    for(const l of leaves){ l.y+=l.vy; l.sw+=l.sp; l.x+=Math.sin(l.sw)*.6*dpr; l.r+=l.vr; if(l.y>H+40*dpr) Object.assign(l,mk(false)); dl(l); }
+    // telão: durante vídeo as folhas ficam paradas; no resto desenha 1 quadro sim, 1 não (metade do esforço)
+    if(canvasId==="fx" && document.body.classList.contains("tv-video") && !extra.length){ requestAnimationFrame(draw); return; }
+    const pula = canvasId==="fx" && (par=!par);
+    if(!pula) cx.clearRect(0,0,W,H);
+    for(const l of leaves){ l.y+=l.vy; l.sw+=l.sp; l.x+=Math.sin(l.sw)*.6*dpr; l.r+=l.vr; if(l.y>H+40*dpr) Object.assign(l,mk(false)); if(!pula) dl(l); }
     extra=extra.filter(l=>l.y<H+50*dpr && l.a>0.05);
-    for(const l of extra){ l.vy+=l.g; l.vx*=.985; l.x+=l.vx; l.y+=l.vy; l.r+=l.vr; if(l.vy>0) l.a-=.004; dl(l); }
+    for(const l of extra){ l.vy+=l.g; l.vx*=.985; l.x+=l.vx; l.y+=l.vy; l.r+=l.vr; if(l.vy>0) l.a-=.004; if(!pula) dl(l); }
     requestAnimationFrame(draw);
   })();
   return { burst };
@@ -2285,6 +2290,7 @@ async function startTelao(){
     const novo = !!r._novo, dest=!!r._destaque; const tag=document.createElement("span"); tag.className="tag"+(dest?" dest":novo?" novo":""); tag.innerHTML= dest ? ICON.pin+" DESTAQUE" : novo ? ICON.star+" ACABOU DE CHEGAR" : (r.tipo==="video"?ICON.vid+" Vídeo":ICON.cam+" Foto"); s.append(tag);
     const show1=()=>{
       if(my!==gen || ctrl.pausado) return;
+      document.body.classList.toggle("tv-video", r.tipo==="video");
       current=r; ultPessoa=pk(r); ultTipo=r.tipo; if(adminCode) sbF.rpc("casamento_admin_agora",{ p_codigo:adminCode, p_id:r.id }).then(()=>{},()=>{}); if(novo){ r._novo=false; const o=priority.length?null:list.find(x=>x.id===r.id); if(o) o._novo=false; fx.burst(70,.33,.45); } $("t-window").append(s); requestAnimationFrame(()=>requestAnimationFrame(()=>s.classList.add("on")));
       [...$("t-window").querySelectorAll(".slide")].filter(x=>x!==s).forEach(o=>{ o.classList.remove("on"); const ov=o.querySelector("video"); if(ov) ov.muted=true; setTimeout(()=>{ if(ov) ov.pause(); o.remove(); },1300); });
     };
