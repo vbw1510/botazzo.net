@@ -359,6 +359,10 @@
   .cta.big h3{font-size:31px}
   .mini2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
   .pick h3{text-align:center;margin:2px 0 14px}
+  .pk-info{margin:12px 2px 0;font-size:13.5px;color:#6E5A45;text-align:center;line-height:1.45}
+  .vinfo{margin:10px 0 0;padding:10px 12px;border-radius:14px;background:#FBF1DE;font-size:13.5px;color:#6E5A45;line-height:1.45}
+  #conv small{display:block;font-size:12.5px;color:var(--muted);margin-top:5px}
+  .t-som{position:fixed;left:50%;bottom:3vh;transform:translateX(-50%);z-index:60;background:rgba(61,48,36,.85);color:#fff;font:700 2.2vh 'Nunito Sans',sans-serif;padding:1.2vh 2.4vh;border-radius:4vh;cursor:pointer}
   .pk{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
   .pk button{display:flex;flex-direction:column;align-items:center;gap:4px;background:linear-gradient(160deg,#C9A15A,#A87C3A);color:#fff;border:0;border-radius:22px;padding:22px 8px 18px;box-shadow:0 10px 22px rgba(168,124,58,.35)}
   .pk button .e{font-size:44px;line-height:1}
@@ -632,6 +636,10 @@
     <div class="spinner"></div>
     <div style="flex:1"><div id="q-text">Enviando…</div><div class="bar" style="margin-top:6px"><i id="q-bar"></i></div></div>
   </div>
+  <div class="queue hidden" id="conv">
+    <div class="spinner"></div>
+    <div style="flex:1"><div id="cv-text">Preparando vídeo…</div><div class="bar" style="margin-top:6px"><i id="cv-bar"></i></div><small>Deixando leve e no formato do telão. Fique nesta tela 😉</small></div>
+  </div>
   <p class="hello" id="lbl-sent" style="margin-top:16px"></p>
   <div class="inst-card hidden" id="inst-card">
     <button class="x" id="inst-x" aria-label="Fechar">✕</button>
@@ -670,7 +678,7 @@
   <input type="file" id="file-native-video" accept="video/*" capture="environment" class="hidden">
   <p style="text-align:center;margin-top:14px"><button class="link" id="inst-link">📲 Instalar o app no celular</button></p>
   <a class="bnet" href="https://www.botazzo.net" target="_blank" rel="noopener"><span class="lg" style="padding:0;background:none"><svg viewBox="0 0 60 60" width="52" height="52" aria-label="Botazzo.Net"><defs><linearGradient id="bnG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5A4330"/><stop offset="1" stop-color="#2F2219"/></linearGradient><linearGradient id="bnO" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFE08A"/><stop offset="1" stop-color="#D9A93A"/></linearGradient></defs><rect width="60" height="60" rx="15" fill="url(#bnG)"/><path d="M14 46h32M18 46V40M42 46V40" stroke="#D9A93A" stroke-width="1.6" stroke-linecap="round" opacity=".55"/><circle cx="18" cy="40" r="1.8" fill="#D9A93A" opacity=".7"/><circle cx="42" cy="40" r="1.8" fill="#D9A93A" opacity=".7"/><text x="30" y="35" text-anchor="middle" font-family="Georgia,serif" font-weight="700" font-size="30" fill="url(#bnO)">B</text><text x="30" y="54" text-anchor="middle" font-family="Arial,sans-serif" font-weight="800" font-size="7.5" letter-spacing="1" fill="#F2CC55">.NET</text></svg></span><span><b>Aplicativo criado pela Botazzo.Net</b><small>Sites, aplicativos e conserto de celular e computador</small></span><span class="go">Conhecer →</span></a>
-  <p class="footer">Com amor, Botazzo Serra 🤍<br></p>
+  <p class="footer">Com amor, Botazzo Serra 🤍<br><a href="https://www.botazzo.net" target="_blank" rel="noopener" style="color:var(--gold);font-weight:700;text-decoration:none">www.botazzo.net</a></p>
   <span class="versao" id="ver-home"></span>
 </section>
 
@@ -730,10 +738,11 @@
   <h3>O que você quer mandar?</h3>
   <div class="pk">
     <button id="pk-foto"><span class="e">📷</span><b>Tirar foto</b><small>câmera do celular</small></button>
-    <button id="pk-video"><span class="e">🎥</span><b>Gravar vídeo</b><small>até 30 s no telão</small></button>
+    <button id="pk-video"><span class="e">🎥</span><b>Gravar vídeo</b><small>até 20 s · com som</small></button>
   </div>
   <button class="pk-gal" id="pk-gal">🖼️ Mandar da galeria <small>· várias de uma vez</small></button>
-  <button class="link" id="pk-x" style="display:block;margin:14px auto 0">Cancelar</button>
+  <p class="pk-info">🎬 Vídeos de até <b>20 segundos, com som</b>. Se gravar mais, vai só o começo. Antes de enviar, o app deixa o vídeo leve para tocar no telão: é só ficar nesta tela até terminar 😉</p>
+  <button class="link" id="pk-x" style="display:block;margin:10px auto 0">Cancelar</button>
 </div></div>
 <div class="sheet-bg hidden" id="ajuda"><div class="sheet aj">
   <h3>❓ Precisa de ajuda?</h3>
@@ -782,6 +791,7 @@
       <button class="choice" data-v="noivos"><span class="e">🔒</span><b>Só para os noivos</b><small>Fica guardado, ninguém mais vê</small></button>
     </div>
     <div class="hint" id="sh-hint">Escolha uma das opções acima 👆</div>
+    <p class="vinfo hidden" id="sh-vinfo">🎬 Antes de enviar, o app prepara o vídeo para tocar no telão (leva mais ou menos o tempo do vídeo). <b>Fique nesta tela até terminar.</b> Vídeos vão com até 20 s.</p>
     <textarea id="sh-msg" class="hidden" maxlength="200"></textarea>
     <div class="row" style="display:grid;grid-template-columns:1fr 1.4fr;gap:10px;margin-top:10px">
       <button class="btn btn-light" id="sh-cancel">Cancelar</button>
@@ -793,7 +803,7 @@
 <!-- ============ TUTORIAL ============ -->
 <div class="tut hidden" id="tut">
   <div class="tut-box">
-    <div class="tut-step on"><div class="tut-ic">📸</div><h2>Foto ou vídeo</h2><p>Toque em <b>Foto ou vídeo</b> e escolha: tirar na hora com a câmera do celular ou pegar da galeria.<br>Vídeos curtinhos ficam melhores: no telão passam até 30 segundos.</p></div>
+    <div class="tut-step on"><div class="tut-ic">📸</div><h2>Foto ou vídeo</h2><p>Toque em <b>Foto ou vídeo</b> e escolha: tirar na hora com a câmera do celular ou pegar da galeria.<br>Vídeos: até <b>20 segundos, com som</b>. Se gravar mais, vai só o comecinho.</p></div>
     <div class="tut-step"><div class="tut-ic">📺</div><h2>Você escolhe quem vê</h2><p>Antes de enviar, escolha:<br><b>📺 Pode passar no telão</b>: aparece na festa.<br><b>🔒 Só para os noivos</b>: fica guardado só para eles.</p></div>
     <div class="tut-step"><div class="tut-ic">💛</div><h2>Pronto!</h2><p>O envio é automático. Se a internet estiver fraca, o celular guarda e envia sozinho depois.<br>Mandou sem querer? Em <b>Meus envios</b> você tira do telão na hora.</p></div>
     <div class="dots" id="tut-dots"><i class="on"></i><i></i><i></i></div>
@@ -839,6 +849,7 @@
         <div class="row2"><button class="bigb" id="c-skip">⏭️ Pular</button><button class="bigb warn" id="c-off">🔒 Tirar do telão</button></div></div>
       <div class="cc"><h5><i class="hb" data-ic="alert"></i>Emergência</h5>
         <button class="bigb danger" id="c-pause">⏸️ Pausar telão</button>
+        <div class="sw"><span><b>🔊 Som dos vídeos no telão</b><small>Desligue na hora dos discursos ou da banda</small></span><button class="tg" id="c-som" aria-label="Som dos vídeos"></button></div>
         <div class="sw"><span><b>Modo aprovação</b><small>Ligado: nada aparece no telão sem você aprovar</small></span><button class="tg" id="c-aprov" aria-label="Modo aprovação"></button></div>
         <div class="fila" id="c-fila"></div></div>
       <div class="cc"><h5><i class="hb" data-ic="star"></i>Missão relâmpago 🎯</h5>
@@ -885,9 +896,9 @@
         <label>Repetir os últimos</label><div class="chips" id="c-lim"><button data-v="10">10</button><button data-v="20">20</button><button data-v="30">30</button><button data-v="40">40</button><button data-v="50">50</button><button data-v="0">Todos</button></div>
         <label>Máximo por pessoa no rodízio</label><div class="chips" id="c-maxp"><button data-v="3">3</button><button data-v="5">5</button><button data-v="8">8</button><button data-v="15">15</button><button data-v="0">Sem limite</button></div>
         <label>Vídeos por pessoa no rodízio</label><div class="chips" id="c-maxv"><button data-v="1">1</button><button data-v="2">2</button><button data-v="3">3</button><button data-v="0">Sem limite</button></div>
-        <p class="st">Para ninguém dominar o telão: a mesma pessoa não aparece duas vezes seguidas, nunca passam dois vídeos seguidos e cada vídeo tem no máximo 30 s no telão. O resto continua guardado e no álbum.</p>
+        <p class="st">Para ninguém dominar o telão: a mesma pessoa não aparece duas vezes seguidas, nunca passam dois vídeos seguidos e cada vídeo (até 20 s) passa inteiro, com som. O resto continua guardado e no álbum.</p>
         <label>Tempo de cada foto</label><div class="chips" id="c-tempo"><button data-v="1">1 s</button><button data-v="2">2 s</button><button data-v="3">3 s</button><button data-v="5">5 s</button><button data-v="7">7 s</button><button data-v="10">10 s</button><button data-v="15">15 s</button></div>
-        <p class="st">O que acabou de chegar sempre entra primeiro. Cada vídeo passa no máximo 30 s.</p>
+        <p class="st">O que acabou de chegar sempre entra primeiro. Cada vídeo passa inteiro (até 20 s).</p>
         <div class="sw"><span><b>Ranking no telão</b></span><button class="tg" id="c-rank" aria-label="Ranking no telão"></button></div></div>
       <div class="cc"><h5><i class="hb" data-ic="gear"></i>Últimas ações 🕘</h5>
         <p class="st" style="margin-top:0">Errou? Toque em "Desfazer" na ação.</p>
@@ -942,6 +953,7 @@
   <div class="t-count" id="t-count"></div>
   <button class="btn btn-gold t-start" id="telao-start">▶︎ Iniciar telão em tela cheia</button>
   <div class="t-show" id="t-show"></div>
+  <div class="t-som hidden" id="t-som">🔊 Clique uma vez na tela para liberar o som dos vídeos</div>
   <div class="t-pause" id="t-pause"><div><h1 class="names">Caio <span class="amp">&</span> Thaís</h1><p>Já voltamos 💛</p></div></div>
   <div class="t-aviso" id="t-aviso"><span id="t-aviso-txt"></span></div>
   <div class="t-credit">criado por <b>Botazzo.Net</b></div>
@@ -971,8 +983,10 @@ const CONFIG = {
   NOMES: "Caio & Thaís",
   DATA: "28 · 11 · 2026",
   MAX_LADO: 1920, QUALIDADE: 0.85, THUMB_LADO: 480,
-  VIDEO_MAX_S: 30,                // gravação no site
-  VIDEO_BITRATE: 1_500_000,       // ~5,6 MB por 30 s
+  VIDEO_MAX_S: 20,                // tempo máximo de todo vídeo (site, câmera e galeria)
+  CONV_BITRATE: 4_000_000,        // vídeo convertido no celular: Full HD leve (~10 MB por 20 s)
+  CONV_MAX_LADO: 1920,
+  VIDEO_BITRATE: 3_000_000,       // câmera do site: ~7,5 MB por 20 s
   GALERIA_VIDEO_MAX_MB: 49,       // vídeo enviado da galeria / câmera do celular (máx. do plano grátis)
   TELAO_FOTO_S: 7,                // tempo de cada foto no telão
 };
@@ -1148,7 +1162,7 @@ async function uploadOne(it){
   const o={ upsert:false, cacheControl:"31536000" };
   let caminho, miniatura=null;
   if (it.tipo==="video"){
-    const ext = /mp4/.test(it.mime)?"mp4":/quicktime/.test(it.mime)?"mov":"webm";
+    const ext = /mp4/.test(it.mime)?"mp4":/quicktime/.test(it.mime)?"mov":/3gpp2/.test(it.mime)?"3g2":/3gpp/.test(it.mime)?"3gp":/matroska/.test(it.mime)?"mkv":/msvideo|avi/.test(it.mime)?"avi":/m4v/.test(it.mime)?"m4v":"webm";
     caminho=`videos/${base}.${ext}`;
     const r=await sbV.storage.from(CONFIG.BUCKET_VIDEOS).upload(caminho,it.blob,{...o,contentType:it.mime}); if(!okDup(r.error)) throw r.error;
   } else {
@@ -1255,7 +1269,7 @@ $("btn-enter").onclick=async()=>{
 };
 /* Segunda chance: quem não deixou número vê o cartão depois do primeiro envio */
 /* ---------- App na tela inicial (Android instala direto; iPhone mostra o passo a passo) ---------- */
-const APP_VERSAO="1.4 · 27/11";
+const APP_VERSAO="1.5 · 27/11";
 const ehApp = () => matchMedia("(display-mode: standalone)").matches || navigator.standalone===true;
 const ehIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform==="MacIntel" && navigator.maxTouchPoints>1);
 const ehNavIOSInterno = ehIOS && /FBAN|FBAV|Instagram|Line|WhatsApp|GSA\//i.test(navigator.userAgent);
@@ -1332,17 +1346,64 @@ $("tut-skip").onclick=closeTut; $("btn-help").onclick=openTut;
 let shFiles=[], shChoice=null;
 const shCh=setupChoices("sh", v=>{ shChoice=v; $("sh-send").disabled=!v; $("sh-hint").textContent = v ? (v==="telao"?"📺 Vai aparecer no telão e no álbum.":"🔒 Só os noivos vão ver.") : "Escolha uma das opções acima 👆"; });
 $("btn-upload").onclick=()=>$("file-gallery").click();
+const EXT_VIDEO=/\.(mp4|mov|m4v|3gp|3g2|webm|mkv|avi)$/i;
+const ehVideo=f=> (f.type||"").startsWith("video/") || (!f.type && EXT_VIDEO.test(f.name||""));
+function mimeVideo(f){ if(f.type) return f.type; const e=((f.name||"").split(".").pop()||"").toLowerCase(); return {mov:"video/quicktime",webm:"video/webm","3gp":"video/3gpp","3g2":"video/3gpp2",mkv:"video/x-matroska",avi:"video/x-msvideo",m4v:"video/x-m4v"}[e]||"video/mp4"; }
+/* ---------- conversão do vídeo no celular (formato que toca em qualquer TV, com som, até 20 s) ---------- */
+function prepVideo(file, ctx){
+  const v=document.createElement("video"); v.playsInline=true; v.preload="auto"; const url=URL.createObjectURL(file); v.src=url;
+  let dest=null;
+  try{ if(ctx){ const src=ctx.createMediaElementSource(v); dest=ctx.createMediaStreamDestination(); src.connect(dest); } }catch(e){ dest=null; }
+  if(!dest) v.muted=true;
+  try{ const pr=v.play(); if(pr) pr.then(()=>v.pause()).catch(()=>{}); }catch(e){}   // libera o vídeo dentro do toque (iPhone)
+  return { v, dest, url };
+}
+function limparPrep(pr){ try{ pr.v.pause(); pr.v.removeAttribute("src"); pr.v.load(); }catch(e){} try{ URL.revokeObjectURL(pr.url); }catch(e){} }
+async function convertVideo(pr, onProg){
+  const { v, dest } = pr;
+  if(!dest) throw new Error("sem áudio");
+  if(!window.MediaRecorder || !HTMLCanvasElement.prototype.captureStream) throw new Error("sem suporte");
+  await new Promise((res,rej)=>{ if(v.readyState>=1) return res(); v.addEventListener("loadedmetadata",res,{once:true}); v.addEventListener("error",()=>rej(new Error("não leu")),{once:true}); setTimeout(()=>rej(new Error("demorou")),12000); });
+  v.pause(); try{ v.currentTime=0; }catch(e){}
+  const dur = isFinite(v.duration)&&v.duration>0 ? v.duration : CONFIG.VIDEO_MAX_S;
+  const alvo = Math.min(dur, CONFIG.VIDEO_MAX_S);
+  const W=v.videoWidth, H=v.videoHeight; if(!W||!H) throw new Error("sem imagem");
+  const k=Math.min(1, CONFIG.CONV_MAX_LADO/Math.max(W,H)); const cw=Math.max(2,Math.round(W*k/2)*2), ch=Math.max(2,Math.round(H*k/2)*2);
+  const c=document.createElement("canvas"); c.width=cw; c.height=ch; const g=c.getContext("2d");
+  const vs=c.captureStream(30);
+  const ms=new MediaStream([...vs.getVideoTracks(), ...dest.stream.getAudioTracks()]);
+  const mime=pickMime();
+  let rec; try{ rec=new MediaRecorder(ms, mime?{mimeType:mime,videoBitsPerSecond:CONFIG.CONV_BITRATE,audioBitsPerSecond:128000}:{videoBitsPerSecond:CONFIG.CONV_BITRATE}); }catch(e){ rec=new MediaRecorder(ms); }
+  const chunks=[]; rec.ondataavailable=e=>{ if(e.data&&e.data.size) chunks.push(e.data); };
+  let lock=null; try{ lock=await navigator.wakeLock?.request("screen"); }catch(e){}
+  return await new Promise((res,rej)=>{
+    let parado=false, ultT=-1, ultMud=Date.now();
+    const fimTudo=(err)=>{ if(parado) return; parado=true; clearInterval(cao); document.removeEventListener("visibilitychange",vis); try{ v.pause(); }catch(e){}
+      try{ lock&&lock.release(); }catch(e){}
+      const acabar=()=>{ ms.getTracks().forEach(t=>t.stop()); if(err) return rej(err);
+        const tipo=((mime||rec.mimeType||"video/webm").split(";")[0])||"video/webm"; const blob=new Blob(chunks,{type:tipo});
+        if(blob.size<30000) return rej(new Error("vídeo vazio"));
+        res({ blob, mime:tipo, w:cw, h:ch, duracao:Math.round(Math.min(v.currentTime||alvo,alvo)*10)/10, cortado: dur>CONFIG.VIDEO_MAX_S+0.5 }); };
+      if(rec.state!=="inactive"){ rec.onstop=acabar; try{ rec.requestData(); }catch(e){} rec.stop(); } else acabar(); };
+    const draw=()=>{ if(parado) return; try{ g.drawImage(v,0,0,cw,ch); }catch(e){} agenda(); };
+    const agenda=()=>{ if(parado) return; if(v.requestVideoFrameCallback) v.requestVideoFrameCallback(draw); else requestAnimationFrame(draw); };
+    v.ontimeupdate=()=>{ onProg&&onProg(Math.min(1,v.currentTime/alvo)); if(v.currentTime>=alvo) fimTudo(); };
+    v.onended=()=>fimTudo();
+    const vis=()=>{ if(parado) return; if(document.hidden){ v.pause(); try{ rec.pause(); }catch(e){} } else { try{ rec.resume(); }catch(e){} v.play().catch(()=>{}); ultMud=Date.now(); } };
+    document.addEventListener("visibilitychange",vis);
+    const cao=setInterval(()=>{ if(document.hidden) { ultMud=Date.now(); return; } if(v.currentTime!==ultT){ ultT=v.currentTime; ultMud=Date.now(); } else if(Date.now()-ultMud>9000) fimTudo(new Error("travou")); },1000);
+    v.play().then(()=>{ try{ g.drawImage(v,0,0,cw,ch); }catch(e){} rec.start(1000); agenda(); }).catch(e=>fimTudo(e||new Error("não tocou")));
+  });
+}
+function convUI(i,n,p){ const b=$("conv"); if(p===null){ b.classList.add("hidden"); return; } b.classList.remove("hidden"); $("cv-text").textContent=`🎬 Preparando vídeo${n>1?` ${i} de ${n}`:""}… ${Math.round(p*100)}%`; $("cv-bar").style.width=Math.round(p*100)+"%"; }
 function handleFiles(files){
   if(!files.length) return;
-  const maxB=CONFIG.GALERIA_VIDEO_MAX_MB*1048576;
-  const big=files.filter(f=>f.type.startsWith("video/")&&f.size>maxB);
-  shFiles=files.filter(f=>!(f.type.startsWith("video/")&&f.size>maxB));
-  if(big.length) toast(`${big.length} vídeo(s) muito grande(s) (mais de ${CONFIG.GALERIA_VIDEO_MAX_MB} MB). Corte o vídeo na galeria do celular ou grave pelo botão VÍDEO do site, que fica leve 😉`,7000);
-  if(!shFiles.length) return;
-  const nv=shFiles.filter(f=>f.type.startsWith("video/")).length, nf=shFiles.length-nv;
+  shFiles=files;
+  const nv=shFiles.filter(ehVideo).length, nf=shFiles.length-nv;
+  $("sh-vinfo").classList.toggle("hidden",!nv);
   $("sh-title").textContent = `Enviar ${[nf?`${nf} foto${nf>1?"s":""}`:"", nv?`${nv} vídeo${nv>1?"s":""}`:""].filter(Boolean).join(" e ")}`;
   const th=$("sh-thumbs"); th.innerHTML="";
-  shFiles.slice(0,20).forEach(f=>{ const el=f.type.startsWith("video/")?Object.assign(document.createElement("video"),{muted:true,playsInline:true,preload:"metadata"}):new Image(); el.src=URL.createObjectURL(f); th.append(el); });
+  shFiles.slice(0,20).forEach(f=>{ const el=ehVideo(f)?Object.assign(document.createElement("video"),{muted:true,playsInline:true,preload:"metadata"}):new Image(); el.src=URL.createObjectURL(f); th.append(el); });
   shCh.reset(); $("sheet").classList.remove("hidden");
 }
 // depois de enviar com missão, limpa a missão escolhida
@@ -1353,17 +1414,31 @@ $("sh-send").onclick=async()=>{
   const files=shFiles, telao=shChoice==="telao", recado=$("sh-msg").value.trim().slice(0,200); $("sh-msg").value=""; $("sheet").classList.add("hidden"); shFiles=[];
   showDone(telao);
   const msEnvio=missaoPend; limparMissaoDepois();
+  // prepara os vídeos ainda dentro do toque (o iPhone só libera o som assim)
+  const vids=files.filter(ehVideo); let actx=null;
+  if(vids.length){ try{ actx=new (window.AudioContext||window.webkitAudioContext)(); actx.resume&&actx.resume(); }catch(e){ actx=null; } }
+  const preps=new Map(); vids.slice(0,6).forEach(f=>{ try{ preps.set(f,prepVideo(f,actx)); }catch(e){} });
+  const maxB=CONFIG.GALERIA_VIDEO_MAX_MB*1048576; let iv=0;
   for(const f of files){
     try{
-      if(f.type.startsWith("video/")){
-        const info=await videoInfo(f);
-        await enqueue({ id:uuid(), ts:Date.now(), nome:getName(), recado, missao:msEnvio, tipo:"video", telao, blob:f, mime:f.type||"video/mp4", thumb:info.thumb, w:info.w, h:info.h, duracao:info.duracao });
+      if(ehVideo(f)){
+        iv++; const info=await videoInfo(f); const pr=preps.get(f); let out=null;
+        if(pr){ try{ convUI(iv,vids.length,0); out=await convertVideo(pr,p=>convUI(iv,vids.length,p)); }catch(e){ console.warn("conversão falhou, vai o original",e); out=null; } finally{ limparPrep(pr); convUI(0,0,null); } }
+        if(out){
+          if(out.cortado) toast(`✂️ Seu vídeo tinha ${Math.round(info.duracao||0)} s: foram os primeiros ${CONFIG.VIDEO_MAX_S} s 😉`,5000);
+          await enqueue({ id:uuid(), ts:Date.now(), nome:getName(), recado, missao:msEnvio, tipo:"video", telao, blob:out.blob, mime:out.mime, thumb:info.thumb, w:out.w, h:out.h, duracao:out.duracao });
+        } else if(f.size>maxB){
+          toast(`Esse vídeo ficou grande demais para enviar 😕 Grave um de até ${CONFIG.VIDEO_MAX_S} s ou use a "Câmera com zoom" aqui do site.`,7000);
+        } else {
+          await enqueue({ id:uuid(), ts:Date.now(), nome:getName(), recado, missao:msEnvio, tipo:"video", telao, blob:f, mime:mimeVideo(f), thumb:info.thumb, w:info.w, h:info.h, duracao:info.duracao });
+        }
       } else {
         const img=await loadImage(f); const c=scaleTo(img,img.width,img.height,CONFIG.MAX_LADO);
         await enqueue({ id:uuid(), ts:Date.now(), nome:getName(), recado, missao:msEnvio, tipo:"foto", telao, frame:false, ...(await photoVersions(c)) });
       }
     }catch(err){ console.error(err); toast("Um dos arquivos não pôde ser lido 😕"); }
   }
+  try{ actx&&actx.close(); }catch(e){}
 };
 
 /* ---------------- câmera (foto + vídeo) ---------------- */
@@ -1746,7 +1821,7 @@ function chipsOn(id,val){ [...$(id).children].forEach(b=>b.classList.toggle("on"
 function renderCtrl(){
   const c=ctrlState; if(!c) return;
   const pb=$("c-pause"); pb.classList.toggle("on",!!c.pausado); pb.textContent=c.pausado?"▶️ Voltar o telão":"⏸️ Pausar telão";
-  $("c-aprov").classList.toggle("on",!!c.aprovacao); $("c-rank").classList.toggle("on",!!c.mostrar_ranking);
+  $("c-aprov").classList.toggle("on",!!c.aprovacao); $("c-rank").classList.toggle("on",!!c.mostrar_ranking); $("c-som").classList.toggle("on",c.som!==false);
   if(!pqEd || !$("c-pq-ed").contains(document.activeElement)){ const k=JSON.stringify(c.pesquisa_perguntas||[]); if($("c-pq-ed").dataset.k!==k){ $("c-pq-ed").dataset.k=k; pqEd=JSON.parse(JSON.stringify(c.pesquisa_perguntas||PERG_PADRAO)); renderPqEd(); } }
   chipsOn("c-maxp",c.max_pessoa); chipsOn("c-pq-min",c.pesquisa_min); $("c-pq-on").classList.toggle("on",!!c.pesquisa_on);
   const ms=c.missoes||[]; const cb=$("c-ms-chips"); if(cb.dataset.k!==JSON.stringify(ms)){ cb.dataset.k=JSON.stringify(ms); cb.innerHTML=""; ms.forEach(t=>{ const b=document.createElement("button"); b.textContent=t; b.onclick=()=>{ $("c-ms").value=t; }; cb.append(b); }); if(document.activeElement!==$("c-ms-lista")) $("c-ms-lista").value=ms.join("\n"); }
@@ -1820,6 +1895,7 @@ $("c-off").onclick=async()=>{ const id=ctrlState&&ctrlState.agora_id; if(!id) re
 $("c-pause").onclick=async()=>{ const p=!(ctrlState&&ctrlState.pausado); await ctrlSet({ pausado:p }); feito(p?"⏸️ Pausou o telão":"▶️ Voltou o telão", async()=>{ await ctrlSet({ pausado:!p }); }); };
 $("c-aprov").onclick=()=>ctrlSet({ aprovacao:!(ctrlState&&ctrlState.aprovacao) }, ctrlState&&ctrlState.aprovacao?"Aprovação desligada: entra tudo automaticamente":"🛡️ Aprovação ligada: você aprova antes do telão");
 $("c-rank").onclick=()=>ctrlSet({ mostrar_ranking:!(ctrlState&&ctrlState.mostrar_ranking) });
+$("c-som").onclick=async()=>{ const on=!(ctrlState&&ctrlState.som!==false); await ctrlSet({ som:on }); feito(on?"🔊 Ligou o som dos vídeos":"🔇 Desligou o som dos vídeos", async()=>{ await ctrlSet({ som:!on }); }); };
 $("c-lim").onclick=e=>{ const b=e.target.closest("button"); if(b) ctrlSet({ limite:+b.dataset.v }, +b.dataset.v?`Repetindo os últimos ${b.dataset.v}`:"Repetindo todos"); };
 $("c-pq-on").onclick=()=>ctrlSet({ pesquisa_on:!(ctrlState&&ctrlState.pesquisa_on) }, ctrlState&&ctrlState.pesquisa_on?"Pesquisa desligada":"🍾 Pesquisa ligada");
 $("c-pq-min").onclick=e=>{ const b=e.target.closest("button"); if(b) ctrlSet({ pesquisa_min:+b.dataset.v }, +b.dataset.v?`Pesquisa a cada ${b.dataset.v} min`:"Pesquisa só quando você mandar"); };
@@ -2159,7 +2235,11 @@ async function startTelao(){
     for(let t=0;t<L.length;t++){ const r=L[(idx+t)%L.length]; if(serve(r)){ idx=idx+t+1; return r; } }
     return L[idx++ % L.length];
   }
-  let gen=0;
+  let gen=0, somLiberado=false;
+  const somOn=()=>ctrl.som!==false;
+  function somBloqueado(){ if(somOn()&&!somLiberado) $("t-som").classList.remove("hidden"); }
+  function liberarSom(){ somLiberado=true; $("t-som").classList.add("hidden"); const cv=$("t-window").querySelector(".slide.on video"); if(cv&&somOn()){ cv.muted=false; cv.play().catch(()=>{}); } }
+  document.addEventListener("pointerdown",()=>{ if(!$("v-telao").classList.contains("hidden")) liberarSom(); });
   async function next(){
     const my=++gen; clearTimeout(timer); if(ctrl.pausado){ playing=false; return; } const r=pick(); if(!r){ playing=false; current=null; return; } playing=true;
     let src, bg;
@@ -2170,9 +2250,13 @@ async function startTelao(){
     if(bg||r.tipo!=="video"){ const b=new Image(); b.className="bgblur"; b.src=bg||src; s.append(b); }
     let el;
     if(r.tipo==="video"){
-      el=document.createElement("video"); el.muted=true; el.playsInline=true; el.autoplay=true; el.src=src;
-      let ended=false; const go=()=>{ if(!ended && my===gen){ ended=true; next(); } };
+      el=document.createElement("video"); el.muted=!somOn(); el.playsInline=true; el.autoplay=true; el.src=src;
+      let ended=false; const go=()=>{ if(!ended && my===gen){ ended=true; clearTimeout(trava); next(); } };
       el.onended=go; el.onerror=go; timer=setTimeout(go,(Math.min(r.duracao||30,30)+1.5)*1000); // máx. 30 s por vídeo no telão
+      // não começou em 6 s ou travou mais de 5 s: pula para o próximo
+      let trava=setTimeout(()=>{ if(el.readyState<2) go(); },6000);
+      el.addEventListener("waiting",()=>{ clearTimeout(trava); trava=setTimeout(()=>{ if(el.paused||el.readyState<3) go(); },5000); });
+      el.addEventListener("playing",()=>clearTimeout(trava));
     } else { el=new Image(); el.src=src; timer=setTimeout(()=>{ if(my===gen) next(); },((ctrl.tempo_foto||CONFIG.TELAO_FOTO_S)+(r.favorito?(ctrl.extra_fav||0):0))*1000); }
     el.className="main"+(r.tipo==="video"?"":" kb"+(1+Math.floor(Math.random()*5))); s.append(el);
     const cap=document.createElement("div"); cap.className="cap-over";
@@ -2183,9 +2267,9 @@ async function startTelao(){
     const show1=()=>{
       if(my!==gen || ctrl.pausado) return;
       current=r; ultPessoa=pk(r); ultTipo=r.tipo; if(adminCode) sbF.rpc("casamento_admin_agora",{ p_codigo:adminCode, p_id:r.id }).then(()=>{},()=>{}); if(novo){ r._novo=false; const o=priority.length?null:list.find(x=>x.id===r.id); if(o) o._novo=false; fx.burst(70,.33,.45); } $("t-window").append(s); requestAnimationFrame(()=>requestAnimationFrame(()=>s.classList.add("on")));
-      [...$("t-window").querySelectorAll(".slide")].filter(x=>x!==s).forEach(o=>{ o.classList.remove("on"); const ov=o.querySelector("video"); setTimeout(()=>{ if(ov) ov.pause(); o.remove(); },1300); });
+      [...$("t-window").querySelectorAll(".slide")].filter(x=>x!==s).forEach(o=>{ o.classList.remove("on"); const ov=o.querySelector("video"); if(ov) ov.muted=true; setTimeout(()=>{ if(ov) ov.pause(); o.remove(); },1300); });
     };
-    if(r.tipo==="video"){ el.onloadeddata=show1; el.play().catch(()=>{}); } else { el.onload=show1; el.onerror=()=>{ if(my===gen){ clearTimeout(timer); next(); } }; }
+    if(r.tipo==="video"){ el.onloadeddata=show1; el.play().catch(()=>{ if(!el.muted){ el.muted=true; somBloqueado(); el.play().catch(()=>{}); } }); } else { el.onload=show1; el.onerror=()=>{ if(my===gen){ clearTimeout(timer); next(); } }; }
   }
   // Botão discreto para você (com o código dos noivos)
   async function tirarAtual(){
@@ -2270,6 +2354,7 @@ async function startTelao(){
       const { data } = await sbF.rpc("casamento_controle_ler"); if(!data || typeof data!=="object" || Array.isArray(data)) return;
       const prev=ctrl; ctrl=Object.assign({ limite:40, tempo_foto:CONFIG.TELAO_FOTO_S, mostrar_ranking:true },data);
       $("t-rank").classList.toggle("hidden",!ctrl.mostrar_ranking);
+      if((prev.som!==false)!==somOn()){ const cv=$("t-window").querySelector(".slide.on video"); if(cv){ cv.muted=!somOn(); if(somOn()) cv.play().catch(()=>{ cv.muted=true; somBloqueado(); }); } if(!somOn()) $("t-som").classList.add("hidden"); }
       $("t-pause").classList.toggle("on",!!ctrl.pausado);
       if(ctrl.pausado && !prev.pausado){ clearTimeout(timer); $("t-window").querySelectorAll("video").forEach(v=>v.pause()); playing=false; }
       if(!ctrl.pausado && prev.pausado) next();
