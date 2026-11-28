@@ -1269,7 +1269,7 @@ $("btn-enter").onclick=async()=>{
 };
 /* Segunda chance: quem não deixou número vê o cartão depois do primeiro envio */
 /* ---------- App na tela inicial (Android instala direto; iPhone mostra o passo a passo) ---------- */
-const APP_VERSAO="1.5 · 27/11";
+const APP_VERSAO="1.5.1 · 27/11";
 const ehApp = () => matchMedia("(display-mode: standalone)").matches || navigator.standalone===true;
 const ehIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform==="MacIntel" && navigator.maxTouchPoints>1);
 const ehNavIOSInterno = ehIOS && /FBAN|FBAV|Instagram|Line|WhatsApp|GSA\//i.test(navigator.userAgent);
@@ -1358,7 +1358,7 @@ function prepVideo(file, ctx){
   try{ const pr=v.play(); if(pr) pr.then(()=>v.pause()).catch(()=>{}); }catch(e){}   // libera o vídeo dentro do toque (iPhone)
   return { v, dest, url };
 }
-function limparPrep(pr){ try{ pr.v.pause(); pr.v.removeAttribute("src"); pr.v.load(); }catch(e){} try{ URL.revokeObjectURL(pr.url); }catch(e){} }
+function limparPrep(pr){ try{ pr.v.ontimeupdate=null; pr.v.onended=null; pr.v.pause(); pr.v.removeAttribute("src"); pr.v.load(); }catch(e){} try{ URL.revokeObjectURL(pr.url); }catch(e){} }
 async function convertVideo(pr, onProg){
   const { v, dest } = pr;
   if(!dest) throw new Error("sem áudio");
@@ -1378,7 +1378,7 @@ async function convertVideo(pr, onProg){
   let lock=null; try{ lock=await navigator.wakeLock?.request("screen"); }catch(e){}
   return await new Promise((res,rej)=>{
     let parado=false, ultT=-1, ultMud=Date.now();
-    const fimTudo=(err)=>{ if(parado) return; parado=true; clearInterval(cao); document.removeEventListener("visibilitychange",vis); try{ v.pause(); }catch(e){}
+    const fimTudo=(err)=>{ if(parado) return; parado=true; clearInterval(cao); v.ontimeupdate=null; v.onended=null; document.removeEventListener("visibilitychange",vis); try{ v.pause(); }catch(e){}
       try{ lock&&lock.release(); }catch(e){}
       const acabar=()=>{ ms.getTracks().forEach(t=>t.stop()); if(err) return rej(err);
         const tipo=((mime||rec.mimeType||"video/webm").split(";")[0])||"video/webm"; const blob=new Blob(chunks,{type:tipo});
