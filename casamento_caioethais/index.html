@@ -710,7 +710,7 @@
   </div>
   <div class="flash" id="flash"></div>
   <div class="review hidden" id="review">
-    <textarea id="in-msg" class="hidden" maxlength="200"></textarea>
+    <textarea id="in-msg" maxlength="120" placeholder="✍️ Escreva uma mensagem (opcional) · aparece junto com a sua foto, embaixo do seu nome 💌"></textarea>
     <div class="choice-title">Quem pode ver?</div>
     <div class="choices" data-group="rv">
       <button class="choice" data-v="telao"><span class="e">📺</span><b>Pode passar no telão</b><small>Aparece no telão da festa e no álbum</small></button>
@@ -792,7 +792,7 @@
     </div>
     <div class="hint" id="sh-hint">Escolha uma das opções acima 👆</div>
     <p class="vinfo hidden" id="sh-vinfo">🎬 Antes de enviar, o app prepara o vídeo para tocar no telão (leva mais ou menos o tempo do vídeo). <b>Fique nesta tela até terminar.</b> Vídeos vão com até 20 s.</p>
-    <textarea id="sh-msg" class="hidden" maxlength="200"></textarea>
+    <textarea id="sh-msg" maxlength="120" placeholder="✍️ Escreva uma mensagem (opcional) · aparece junto com a sua foto, embaixo do seu nome 💌" style="margin-top:10px"></textarea>
     <div class="row" style="display:grid;grid-template-columns:1fr 1.4fr;gap:10px;margin-top:10px">
       <button class="btn btn-light" id="sh-cancel">Cancelar</button>
       <button class="btn btn-gold" id="sh-send" disabled>Enviar 💛</button>
@@ -1269,7 +1269,7 @@ $("btn-enter").onclick=async()=>{
 };
 /* Segunda chance: quem não deixou número vê o cartão depois do primeiro envio */
 /* ---------- App na tela inicial (Android instala direto; iPhone mostra o passo a passo) ---------- */
-const APP_VERSAO="1.5.1 · 27/11";
+const APP_VERSAO="1.5.2 · 27/11";
 const ehApp = () => matchMedia("(display-mode: standalone)").matches || navigator.standalone===true;
 const ehIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform==="MacIntel" && navigator.maxTouchPoints>1);
 const ehNavIOSInterno = ehIOS && /FBAN|FBAV|Instagram|Line|WhatsApp|GSA\//i.test(navigator.userAgent);
